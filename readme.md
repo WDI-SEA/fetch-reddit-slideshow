@@ -40,7 +40,6 @@ Reddit sometimes contains some offensive images be careful with your search term
 * Form / title / description are shown again
 * User can enter a new search term
 
-
 ## Suggested proccess
 
 It is important to break down any development project in to smaller pieces and tackle them one at a time. Here is a list of how you might want to attack this project.
@@ -52,6 +51,7 @@ It is important to break down any development project in to smaller pieces and t
 * Make the form / title / description hide
 * Cycle through images (tip: use [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval))
 * Create button to stop animation (tip: use [clearInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval)).
+* Add some styling!
 
 ## Example Deliverables
 
@@ -64,7 +64,7 @@ It is important to break down any development project in to smaller pieces and t
 
 ## Bonus
 
-Use jQuery animation plugins [jQuery Animation plugins](http://plugins.jquery.com/tag/animation/) like [jCarousel](https://sorgalla.com/jcarousel/docs/reference/installation.html), for example
+Use jQuery animation plugins [jQuery Animation plugins](http://plugins.jquery.com/tag/animation/) like [jCarousel](https://sorgalla.com/jcarousel/docs/reference/installation.html), for example.
 
 ---
 
