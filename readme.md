@@ -1,6 +1,6 @@
 # Reddit photo slideshow
 
-We are going to use what we've learned so far to create a basic slideshow using images taken from reddit via AJAX.
+We are going to use what we've learned so far to create a basic slideshow using images taken from reddit via fetch.
 
 #### Content Warning
 
@@ -29,10 +29,10 @@ Reddit sometimes contains some offensive images be careful with your search term
 
 * The form / title / description should hide
 * Show a loading message (optional)
-* Fetch related posts from reddit (with ajax)
+* Fetch related posts from reddit
 * Display animation / slideshow of images (jQuery)
 * Show a button to stop / reset the animation
-* Repeat animation until use clicks "stop"
+* Repeat animation until user clicks "stop"
 
 #### When the user clicks the "stop" button
 
@@ -47,13 +47,10 @@ It is important to break down any development project in to smaller pieces and t
 
 * Create your form (HTML/CSS)
 * Prevent default form submission and verify that you can type something into the form
-* Use AJAX to make a request. Show data in console
-* Create an array of image URLs (tip: use [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) and [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)).
+* Use fetch to make a request. Show data in console
+* Create an array of image URLs (tip: use [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to filter out results that don't have images).
 * Make the form / title / description hide
-* Cycle through images
-    * tip: use [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval)
-    * Either add images, or change the `src` of a single image tag
-* Add some interesting style / animation
+* Cycle through images (tip: use [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval))
 * Create button to stop animation (tip: use [clearInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval)).
 
 ## Example Deliverables
@@ -67,8 +64,7 @@ It is important to break down any development project in to smaller pieces and t
 
 ## Bonus
 
-* Use Additional jQuery animation plugins
-  * [jQuery Animation plugins](http://plugins.jquery.com/tag/animation/)
+Use jQuery animation plugins [jQuery Animation plugins](http://plugins.jquery.com/tag/animation/) like [jCarousel](https://sorgalla.com/jcarousel/docs/reference/installation.html), for example
 
 ---
 
