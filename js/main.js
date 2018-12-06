@@ -9,12 +9,10 @@ console.log("DOM is loaded")
 	let ul = document.querySelector('ul');
 	//Add an img element and add the src attribute with the image
 	function displayImages(images){
-		//define the fuction argument as the image URL
-		imgURL = images
 		//create a variable for the img element on the page
 		let img = document.createElement('img');
 		//define the src of the img to be the img url
-		img.setAttribute('src', imgURL);
+		img.setAttribute('src', images);
 		//append the image to the unordered list
 		ul.appendChild(img);
 	}
@@ -31,7 +29,7 @@ console.log("DOM is loaded")
 		//filter the array to only retain images
 		imgArray = urlArray.filter(isAnImage);
 		//send each index of that array to the display on page function
-		imgArray.forEach(displayImages)
+		//imgArray.forEach(displayImages)
 	}
 
 	//confirm the search form is working
@@ -45,7 +43,8 @@ console.log("DOM is loaded")
 			//break out the first jsonData array into another array
 			var children = jsonData.data.children;
 			//grab only the url for each item in the array
-			children.forEach(returnURL)
+			children.forEach(returnURL);
+			imgArray.forEach(displayImages);
 		})
 		.catch(function(error){
 			console.log("There was an error:",error)
