@@ -1,11 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Reddit Slideshow</title>
+  <meta name="description" content="Pull photos from reddit">
+  <meta name="author" content="Parker Couch">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="img/png" href="img/favicon.png">
+
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+    <div id="title" class="row">
+      <div class="twelve columns u-full-width">
+        <h2>Reddit <br>Photo Slideshow</h2>
+        <p>I want to see photos of:</p>
+      </div>
+    </div>
+
+    <div id="photos" class="row">
+      <div class="twelve columns u-full-width">
+        <ul id="slideshow">
+            <!-- <li>
+                <img src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg">
+            </li>
+            <li>
+                <img src="https://sachinchoolur.github.io/lightslider/img/cS-2.jpg">
+            </li>
+            <li>
+                <img src="https://sachinchoolur.github.io/lightslider/img/cS-3.jpg">
+            </li> -->
+        </ul>
+      </div>
+    </div>
+
+    <div id="input-row" class="row">
+      <div class="twelve columns u-full-width">
+        <input type="text" name="search" id="search">
+      </div>
+    </div>
+
+    <div id="controls" class="row">
+      <div class="twelve columns u-full-width">
+        <button class="go button-primary">GO!</button>
+      </div>
+    </div>
+    
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
+
+
