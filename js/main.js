@@ -9,10 +9,16 @@ console.log("DOM is loaded")
 	let ul = document.querySelector('ul');
 	//Add an img element and add the src attribute with the image
 	function displayImages(images){
+		var urlArray = [];
+		urlArray.push(images.data.url);
+		//console.log(urlArray);
+		imgOnlyArray = urlArray.filter(isAnImage);
+		console.log(imgOnlyArray);
+		//I need to find a way to exclude the non-images, not just remove the urls
+		imgURL = imgOnlyArray.pop();
 		//let li = document.createElement('li');
 		let img = document.createElement('img');
-		let imgURL = images.data.url;
-		console.log(imgURL)
+		//console.log(imgURL);
 		img.setAttribute('src', imgURL);
 		ul.appendChild(img);
 	}
