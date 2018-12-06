@@ -3,9 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+   <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas|Patrick+Hand" rel="stylesheet">
+  <title>Reddit Slide Show</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Let's Get Some Pics!</h1>
+  <form id = "myForm">
+  	<div id = "form2">
+  	<input id = "searchTxt" type="text" name="search-text">
+  	<input id = "startBtn" type="submit" name="start-button" value="Start">
+    </div>
+  </form>
+<div id = "slideShow" style="display:none">
+<div id = "results"></div>
+<input id = "buttonAppear" type="button" value="Stop" onclick="stop()">
+</div>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </body>
 </html>
