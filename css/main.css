@@ -1,0 +1,35 @@
+body {
+	text-align:center;
+	margin: 0;
+}
+
+h1 {
+	font-family: 'Changa One', cursive;
+	font-size: 70px;
+	letter-spacing: .1em;
+	font-weight: 400;
+	padding: 0;
+}
+
+p, form, input, label {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 18px;
+	margin: 0 5px;
+}
+
+.big {
+	font-family: 'Changa One', cursive;
+	font-size: 120px;
+	vertical-align: sub;
+}
+
+ul {
+	list-style-type: none;
+}
+
+img {
+	max-width: 400px;
+}
+
+
+
