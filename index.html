@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Slideshow</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+	<h1>Reddit Photo Slideshow</h1>
+	<form id="search-form">
+		<input type="text" id="search-box">
+		<input id="search-button" type="submit" value="Search">
+	</form>
+
+	<div class="jcarousel display-images">
+	    <ul>
+	    </ul>
+	</div>
+	
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </body>
 </html>
