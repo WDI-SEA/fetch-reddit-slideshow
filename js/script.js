@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', main);
 
+let slideshow;
+
 function main() {
-  const imageEndings = /.gif?v|.jpg|.png/gi;
+  const imageEndings = /.gif$|.jpg$|.png$/gi;
   const imageContainer = document.getElementById('image-container');
 
-  function stopSlideshow() {
-    //implement
-  }
-
   function placeImages(arrOfUrls) {
+    function stopSlideshow() {
+      clearInterval(slideshow);
+    }
+
     //find out if image-container has any children, if so remove them
     function placeSingleImage() {
       let imageToPlace = arrOfUrls.shift();
@@ -28,18 +30,19 @@ function main() {
         stopSlideshow();
       }
     }
-
-    setInterval(placeSingleImage, 2000);
+    if (slideshow) {
+      clearInterval(slideshow);
+    }
+    slideshow = setInterval(placeSingleImage, 800);
   }
 
   document
     .getElementById('reddit-form')
     .addEventListener('submit', function(e) {
       e.preventDefault();
+
       let userInput = document.querySelector('input').value;
       let requestURL = `https://www.reddit.com/search.json?q=${userInput}+nsfw:no&limit=100`;
-
-      //   clearOldSlideshow();
 
       fetch(requestURL)
         .then(responseData => responseData.json())
@@ -47,9 +50,10 @@ function main() {
           responseJson.data.children
             .map(child => child.data.url)
             .filter(url => url.match(imageEndings))
-        )
-        // .then(arrOfUrls => arrOfUrls.forEach(placeImage))
+        ) // then
         .then(arrOfUrls => placeImages(arrOfUrls))
-        .catch();
+        .catch(function(error) {
+          console.log('Your thing didnt do the thing right', error);
+        });
     });
 }
