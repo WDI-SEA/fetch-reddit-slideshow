@@ -1,6 +1,6 @@
 var imageURLS = []
 var divResults = document.getElementById("results")
-var currentIndex
+var currentIndex, adjustedGif, currentIndex, slideShow
 
 function retrieveImgUrls(item){
 	return item.data.url
@@ -16,10 +16,9 @@ function convertGif(filterGif){
 
 function removeChildElements(){
 	// removes all the img elements so that it clears reults
+	clearInterval(slideShow);
 	var userInput = document.querySelector('input')
-	console.log(userInput)
 	userInput = ""
-	console.log(userInput)
 	var childElements = document.getElementById("results");
 		while (childElements.firstChild) {
     		childElements.removeChild(childElements.firstChild);
@@ -31,6 +30,15 @@ function resetArray(){
 	for(i = 0; i = imageURLS.length; i++){
 		imageURLS.shift(i);
 	};
+}
+
+function slide(){
+	if(currentIndex === adjustedGif.length-1) {
+		currentIndex = -1;
+	}
+	currentIndex++;
+	let currentImg = document.querySelector("img")
+	currentImg.src = adjustedGif[currentIndex];
 }
 
 function makeFetchWork(url){
@@ -48,14 +56,7 @@ function makeFetchWork(url){
 		currentIndex = 0;
 		currentImg.src = adjustedGif[currentIndex]
 		divResults.appendChild(currentImg)
-		let slideShow = setInterval(function(){
-			if(currentIndex === adjustedGif.length-1) {
-				currentIndex = -1;
-			}
-			currentIndex++;
-			let currentImg = document.querySelector("img")
-			currentImg.src = adjustedGif[currentIndex];
-		}, 2000)
+		slideShow = setInterval(slide, 2000)
 		
 	})
 	.catch(function(error){
@@ -75,10 +76,14 @@ document.addEventListener("DOMContentLoaded", function(){
 	let userInput = document.querySelector('input').value
 	let requestURL = `http://www.reddit.com/search.json?q=${userInput}&limit=500`//+nsfw:no`
 	// makeFetchWork(requestURL);
-	makeFetchWork(requestURL);
-
-
-	document.getElementById("clear").addEventListener("click", removeChildElements);
+	clearInterval(slideShow);
+	if(userInput != ""){
+		makeFetchWork(requestURL);
+	} else {console.log("please enter a value");}
+	
 	})
+
 })
 
+
+document.getElementById("clear").addEventListener("click", removeChildElements);
