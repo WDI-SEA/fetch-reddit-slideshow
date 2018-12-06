@@ -46,6 +46,7 @@ body {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .container {
