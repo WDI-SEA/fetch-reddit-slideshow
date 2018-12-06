@@ -1,18 +1,35 @@
 document.addEventListener('DOMContentLoaded', main);
 
 function main() {
-  const regex = /.gif?v|.jpg|.png/gi;
-  const ul = document.getElementById('searchResults');
-  function clearOldSlideshow() {
-    //check if there are children in UL and remove them
+  const imageEndings = /.gif?v|.jpg|.png/gi;
+  const imageContainer = document.getElementById('image-container');
+
+  function stopSlideshow() {
+    //implement
   }
-  function fetchImage(image) {
-    let li = document.createElement('li');
-    let img = document.createElement('img');
-    img.src = cat.url;
-    // instead of append to DOM, append to an array of img urls which can be read by
-    // an interval listener
-    ul.appendChild(li).appendChild(img);
+
+  function placeImages(arrOfUrls) {
+    //find out if image-container has any children, if so remove them
+    function placeSingleImage() {
+      let imageToPlace = arrOfUrls.shift();
+      console.log(imageToPlace);
+
+      if (imageToPlace) {
+        let img = document.createElement('img');
+        img.src = imageToPlace;
+        //   imageContainer.children.forEach()
+
+        while (imageContainer.firstChild) {
+          imageContainer.removeChild(imageContainer.firstChild);
+        }
+
+        imageContainer.appendChild(img);
+      } else {
+        stopSlideshow();
+      }
+    }
+
+    setInterval(placeSingleImage, 2000);
   }
 
   document
@@ -22,26 +39,17 @@ function main() {
       let userInput = document.querySelector('input').value;
       let requestURL = `https://www.reddit.com/search.json?q=${userInput}+nsfw:no&limit=100`;
 
-      clearOldSlideshow();
+      //   clearOldSlideshow();
 
       fetch(requestURL)
-        // Fetch will package the response data into some emthods that wil allow us
-        // to do things with that response. The .json method
-        .then(function(responseData) {
-          return responseData.json();
-        })
-        .then(function(jsonData) {
-          arrOfResults = jsonData.data.children;
-
-          // arrOfResults.data.preview.images[0].source.url;
-
-          arrOfUrls = arrOfResults
-            .map(item => item.data.url)
-            .filter(item => item.match(regex));
-
-          console.log(arrOfUrls);
-          // jsonData.forEach(imageUrl);
-        })
+        .then(responseData => responseData.json())
+        .then(responseJson =>
+          responseJson.data.children
+            .map(child => child.data.url)
+            .filter(url => url.match(imageEndings))
+        )
+        // .then(arrOfUrls => arrOfUrls.forEach(placeImage))
+        .then(arrOfUrls => placeImages(arrOfUrls))
         .catch();
     });
 }
