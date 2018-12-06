@@ -1,14 +1,14 @@
 /* eslint-disable */
-
-// fetch(url).then(function(response)).then(function(myJson)).catch(function(){});
+$( document ).ready(function() {
+  $('.go').click(go);
+});
 
 // addImages :: [String] -> Void
 const addImages = function (srcList) {
   for (let i = 0; i < 10; i += 1) {
-    $('#slideshow').append(`<li><img src="${srcList[i]}"></li>`);
+    $('#slideshow').append(`<div class="slideshow-height"><img src="${srcList[i]}"></div>`);
   }
 };
-
 
 // fetchPhotos :: String -> Void
 const fetchPhotos = function (url) {
@@ -17,15 +17,12 @@ const fetchPhotos = function (url) {
       return response.json();
     })
     .then(function (myJson) {
-      // const type = myJson.data.children[0].data.media.oembed.type;
-      const thumbnailListFull = myJson.data.children.map((item) => {
-        // if item.data.media.oembed.type === 'image'
-        return item.data.thumbnail;//oembed.thumbnail_url;
-      });
-      console.log(thumbnailListFull);
-      const thumbnails = thumbnailListFull.filter((url) => url.includes('https'));
-      console.log(thumbnails);
-      addImages(thumbnails);
+      const urls = myJson.data.children
+                  .map((item) => item.data.url)
+                  .filter((url) => url.includes('i.imgur'))
+                  .map((url) => url.replace('gifv', 'gif'));
+
+      addImages(urls);
       startSlideshow();
     })
     .catch(function (error) {
@@ -33,7 +30,6 @@ const fetchPhotos = function (url) {
     })
 
 };
-
 
 // Set timeout on fetch... Needed??
 const fetchWithTimeout = function (url, timeout = 5000) {
@@ -45,41 +41,49 @@ const fetchWithTimeout = function (url, timeout = 5000) {
   ]);
 }
 
-// Click event to start quote fetch!
-// $('.go').on('click', function () {
-//   fetchPhotos('http://www.reddit.com/search.json?q=cats+nsfw:no')
-//   $(this).switchClass('go', 'stop');
-//   $(this).text('STOP');
-  
-// });
+// `https://www.reddit.com/search.json?q=${searchItem}+nsfw:no&limit=100&type=link`
 
-// $('.stop').on('click', function () {
-//   $('#slideshow').empty();
-//   $(this).switchClass('stop', 'go');
-//   $(this).text('GO');
-// });
-
-
-
+// Click event for Go button
 const go = function () {
-  fetchPhotos('http://www.reddit.com/search.json?q=cats+nsfw:no')
+  // $('#slideshow-container').addClass('slideshow-height');
+  fetchPhotos('https://www.reddit.com/search.json?q=cats+nsfw:no&limit=100&type=link')
+
+  $('#title').fadeOut(1000, function() {
+    $(this).addClass('hide');
+  });
+  $('#input-row').fadeOut(1000, function() {
+    $(this).addClass('hide');
+  });
+
   $(this).switchClass('go', 'stop');
   $(this).text('STOP');
+  $(this).off('click');
+  $(this).click(stop);
 };
 
+// Click event for Stop button
 const stop = function () {
-  $('#slideshow').empty();
+  $('#slideshow-container').empty();
+  $('#slideshow-container').append(`<div id="slideshow"></div>`);
+
+  $('#title').fadeIn(1000, function() {
+    $(this).removeClass('hide');
+  });
+  $('#input-row').fadeIn(1000, function() {
+    $(this).removeClass('hide');
+  });
+
   $(this).switchClass('stop', 'go');
   $(this).text('GO');
+  $(this).off('click');
+  $(this).click(go);
 };
 
 const startSlideshow = function () {
-$('#slideshow').lightSlider({
-  auto: true,
-  pause: 2000,
-  gallery: false,
-  item: 1,
-  loop:true,
-  slideMargin: 0,
-});
+  $('#slideshow').slick({
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
 };
+

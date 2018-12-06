@@ -6,17 +6,6 @@
   --blue: #718FEA;
 }
 
-ul {
-  list-style: none outside none;
-  padding-left: 0;
-  margin-bottom:0;
-}
-li {
-  display: block;
-  float: left;
-  margin-right: 6px;
-  cursor:pointer;
-}
 img {
   display: block;
   height: auto;
@@ -29,6 +18,10 @@ body {
   text-align: center;
 }
 
+.slideshow-height {
+  height: 500px;
+}
+
 .container {
   background-color: white;
   border-radius: 5px;
@@ -38,6 +31,10 @@ body {
 
 .stop {
   background-color: var(--red, red);
+}
+
+.hide {
+  display: none;
 }
 
 @media screen and (min-width: 750px) {
