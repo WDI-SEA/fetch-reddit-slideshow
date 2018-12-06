@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function(){
         for (let i = 0; i < searchResults.length; i++) {
             searchResults[i].remove();
         }
-        console.log("Reseting things");
     })
     $("#stop-slideshow").click(function(){
         $('#search-results').slick("slickPause");
