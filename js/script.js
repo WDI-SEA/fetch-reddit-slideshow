@@ -50,23 +50,34 @@ function addPic(myImage){
 // }
 
  $("#form2").hide();
- // document.getElementById("startBtn").addEventListener("click", stopBtn);
+ document.getElementById("buttonAppear").addEventListener("click", stopBtn);
  $("#slideShow").show();
 
 setInterval(function() { 
- $('#slideShow')
-    .first()
+ var newArray = imageArr.filter(picFilter);
+	newArray.forEach(addPic);
+ $('#results > img:first')
     .fadeOut(1000)
     .next()
     .fadeIn(1000)
     .end()
-    .appendTo('#slideShow');
+    .appendTo('#results');
 },  3000);
 
 function stopBtn(){
-	return newArray = [];
-	image.results.removeChild(image);
-	addPic();
+	console.log("click");
+	// $(image).empty();
+	// image.results.removeChild(image);
+ 	$("#form2").show();
+ 	$("#slideShow").hide();
+	imageArr = [];
+	let userInput = document.getElementById('searchTxt').value;
+	let results = document.getElementById('results');
+	if (userInput.length != 0){
+		userInput='';
+		results='';
+		addPic();
+	}
 }
 
 });
