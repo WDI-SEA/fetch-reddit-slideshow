@@ -5,7 +5,7 @@
     "lint:css": "node_modules/csslint/cli.js css/; exit 0",
     "start": "browser-sync start --server . --files ."
   },
-  "author": "",
+  "author": "James Liu",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^6.0.4",
@@ -16,5 +16,19 @@
     "eslint-plugin-import": "^1.6.1",
     "eslint-plugin-jsx-a11y": "^1.2.0",
     "eslint-plugin-react": "^5.0.1"
-  }
+  },
+  "description": "We are going to use what we've learned so far to create a basic slideshow using images taken from reddit via fetch.",
+  "version": "0.0.1",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesliudotcc/fetch-reddit-slideshow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamesliudotcc/fetch-reddit-slideshow/issues"
+  },
+  "homepage": "https://github.com/jamesliudotcc/fetch-reddit-slideshow#readme"
 }
