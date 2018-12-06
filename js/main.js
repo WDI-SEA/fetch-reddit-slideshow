@@ -9,49 +9,43 @@ console.log("DOM is loaded")
 	let ul = document.querySelector('ul');
 	//Add an img element and add the src attribute with the image
 	function displayImages(images){
-		var urlArray = [];
-		urlArray.push(images.data.url);
-		//console.log(urlArray);
-		imgOnlyArray = urlArray.filter(isAnImage);
-		console.log(imgOnlyArray);
-		//I need to find a way to exclude the non-images, not just remove the urls
-		imgURL = imgOnlyArray.pop();
-		//let li = document.createElement('li');
+		//define the fuction argument as the image URL
+		imgURL = images
+		//create a variable for the img element on the page
 		let img = document.createElement('img');
-		//console.log(imgURL);
+		//define the src of the img to be the img url
 		img.setAttribute('src', imgURL);
+		//append the image to the unordered list
 		ul.appendChild(img);
 	}
 	//A function to filter URLs to only images
 	function isAnImage(arr){
-  		return (arr.includes(".jpg") || arr.includes(".png") || arr.includes(".gif"))
+  		return (arr.includes(".jpg") || arr.includes(".png") || arr.includes(".gif") || arr.includes(".jpeg"))
 	}
-	//function to push each api object into an array
-	var firstArray = [];
-	function arrayPush(object){
-		firstArray = [];
-		return firstArray.push(object);
-	}
-
-	//function to return the url from each of the idex of firstArray
+	var urlArray = [];
+	var imgArray = [];
+	//function to return the url from each of the index of firstArray
 	function returnURL(object){
-		return object.data.url;
+		//Add the jsonData to an array
+		urlArray.push(object.data.url);
+		//filter the array to only retain images
+		imgArray = urlArray.filter(isAnImage);
+		//send each index of that array to the display on page function
+		imgArray.forEach(displayImages)
 	}
 
 	//confirm the search form is working
 	console.log("form was submitted");
-	console.log(requestURL)
 	//Fetch the Reddit API data and sort to image URLs
 	fetch(requestURL)
 		.then(function(responseData){
 			return responseData.json();
 		})
 		.then(function(jsonData){
-			console.log(jsonData);
+			//break out the first jsonData array into another array
 			var children = jsonData.data.children;
-			console.log(children);
-			//children.filter(isAnImage)
-			children.forEach(displayImages)
+			//grab only the url for each item in the array
+			children.forEach(returnURL)
 		})
 		.catch(function(error){
 			console.log("There was an error:",error)
