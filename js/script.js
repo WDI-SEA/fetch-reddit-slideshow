@@ -1,61 +1,25 @@
-document.addEventListener("DOMContentLoaded", function(){
 var imageURLS = []
 var divResults = document.getElementById("results")
+var currentIndex
 
-document.getElementById("search-form").addEventListener("submit", function(e){
-	e.preventDefault();
-
-//clear the results
-removeChildElements();
-resetArray();
-
-
-let userInput = document.querySelector('input').value
-let requestURL = `http://www.reddit.com/search.json?q=${userInput}&limit=500`//+nsfw:no`
-
-
-fetch(requestURL)
-	.then(function(responseData){
-		return responseData.json();
-	})
-	.then(function(jsonData){
-		// this allows me to get to the URL section of the obj 
-		var sample = jsonData.data.children
-		sample.forEach(function(item){
-			let myItem = item.data.url;
-			// plug these urls into an empty array
-			imageURLS.push(myItem);
-		}) 
-		// Now filter those URLS in the array for just pictures with .jpg
-		var newArray = imageURLS.filter(containsPic);
-		newArray.forEach(addImgs);
-	})
-	.catch(function(error){
-		console.log("WOW!!! How could you have messed that up so badlY?!", error);
-	})
-
-})
-
-
-document.getElementById("clear").addEventListener("click", removeChildElements);
-
-function containsPic(string){
-	var jpg = ".jpg";
-	var png = ".png"; // how do I include this in the function as an OR???
-	return string.includes(jpg);
+function retrieveImgUrls(item){
+	return item.data.url
 }
 
-function addImgs(myPic){
-	let image = document.createElement('img')
-	image.src = myPic
-	divResults.appendChild(image)
+function containsPic(string){
+	return string.includes("i.imgur") || string.includes("i.redd");
+}
+
+function convertGif(filterGif){
+	return filterGif.replace(".gifv", ".gif")
 }
 
 function removeChildElements(){
 	// removes all the img elements so that it clears reults
-	var userInput = document.querySelector('input').value
+	var userInput = document.querySelector('input')
 	console.log(userInput)
-	userInput.textContent = ""
+	userInput = ""
+	console.log(userInput)
 	var childElements = document.getElementById("results");
 		while (childElements.firstChild) {
     		childElements.removeChild(childElements.firstChild);
@@ -69,5 +33,52 @@ function resetArray(){
 	};
 }
 
+function makeFetchWork(url){
+	fetch(url)
+	.then(function(responseData){
+		return responseData.json();
+	})
+	.then(function(jsonData){
+		// this allows me to get to the URL section of the obj 
+		sample = jsonData.data.children
+		imagesArrays = sample.map(retrieveImgUrls)
+		justPics = imagesArrays.filter(containsPic)
+		adjustedGif = justPics.map(convertGif)
+		currentImg = document.createElement("img")
+		currentIndex = 0;
+		currentImg.src = adjustedGif[currentIndex]
+		divResults.appendChild(currentImg)
+		let slideShow = setInterval(function(){
+			if(currentIndex === adjustedGif.length-1) {
+				currentIndex = -1;
+			}
+			currentIndex++;
+			let currentImg = document.querySelector("img")
+			currentImg.src = adjustedGif[currentIndex];
+		}, 2000)
+		
+	})
+	.catch(function(error){
+		console.log("WOW!!! How could you have messed that up so badlY?!", error);
+	})
+}
 
+document.addEventListener("DOMContentLoaded", function(){
+
+	document.getElementById("search-form").addEventListener("submit", function(e){
+		e.preventDefault();
+
+	//clear the results
+	removeChildElements();
+	resetArray();
+
+	let userInput = document.querySelector('input').value
+	let requestURL = `http://www.reddit.com/search.json?q=${userInput}&limit=500`//+nsfw:no`
+	// makeFetchWork(requestURL);
+	makeFetchWork(requestURL);
+
+
+	document.getElementById("clear").addEventListener("click", removeChildElements);
+	})
 })
+
