@@ -1,5 +1,18 @@
-img {
-    max-height: 200px;
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.start-state {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.img-result {
+    max-height: 400px;
+    max-width: 400px;
 }
 
 .hidden {
