@@ -1,0 +1,39 @@
+body {
+	background-color: #6774ff;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-size: 15px;
+	color: #c9d7ff; 
+
+}
+
+.resultImg {
+/*	padding: 5px;
+	max-width: 100%;s
+    max-height: 100%;*/
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
+#search-results {
+/*	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;*/
+	column-count: 4;
+    column-gap: 1em;
+}
+
+ {
+	text-align: center;
+	font-family: Roboto, sans-serif;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-size: 15px;
+	color: white; 
+
+}

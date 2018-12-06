@@ -1,53 +1,71 @@
+
+	function addRedditPics(add){
+		let ul = document.getElementById("search-results");
+		let resultImg = document.createElement("img");
+		resultImg.setAttribute("class", "resultImg");
+		resultImg.src = add;
+		ul.appendChild(resultImg);	
+	}
+	
+
+	function retrieveImgUrl(item) {
+		return item.data.url;
+	}
+
+	function isAnImg(url) {
+		return url.includes("i.imgur" || "i.redd");
+	}
+
+	function convertGif(oncefilteredUrl){
+		return oncefilteredUrl.replace(".gifv", ".gif");
+	}
+
+	function makeFetchHappen(url){
+	
+		fetch(url)
+			.then(function(responseObject){
+				return responseObject.json(); //contains All of RAW json
+			})
+			.then(function(jsonResults){
+				// Raw json is narrowed to /parent/child/
+				let resultsObjectsArr = jsonResults.data.children;
+				// change the result of /parent/child/ to a single array
+				let imgUrls = resultsObjectsArr.map(retrieveImgUrl)
+				// single array is filtered to ... 
+				let onlyImages = imgUrls.filter(isAnImg);
+				// replaced gifv to gif
+				let convertedGif = onlyImages.map(convertGif);
+				console.log(convertedGif);
+				convertedGif.forEach(addRedditPics);
+            })
+
+    		.catch(function(err){
+			console.log("error", err);
+			});
+	}
+
+
 document.addEventListener("DOMContentLoaded", function(){
 	console.log("dom content has loaded");
-
-	const ul = document.getElementById("search-results");
-
-
-function addRedditPics(data){
-	// let li = document.createElement("li");
-	let img = document.createElement("img");
-	// Example li.textContent = person.name.first, person.name.last;
-	// li.textContent = `${person.name.first} ${person.name.last}`;
-	img.src = resultUrl;
-	// ul.appendChild(li);
-	ul.appendChild(img);	
-}
 
 	document.getElementById("redditResultsForm").addEventListener("submit", function(e){
 		e.preventDefault();
 
+		// get user input here
 		let userInput = (document.querySelector('input').value);
-		let requestURL = `https://www.reddit.com/search.json?q=${userInput}`
-
+		// apply user input to modify json query
+		let requestURL = `https://www.reddit.com/search.json?q=${userInput}&limit=1000`
 		console.log(userInput);
-
-		fetch(requestURL)
-			.then(function(responseData){
-				return responseData.json();
-			})
-
-			.then(function(jsonData){
-				console.log(jsonData);
-				var childrenArray = jsonData.data.children
-
-            	childrenArray.forEach(function(data){
-            		let resultUrl = data.data.url;
-            		console.log(resultUrl);
-            		resultUrl
-				})
-            })
-            .then(function()resultUrl.forEach(addRedditPics);
-
-			.catch(function(err){
-				console.log("error", err);
-			})
+		// call then next step/function
+		makeFetchHappen(requestURL);
 	})
-
-
-
-
 });
+// function filterImg(imgResults){
+// 	var jpg = ".jpg"
+// 	var png = ".png"
+// 	var gif = ""
+// }
+
 
 
 
