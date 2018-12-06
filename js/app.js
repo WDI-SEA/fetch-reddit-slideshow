@@ -20,7 +20,7 @@ const fetchPhotos = function (url) {
       const urls = myJson.data.children
                   .map((item) => item.data.url)
                   .filter((url) => url.includes('i.imgur'))
-                  .map((url) => url.replace('gifv', 'gif'));
+                  .map((url) => url.replace('.gifv', '.gif'))
       if (urls.length < 10) {
         throw 'Not enough images';
       }
@@ -98,13 +98,14 @@ const startSlideshow = function () {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    adaptiveHeight: false,
+    // adaptiveHeight: true,
+    // variableWidth: true,
     fade: true,
     cssEase: 'linear',
     dots: true,
-    centerMode: true,
-    mobileFirst: true,
-    respondTo: 'min',
+    // centerMode: true,
+    // mobileFirst: true,
+    // respondTo: 'min',
   });
 };
 
