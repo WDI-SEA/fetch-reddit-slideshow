@@ -1,6 +1,6 @@
 /* eslint-disable */
 $( document ).ready(function() {
-  $('.go').click(go);
+  $('.search-form').submit(go);
 });
 
 // addImages :: [String] -> Void
@@ -21,12 +21,17 @@ const fetchPhotos = function (url) {
                   .map((item) => item.data.url)
                   .filter((url) => url.includes('i.imgur'))
                   .map((url) => url.replace('gifv', 'gif'));
+      if (urls.length < 10) {
+        throw 'Not enough images';
+      }
 
       addImages(urls);
       startSlideshow();
     })
     .catch(function (error) {
       console.log(error);
+      $('#title div p').text("Not enough images found. Try again!");
+      retry();
     })
 
 };
@@ -41,12 +46,14 @@ const fetchWithTimeout = function (url, timeout = 5000) {
   ]);
 }
 
-// `https://www.reddit.com/search.json?q=${searchItem}+nsfw:no&limit=100&type=link`
-
 // Click event for Go button
-const go = function () {
-  // $('#slideshow-container').addClass('slideshow-height');
-  fetchPhotos('https://www.reddit.com/search.json?q=cats+nsfw:no&limit=100&type=link')
+const go = function (evt) {
+  evt.preventDefault();
+  const searchItem = $('#search').val();
+  if (searchItem === '') return;
+  fetchPhotos(`https://www.reddit.com/search.json?q=${searchItem}+nsfw:no&limit=100&type=link`)
+
+  $('#search').attr('value', '');
 
   $('#title').fadeOut(1000, function() {
     $(this).addClass('hide');
@@ -55,14 +62,20 @@ const go = function () {
     $(this).addClass('hide');
   });
 
-  $(this).switchClass('go', 'stop');
-  $(this).text('STOP');
-  $(this).off('click');
-  $(this).click(stop);
+  $('.go').switchClass('go', 'stop');
+  $('.stop').attr('value', 'STOP');
+  $('.search-form').off('submit');
+  $('.search-form').submit(stop);
 };
 
 // Click event for Stop button
-const stop = function () {
+const stop = function (evt) {
+  evt.preventDefault();
+  $('#slideshow').slick('unslick');
+  retry();
+};
+
+const retry = function () {
   $('#slideshow-container').empty();
   $('#slideshow-container').append(`<div id="slideshow"></div>`);
 
@@ -73,17 +86,25 @@ const stop = function () {
     $(this).removeClass('hide');
   });
 
-  $(this).switchClass('stop', 'go');
-  $(this).text('GO');
-  $(this).off('click');
-  $(this).click(go);
+  $('.stop').switchClass('stop', 'go');
+  $('.go').attr('value', 'GO');
+  $('.search-form').off('submit');
+  $('.search-form').submit(go);
 };
+
 
 const startSlideshow = function () {
   $('#slideshow').slick({
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
+    adaptiveHeight: false,
+    fade: true,
+    cssEase: 'linear',
+    dots: true,
+    centerMode: true,
+    mobileFirst: true,
+    respondTo: 'min',
   });
 };
 

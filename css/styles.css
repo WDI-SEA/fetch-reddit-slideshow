@@ -18,14 +18,22 @@ body {
   text-align: center;
 }
 
+#photos {
+  transition: all 1s ease-in-out;
+}
+
 .slideshow-height {
-  height: 500px;
+  max-height: 500px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   background-color: white;
   border-radius: 5px;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 20px 0;
 }
 
@@ -38,8 +46,8 @@ body {
 }
 
 @media screen and (min-width: 750px) {
-  body {
-    background-color: olive;
+  .container {
+    margin-top: 50px;
   }
 }
 
