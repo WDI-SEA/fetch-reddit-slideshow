@@ -2,17 +2,7 @@
   --dark-color: #3A3A3A;
   --light-color: #9a9a9a;
   --red: #E77474;
-  --yellow: #EDED86;
-  --green: #9EEA70;
-  --blue: #8E9ECC;
 }
-
-#title {
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
-  /* text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; */
-}
-
 
 img {
   display: block;
@@ -31,10 +21,18 @@ body {
   text-align: center;
 }
 
+#title {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
 #photos {
   transition: all 1s ease-in-out;
 }
 
+#slideshow-container {
+  padding: 0 15px;
+}
 
 .slick-track {
   display: flex;
@@ -48,10 +46,6 @@ body {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-}
-
-#slideshow-container {
-  padding: 0 15px;
 }
 
 .container {

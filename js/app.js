@@ -5,9 +5,17 @@ $( document ).ready(function() {
 
 // addImages :: [String] -> Void
 const addImages = function (srcList) {
-  for (let i = 0; i < 10; i += 1) {
-    $('#slideshow').append(`<div class="slideshow-height"><img src="${srcList[i]}"></div>`);
-  }
+  srcList.forEach((src) => {
+    $('#slideshow').append(`<div><img src="${src}"></div>`);
+  });
+};
+
+// filter through reddit data to grab some usable images
+const redditFilter = function (json) {
+  return json.data.children
+         .map((item) => item.data.url)
+         .filter((url) => url.includes('i.imgur'))
+         .map((url) => url.replace('.gifv', '.gif'))
 };
 
 // fetchPhotos :: String -> Void
@@ -17,10 +25,8 @@ const fetchPhotos = function (url) {
       return response.json();
     })
     .then(function (myJson) {
-      const urls = myJson.data.children
-                  .map((item) => item.data.url)
-                  .filter((url) => url.includes('i.imgur'))
-                  .map((url) => url.replace('.gifv', '.gif'))
+      const urls = redditFilter(myJson); 
+
       if (urls.length < 10) {
         throw 'Not enough images';
       }
@@ -35,16 +41,6 @@ const fetchPhotos = function (url) {
     })
 
 };
-
-// Set timeout on fetch... Needed??
-const fetchWithTimeout = function (url, timeout = 5000) {
-  return Promise.race([
-    fetch(url),
-    new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('timeout')), timeout)
-    )
-  ]);
-}
 
 // Click event for Go button
 const go = function (evt) {
@@ -75,6 +71,7 @@ const stop = function (evt) {
   retry();
 };
 
+// Go back to start (either from click or failed fetch)
 const retry = function () {
   $('#slideshow-container').empty();
   $('#slideshow-container').append(`<div id="slideshow"></div>`);
@@ -92,20 +89,16 @@ const retry = function () {
   $('.search-form').submit(go);
 };
 
-
+// Enable slick slideshow
 const startSlideshow = function () {
   $('#slideshow').slick({
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
-    // adaptiveHeight: true,
-    // variableWidth: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
     fade: true,
     cssEase: 'linear',
     dots: true,
-    // centerMode: true,
-    // mobileFirst: true,
-    // respondTo: 'min',
   });
 };
 
