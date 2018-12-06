@@ -1,0 +1,44 @@
+body{
+	background-color: #ff9999;
+	text-align: center;
+	width: 100%;
+}
+img {
+	width: 250px;
+	height: 250px;
+}
+
+h1, div {
+	font-family: 'Unlock', cursive;
+	color: white;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+div {
+	font-size: 20px;
+}
+
+button {
+	margin-bottom: 10px;
+}
+
+input[type=text] {
+	text-align: center;
+    background: transparent;
+    color: #FFFFFF;
+    border: none;
+    border-bottom: 3px solid #FFFFFF;
+    padding: 15px 30px 2px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    font-family: 'Unlock', cursive;
+    position: relative;
+  	display: flex;
+  	flex-direction: row;
+  	width: 20%;
+  	margin: auto;
+}
