@@ -7,18 +7,31 @@ console.log("DOM is loaded")
 	let userInput = document.querySelector('#search-box').value;
 	let requestURL = `https://www.reddit.com/search.json?q=${userInput}+nsfw:no`;
 	let ul = document.querySelector('ul');
-
-	function searchImgs(images){
+	//Add an img element and add the src attribute with the image
+	function displayImages(images){
 		//let li = document.createElement('li');
 		let img = document.createElement('img');
 		let imgURL = images.data.url;
+		console.log(imgURL)
 		img.setAttribute('src', imgURL);
 		ul.appendChild(img);
 	}
 	//A function to filter URLs to only images
 	function isAnImage(arr){
-  	return (arr.includes(".jpg") || (arr.includes(".png")) || arr.includes("gif"))
+  		return (arr.includes(".jpg") || arr.includes(".png") || arr.includes(".gif"))
 	}
+	//function to push each api object into an array
+	var firstArray = [];
+	function arrayPush(object){
+		firstArray = [];
+		return firstArray.push(object);
+	}
+
+	//function to return the url from each of the idex of firstArray
+	function returnURL(object){
+		return object.data.url;
+	}
+
 	//confirm the search form is working
 	console.log("form was submitted");
 	console.log(requestURL)
@@ -29,12 +42,10 @@ console.log("DOM is loaded")
 		})
 		.then(function(jsonData){
 			console.log(jsonData);
-			var imgArray = [];			
-			var urlArray = [].filter(isAnImage)
-			imgArray = jsonData.data.children;
-			urlArray = imgArray[0].data.url
-			console.log(urlArray);
-			jsonData.data.children.forEach(searchImgs);
+			var children = jsonData.data.children;
+			console.log(children);
+			//children.filter(isAnImage)
+			children.forEach(displayImages)
 		})
 		.catch(function(error){
 			console.log("There was an error:",error)
