@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <h1>Title</h1>
-  <div class="informative">This is the thing that tells you what I'm going to do. find images with "post_hint": "image",search for what  you want, may get something spicy </div>
-  <form id="search-form">
-    <label for="search-form">What do you want to see?</label>
-    <input type="text" name="search-bar" id="search-input">
-    <input type="submit" value="submit-to-search" id="search-submit">
-  </form>
+  <div id="start-state">
+    <h1>Title</h1>
+    <div class="informative">This is the thing that tells you what I'm going to do. find images with "post_hint": "image",search for what  you want, may get something spicy </div>
+    <form id="search-form">
+      <label for="search-form">What do you want to see?</label>
+      <input type="text" name="search-bar" id="search-input">
+      <input type="submit" value="submit-to-search" id="search-submit">
+    </form>
+  </div>
   <div id="search-results">
+  </div>
+  <div id="the-buttons">
+    <button id="reset-btn">Restart</button>
+    <button id="stop-slideshow">stop the slideshow</button>
   </div>
 
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
