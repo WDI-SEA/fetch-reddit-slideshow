@@ -1,5 +1,29 @@
+.grid-container {
+  display: grid;
+  grid-template-rows: 225px 225px 225px;  
+  grid-template-columns: auto 225px 225px 225px 225px;
+  grid-template-areas:
+  	'blnkL biggie biggie sm1 sm2 '
+  	'blnkL biggie biggie sm3 sm4  '
+    'blnkL sm5 sm6 sm7 sm8 ';
+      background-color: white;
+  text-align: center;
+  margin: 20px 40px 0 0;
+}
+
+#heady { grid-area: blnkL}
+#big { grid-area: biggie }
+#small1 { grid-area: sm1 }
+#small2 { grid-area: sm2 }
+#small3 { grid-area: sm3 }
+#small4 { grid-area: sm4 }
+#small5 { grid-area: sm5 }
+#small6 { grid-area: sm6 }
+#small7 { grid-area: sm7 }
+#small8 { grid-area: sm8 }
+
+
 body {
-	text-align:center;
 	margin: 0;
 }
 
@@ -9,12 +33,15 @@ h1 {
 	letter-spacing: .1em;
 	font-weight: 400;
 	padding: 0;
+	margin: 15px;
+	color: purple;
 }
 
 p, form, input, label {
 	font-family: 'Alegreya Sans', sans-serif;
 	font-size: 18px;
 	margin: 0 5px;
+	text-align: center;
 }
 
 .big {
@@ -28,8 +55,11 @@ ul {
 }
 
 img {
-	max-width: 400px;
+	max-width: 450px;
+	border: 2px solid white;
 }
+
+
 
 
 
