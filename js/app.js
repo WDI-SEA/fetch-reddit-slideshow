@@ -22,16 +22,9 @@ const fetchPhotos = function (url) {
       // add images to hidden slideshow div and start slideshow
       addImages(imageUrls);
       startSlideshow();
-
-
-      // Can this go somewhere else?
-      return 0;
-    })
-    .then((x) => {
-      // fade out loading icon div and fade in slideshow div
-      $('#loader').removeClass('hide');
       toggleHide('#slideshow');
 
+      // Can this go somewhere else?
       $('#title div p').text('I want to see photos of:');
     })
     .catch((error) => {
@@ -62,11 +55,7 @@ const go = function (evt) {
   // UPDATE TO ADD LOADING ICON HERE?
   fetchPhotos(`https://www.reddit.com/search.json?q=${searchItem}+nsfw:no&limit=100&type=link&sort=new`);
 
-  // maybe add div with loading icon?
-  // $('#slideshow-container').append('<div id="loading"><img src="slick/ajax-loader.gif"></div>');
-
-  toggleHide('#title', '#input-row', '#loading');
-  $('#loading').switchClass('small', 'big');
+  toggleHide('#title', '#input-row');
   switchButton('go', 'stop');
 
   // Reset search box to blank
@@ -81,13 +70,6 @@ const stop = function (evt) {
   $('#slideshow').slick('unslick');
   retry();
 };
-
-// const loading = function () {
-//   // $('#slideshow').fadeIn(1000, function fadeAppend() {
-//   //   $(this).append('<div class="hide" id="loading"><img src="slick/ajax-loader.gif"></div>');
-//   // });
-//   $('#slideshow').append('<div class="hide" id="loading"><img src="slick/ajax-loader.gif"></div>');
-// };
 
 /* #endregion */
 
@@ -149,9 +131,8 @@ const retry = function () {
   // destroy slideshow and start over with empty one
   toggleHide('#slideshow')
 
-  // $('#slideshow-container').empty();
-  emptySlideshow('#slideshow-container');
-  // $('#slideshow-container').append('<div class="hide" id="slideshow"></div>');
+  $('#slideshow-container').empty();
+  $('#slideshow-container').append('<div class="hide" id="slideshow"></div>');
 
   toggleHide('#title', '#input-row');
   switchButton('stop', 'go');
@@ -159,12 +140,12 @@ const retry = function () {
 
 // Fade out then delete
 // fadeToEmpty :: String:selector -> Void
-const emptySlideshow = function (elem) {
-  $(elem).fadeToggle(1000, function hide() {
-    $(this).empty();
-    $(this).append('<div class="hide" id="slideshow"></div>');
-  });
-};
+// const emptySlideshow = function (elem) {
+//   $(elem).fadeToggle(1000, function hide() {
+//     $(this).empty();
+//     $(this).append('<div class="hide" id="slideshow"></div>');
+//   });
+// };
 
 /* #endregion */
 
