@@ -39,18 +39,18 @@ function slide(){
 }
 
 function clearGrid(){
-	let carouselParent = document.querySelector(".carousel");
-	while(carouselParent.firstChild){
-		carouselParent.removeChild(carouselParent.firstChild)
+	let gridParent = document.querySelector(".row");
+	while(gridParent.firstChild){
+		gridParent.removeChild(gridParent.firstChild)
 	}
-	clearInterval(slideshow);
+	//clearInterval(slideshow);
 }
 
-function loadImages(){
-	slideshow = setInterval(function(){
-		M.Carousel.getInstance(document.querySelector('.carousel')).next();
-	}, 1000);
-}
+// function loadImages(){
+// 	slideshow = setInterval(function(){
+// 		M.Carousel.getInstance(document.querySelector('.carousel')).next();
+// 	}, 1000);
+// }
 
 function makeFetchHappen(url){
 	let imgUrls, onlyImgs;
@@ -67,24 +67,15 @@ function makeFetchHappen(url){
 			onlyImgs = imgUrls.filter(isAnImage);
 			results = onlyImgs.map(convertGif);
 			console.log(results)
-			//clearGrid();
+			clearGrid();
 			results.forEach(function(resultUrl){
 				let gridImg = document.createElement('img');
-				let imgDiv = document.createElement('div');
 				gridImg.src = resultUrl;
-				let gridFrame = document.querySelector('.row');
-
-var $newDiv = $("<div/>")   // creates a div element
-                 .attr("id", "someID")  // adds the id
-                 .addClass("someClass")   // add a class
-                 .html("<div>stuff here</div>");
-
-$("#somecontainer").append($newDiv);
-
-				
-				imgDiv.addClass ="col s6 m4 l3";
-				gridFrame.appendChild(imgDiv);
-				imgDiv.appendChild(gridImg);
+				var newDiv = $("<div/>")   // creates a div element
+                .addClass("col s12 m6 l4")   // add a class
+				 console.log(newDiv);
+				$(".row").append(newDiv);
+				$(newDiv).append(gridImg);
 			})
 		}
 	).catch(function(error){

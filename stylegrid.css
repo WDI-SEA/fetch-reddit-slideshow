@@ -4,8 +4,9 @@ body {
 }
 
 img {
-	max-width: 200px;
-	margin-top: 10px;
+	max-height: 300px;
+	max-width: 100%;
+	margin: auto 0;
 }
 
 .col {
@@ -14,5 +15,5 @@ img {
 }
 
 .row {
-	max-width: 80%;
+	height: 300px;
 }
