@@ -28,8 +28,6 @@ console.log("DOM is loaded")
 		urlArray.push(object.data.url);
 		//filter the array to only retain images
 		imgArray = urlArray.filter(isAnImage);
-		//send each index of that array to the display on page function
-		//imgArray.forEach(displayImages)
 	}
 
 	//confirm the search form is working
@@ -44,14 +42,19 @@ console.log("DOM is loaded")
 			var children = jsonData.data.children;
 			//grab only the url for each item in the array
 			children.forEach(returnURL);
+			//send each index of that array to the display on page function
 			imgArray.forEach(displayImages);
 		})
 		.catch(function(error){
 			console.log("There was an error:",error)
 		});	
 	})
-const divImages = document.querySelector('.display-images');
+	const divImages = document.querySelector('.display-images');
 
+	//A function that iterates through the imgArray and assigns the img src on a set Interval
+	function intervalDisplay(){
+		
+	}
 
 // $('.jcarousel').jcarousel({
 //     animation: {
@@ -60,7 +63,7 @@ const divImages = document.querySelector('.display-images');
 //         complete: function() {
 //         }
 //     }
-// });
+//});
 
 
 })
