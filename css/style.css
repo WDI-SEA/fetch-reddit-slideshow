@@ -4,10 +4,10 @@ body{
 	background-color: #E7EAED;
 }
 
-
-#search-results {
-	height: 300px;
-	width: 300px;
+img {
+	margin-top: 10px;
+	max-width: 60%;
+	height: auto;
 }
 
 input[type=text] {
