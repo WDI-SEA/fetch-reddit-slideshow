@@ -4,7 +4,7 @@
   --red: #E77474;
 }
 
-img {
+.slides {
   display: block;
   max-height: 500px;
   height: auto;
@@ -32,6 +32,22 @@ body {
 
 #slideshow-container {
   padding: 0 15px;
+}
+
+#loading {
+  height: 300px;
+}
+
+.grow {
+  transition: all 500ms;
+}
+
+.big {
+  transform: scale(1);
+}
+
+.small {
+  transform: scale(0.5);
 }
 
 .slick-track {
