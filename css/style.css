@@ -1,0 +1,25 @@
+body {
+	background: #eee;
+	background-color: lightgrey;
+	text-align: center;
+}
+main {
+	text-align: center;
+}
+.contentsholder {
+
+}
+.slideshowframe {
+	display: flex;
+	justify-content: center;
+}
+.slideshowholder {
+	height: 100vw
+}
+
+img {
+	margin-top: 10px;
+	max-width: 70vw;
+	height: auto;
+	/* position: absolute; */
+}
