@@ -1,0 +1,19 @@
+body{
+    background: seagreen;
+    text-align: center;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+
+#searchTerm {
+    width: 200px;
+    height: 25px;
+}
+
+#search {
+
+}
