@@ -1,0 +1,31 @@
+/*hide that ugly glow*/
+textarea, select, input, button { outline: none; }
+
+body{
+	background-color: #eee
+}
+#container{
+/*	display: flex;
+	justify-content: center;
+	align-content: center;
+	height:700px;
+	width:700px*/
+
+}
+h1 {
+	margin:5px 0;	
+}
+span{
+	color:#f40;
+}
+button {
+	background-color: #f40;
+	color: white;
+}
+#slideShow {
+	margin-top: 15px;
+	border: 1px dashed #f40;
+	height: 500px;
+	width: 700px;
+	background-color: white;
+}
