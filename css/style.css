@@ -25,7 +25,12 @@ button {
 #slideShow {
 	margin-top: 15px;
 	border: 1px dashed #f40;
-	height: 500px;
-	width: 700px;
+	max-height: 500px;
+	max-width: 500px;
 	background-color: white;
+}
+#pic{
+	max-width: 500px;
+	max-height: 500px;
+	display: inline;
 }

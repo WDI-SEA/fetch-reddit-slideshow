@@ -1,6 +1,22 @@
 console.log("what up tho")
 document.addEventListener("DOMContentLoaded",main)
-document.getElementById('searchBtn').addEventListener("click",fetchIt)
+	
+	//not sure how I'm going to construct the final search link, 
+	//broke into two chunks + a whole one for now CLEAN UP LATER
+	const REQUEST_URL1 ="https://www.reddit.com/search.json?q="
+	const REQUEST_URL2 ="+nsfw:no"
+	const REQUEST_URL = "http://www.reddit.com/search.json?q=cats+nsfw:no"
+
+document.getElementById('formSearch').addEventListener("submit",function(event){
+	//prevent the normal function
+	event.preventDefault()
+	//construct the string needed
+	var searchValue = document.getElementById("searchTerm").value
+	console.log("searchValue=",searchValue)
+	//get that shit
+	theSearch = REQUEST_URL1 + searchValue + REQUEST_URL2
+	fetchIt(theSearch)
+})
 var results;
 
 function retrieveImgUrl(item) {
@@ -69,14 +85,12 @@ function fetchIt (){
 	//Making sure fetchIt ran
 	console.log("Sanity Check fetchIt")
 
-	//not sure how I'm going to construct the final search link, 
-	//broke into two chunks + a whole one for now CLEAN UP LATER
-	const REQUEST_URL1 ="https://www.reddit.com/search.json?q="
-	const REQUEST_URL2 ="+nsfw:no"
-	const REQUEST_URL = "http://www.reddit.com/search.json?q=cats+nsfw:no"
+
+
+	// get info from search box and make a new link out of it
 
 	//  fetch a post
-	fetch(REQUEST_URL)
+	fetch(theSearch)
 
 	.then(function(responseData) {
 		//pass the json to the next .then
@@ -87,7 +101,7 @@ function fetchIt (){
 		var picArray = jsonData.data.children;
 
 		//making sure that worked
-		console.log("Sanity check" + picArray[1])
+		console.log("Sanity check" + picArray[9])
 		//mapping the data for just a pice of it - could use some clarification
 		imgUrl = picArray.map(retrieveImgUrl)
 		results = imgUrl.filter(isAnImage)
@@ -99,9 +113,10 @@ function fetchIt (){
 		
 		console.log("results:",results)
 		console.log("imgUrl=",imgUrl)
-		// renderPic()
 		var thePic = document.getElementById("pic")
+		//hard coded for now
 		thePic.src = results[1];
+		// renderPic()
 })
 	.catch(function(error) {
 		console.log("you done gone goofed"+error)
