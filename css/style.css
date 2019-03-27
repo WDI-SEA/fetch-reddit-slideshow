@@ -1,0 +1,17 @@
+ body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: hotpink;
+	color: white;
+	text-align: center;
+}
+
+h1 {
+	color: white;
+} 
+
+img {
+	height: 400px;
+	width: auto;
+}
