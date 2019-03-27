@@ -10,10 +10,16 @@
 
 	<h1>Pick your poison</h1>
 	<h2>Select a subreddit</h2>
-	<input id="input" type="text">
-	<button id="search">Start</button>
+	<form id="search-form">
+		<input id="input" type="text">
+		<input type="submit" value="Start!" id="search">
+	</form>
 	<div id="slideshow">
-		
+	</div>
+	<div>
+		<button id="stop">STOP</button>
+		<h2 id="title"></h2>
+		<h3 id="subreddit"></h3>
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>

@@ -1,46 +1,76 @@
+const REQUEST_URL = "http://www.reddit.com/search.json?q="
+const INTERVAL_DELAY = 2000
+var imgSourceArray = []
+var currentIndex = 0
+var interval
 document.addEventListener("DOMContentLoaded", main)
 
 function main() {
 	// Define our API URL
-	const REQUEST_URL = "http://www.reddit.com/search.json?q="
 
 	// Make button clickable
-	var button = document.getElementById("search")
-	button.addEventListener("click", getValue)
+	document.getElementById("search-form").addEventListener("submit", getValue)
 
-	// Get value on button click
-	function getValue() {
-		var userInput = document.getElementById("input").value
-		console.log(userInput)
-		// Do your fetch request
+	document.getElementById("stop").addEventListener("click", stop)
+}
+
+// Get value on button click
+function getValue(e) {
+	e.preventDefault()
+	var userInput = document.getElementById("input").value
+	// Run if userInput isn't empty
+	if(userInput) {
+		// Call Reddit API with fetch
 		fetch(REQUEST_URL+userInput)
 			.then(function(data) {
-				console.log("bitch")
 				return data.json()
 			})
 			.then(function(jsonData) {
-				var imgSource = jsonData.data.children.map(child => child.data.url)
-				postImage(imgSource)
-
-				console.log(jsonData, imgSource)
+				var postArray = jsonData.data.children
+				imgSourceArray = postArray.map(function(post) {
+					return {
+						subreddit: post.data.subreddit,
+						title: post.data.title,
+						url: post.data.url.replace(".gifv", ".gif")
+					}
+				})
+				.filter(function(item) {
+					return item.url.includes("i.imgur") || item.url.includes("i.redd")
+				})
+			postImage()
+			clearInterval(interval)
+			interval = setInterval(nextSlide, INTERVAL_DELAY)
 			})
 			.catch(function(error) {
-				console.log("oops", error)
-			})
-		function postImage(imgSource) {
-			var box = document.getElementById("slideshow")
-			var substring1 = ".jpg"
-			var substring2 = "i.reddit"
-			for (var i = 0; i < imgSource.length; i++) {
-				if (imgSource[i].includes(substring1) || imgSource[i].includes(substring2)) {
-					var puppieImg = document.createElement("img")
-					puppieImg.src = imgSource[i]
-					puppieImg.classList.add("my-slides")
-					box.appendChild(puppieImg)
-				}
-			}
-		}
+				console.log("shit:", error)
+			})	
+	} else {
+		console.log("type something, dumbass")
 	}
 }
+function postImage() {
+	var slideshow = document.getElementById("slideshow")
+	// Empty the existing slides from slideshow
+	slideshow.innerHTML = ""
+	// Create a new image slide
+	var returnImg = document.createElement("img")
+	returnImg.src = imgSourceArray[currentIndex].url
+	// Append returnImg into slideshow div
+	slideshow.appendChild(returnImg)
+	// Change title to post's title
+	document.getElementById("title").textContent = imgSourceArray[currentIndex].title
+	document.getElementById("subreddit").textContent = imgSourceArray[currentIndex].subreddit
+}
 
-	
+function nextSlide() {
+	currentIndex++
+	if (currentIndex >= imgSourceArray.length) {
+		currentIndex = 0
+	}
+	postImage()
+}
+
+function stop() {
+	clearInterval(interval)
+}
+
