@@ -1,8 +1,16 @@
 console.log("what up tho")
 document.addEventListener("DOMContentLoaded",main)
 document.getElementById('searchBtn').addEventListener("click",fetchIt)
+var results;
 
-
+function retrieveImgUrl(item) {
+		// return what we want to be in the new array
+		return item.data.url;
+	}
+function isAnImage (url){
+	//new array with JUST posts from reddit and imgur
+	return url.includes("i.redd") || url.includes("i.imgur");
+}
 //INFO
 	// When the user enters a search term and presses enter
 	// The form / title / description should hide
@@ -57,6 +65,7 @@ function main (){
 
 function fetchIt (){
 	var imgUrl, onlyImgs
+
 	//Making sure fetchIt ran
 	console.log("Sanity Check fetchIt")
 
@@ -68,26 +77,35 @@ function fetchIt (){
 
 	//  fetch a post
 	fetch(REQUEST_URL)
+
 	.then(function(responseData) {
+		//pass the json to the next .then
 		return responseData.json()		
 	})
 	.then(function(jsonData){
 		//make an array of objects from the results
 		var picArray = jsonData.data.children;
-		console.log("Sanity check" + picArray[0])
+
+		//making sure that worked
+		console.log("Sanity check" + picArray[1])
+		//mapping the data for just a pice of it - could use some clarification
 		imgUrl = picArray.map(retrieveImgUrl)
-		onlyImgs = imgUrl
+		results = imgUrl.filter(isAnImage)
+
+		return results;
 		
+	})
+	.then(function(){
+		
+		console.log("results:",results)
 		console.log("imgUrl=",imgUrl)
 		// renderPic()
-	})
+		var thePic = document.getElementById("pic")
+		thePic.src = results[1];
+})
 	.catch(function(error) {
 		console.log("you done gone goofed"+error)
 	})
 
 }
 
-function retrieveImgUrl(item) {
-		// return what we want to be in the new array
-		return item.data.url;
-	}
