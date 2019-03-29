@@ -9,11 +9,17 @@
 	<body>
 	  <div id="container">
 	  	<h1><span>Reddit</span> Slideshow</h1>
-		<form id="formSearch">
-			<input type="text" name="searchTerm" value="Search Reddit" onclick="value=this.value=''" style="width:180px" id="searchTerm">
-			<button id="searchBtn">Search</button>
+		<form id="search-form">
+			<div>
+				<input type="text" id="query" placeholder="Search Reddit" style="width:180px">
+				<button id="searchBtn" type="submit">Search</button>
+			</div>
 		</form>
-		<div id="slideShow"><img id="pic"src=""></div>
+		<div>
+			<h2 id="title"> Slideshow!</h2>
+			<div id="slideshow"></div>
+			<h4>Originally posted in r/<a id="subreddit"></a></h4>
+		</div>
 	</div>
 	  <script type="text/javascript" src="js/main.js"></script>
 	</body>
