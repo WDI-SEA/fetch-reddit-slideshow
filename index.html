@@ -7,11 +7,23 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-  <form>
-    <input id="searchTerm" type="text">
-    <button id="search">Search</button>
+  <h1>Hello Slideshow</h1>
+  <form id="search-form">
+    <div>
+      ><label>What you want?</label>
+      <input id="query" type="text"placeholder="Search on Reddit">
+    </div>
+    <input type="submit" value="GO LOOk">
   </form>
+
+  <hr>
+
+  <div>
+    <button id="stop">STOPPPPPPPP</button>
+    <h2 id="title">Slideshow</h2>
+    <div id="slideshow"></div>
+    <h4>Originally posted in <a id="subreddit"></a>!</h4>
+  </div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
