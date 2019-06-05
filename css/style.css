@@ -1,0 +1,18 @@
+body {
+    background-color: grey;
+    text-align: center;
+}
+h1 {
+    color: maroon;
+    text-align: center;
+
+}
+form {
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
