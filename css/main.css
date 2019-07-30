@@ -1,0 +1,56 @@
+@import './resets.css';
+
+html {
+  border: 0px;
+
+}
+
+body {
+  /* height: 100%; */
+  /* width: 100%; */
+  background-color: rgb(46, 46, 46);
+  /* background-color: lightgrey; */
+  color: white;
+}
+
+main {
+  margin: 0 auto;
+  padding: 90px 0px 0px 0px;
+  width: 450px;
+  /* border: 1px solid black; */
+}
+/* 
+div {
+    margin: 0 auto;
+    width: 100%;
+} */
+
+/* form {
+    display: block;
+    text-align: center;
+} */
+
+#search-box {
+  background-color: rgb(46, 46, 46);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: black;
+  border-left-color: transparent;
+  text-align: center;
+  font-size: 3em;
+  max-width: 100%;
+  color: white;
+  /* font-style: italic; */
+}
+
+button {
+    margin: 20px 0px 0px 0px;
+    padding: 10px;
+    width: 100%;
+    background-color: lightgrey;
+    color: black;
+}
+
+#button-wrapper {
+    /* background-color: chartreuse; */
+}
