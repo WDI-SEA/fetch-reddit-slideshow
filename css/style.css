@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+  margin: 100px;
+  background-color: #222;
+}
+
+.btn {
+  padding: 5px;
+  margin-top: 30px;
+  background-color: transparent;
+  border: 1px solid #999;
+  border-radius: 2px;
+  color: #999;
+  font-size: 12px;
+}
+
+#usrInput {
+  background-color: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  color: #999;
+  text-align: center;
+  width: 30%;
+  font-size:36px;
+}
