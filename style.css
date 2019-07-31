@@ -1,0 +1,62 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: rgb(102, 87, 87) ;
+
+}
+nav {
+    /* background-color: skyblue; */
+    margin: 0 39px;
+}
+
+main {
+    /* background-color: lightcyan; */
+    margin: 0 30px;
+}
+
+h1 {
+    /* text-align: center; */
+    padding: 25px 0;
+    font-size: 48px;
+    margin: 0;
+}
+
+h2 {
+    /* text-align: center; */
+    margin: 0;
+    padding: 20px 0;
+    font-size: 36px;
+}
+
+form {
+    /* text-align: center; */
+    font: arial;
+    font-size: 20px;
+}
+
+
+.btn {
+    background-color: gray;
+    color: black;
+    /* font-weight: bold; */
+    font-size: 24px;
+    padding: 5px;
+    border: none
+    /* font-size: 20px; */
+}
+
+.btn:hover{
+/* background-color: hotpink; */
+padding: 8px;
+}
+
+.txt {
+    border-radius: 5px;
+    border-left: rgb(63, 52, 52) 15px solid;
+    border-right: gray 15px solid;
+    border-top: transparent solid 5px;
+    border-bottom: transparent solid 5px;
+    font-size: 24px;
+}

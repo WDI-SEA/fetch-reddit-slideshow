@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+  <nav>
+    <h1> </h1>
+  </nav>
+  <main>
+    <h2>Cats</h2>
+    <form id="reddit">
+      <div>
+        <label for="query">Search Query</label>
+        <input id="query" type="text" class="txt" value="">
+        <!-- <br>
+        <label for="username">Your Name</label>
+        <input id="username" type="text" class="txt" value="Paul"> -->
+      </div>
+      <input type="submit" value="Search" class="btn">
+    </form>
+    <hr>
+    <div>
+      <h2 id='result-title'></h2>
+      <div id='result'></div>
+    </div>
+  </main>
+  <script src="./app.js"></script>
 </body>
+
 </html>
