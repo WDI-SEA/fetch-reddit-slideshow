@@ -6,29 +6,58 @@ html {
 }
 
 body {
-  /* height: 100%; */
-  /* width: 100%; */
   background-color: rgb(46, 46, 46);
-  /* background-color: lightgrey; */
   color: white;
 }
 
 main {
   margin: 0 auto;
   padding: 90px 0px 0px 0px;
-  width: 450px;
-  /* border: 1px solid black; */
+  width: 960px;
 }
-/* 
-div {
-    margin: 0 auto;
-    width: 100%;
-} */
 
-/* form {
-    display: block;
-    text-align: center;
-} */
+#image-wrapper {
+  display: none;
+  /* position: relative; */
+  height: 100%;
+  /* min-height: 300px; */
+  margin: 0 auto;
+}
+
+
+#left-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* transform: translate(-250px,-250px); */
+  width: 150px;
+  /* margin: 0 auto; */
+}
+
+#center-image {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  /* right: 20; */
+  /* float: right; */
+  /* right: 0; */
+  width: 500px;
+  /* max-height: 300px; */
+}
+
+#right-image {
+  position: absolute;
+  top: 0;
+  left: 650px;
+  /* transform: translate(-250px,-250px); */
+  width: 150px;
+  /* margin: 0 auto; */
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
 
 #search-box {
   background-color: rgb(46, 46, 46);
@@ -40,17 +69,16 @@ div {
   font-size: 3em;
   max-width: 100%;
   color: white;
-  /* font-style: italic; */
 }
 
 button {
-    margin: 20px 0px 0px 0px;
-    padding: 10px;
-    width: 100%;
-    background-color: lightgrey;
-    color: black;
+  margin: 20px 0px 0px 0px;
+  padding: 10px;
+  width: 50%;
+  background-color: lightgrey;
+  color: black;
 }
 
 #button-wrapper {
-    /* background-color: chartreuse; */
+  /* background-color: chartreuse; */
 }
