@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Show</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <nav>
+    <h1>Reddit SlideShow</h1>
+  </nav>
+  <main>
+    <h2>Please enter your search below!</h2>
+    <form id="cats-slide">
+      <div>
+        <label for="look"></label>
+        <input id="look" type="text" value=" " class="txt">
+      </div>
+    
+      <input type="submit" value="Search!" class="btn">
+      
+    </form>
+    <hr>
+    <div id='result'>
+      <h2 id="content"></h2>
+      
+        <img id='show'>
+      
+    </div>
+  </main>
+  <script src="./js/main.js"></script>
 </body>
-</html>
