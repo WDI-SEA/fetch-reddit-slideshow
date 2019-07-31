@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>Get-Cat-GO!</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+	<main>
+		<h1>Get-Cat-GO!</h1>
+		<h2>~a slideshow for the truly depraved~</h2>
+		<form id="reddit-show">
+		<div>  
+			<input id="query" type="text" class="txt" value="Cats">
+		</div>
+			<input id="start-btn" type="submit" value="Feeling bored...?">
+	</main>
+	<div id="slideshow-div"><p id="loading-msg">Loading...</p></div>
+	<input id="stop-btn" type="click" value="Had Enough?">
+  <script src="js/app.js"></script>
 </body>
 </html>
