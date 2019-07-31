@@ -11,15 +11,18 @@
 		<form id="search-form">
 			<h2 class="page-title">Reddit image slideshow</h2>
 			<div class="input">
-				<label for="query">Search Query</label>
+				<label id="query-label" for="query">Search Query</label>
 				<input id="query" type="text" class="txt">
-				<input type="submit" value="Start the slideshow!" class="btn">
+				<input id="start" type="submit" value="Start the slideshow!" class="btn">
 			</div>
 		</form>
 		<h2 id="result-title"></h2>
 		<div id="result-message">
 		</div>
 		<div id="result">
+			<div class="pane" id="prev-image"></div>
+			<div class="pane" id="current-image"></div>
+			<div class="pane" id="next-image"></div>
 		</div>
 	</main>
 	<script src="js/app.js"></script>
