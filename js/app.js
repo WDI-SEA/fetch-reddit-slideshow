@@ -10,7 +10,7 @@ const updateBackground = () => {
   document.getElementById('body').style.background = newGradient;
 };
 const setUpdateInterval = () =>{
-  document.getElementById('controls').innerHTML = '';
+  document.getElementById('controls').style.visibility = 'hidden';
   var index = 0;
   var id = setInterval(()=>{
     let postImg = document.createElement('img');
@@ -24,6 +24,11 @@ const setUpdateInterval = () =>{
     }
   }, 5000);
 };
+
+const handleClick = () =>{
+  gallery.innerHTML = '';
+  document.getElementById('controls').style.visibility = 'visible';
+}
 
 const handleSubmit = (event) =>{
   event.preventDefault();
