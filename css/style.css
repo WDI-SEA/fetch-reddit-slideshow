@@ -1,41 +1,50 @@
 html,
 body {
-    background-color: rgb(163, 151, 151);
+    background-color:black;
+    color: whitesmoke;
     padding: 0;
     margin: 0;
     text-align: center;
     font-size: 30px;
 }
-h1 {
-    background-color: rgb(187, 187, 226);
-    /* margin: 0; */
-    /* padding: 0; */
-}
+
 main {
-    background-color: plum;
+  
     margin: 0 34px;
 }
 form {
     font-size: 20px;
 }
-.btn {
+
+
+.search-botton {
     margin: 10px;
     padding: 15px;
     background-color: lightcoral;
     color: white;
     font-weight: 800;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 5px;
 }
-.btn:hover {
+.search-botton:hover {
     background-color: black;
 }
-.txt {
+.search-bar {
     font-size: 20px;
-    padding: 10px 45px;
-    border-radius: 20px;
-    border: transparent;   
+    padding: 10px 90px;
+    border: transparent;  
+    background-color: black; 
+    border-bottom: 2px solid white;
+    color: white;
 }
 .txt:hover {
-    background-color: paleturquoise;
+    background-color: rgb(51, 50, 50);
+}
+
+#result-container {
+    visibility: hidden;
+}
+#result img {
+    height: 200px;
+    width: auto;
 }
