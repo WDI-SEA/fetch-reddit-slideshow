@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: black;
+}
+
+
+main {
+	background: skyblue;
+}
+
+.page-title {
+	display: inline;
+}
+
+.input {
+	display: inline;
+	float: right;
+}
+
+#result {
+	
+}
