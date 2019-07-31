@@ -6,13 +6,19 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Wheel of Reddit</title>
 </head>
-<body>
-  <h1>Wheel of Reddit</h1>
-  <h2>Type a search term,and spin the wheel to see what you get.</h2>
-  <form>
-    <input type="text">
-    <input type="submit">
-  </form>
+<body id="body">
+  <div id="controls" class="controls">
+    <form id="form" class="form">
+      <div>
+        <input id="query" type="text" class="input" placeholder="Enter Search Here">
+      </div>
+      <div>
+        <input type="submit" class="btn">
+      </div>
+    </form>
+  </div>
+  <div id="gallery" class="gallery">
+  </div> 
   <script src="js/app.js"></script>
 </body>
 </html>
