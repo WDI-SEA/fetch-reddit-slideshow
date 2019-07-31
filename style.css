@@ -1,0 +1,52 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 28px;
+}
+
+nav {
+	background-color: skyblue;
+	margin: 0 30px;
+}
+
+main {
+	background-color: lightcyan;
+	margin: 0 30px;
+}
+
+h1 {
+	margin: 0;
+	padding-top: 25px 0;
+	font-size: 48px;
+}
+
+h2 {
+	margin: 0;
+	padding: 20px 0;
+	font-size: 36px;
+}
+
+form {
+	font-size: 28px;
+}
+
+.btn {
+	background-color: lightseagreen;
+	color: white;
+	font-weight: bold;
+	font-size: 24px;
+	padding: 5px;
+}
+
+.btn:hover {
+	background-color: hotpink;
+	padding: 8px;
+}
+
+.txt {
+	border-radius: 5px;
+	font-size: 24px;
+	border-right: lightgray 15px solid;
+	border-left: lightgray 15px solid;
+}
