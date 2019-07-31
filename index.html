@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-</head>
-<body>
-  <h1>Hello Front-End</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Fetch Reddit</title>
+  </head>
+  <body>
+    <nav>
+      <h1>What are your favorite pictures?</h1>
+    </nav>
+    <main>
+      <h2>Type the title of your favorite picture!</h2>
+      <form id="slides-form">
+        <div>
+          <label for="query">Search Query</label>
+          <input id="query" type="text">
+          <br/>
+        </div>
+        
+        <input id="submitBtn" value="Start Slidshow!" type="submit">
+        
+        
+        <div id="display"></div>
+      </form>
+      <div>
+        <hr />
+        <h2 id="result-title"></h2>
+      </div>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
 </html>
