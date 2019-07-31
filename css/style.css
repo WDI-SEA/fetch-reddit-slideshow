@@ -1,11 +1,16 @@
 body {
   text-align: center;
-  margin: 100px;
+  margin: 20px;
   background-color: #222;
 }
 
+h1 {
+  margin-bottom:80px;
+  color: #999
+}
+
 .btn {
-  padding: 5px;
+  padding: 20px 30px;
   margin-top: 30px;
   background-color: transparent;
   border: 1px solid #999;
@@ -14,7 +19,7 @@ body {
   font-size: 12px;
 }
 
-#usrInput {
+#query {
   background-color: transparent;
   border-top: 0;
   border-left: 0;
@@ -24,4 +29,14 @@ body {
   text-align: center;
   width: 30%;
   font-size:36px;
+}
+
+#results-container {
+  visibility: hidden;
+  text-align: center;
+}
+
+#results {
+  width: auto;
+  max-height: 600px;
 }

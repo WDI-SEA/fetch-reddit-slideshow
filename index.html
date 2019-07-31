@@ -7,14 +7,22 @@
   <title>Kobe's Reddit Slideshow</title>
 </head>
 <body>
-  <form id="photo-form">
-    <input type="text" value="Phoebe Bridgers" id="usrInput">
-    <div>
-      <input type="submit" class="btn">
-    </div>
-  <div class="resulting picture">
+  <header>
+    <h1>Pictures... At your fingertips.</h1>
+  </header>
+  <div id="search-div">
+    <form id="search-form">
+      <input type="text" placeholder="I'd like to see..." id="query">
+      <div>
+        <input type="submit" value="Begin" class="btn">
+      </div>
+    </form>
   </div>
-  </form>
+  <div id="results-container">
+    <input type="button" value="stop" id="stop-button" class="btn">
+    <div id="results">
+    </div>
+  </div>
   <script src="js/app.js"></script>
 </body>
 </html>
