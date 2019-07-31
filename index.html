@@ -6,27 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scroll Reddit Images</title>
   <link rel="stylesheet" href="./css/main.css" </head> <body>
-  <main>
 
+  <header>
+    <h1 id="title">Reddit Image Search</h1>
+    <button id="stop-button" type="submit" class="button">Search Again</button>
+  </header>
+
+  <main>
     <form>
       <div>
         <label for="search-box" hidden>Search Reddit for Images</label>
         <input id="search-box" type="text" value="kittens" placeholder="kittens">
       </div>
       <div id="button-wrapper">
-        <button id="search-button" type="submit">Search</button>
+        <button id="search-button" type="submit" class="button">Search</button>
       </div>
     </form>
-
     <div id="image-wrapper">
       <img id="left-image" src="" alt="Image not found.">
       <img id="center-image" src="" alt="Image not found.">
       <img id="right-image" src="" alt="Image not found.">
     </div>
-
-    <div id="message">
+    <!-- <div id="message"> -->
     </div>
-
   </main>
   <script src="./js/main.js"></script>
   </body>

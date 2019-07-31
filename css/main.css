@@ -1,57 +1,65 @@
 @import './resets.css';
 
-html {
-  border: 0px;
 
-}
 
 body {
   background-color: rgb(46, 46, 46);
   color: white;
 }
 
-main {
-  margin: 0 auto;
-  padding: 90px 0px 0px 0px;
+header {
+  text-align: center;
+  height: 50px;
   width: 960px;
+  padding: 20px;
+}
+
+main {
+  /* margin: 50px 0px 0px 0px; */
+  padding: 20px;
+  width: 960px;
+  position: relative;
+  /* border: 1px solid black; */
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+form {
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+  /* border: 1px solid black;˝ */
 }
 
 #image-wrapper {
   display: none;
   /* position: relative; */
-  height: 100%;
-  /* min-height: 300px; */
-  margin: 0 auto;
+  height: 1000px;
+  top: 0;
+  /* margin: 0 auto; */
 }
 
-
 #left-image {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
-  /* transform: translate(-250px,-250px); */
   width: 150px;
-  /* margin: 0 auto; */
 }
 
 #center-image {
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  top: 50px;
   left: 150px;
-  /* right: 20; */
-  /* float: right; */
-  /* right: 0; */
   width: 500px;
-  /* max-height: 300px; */
 }
 
 #right-image {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 650px;
-  /* transform: translate(-250px,-250px); */
   width: 150px;
-  /* margin: 0 auto; */
 }
 
 img {
@@ -63,12 +71,13 @@ img {
   background-color: rgb(46, 46, 46);
   border-top-color: transparent;
   border-right-color: transparent;
-  border-bottom-color: black;
+  border-bottom-color: white;
   border-left-color: transparent;
   text-align: center;
   font-size: 3em;
   max-width: 100%;
   color: white;
+  margin: 20px 0px 20px 0px;
 }
 
 button {
@@ -77,8 +86,9 @@ button {
   width: 50%;
   background-color: lightgrey;
   color: black;
+  margin: 0 auto;
 }
 
-#button-wrapper {
-  /* background-color: chartreuse; */
+#stop-button {
+  display: none;
 }
