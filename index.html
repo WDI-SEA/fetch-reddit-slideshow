@@ -9,17 +9,23 @@
 <body>
   <h1>Reddit Photos</h1>
 
-  <form>
+  
+
+  <main>
+  	
+  	<form id="photo-form">
   	<div>
 	  	<label>Let's see some photos</label>
-	  	<input type="text">
+	  	<input type="text" class="txt" id="query">
   	</div>
-  	<input type="submit">
+  	<input id="submit" type="submit" class="btn">
 
   </form>
 
-  <main>
-  	<h2></h2>
+  	<div>
+  		<h2 id="no-query"></h2>
+		<div id="result"></div>
+  	</div>
   </main>
 
   <script src="./js/app.js"></script>

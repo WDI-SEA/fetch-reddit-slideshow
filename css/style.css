@@ -3,3 +3,16 @@ body {
 	font-size: 28px;
 	background-color: lightblue;
 }
+
+.txt {
+	padding: 5px;
+	font-size: 20px;
+
+}
+
+.btn {
+	font-size: 20px;
+	color: white;
+	background-color: darkgreen;
+	border-radius: 5px;
+}
