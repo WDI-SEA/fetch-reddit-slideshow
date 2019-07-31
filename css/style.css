@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    background-image: url(/Users/garrisonhighsmith/sei/fetch-reddit-slideshow/img/HaloInfinite-ring.png);
+
+     
+}
+
+nav {
+    margin: 0 30px;
+    color: rgb(50, 135, 231);
+}
+
+main {
+    margin: 0 30px;
+}
+
+h1 {
+    margin: 0;
+    padding: 25px 0;
+    font-size: 45px;
+}
+ label {
+     color: rgb(189, 3, 189);
+     margin: 20px;
+     font-size: 28px;
+ }
+
+ .btn {
+     margin: 30px;
+     padding: 20px;
+     font-size: 20px;
+     
+ }
+
+ 
