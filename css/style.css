@@ -1,0 +1,41 @@
+html,
+body {
+    background-color: rgb(163, 151, 151);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+}
+h1 {
+    background-color: rgb(187, 187, 226);
+    /* margin: 0; */
+    /* padding: 0; */
+}
+main {
+    background-color: plum;
+    margin: 0 34px;
+}
+form {
+    font-size: 20px;
+}
+.btn {
+    margin: 10px;
+    padding: 15px;
+    background-color: lightcoral;
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+    border-radius: 5px;
+}
+.btn:hover {
+    background-color: black;
+}
+.txt {
+    font-size: 20px;
+    padding: 10px 45px;
+    border-radius: 20px;
+    border: transparent;   
+}
+.txt:hover {
+    background-color: paleturquoise;
+}
