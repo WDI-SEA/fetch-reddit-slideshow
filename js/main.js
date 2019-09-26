@@ -1,5 +1,15 @@
-var i = 0;
+var button = document.getElementById("btn").addEventListener('click', search);
+var stop = document.getElementById("stop").addEventListener('click', stop);
+var input = document.getElementById('Enter');
 
+var i = 0;
+function search(e) {
+  e.preventDefault();
+  console.log(input.value)
+  console.log("you")
+  if( input.value === "cats"){
+    document.getElementById("btn").style.display="none"
+    document.getElementById("Enter").style.display="none"
 fetch('http://www.reddit.com/search.json?q=cats+nsfw:no/results=')
   .then(function (data) {
     return data.json()
@@ -15,13 +25,25 @@ fetch('http://www.reddit.com/search.json?q=cats+nsfw:no/results=')
     Results = document.getElementById("Results");
     Results.append(image);
 
-    setInterval(function () {
+   setInterval(function () {
       i++
       image.src = displayCat[i]
     }, 1000)
   })
+} else{
+  console.log("no access");
+}
 
+}
 
-
-
+function stop() {
+  Results.innerHTML = ""
+  document.getElementById("Enter").style.display="inline"
+  document.getElementById("btn").style.display="inline"
+  console.log(button);
+  input.value = null;
+  i = 0;
+  search();
+  image.src = displayCat[0];
+}
 
