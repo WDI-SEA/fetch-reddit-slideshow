@@ -1,35 +1,27 @@
+var i = 0;
 
-document.getElementById('cats-slide').addEventListener('submit', function(e) {
+fetch('http://www.reddit.com/search.json?q=cats+nsfw:no/results=')
+  .then(function (data) {
+    return data.json()
+  })
+  .then(function (json) {
+    let displayCat = json.data.children.map(function (catPic) {
 
-  e.preventDefault();
-
- 
-  var url = 'https://www.reddit.com/search.json?q=cats+nsfw:no';
-
-    fetch(url)
-    .then(function(data) {
-      return data.json();
+      return catPic.data.thumbnail;
     })
-    .then(function(json) {
+    console.log(displayCat)
+    var image = document.createElement('img');
+    image.src = displayCat[i];
+    Results = document.getElementById("Results");
+    Results.append(image);
 
-      var newThumbs = json.data.children.map(function(thumb) {
-    
-        return thumb.data.thumbnail;
-      });
-    
-        show.src = newThumbs[0];
-        var imageIndex = 0;
-        var handle = null;
-        handle = setInterval(function() {
-          imageIndex++;
-          show.src = newThumbs[imageIndex];
-        }, 3000);
+    setInterval(function () {
+      i++
+      image.src = displayCat[i]
+    }, 1000)
+  })
 
 
 
 
-  
-      });
-});
-  
-  
+
