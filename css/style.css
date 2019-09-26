@@ -1,0 +1,130 @@
+/*==============================================================================
+Typography
+==============================================================================*/
+h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 4em;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#title {
+  font-weight: 700;
+}
+
+/*==============================================================================
+Containers
+==============================================================================*/
+.main-container {
+  margin-bottom: 120px;
+}
+
+/* Quote */
+#quote-box {
+  font-size: 2em;
+  background-color: #fff;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  padding: 20px;
+  margin: 0;
+}
+
+.quote {
+  font-size: 1.6em;
+  text-align: left;
+}
+
+.smart-quotes {
+  display: none;
+}
+
+#quote {
+  display: inline-block;
+  font-weight: 400;
+}
+
+/* Source */
+.source, .citation, .year, .tag {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.source {
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+.citation, .year, .tag {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.4em;
+}
+
+.citation, .year {
+  font-weight: 400;
+}
+
+.tag {
+  font-weight: 700;
+}
+
+/* Button */
+#quote-button-container {
+  text-align: center;
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+}
+
+#loadQuote {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  background-color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 10px;
+  vertical-align: middle;
+  outline: 0;
+  padding: 10px 15px;
+  margin-top: 20px;
+}
+
+/*==============================================================================
+Breakpoints
+==============================================================================*/
+@media (min-width: 1024px) {
+  .main-container {
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-top: 60px;
+  }
+
+  #quote-box {
+    border: 2px solid #000;
+    margin-top: 60px;
+  }
+
+  #quote-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .smart-quotes {
+    display: block;
+    width: 160px;
+  }
+
+  .left {
+    margin: 45px auto 85px;
+  }
+  
+  .right {
+    margin: 115px auto 45px;
+  }
+}
