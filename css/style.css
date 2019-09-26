@@ -1,0 +1,51 @@
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: black;
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'title'
+                         'div'
+
+}
+
+h1 {
+    color: aliceblue;
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: absolute;
+}
+
+.mover {
+    grid-area: div;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw; 
+    height: 50vh; 
+    border: 2px solid white; 
+}
+
+#input {
+    background: white;
+}
+
+.inputCont {
+    padding: 2em;
+}
+
+#image {
+    width: 90%;
+    height: 90%;
+}
