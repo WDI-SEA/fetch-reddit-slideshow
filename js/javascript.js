@@ -3,12 +3,19 @@ var searchString = 'cats';
 slideDiv = document.getElementById("imgs");
 slideDivImg = document.getElementById("imgs").childNodes;
 submitBtn = document.getElementById("submit-query");
+clearBtn = document.getElementById("clear-query");
 input = document.getElementById("inputQuery");
 
 submitBtn.onclick = function() {
     searchString = input.value; 
     getIt(searchString);
     addClass();
+}
+
+clearBtn.onclick = function() {
+    slideDiv.innerHTML = " ";
+    searchString = '';
+    arr = [];
 }
 
 function getIt(search) {
