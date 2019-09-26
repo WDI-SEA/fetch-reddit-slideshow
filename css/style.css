@@ -6,3 +6,10 @@ body {
   font-size: 28px;
   background: lightblue;
 }
+div {
+  /* width: 60%; */
+  border: 1px solid black;
+  text-align: center;
+  height: 50vh;
+  text-align: center;
+}

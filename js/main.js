@@ -11,11 +11,11 @@ function search(e) {
     document.getElementById("btn").style.display="none"
     document.getElementById("Enter").style.display="none"
 fetch('http://www.reddit.com/search.json?q=cats+nsfw:no/results=')
-  .then(function (data) {
-    return data.json()
+  .then(function (responseData) {
+    return responseData.json()
   })
-  .then(function (json) {
-    let displayCat = json.data.children.map(function (catPic) {
+  .then(function (jsonData) {
+    let displayCat = jsonData.data.children.map(function (catPic) {
 
       return catPic.data.thumbnail;
     })
@@ -44,6 +44,6 @@ function stop() {
   input.value = null;
   i = 0;
   search();
-  image.src = displayCat[0];
+  image.src = displayCat[i];
 }
 
