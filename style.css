@@ -1,0 +1,46 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color:#e4f9f5;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    text-align: center;
+}
+
+#container {
+    grid-area: 2/2/12/8;
+    border: 15px solid #40514e;
+    border-radius: 8px;
+    background-color: #a6e3e9;
+
+}
+
+h1 {
+    grid-area: 3/1/4/8;
+    margin: 0 1px 40px 0;
+    padding: 10px 10px;
+    background-color: #11999e;
+    font-family: 'Bowlby One SC', cursive;
+    color: #111111
+    
+}
+
+h3 {
+    grid-area: 4/2/5/7;
+    background-color: #e3fdfd;
+    color: #111111;
+    font-family: 'Bowlby One SC', cursive;
+    border: 3px solid #40514e;
+    border-radius: 7px
+}
+
+#input {
+    grid-area: 6/2/7/7;
+    border-radius: 2px;
+}
+
+#button {
+    grid-area: 9/3/10/6;
+    border-radius: 3px;
+}
