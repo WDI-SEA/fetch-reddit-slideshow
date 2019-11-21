@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reddit Search Slideshow</title>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
@@ -11,9 +12,12 @@
   <div id="search">
     <h1>Reddit Search Slideshow</h1>
     <p>Type in a term and search for its reddit post images.</p>
-    <form>
-      <input type="search" name="search-bar" id="search-bar" placeholder="what do you want to see?">
-      <button type="button" id="search-button">SEARCH</button>
+    <form id="search-form">
+      <!--<input type="search" name="search-bar" id="search-bar" placeholder="what do you want to see?">
+      <button type="button" id="search-button" class = "btn">SEARCH</button>
+      -->
+     <input id= "query" placeholder="what do you want to see?">
+     <input id="search-button" type="submit" value="SEARCH" class="btn">
     </form>
   </div>
 
@@ -21,7 +25,7 @@
     <div id="images">
        <!--stretch goal: alt updates dynamically-->
     </div>
-    <button id="stop-button">Stop Slideshow</button>
+    <button id="stop-button" class="btn">Stop Slideshow</button>
   </div>
   
   <script src="js/app.js"></script>

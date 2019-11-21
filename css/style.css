@@ -5,19 +5,33 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #DAE0E6;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.btn {
+    background: black;
+    color: white;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
 
-#search {
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+#search {   
     display: flex;
     flex-direction: column;
+    background-color: whitesmoke;
+    padding: 30px 50px 50px 50px;
 }
 
 #slideshow {
     display: none;
     width: 400px;
     height: 400px;
-    background: gray;
+    background: whitesmoke;
     padding: 100px 0 0 0;
     text-align: center;
     flex-direction: column;
@@ -25,10 +39,16 @@ body {
     align-items: center;
 }
 
-#stop-button {
-    margin: 100px;
+img {
+    height: 200px;
+    /*can do max-height and width:auto to do a max height and automatically scale the width
+*/
 }
 
-input {
+#stop-button {
+    margin: 50px;
+}
+
+#query {
  width: 170px;
 }
