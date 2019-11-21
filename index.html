@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Title</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Reddit Right At Cha!</h1>
+  <div id="message"></div>
+  
+  <div id="homepage">
+    <p id="description">Search anything on <span>reddit</span> and get <span>images</span> in a crafty slideshow!
+    </br> Just input a search and click the Search button!</p>
+    <input type="text" name="userInput" id="searchBar">
+    <button type="submit" id="search">Search 🔎</button>
+  </div>
+
+  <div id="slideshow">
+      <img src="#" alt="reddit image from search" id="image" style="width:60vh;height:60vh">
+  </div>
+
+  <button type="submit" id="stop">Stop 🛑</button>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
 </body>
 </html>
