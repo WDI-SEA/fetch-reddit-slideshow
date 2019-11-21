@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+    text-align: center;
+}
+
+h1 {
+    color: red;
+    font-size: 36px;
+    text-align: center; 
+}
+
+h2 {
+    color: red;
+    text-align: center;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+}
+
+#myImage {
+    background-image: url("");
+}
