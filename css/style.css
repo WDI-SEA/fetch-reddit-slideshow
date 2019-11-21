@@ -1,0 +1,34 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#search {
+    display: flex;
+    flex-direction: column;
+}
+
+#slideshow {
+    display: none;
+    width: 400px;
+    height: 400px;
+    background: gray;
+    padding: 100px 0 0 0;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#stop-button {
+    margin: 100px;
+}
+
+input {
+ width: 170px;
+}
