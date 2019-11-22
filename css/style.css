@@ -75,13 +75,31 @@ body {
 }
   
   .slideshow-container {
+	display: none;
+	visibility: hidden;
 	padding: 20px;
 	border: black solid 2px;
 	color: cadetblue;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	flex-basis: content;
-	text-align: center;
 	margin: auto;
+  }
+
+  .btn {
+	display: none;
+	color: whitesmoke;
+	visibility: hidden;
+	border-radius: 10px;
+	padding: 10px;
+	width: 150px;
+	background-color: cadetblue;
+	text-align: center;
+	font-size: 18px;
+	height: 40px;
+	line-height: 25px;
+	font-family: 'Josefin Sans', sans-serif;
+	margin: 20px 30px 0px 30px;
+  }
+
+  #result img {
+	height: 350px;
+	width: auto;
   }
