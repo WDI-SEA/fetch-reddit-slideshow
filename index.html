@@ -3,9 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link href="https://fonts.googleapis.com/css?family=Alata|Josefin+Sans|Luckiest+Guy|Poiret+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1 id='title-container'>Reddit Slideshow</h1>
+  <div id="search-container" class='container'>
+    <div id='form-holder' class='form-class'>
+      <form class="search-box" id="search-form">
+        <input type=text id='user-input' class="user-search" placeholder="Search Term ...."></input>
+        <button id='refresh' class='refresh-button'>SEARCH</button>
+      </form>
+    </div>
+  </div>
+
+  <div id='slideshow-container' class="slideshow">
+      <img class='slideshow-image' id='image' src='' alt='slideshow image'>
+      <div class='seeNextSlide'>
+        <button class='nextButton' type='button'>Next Slide</button>
+      </div>
+  </div>
+
+  <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
