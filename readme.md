@@ -13,8 +13,6 @@ Reddit sometimes contains some offensive images be careful with your search term
 * Fork and clone this repository
 * Run `npm install` to install dependencies
   * `npm start` - start the BrowserSync server
-  * `npm run lint:css` - lint CSS
-  * `npm run lint:js` - lint JS
 
 ## Requirements/User Experience
 
@@ -29,8 +27,8 @@ Reddit sometimes contains some offensive images be careful with your search term
 
 * The form / title / description should hide
 * Show a loading message (optional)
-* Fetch related posts from reddit (with ajax)
-* Display animation / slideshow of images (jQuery)
+* Fetch related posts from reddit (with `fetch`)
+* Display animation / slideshow of images (with DOM manipulation)
 * Show a button to stop / reset the animation
 * Repeat animation until use clicks "stop"
 
@@ -67,8 +65,7 @@ It is important to break down any development project in to smaller pieces and t
 
 ## Bonus
 
-* Use Additional jQuery animation plugins
-  * [jQuery Animation plugins](http://plugins.jquery.com/tag/animation/)
+* Make a smooth transition to next slide (e.g., a fade out)
 
 ---
 
