@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+}
+img {
+    position: absolute;
+    max-width: 200px;
+}
+
+.transitionIn {
+    animation-name: fadeIn;
+    animation-duration: .5s;
+    opacity: 1;
+}
+
+.transitionOut {
+    animation-name: fadeout;
+    animation-duration: .5s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeOut {
+
+}
