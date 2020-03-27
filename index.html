@@ -2,10 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>PICS</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-</body>
-</html>
+  <header>
+    <nav>
+      <h1>Reddit Search</h1>
+    </nav>
+  </header>
+    <div id = 'search-box'><h2>What are you looking for?</h2>
+
+    <form id = 'search-form'>
+      <div>
+      <label for="query">Search query</label>
+      <input type="text" id = 'query' placeholder="what you want" >
+      </div>
+      <button id = 'submit' type="submit"> GO GO GO</button>
+    </form>
+    </div>
+
+
+    <div id = 'slideshow' >
+
+      <h2>Wow look at that</h2>
+
+    <div id = 'results'></div>
+      <button id = "stop-button">Stop Now!</button>
+  </div>
+      <script src = './script.js'></script>
+    </body>
+    </html>

@@ -1,0 +1,26 @@
+body, html { margin: 0;
+  padding: 0;
+
+}
+
+body{
+  color: #ffcc50;
+  text-align: center;
+}
+
+#slideshow {
+  display: none;
+}
+
+nav, h1 {
+  color: orange;
+  background-color: lightblue;
+}
+button{
+  background-color: blue;
+}
+
+#results img {
+  height: 350px;
+  width: auto;
+}
