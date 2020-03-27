@@ -1,21 +1,44 @@
 body {
     text-align: center;
+    background-color: whitesmoke;
+}
+h1 {
+    color: orangered;
+}
+h2 {
+    color: white;
+}
+form {
+    margin: 0 20%;
+    background-color: orangered;
 }
 img {
     position: absolute;
-    max-width: 200px;
+    max-width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+button {
+    margin-top: 5px;
 }
 
+#slidShowScreen {
+    background-color: whitesmoke;
+}
+
+.hidden {
+    opacity: 0;
+}
+.visible {
+    opacity: 1;
+}
 .transitionIn {
     animation-name: fadeIn;
     animation-duration: .5s;
-    opacity: 1;
 }
-
 .transitionOut {
-    animation-name: fadeout;
+    animation-name: fadeOut;
     animation-duration: .5s;
-    opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -23,5 +46,6 @@ img {
     to {opacity: 1;}
 }
 @keyframes fadeOut {
-
+    from {opacity: 1;}
+    to {opacity: 0;}
 }

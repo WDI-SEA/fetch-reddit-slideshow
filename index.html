@@ -4,24 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <div>
-    <h1>Welcome to the <s>Freak</s> Reddit Slide Show!</h1>
-  </div>
-  
   <div id="searchScreen">
+    <h1>Welcome to <s>Reddit</s> the Slide Show!</h1>
     <form>
       <h2>Type in what you want to see and start the show!</h2>
       <input type="text" id="queryText"><br>
-      <button type="submit" id="submitButton">Start the Show!</button>
+      <button type="submit" id="submitButton" class="w3-btn">Start the Show!</button>
     </form>
   </div>
 
   <div id="slideShowScreen">
-    <button type="button" id="stopShowButton">Stop Slide Show</button> <br>
-    <img src="" id="currentImage">
+    <button type="button" id="stopShowButton" class="w3-btn w3-red">Stop Slide Show</button> <br>
+    <div id="imageContainer"></div>
   </div>
 
   <script src="js/mechanics.js"></script>

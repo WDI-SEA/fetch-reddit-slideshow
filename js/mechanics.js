@@ -1,10 +1,3 @@
-// Notes to keep in mind
-    // TAKE OUT ANY "amp;" REFERENCES IN URL'S. THERE MAY BE MORE THAN ONE.
-    // data.children[X].data.preview.images[0].source.url
-    // data.children[X].data.post_hint (to check if picture)
-    // http://www.reddit.com/search.json?q=X+nsfw:no+Y
-// OKAY SO APPARENTLY THERE IS A URL PROPERTY THAT I MISSED
-
 // GLOBALS
 // Search Strings
 const redditFetchRequestDefault = "http://www.reddit.com/search.json?q=nsfw:no"
@@ -14,7 +7,7 @@ let searchScreen = document.getElementById("searchScreen")
 let slideShowScreen = document.getElementById("slideShowScreen")
 let queryText = document.getElementById("queryText")
 let submitButton = document.getElementById("submitButton")
-let currentImage = document.getElementById("currentImage")
+let imageContainer = document.getElementById("imageContainer")
 let stopShowButton = document.getElementById("stopShowButton")
 
 // Other Globals
@@ -33,9 +26,9 @@ const beginSlideShow = (e) => {
     .then((data) => {
         compileURLS(data.data.children)
         if (imageLocations.length != 0) {
-            nextSlide()
+            addImages()
             showSlideShowSCreen()
-            slideShowTimer = setInterval(nextSlide, 2000)
+            slideShowTimer = setInterval(transitionSlide, 2000)
         }
     })
     .catch((error) => {console.log("Error occured:", error)})
@@ -68,18 +61,29 @@ const addImages = () => {
     for (i=0; i<imageLocations.length; i++) {
         var image = document.createElement("img")
         image.setAttribute("id", i)
-        image.setAttribute("opacity", "0")
+        image.setAttribute("class", "hidden")
         image.src = imageLocations[i]
+        
+        console.log(image.style.left)
+        imageContainer.appendChild(image)
     }
 }
 
-// Displays the next slide
-const nextSlide = () => {
-    console.log("Starting next slide")
-    if (imageCounter >= imageLocations.length) { imageCounter = 0 } // If you're at the end, go back to the beginning
-    // Trigger the animation from current slide to next slide
-    currentImage.src = imageLocations[imageCounter] // Change the source of the current image
-    imageCounter++
+// Transitions to the next image
+const transitionSlide = () => {
+    if(imageLocations.length>1) {
+        let theCurrentImage = document.getElementById(imageCounter)
+        imageCounter++
+        if (imageCounter >= imageLocations.length) { imageCounter = 0 } // If you're at the end, go back to the beginning
+        let theNextImage = document.getElementById((imageCounter))
+        
+        console.log("Transitioning from", theCurrentImage, "to", theNextImage)
+        
+        theCurrentImage.setAttribute("class", "transitionOut hidden")
+        theNextImage.setAttribute("class", "transitionIn visible")
+    } else {
+        document.getElementById("0").style.opacity = "1"
+    }
 }
 
 // End the show and return to search
@@ -88,6 +92,7 @@ const endSlideShow = (e) => {
     showSearchScreen()
     clearInterval(slideShowTimer)
     imageCounter=0;
+    imageContainer.innerHTML = ''
 }
 
 // Display the search screen and hide the slide show
