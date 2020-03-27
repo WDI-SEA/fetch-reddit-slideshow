@@ -1,0 +1,21 @@
+body {
+	background-color: lightgray;
+	margin: 0;
+	text-align: center;
+
+	/*//reddit colors ff5700 0077d6 cee38f8 */
+}
+img {
+	height: 500px;
+}
+nav {
+	color:#ff5700;
+}
+
+nav h1 {
+	margin: 0;
+	padding: 0;
+}
+#display {
+	display: none
+}
