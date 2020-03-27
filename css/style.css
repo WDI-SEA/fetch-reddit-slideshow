@@ -1,0 +1,42 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+header {
+    margin: 0;
+    width: 100%
+}
+nav {
+    margin: 0;
+    color: #ff5700;
+    background-color: #cbe3f8;
+}
+nav h1 {
+    margin: 0;
+    padding: 10px;
+}
+button {
+    background-color: #cbe3f8;
+    color: white;
+    font-size: 1.2em;
+}
+#slideshow {
+    display: none;
+    margin: 0 auto;
+    width: 80%;
+    padding: 1.5em;
+
+}
+#results img {
+    height: 350px;
+    width: auto;
+
+
+}
+#search-box {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    line-height: 3em;
+}
