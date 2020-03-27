@@ -1,5 +1,5 @@
 const API_URL_BASE = 'http://www.reddit.com/search.json?nsfw:no&q=';
-const INTERVAL_DELAY =3000;
+const INTERVAL_DELAY =2500;
 const FADE = 4000;
 const NUM_IMAGE = 9; //Restricting the slideshow to display 8 images and start again
 let currentImages =[];
@@ -34,7 +34,7 @@ const fetchReddit =(userquery)=>{
     .then(jsonData=>{
         let results = jsonData.data.children.filter(item=>{
             console.log(item.data.post_hint)
-            return item.data.post_hint == 'image';
+            return (item.data.post_hint == 'image' && item.data != undefined && item.data.url != undefined) ;
         }).map((item)=>{
             return {
                 title: item.data.title,
@@ -91,7 +91,9 @@ const displayCurrent =()=>{
 
 // remove prev image
 const removePrevImg=()=>{
-    let resultDiv = document.getElementById('results');
+    document.getElementById('results').innerHTML = " ";
+   /* let resultDiv = document.getElementById('results');
+   
     // hasChildNodes checks the child for the Div element
     // it will check if we have image in the Div as child
    console.log(resultDiv.hasChildNodes());
@@ -101,15 +103,16 @@ const removePrevImg=()=>{
           let h3 = document.getElementsByTagName('h3');
           resultDiv.removeChild(img);
           resultDiv.removeChild(h3[0]);
-    }
+    }*/
 }
 
 // Updates the next image
 const displayNext= ()=>{
-    if(currentIndex  == (currentImages.length<NUM_IMAGE ?currentImages.length:NUM_IMAGE)){
-        currentIndex = -1;
-    }
     currentIndex++;
+    if(currentIndex  >= (currentImages.length<NUM_IMAGE ?currentImages.length:NUM_IMAGE)){
+        currentIndex = 0;
+    }
+  
     displayCurrent();
 }
 
