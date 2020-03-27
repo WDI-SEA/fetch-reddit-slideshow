@@ -1,7 +1,7 @@
 const API_URL = 'https://www.reddit.com/search.json?nsfw=no&q='
 //declare constants and global variables
 // let images = document.getElementById('pictures');
-const INTERVAL_DELAY = 3000
+const INTERVAL_DELAY = 1000
 let currentImages = []
 let currentIndex = 0
 let interval = null
@@ -67,6 +67,7 @@ const startSlideshow = () => {
     //show the slideshow div
     document.getElementById('slides').style.display = 'block'
     //change the background color
+    document.getElementById('results').style.display = 'block'
     document.getElementById('body').style.background = '#363333'
     //change the header and footer colors
     document.getElementById('header').style.background = '#ff5700'
@@ -74,12 +75,13 @@ const startSlideshow = () => {
     //display the first image
     displayCurrent()
     //kick off the interval
-    setInterval(iterateImage, INTERVAL_DELAY)
+    interval = setInterval(iterateImage, INTERVAL_DELAY)
 }
 
 //Display current image
 const displayCurrent = () => {
     //empty previous images
+    document.getElementById('results').innerHTML = ''; //hides the current image and text
     //create an image tag
     let img = document.createElement('img')//creates elements and displays them in the div
     img.src = currentImages[currentIndex].url
@@ -96,7 +98,7 @@ const displayCurrent = () => {
 }
 
 const iterateImage = () => {
-    if (currentIndex === currentImages.length - 1) { //sends the slideshow back and loops the array on interval
+    if (currentIndex >= currentImages.length) { //sends the slideshow back and loops the array on interval
         currentIndex = 0
     }
     //use a fade out instead, but how????
@@ -114,16 +116,35 @@ const endSlideshow = () => {        //reverses the changes and functions in star
     //show the slideshow div
     document.getElementById('slides').style.display = 'none'
     //change the background color
+    document.getElementById('results').style.display = 'none'
+    
     document.getElementById('body').style.background = '#cee3f8'
     //change the header and footer colors
     document.getElementById('header').style.background = '#0077D6'
     document.getElementById('footer').style.background = '#0077D6'
     currentImages = []
     currentIndex = 0
-    interval = null
-    iterateImage === false
-    // I know something's wrong with my interval. clearInterval() is not working
+    clearInterval(interval)    // I know something's wrong with my interval. clearInterval() is not working
 }
 
-document.getElementById('endshow').addEventListener('click', endSlideshow)
-//document.getElementById('endshow').addEventListener('click', function (evt) {evt.submit()})
+ document.getElementById('endshow').addEventListener('click', endSlideshow)  // () => {
+//     clearInterval(interval)
+//     const endSlideshow = () => {        //reverses the changes and functions in startSlideshow
+//         document.getElementById('frontpage').style.display = 'block'
+//         //hide the title
+//         document.getElementById('banner').style.display = 'block'
+//         //show the slideshow div
+//         document.getElementById('slides').style.display = 'none'
+//         //change the background color
+//         document.getElementById('results').style.display = 'none'
+        
+//         document.getElementById('body').style.background = '#cee3f8'
+//         //change the header and footer colors
+//         document.getElementById('header').style.background = '#0077D6'
+//         document.getElementById('footer').style.background = '#0077D6'
+//         currentImages = []
+//         currentIndex = 0
+//         interval = null
+
+// })
+// //document.getElementById('endshow').addEventListener('click', function (evt) {evt.submit()})
