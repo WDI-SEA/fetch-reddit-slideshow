@@ -27,6 +27,7 @@ document.getElementById('stopBtn').addEventListener('click', (e) => {
 	clearInterval(interval)
 	document.getElementById('search-box').style.display = 'inline-block'
 	document.getElementById('display').style.display = 'none'
+	currentIndex = 0;
 
 })	
 
@@ -72,7 +73,7 @@ const startSlides = () => {
 
 const showCurrent =() => {
 	//empty previous images
-	if (currentIndex == currentImages.length) {
+	if (currentIndex >= currentImages.length) {
 		console.log('end')
 		currentIndex = 0
 		document.getElementById('results').innerHTML = ''
