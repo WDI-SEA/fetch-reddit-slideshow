@@ -24,6 +24,7 @@ document.getElementById('search-form').addEventListener('submit', (e) => {
     }
 })
 //function to make reddit logo go down & up
+//add the padding top as a class and append the attribute instead...take a look at keyframes to make
 const logoDown = () => {
     document.getElementById('header').style.paddingTop = '35vh'
 }
@@ -34,6 +35,8 @@ const logoUp = () => {
 
 const startSearch = () => {
     logoDown()
+    //reset curretIndex
+    currentIndex = 0;
     // Show the search bar
     document.getElementById('search-box').style.display = 'inline-block'
     //stop the interval 
@@ -42,8 +45,7 @@ const startSearch = () => {
     document.getElementById('slideshow').style.display = 'none'
     //clear the search input field
     document.getElementById('query').value = ''
-    //reset curretIndex
-    currentIndex = 0;
+    
 }
 //stop button event handler
 document.getElementById('stop-button').addEventListener('click', startSearch)
@@ -85,6 +87,8 @@ const fetchReddit = (userQuery) => {
 }
 // Start the slideshow
 const startSlideshow = () => {
+    //make sure previous images are cleared
+    document.getElementById('results').innerHTML = ""
     // Hide the search bar
     document.getElementById('search-box').style.display = 'none'
     // Show the slideshow div
@@ -92,7 +96,7 @@ const startSlideshow = () => {
     // Display the first image
     displayCurrent()
     // Kick off the interval
-    interval = setInterval(displayNext, 3000)
+    interval = setInterval(displayNext, 2000)
 }
 // Display current image
 const displayCurrent = () => {
