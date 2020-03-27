@@ -1,0 +1,74 @@
+body {
+    background: pink;
+    text-align: center;
+    background-image: url(https://i6.glitter-graphics.org/pub/688/688896s4tbtltoy3.gif);
+    background-position: center;
+}
+header {
+    background-position: center;
+    padding: 0;
+    /* width: 170px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    background-size: 50%;
+    text-align: center;
+    color: orange;
+    background-color: rgb(232, 181, 230);
+    font-family: 'PT Sans', sans-serif;
+}
+#search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2 {
+    font-family: 'PT Sans', sans-serif;
+    color: orange;
+    background-color: rgb(232, 181, 230);
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p {
+    background-color: rgb(232, 181, 230);
+    color: rgb(223, 145, 2);
+    font-size: 20px;
+}
+label{
+    height: 20px;
+    width: 150px;
+    background-color: rgb(232, 181, 230);
+    color: orange;
+    font-family: 'PT Sans', sans-serif;
+}
+input {
+    width: 200px;
+    text-align: center;
+    height: 20px;
+    font-size: 13px;
+    
+}
+button {
+    height: 30px;
+    width: 100px;
+    margin: 10px;
+    font-size: 13px;
+}
+
+
+#slideshow {
+    display: none;
+}
+
+
+#results img {
+    height: 350px;
+    width: auto;
+}
+
+
+/* https://i6.glitter-graphics.org/pub/688/688896s4tbtltoy3.gif */

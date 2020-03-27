@@ -3,9 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>ASK ME ANYTHING</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|PT+Sans:700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="bg">
+  <header>
+      <nav>
+          <h1>BRIGHT WEB</h1>
+      </nav>
+  </header>
+  <div>
+    <p> Welcome to bright web where all content is safe and not "malicious", Only happy queries from here on out..!</p>
+  </div>
+  <div id="search-box">
+    <h2 class="info">Ask me anything</h2>
+  </div>
+    <form id="search-form">
+      <div>
+        <label for="query">Search Query:</label>
+        <input type="text" id="query" placeholder="Happy Thoughts ONLY">
+      </div>
+      <button type="submit">Search</button>
+    </form>
+  <div id="slideshow">
+    <h2>Welcome</h2>
+    <div id="results"></div>
+    <button id="stop-button">reset</button>
+  </div>
+</div>
+  <script src="./js/script.js"></script>
+
 </body>
 </html>
