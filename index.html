@@ -3,9 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Reddit Slider</title>
 </head>
-<body>
-  <h1>Hello Front-End</h1>
+<body id="body">
+    
+  <header id="header">
+    <div class="banner" id="banner">
+     
+      <img src="https://captainfisticuffs.files.wordpress.com/2013/04/reddit-alien.png" class="redditlogo" id="redditlogo">
+      <h1>Reddit Slider</h1>
+    </div>
+  </header>
+
+  <div class="frontpage" id="frontpage">
+    <form class="formy" id="formy">
+      <p>Welcome to the page you've always wanted to see, the great Reddit Slider! Why don't you give it a try? Just type in the search bar below to get a slideshow of the life-changing Reddit pictures that you've always known, deep in your heart, were out there. Make sure to be specific!</p>
+      <input type="text" class="userinput" id="userinput" placeholder="Search Images" min="0">
+      
+      <button type="submit" class="startshow" id="startshow">SEARCH</button>
+    </form>
+  </div>
+
+  <div class="slides" id="slides">
+    <div class="results" id="results"></div>
+    <button type="submit" class="endshow" id="endshow">STOP SLIDESHOW</button>
+  </div>
+
+  <footer id="footer"></footer>
+  <script src="./script.js"></script>
 </body>
 </html>
