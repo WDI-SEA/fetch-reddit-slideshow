@@ -28,6 +28,7 @@ fetchRedditt(userQuery)
 document.getElementById('stop-button').addEventListener('click', (e) =>{
 document.getElementById('search-form').reset();
 location.reload(true);
+
 })
 // helper functions
 // fetch function
@@ -72,28 +73,46 @@ const startSlideshow = () => {
 
   displayCurrent()
   //display first image
+
+
+interval = setInterval(changeImage, INTERVAL_DELAY)
+
+}
+const changeImage = () => {
+  //update currentImage being shown
+  //console.log('hello')
+  currentIndex += 1
+  if(currentIndex >= currentImages.length){
+    currentIndex = 0
+  }
+
+  //placr that image into jsonData
+  displayCurrent()
 }
 
 const displayCurrent = () => {
   //empty previous images
+  document.getElementById('results').innerHTML = ''
 
-currentImages.forEach(e => {
+//use for each if you want a static page of pics
+// will need to replace currentImages[currentIndex] down below w e and uncomment this function
+//currentImages.forEach(e => {
 
 
   //create an image tag
   let img = document.createElement('img')
-  img.src = e.url
-  console.log(e.url)
-  img.alt = e.title
+  img.src = currentImages[currentIndex].url
+  console.log(currentImages[currentIndex].url)
+  img.alt = currentImages[currentIndex].title
 
   let h3 = document.createElement('h3')
-  h3.textContent = e.title
+  h3.textContent = currentImages[currentIndex].title
 
   document.getElementById('results').append(img)
 
   document.getElementById('results').append(h3)
 
 
-})
+//})
 //updates the next image
 }
