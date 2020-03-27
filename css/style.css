@@ -1,36 +1,38 @@
 body, html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #cbe3f8;
+}
+#logo {
+    display: blinlock;
+    width: 10%;
 }
 header {
     margin: 0;
-    width: 100%
-}
-nav {
-    margin: 0;
-    color: #ff5700;
-    background-color: #cbe3f8;
-}
-nav h1 {
-    margin: 0;
-    padding: 10px;
+    width: 100%;
+    padding-top: 35vh;
+    transition: 0.2s ease-in;
 }
 button {
-    background-color: #cbe3f8;
-    color: white;
+    background-color: white;
+    border: #FF5700 2px solid;
     font-size: 1.2em;
+    border-radius: 5px;
+    color: dark grey;
 }
 #slideshow {
     display: none;
     margin: 0 auto;
     width: 80%;
     padding: 1.5em;
+    height: 50vh
 
 }
 #results img {
-    height: 350px;
-    width: auto;
+    height: 50vh;
+    transition: 0.2s ease;
 
 
 }
@@ -39,4 +41,7 @@ button {
     width: 80%;
     padding: 20px;
     line-height: 3em;
+}
+#look {
+    color: #FF5700;
 }
