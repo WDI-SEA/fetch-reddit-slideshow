@@ -1,0 +1,34 @@
+body {
+    background: skyblue;
+}
+h1 {
+    text-align: center;
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+}
+h2{
+    font-family: 'PT Sans', sans-serif;
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+nav h1 {
+    font-family: 'PT Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.nav {
+    text-align: center;
+}
+.logo {
+    text-align: center;
+}
+#slideshow {
+    display: none;
+}
+/* // reddit hex color buttons #ff5700 background color for body#0077d6 background color forbody  */
+#results img {
+    height: 350px;
+    width: auto;
+}
