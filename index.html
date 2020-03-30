@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+  <title>Cats, cats, cats</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <header>
+    <nav>
+      <h1>Reddit Search</h1>
+    </nav>
+  </header>
+  <div id="search-box">
+    <h2>What are you looking for?</h2>
+    <hr />
+      <p>Use the search bar provided below to enjoy a slideshow of the best of Reddit's photos</p>
+    <form id="search-form">
+      <div>
+        <label for="query">Search Photos:</label>
+        <input type="text" id="query" placeholder="Search"> 
+      </div>
+      <button type="submit">Go Get It</button>
+    </form>
+  </div>
+  <div id="slideshow">
+    <div id="results">
+    </div>
+    <div>
+      <button type="submit" id="stop-button">Stop Show</button>
+    </div>
+  </div>
+  <script src="./js/script.js"></script>
 </body>
 </html>

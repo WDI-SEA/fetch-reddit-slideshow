@@ -1,0 +1,58 @@
+body,
+html {
+    font-family: 'Lobster', cursive;
+    text-align: center;   
+    padding: 0;
+}
+
+body {
+    background-color: rgba(182, 178, 178, 0.568);}
+
+header {
+    margin: 0;
+    width: 100%
+}
+
+nav {
+    margin: 0;
+    color: rgb(70, 48, 121);
+    background-color: #cbdeec;
+    text-align: center;
+}
+
+p {
+    font-family: 'Acme', sans-serif;
+    font-size: 14px;
+}
+
+nav h1 {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #cbdeec;
+    color: rgb(70, 48, 121);
+    text-align: center;
+    font-size: 1.2em;
+    margin: 15px;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #cdbeec;
+}
+
+button:active {
+    background-color: navy;
+}
+
+#slideshow {
+    display: none;
+    font-family: 'Acme', sans-serif;
+}
+
+#results img {
+    height: 350px;
+    width: auto;
+}
