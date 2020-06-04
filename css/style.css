@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  text-align: center;
+}
+
+.header {
+  padding: 25px 0 ;
+}
+
+.input {
+  padding: 25px 0 25px 0;
+}
+
+#showStart {
+  padding: 25px 0;
+}
+
+body {
+  background: url("http://www.placekitten.com/500/500");
+  object-fit: contain;
+  /* margin: 0 auto; */
+  /* width: 100%; */
+}
