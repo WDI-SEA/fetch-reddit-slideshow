@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit SlideShow</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div id='container'>
+    <h1>Come see your very own SFW(Safe For Work) Slideshow</h1>
+    <div id="slideshow">
+      
+    </div>
+    <div id="searchBar">
+      <form id="inputForm">
+          <input type='text' id="searchText" name="searchText" 
+          placeholder="What Do You Want To See?">
+          <div id="buttons">
+            <button id='go'>GO</button>
+            <button id='stop'>STOP</button>
+          </div>
+        </form>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
 </body>
 </html>
