@@ -1,0 +1,38 @@
+body {
+    display: center;
+    text-align: center;
+}
+h1 {
+    display: center;
+    text-align: center;
+}
+
+h2 {
+    font-weight: initial;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: initial;
+}
+.title {
+    display: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #8b3838;
+}
+#myDescriptor {
+    width: 270px;
+    height: 20px;
+    text-align: center;
+}
+.images {
+    padding: 50px;
+}
+.button {
+    margin: 5px; 
+    background-color: lightcoral;
+    color: whitesmoke
+
+}
