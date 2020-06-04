@@ -1,13 +1,13 @@
 let text = document.getElementById("text");
 let btn = document.getElementById("btn");
 let pic = document.getElementById("pic");
-let search = text.textContent
-let url = "http://www.reddit.com/search.json?q=cats+nsfw:no" 
+let search = text.textContent;
+let url = "http://www.reddit.com/search.json?q=cats+nsfw:no";
+let allPics = [];
 
-/* --------------- Event Listener -------------------*/
-// btn.addEventListener('click', nextImage());
+/* ------------------ Event Listener ---------------------*/
 
-getImage();
+btn.addEventListener('click', getImage());
 
 /* ------------------- Functions ------------------------*/
 
@@ -22,15 +22,20 @@ function getImage() {
             console.log(array);
             for (i = 0; i < array.length; i++) {
                 if (array[i].data.url.endsWith("jpg")) {
-                    console.log(array[i].data.url);
-                    pic.src = array[i].data.url;
+                    // console.log(array[i].data.url);
+                    // pic.src = array[i].data.url;
+                    allPics.push(array[i].data.url);
+                    console.log(allPics);
+                    setInterval(nextImage(), 2000)
                 }
-                function nextImage() {
-
-                }
+            
             }
-
-
         })
-
 }
+    
+function nextImage() {
+    for (i = 0; i < allPics.length; i++) {
+        pic.src = array[i].data.url;
+    }
+}
+//  setInterval(nextImage(), 2000)
