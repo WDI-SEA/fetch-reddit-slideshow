@@ -3,9 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Slideshow</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <script src = "js/script.js"></script>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+<form id = "form">
+  <!-- Search term with input field -->
+    <div class = "search">
+      <input id = "textField" type="text" placeholder = "Search term" required>
+    </div>
+
+  <!-- Button with reddit logo -->
+  
+    <div id = "button" onclick="getPics()">
+      <p class = "buttonText">Search</p>
+      <button id = "go" type = "submit" onclick = "getPics()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAYwKRf1GCvFJjb2vL1spoKOi6QcrTN7pKaV1LJjPN6v1sV2Y9&usqp=CAU" class = "reddit"></button>
+    </div>
+  </form>
+
+  <div id = "results">
+    <img src=""id = "picture">
+  </div>
+
+  <div id  = "stop">
+    <button id = "stopButton" onclick = "stop()" style = "display : none">Stop</button>
+  </div>
+
 </body>
 </html>
