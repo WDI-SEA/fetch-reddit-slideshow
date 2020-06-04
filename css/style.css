@@ -1,0 +1,54 @@
+body {
+    font-family: helvetica;
+    text-align: center;
+    /* background-color: #000; */
+}
+
+form {
+    display: inline-block;
+}
+
+h1 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25em;
+}
+
+/********** classes ***********/
+.container {
+    background-color: #9bff9b;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+.wrapper-1 {
+    background-color: #ff5e79;
+}
+.search {
+    background-color: #ffff84;
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+
+
+.carousel {
+    background-color: #5858cd;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+#slideshow {
+    display: block;
+    border-radius: 8px;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
