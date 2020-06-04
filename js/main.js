@@ -14,8 +14,6 @@ let url = "https://www.reddit.com/search.json?q=cats+nsfw:no";
 let photoArr = [];
 let titleArr = [];
 
-// src that updates to new picture parameters
-// 
 
 
 /* ----------------- READ DEEZ EVENTS --------------------- */
@@ -59,8 +57,6 @@ fetch(url)
                 titleArr.push(results[i].data.title)
                 //console.log(titleArr);
             })
-        // console.log(results[i].data.title)    
-        // console.log(results[i].data.thumbnail)
   }
 })
 .catch(errorCatcher);
