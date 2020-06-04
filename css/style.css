@@ -1,0 +1,20 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#img-container {
+  /* width: 500px; */
+  height: 500px;
+  margin: 0 auto;
+}
+
+img {
+  max-height: 500px;
+  max-width: auto;
+}
+
