@@ -1,10 +1,11 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 //console.log("testicles");
 /* -------------- DOM REFS -------------------*/
 
-let start = document.getElementById("start");
 let stop = document.getElementById("stop");
-let searchBar = document.getElementById("search")
-let displayPics = document.getElementById("slidshowLocation");
+let search = document.getElementById("searchButton");
+// let displayPics = document.getElementById("slidshowLocation");
 
 
 /* ------------- GAME LOGIC VARIABLES --------------------- */
@@ -15,22 +16,25 @@ let photoArr = [];
 let titleArr = [];
 
 
-
 /* ----------------- READ DEEZ EVENTS --------------------- */
-//start, stop
-// start.addEventListener("click", startSlideshow);
-// stop.addEventListener("click", stopSlideshow);
+search.addEventListener("click", createSlideshow);
+
 
 
 
 /* ------------------------- Writting Dem Functions -------------------- */
+// lets make the rotating slideshow function
 
-//function that starts slide show
-    // take search parameter, adjust the url to search for a specific topic
-    // updating array of photos / single img src to new image
-// function startSlideshow() {
-//     console.log(searchBar.value)
-// }
+function createSlideshow(e) {
+    e.preventDefault()
+    let searchResult = document.getElementById("searchBar").value
+    url = `https://www.reddit.com/search.json?q=${searchResult}+nsfw:no`
+    getSlideshow()
+    console.log(url)
+};
+
+
+
 
 
 
@@ -49,17 +53,13 @@ fetch(url)
     //console.log(jsonData.data.children);
     results = jsonData.data.children;
         for (let i = 0; i < results.length; i++) {
-            Object.keys(results[i].data.thumbnail).forEach(function(result) {
                 photoArr.push(results[i].data.thumbnail);
                 //console.log(photoArr)
-            })
-            Object.keys(results[i].data.title).forEach(function(result) {
                 titleArr.push(results[i].data.title)
-                //console.log(titleArr);
-            })
+                console.log(titleArr);
   }
 })
 .catch(errorCatcher);
 };
-getSlideshow()
-
+//getSlideshow()
+});

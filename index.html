@@ -16,16 +16,19 @@
   </div>
   <div>
     <form>
-      <input type="text" id="search" name="searchBox" placeholder="Search">
+      <label for="search">Search Reddit</label>
+      <input type="text" id="searchBar" name="search" required>
+      <button for="search" id="searchButton">Click Here</button>
     </form>
   </div>
+  <br>
   <div>
-    <h3 id="slideshowLocation">
+    <div class="slideShow">
       <!--get me that slideshow-->
-    </h3>
+      <img id="slideshowLocation" src="https://www.placecage.com/c/400/400">
+    </div>
   </div>
   <div>
-    <button id="start">Search</button>
     <button id="stop" disabled>Stop</button>
   </div>
 <script src="js/main.js"></script>
