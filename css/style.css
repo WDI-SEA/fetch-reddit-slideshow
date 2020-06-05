@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Montserrat&display=swap');
+
+body {
+    margin: 0 ;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: bold;
+}
+
+button, input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#stopBtn {
+    display: none;
+    margin: 10px 0;
+}
+
+.centered {
+    text-align: center;
+}
