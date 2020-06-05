@@ -1,79 +1,95 @@
+/* ----------------- CONSTANTS AND VARIABLES ----------------- */
+
+const INPUT_FORM = document.querySelector(`#input-form`);
+const SUBMIT_BUTTON = document.querySelector(`#submit-button`);
+const STOP_BUTTON = document.querySelector(`#stop-button`);
 const IMG_CONTAINER = document.querySelector(`#img-container`);
-const INPUT_FORM = document.querySelector(`#input-form`).addEventListener(`submit`, function(e) { newSearch(e); });
-const SUBMIT_BUTTON = document.querySelector(`#submit-button`).addEventListener(`click`, function(e) { newSearch(e); });
-const STOP_BUTTON = document.querySelector(`#stop-button`).addEventListener(`click`, function(e) { stop(e); });
 const DISPLAY_IMG = document.querySelector(`#display-img`);
-const USER_INPUT_CONTAINER = document.querySelector(`#user-input-container`);
 const USER_INPUT = document.querySelector(`#text-input`);
-const STOP_CONTAINER = document.querySelector(`#stop-container`);
 
-let imgLinks = [];
-let currentImg = 0;
+let imgLinks = [];  //img urls                                         
+let currentImg = 0; //pointer for img array
+let timer = null;   //for setInterval
+let imgTime = 5000; //setInterval time
 
-let timer = null;
-let imgTime = 5000;
+let redditUrl = `https://www.reddit.com/search.json?q=kitten`;  //default url to kittens search
 
-let redditUrl = `https://www.reddit.com/search.json?q=kitten`;
+/* ----------------- DOM EVENT LISTENERS ----------------- */
 
+INPUT_FORM.addEventListener(`submit`, function(e) { newSearch(e); });
+SUBMIT_BUTTON.addEventListener(`click`, function() { newSearch(); });
+DISPLAY_IMG.addEventListener(`click`, function() { openUrl(); });
+STOP_BUTTON.addEventListener(`click`, function() { stop(); });
+USER_INPUT.style.display = 'none';
+SUBMIT_BUTTON.style.display = 'none';
+
+/* ----------------- FUNCTIONS ----------------- */
+
+//search form
 function newSearch(e){
-  e.preventDefault();
-  USER_INPUT_CONTAINER.style.display = "none";
-  STOP_CONTAINER.style.display = "display";
-  clearTimeout(timer);
-  redditUrl = `https://www.reddit.com/search.json?q=${USER_INPUT.value}`;
-  console.log(`new search ${USER_INPUT.value} url = ${redditUrl}`);
-
-  fetchImgs(redditUrl);
-
+  e.preventDefault(); //don't refresh page
+  clearInterval(timer); //stop slideshow
+  redditUrl = `https://www.reddit.com/search.json?q=${USER_INPUT.value}`; //update url from search form
+  USER_INPUT.style.display = 'none';      //hide search elements and show stop button
+  SUBMIT_BUTTON.style.display = 'none';
+  STOP_BUTTON.style.display = 'inline';
+  fetchImgs(redditUrl); //call fetching function
+  //console.log(`new search ${USER_INPUT.value} url = ${redditUrl}`); 
 }
 
-function stop(e){
-  //e.preventDefault();
-  USER_INPUT_CONTAINER.style.display = "display";
-  //STOP_CONTAINER.style.display = "none";
+//opens img url on click
+function openUrl(){
+  window.open(imgLinks[currentImg]);
 }
 
+//stop button 
+function stop(){
+  clearInterval(timer); //stop the slideshow
+  USER_INPUT.style.display = 'inline'; //hide self and show form
+  SUBMIT_BUTTON.style.display = 'inline';
+  STOP_BUTTON.style.display = 'none';
+ }
+
+//fetches img urls from reddit api
 function fetchImgs(url){
-  fetch(url)
+  fetch(url) //fetch search url
   .then(function(responseData){
-    return responseData.json();
+    return responseData.json(); //jsonify response
   })
   .then(function(jsonData){
     let children = jsonData.data.children;
-    //clear links
-    imgLinks = [];
-    //check for .jpg images and push to imageLinks
-    children.forEach(function(child){
-      if(child.data.url.slice(-4) === `.jpg`){
+    imgLinks = [];  //clear previous url links
+    children.forEach(function(child){     //check for .jpg images and push to imageLinks
+      if(child.data.url.slice(-4) === `.jpg`){ //negetive value for slice start wraps backwards on string
         imgLinks.push(child.data.url);
       }
     })
-    console.log(imgLinks);
-    updateImg();
-    setTimer();
+    currentImg = 0; //start at beginning of the image array
+    updateImg();  //update image
+    setTimer();   //set slideshow timer
   })
   .catch(function(error){
     console.log(`error ${error}`);
   })
 }
 
+//update the displayed img
 function updateImg() {
-  console.log(imgLinks[currentImg]);
   DISPLAY_IMG.src = imgLinks[currentImg];
 }
 
+//create new slideshow timer
 function setTimer(){
   timer = setInterval(tick, imgTime);
 }
 
+//called by slideshow setInterva;
 function tick(){
-  currentImg++;
-  if (currentImg >= imgLinks.length){
+  currentImg++; //inc the current img pointer
+  if (currentImg >= imgLinks.length){ //reset if out of bounds of array length
     currentImg = 0;
   }
-  updateImg();
+  updateImg(); //update img on tick
 }
 
-fetchImgs(redditUrl);
-
-//STOP_CONTAINER.style.display = "none";
+fetchImgs(redditUrl); //initiate slideshow with kittens search on page load
