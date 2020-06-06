@@ -13,7 +13,19 @@
   </div>
   <form>
     <p>Enter a search term and click Bring Me a Photo!</p>
-    <input type='text' name="search_term">
+    <p>Search Term:
+      <input type='text' name="search_term">
+    </p>
+    <div>Prioritize results by:
+      <input type='radio' id='hot' name='result_priority' value='hot'>
+      <label for='hot'>Hot</label>
+      <input type='radio' id='top' name='result_priority' value='top'>
+      <label for='top'>Top</label>
+      <input type='radio' id='new' name='result_priority' value='new' checked="checked">
+      <label for='New'>New</label>
+      <input type='radio' id='comments' name='result_priority' value='comments'>
+      <label for='comments'>Most Comments</label>
+    </div>
     <input type='submit' name="search_button" value="Bring Me a Photo!">
   </form>
   <button class="end_show" display: none>I take it back! Please stop!</button>

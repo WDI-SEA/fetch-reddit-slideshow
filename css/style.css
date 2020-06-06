@@ -5,9 +5,16 @@
 
 .theater {
     height: 500px;
-    background-size: contain;
 }
 
 img {
     height: 100%;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
 }

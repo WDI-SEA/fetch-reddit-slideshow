@@ -14,8 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let photoInterval;
 
     function getMorePhotos(searchTerm){
-        thisTheater.innerHTML = "Please wait.  Selecting only the choicest images takes time."
-        fetch(`https://www.reddit.com/search.json?limit=100&q=${searchTextField.value}`)
+        thisTheater.innerHTML = "Please wait.  Selecting only the choicest images takes time.";
+        let resultPriority = document.querySelector('input[name="result_priority"]:checked');
+        let thisFetchUrl = `https://www.reddit.com/search.json?limit=100&q=${searchTextField.value}&sort=${resultPriority.value}`;
+        console.log("Fetching " + thisFetchUrl);
+        fetch(thisFetchUrl)
         .then(function(responseData){
             return responseData.json();
         })
@@ -30,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let nextPhoto = thesePhotoResults[Math.floor(Math.random()*thesePhotoResults.length)];
                     console.log("Next photo url is " + nextPhoto);
                     thisTheater.innerHTML = `<img src="${nextPhoto}" alt="image search result">`;
-                }, 5000);
+                }, 3500);
             } else {
                 thisTheater.innerHTML = "Oh dear!  Not enough people post photos about this on Reddit.  It must not exist.";
             }
