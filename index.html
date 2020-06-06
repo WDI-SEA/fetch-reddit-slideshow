@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+  <script src="./js/app.js"></script>
+  <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Reddit Photo of the Minute</h1>
+  <div class="theater">
+  </div>
+  <form>
+    <p>Enter a search term and click Bring Me a Photo!</p>
+    <input type='text' name="search_term">
+    <input type='submit' name="search_button" value="Bring Me a Photo!">
+  </form>
+  <button class="end_show" display: none>I take it back! Please stop!</button>
+  </div>
 </body>
 </html>

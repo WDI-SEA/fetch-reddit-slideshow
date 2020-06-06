@@ -1,0 +1,13 @@
+
+.end_show {
+    display: none;
+}
+
+.theater {
+    height: 500px;
+    background-size: contain;
+}
+
+img {
+    height: 100%;
+}
