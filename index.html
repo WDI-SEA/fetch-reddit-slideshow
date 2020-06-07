@@ -8,27 +8,26 @@
   <title>Reddit Slideshow</title>
 </head>
 <body>
-  <div>
-    <h1>Welcome to the one and only Reddit slideshow</h1>
+  <div class="header">
+    <h1 class="title">🎆 Welcome to the one and only Reddit slideshow 🎆</h1>
   </div>
-  <div>
-    <h2>Enter your search below and let the slideshow begin</h2> 
+  <div class="secondHeader">
+    <h2 class="explination">Enter your search below and let the slideshow begin</h2> 
   </div>
-  <div>
+  <div class="searchForm">
     <form>
-      <label for="search">Search Reddit: </label>
+      <label class = "label" for="search">Search Reddit: </label>
       <input type="text" id="searchBar" name="search" required>
       <button for="search" id="searchButton">Click Here</button>
     </form>
   </div>
-  <br>
   <div>
-    <div class="slideShow">
+    <div class="slideshow">
       <!--get me that slideshow-->
-      <img id="slideshowLocation" src="https://www.placecage.com/c/400/400">
+      <img id="slideshowLocation" src="https://qph.fs.quoracdn.net/main-qimg-7d2f5552ca8fdefdd548c26eba761f78.webp">
     </div>
   </div>
-  <div>
+  <div class="stopButton">
     <button id="stop" disabled>Stop</button>
   </div>
 <script src="js/main.js"></script>

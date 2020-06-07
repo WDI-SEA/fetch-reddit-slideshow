@@ -1,24 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-//console.log("testicles");
 /* -------------- DOM REFS -------------------*/
 
 let stop = document.getElementById("stop");
 let search = document.getElementById("searchButton");
 let slides = document.getElementById("slideshowLocation");
-
+let explination = document.querySelector(".explination");
+let label = document.querySelector(".label")
+let searchBar = document.getElementById("searchBar");
+ 
 /* ------------- GAME LOGIC VARIABLES --------------------- */
 
 let results = [];
 let url = "https://www.reddit.com/search.json?q=cats+nsfw:no";
 let photoArr = [];
-let titleArr = [];
-
 
 /* ----------------- READ DEEZ EVENTS --------------------- */
+
 search.addEventListener("click", createSlideshow);
 stop.addEventListener("click", reset);
-
 
 /* ------------------------- Writting Dem Functions -------------------- */
 
@@ -28,17 +28,24 @@ function createSlideshow(e) {
     let searchResult = document.getElementById("searchBar").value;
     url = `https://www.reddit.com/search.json?q=${searchResult}+nsfw:no`;
     slideshow();
+    explination.innerText = " ";
+    label.innerText = " ";
+    search.disabled = true;
+    searchBar.disabled = true;
     stop.disabled = false;
-    //postSlides()
-    //console.log(url)
 };
 
 function reset(e) {
     e.preventDefault();
     photoArr = [];
     titleArr = [];
-    slides.src = "https://www.placecage.com/c/400/400";
+    slides.src = "https://qph.fs.quoracdn.net/main-qimg-7d2f5552ca8fdefdd548c26eba761f78.webp";
     url = "https://www.reddit.com/search.json?q=cats+nsfw:no";
+    explination.innerText = "Enter your search below and let the slideshow begin";
+    label.innerText = "Search Reddit:"
+    search.disabled = false;
+    searchBar.disabled = false;
+    stop.disabled = true;
     clearInterval(interval);
 }
 
@@ -64,8 +71,6 @@ fetch(url)
                 //console.log(results[0].data.url);
                 //console.log(results[1])
             }
-                // titleArr.push(results[i].data.title)
-                // console.log(titleArr);
     }
   function postSlides() {
         slides.src = photoArr.shift();
@@ -74,17 +79,14 @@ fetch(url)
         //console.log(photoArr)
         //console.log(slides.src[0])
 }
-interval = setInterval(postSlides, 3000)
+interval = setInterval(postSlides, 3000);
 })
 .catch(errorCatcher);
 };
 
 });
 
-
-
-
-/*------------------------ dont fuck with this for now Safety Net --------------------*/
+/*------------------------ test zone --------------------*/
 
 // function slideshow() {
 //     function errorCatcher(error) {
@@ -103,21 +105,19 @@ interval = setInterval(postSlides, 3000)
 //                     photoArr.push(results[i].data.url);
 //                     //slides.src++
 //                     //console.log(results[0].data.url);
-//                     //console.log(photoArr[0])
+//                     //console.log(results[1])
 //                 }
-//                     // titleArr.push(results[i].data.title)
-//                     // console.log(titleArr);
 //         }
 //       function postSlides() {
-//             slides.src = photoArr.shift();
+//             slides.src = photoArr.map();
 //             slides.src[0]++
-//             // photoArr.fill(results[i].data.url)
-//             console.log(photoArr)
-//             console.log(slides.src[0])
+//             //photoArr.fill(results)
+//             //console.log(photoArr)
+//             //console.log(slides.src[0])
 //     }
-//     setInterval(postSlides, 3000)
+//     interval = setInterval(postSlides, 3000)
 //     })
 //     .catch(errorCatcher);
 //     };
-    
+
 //     });

@@ -2,4 +2,51 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-image: url("https://wallpapermemory.com/uploads/215/reddit-background-full-hd-83751.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slideshow {
+    display: flex;
+    justify-content: center;
+}
+
+#slideshowLocation {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 600px;
+    width: 400px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.secondHeader {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.stopButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#stop {
+    font-size: 16px;
+    padding: 10px 40px 10px 40px;
 }
