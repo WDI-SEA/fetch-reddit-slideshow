@@ -10,7 +10,8 @@ var test = 0;
 
 let timer = null;
 
-
+goButton.addEventListener("click",getPics);
+stopButton.addEventListener("click",stop);
 
 function getPics(){
     event.preventDefault();
