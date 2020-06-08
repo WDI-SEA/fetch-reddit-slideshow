@@ -1,4 +1,4 @@
-let url = 'http://www.reddit.com/search.json?q=kitten';
+let url = 'http://www.reddit.com/search.json?q=kittens';
 let i = 0;
 let catData = [];
 let Kitty = document.getElementById('KittyKat');
@@ -28,6 +28,7 @@ const displayQuote = function () {
                     // decodeURI = if URL has a bunch of gibberish it'll fix it
 
                 }
+            })
 
             })
     
@@ -41,8 +42,8 @@ const displayQuote = function () {
                 }
         )
     }
-)
-}
+
+
 displayQuote();
 document.addEventListener("DOMContentLoaded", displayQuote);
 //const catData = displayQuote();
