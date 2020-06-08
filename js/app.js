@@ -14,6 +14,8 @@ let submit = document.getElementById('submitButton').addEventListener('click', (
     submitMe();
 });
 
+
+
 function fetcher(){
 fetch(url)
  .then(function(responseData) {
@@ -21,8 +23,6 @@ fetch(url)
      return jsonData;
  })
  .then(function(jsonData){
-     //do stuff
-    console.log(jsonData)
     jsonData.data.children.forEach(element => 
         images.push(element.data.url)
     );
@@ -54,16 +54,17 @@ function imageEditor(){
     // img5.style.backgroundImage = 'url(' + jpegs[random2] + ')'
     img3.style.backgroundImage = 'url(' + jpegs[random3] + ')'
     // img6.style.backgroundImage = 'url(' + jpegs[random3] + ')'
-    
-    console.log(jpegs)
 }
+
+setInterval(function(){ 
+    console.log('hi')
+    imageEditor(); }, 2500);
 
 function checkUrl(){
   for(var i = 0; i < images.length; i++) {
     if(images[i].includes('jpg' || 'gif')){
      jpegs.push(images[i])
     }
-  
   }
   imageEditor();    
 } 
@@ -77,5 +78,4 @@ function submitMe() {
     url += `&limit=40&nsfw=no`
     console.log(url)
     return fetcher(url);
-   
 }
