@@ -91,7 +91,7 @@ const changeImage = () => {
 
 /* ----------------------- Display current image ----------------------- */
 const displayCurrent = () => {
-/* ----------------------- Empty previous images
+/* ----------------------- Empty previous images  ----------------------- */
     document.getElementById('results').innerHTML = ''
 
 /* ----------------------- Create an image tag ----------------------- */
