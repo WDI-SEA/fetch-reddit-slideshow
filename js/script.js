@@ -23,10 +23,12 @@ document.addEventListener("DOMContentLoaded", function(){
                         searchResult.push(searchImg[i].data.thumbnail);
                     }   
                 }
-                console.log(searchResult);
-                let getImg = document.createElement("img");
-                getImg.innerHTML = searchResult;
-                slideImg.appendChild(getImg);
+                // console.log(searchResult);
+                for (let j=0; j<searchResult.length; j++) {
+                    let getImg = document.createElement("img");
+                    getImg.setAttribute('src', searchResult[j]);
+                    slideImg.appendChild(getImg);
+                }
             })
             .catch(function(error) {
                     console.log("Oh no, there's been an error!", error);
