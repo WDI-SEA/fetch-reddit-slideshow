@@ -1,9 +1,30 @@
 body {
-    background-color: pink;
+    background-color:p;
 }
 h1{
     color: grey;
     text-align: center;
     font-size: 50px;
+    font-family: 'Amatic SC', cursive;
+
 }
-)
+form {
+    text-align: center;
+
+}
+#search-bar {
+    margin-top: 100px;;
+    width: 50%;
+    height: 45px;
+}
+.submit-but {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Lexend Tera', sans-serif;
+    font-size: 18px;
+}
