@@ -1,12 +1,14 @@
 console.log('loading')
 
-let homeUrl = "https://www.reddit.com/search.json?q=pics"
-imageSource = document.getElementById('screen').src
+let homeUrl = "https://www.reddit.com/search.json?q="
+function imageSource(j) {
+  document.getElementById('screen').src = j
+}
+let indexDefault = 0
 
 
-
-function getJson() {
-  fetch(homeUrl)
+function getJson(surl) {
+  fetch(homeUrl + surl)
     .then(function (responseData) {
       return responseData.json()
     })
@@ -28,9 +30,9 @@ let isImage = function (u) {
 }
 
 let urlList = [];
-
-function getJsonUrl() {
-  fetch(homeUrl)
+//returns parsed list from homeUrl, creates list urlList[...] of .jpg only
+function getJsonUrl(surl) {
+  fetch(homeUrl + surl)
     .then(function (responseData) {
       return responseData.json()
     })
@@ -38,14 +40,27 @@ function getJsonUrl() {
       urlList = []
       let jurl = jsonData.data.children;
       for (i = 0; i < jurl.length; i++)
-        if (isImage(jurl[i].data.url)) {
-          urlList.push(jurl[i].data.url)
-        } else {
-          delete jurl[i].data.url
-        }
+        // console.log(jurl[i].data.post_hint)
+      if (isImage(jurl[i].data.url)) {
+        urlList.push(jurl[i].data.url)
+      } else {
+        delete jurl[i].data.url
+      }
     }
     )
 }
+
+
+//SLIDESHOW()
+// iterates through urlList[...], writing each image in order to display, timer using setInterval(), loops.
+
+//STARTBUTTON(u)
+// adds eventHandler to element id="showStart"
+// calls slideshow, accepts reddit search parameter as argument
+
+//STOPBUTTON()
+// adds eventHandler to element id="showStop"
+// stops slideshow, using clearInterval in function slideshow()
 
 
 // function getJsonUrl() {

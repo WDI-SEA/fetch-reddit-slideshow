@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +8,7 @@
   <script src="js/script.js"></script>
   <title>Reddit Slideshow</title>
 </head>
+
 <body>
   <div class="header">
     <h1>Reddit Slideshow Search!</h1>
@@ -14,15 +16,24 @@
   <div>
     <h3>Choose wisely.</h3>
   </div>
-  <div class="input">
-    <input type="text">
-  </div>
-  <div id="showStart">
-    <button>Start the Show!</button>
-  </div>
+  <form action="">
+    <div class="input">
+      <label for="searchItem">What would you like to search for pics of?</label>
+      <br><br>
+      <input type="text" id="searchItem">
+    </div>
+    <div id="showStart">
+      <button>Start the Show!</button>
+    </div>
+    <div id="showStop">
+      <button>Stop the show.</button>
+    </div>
+  </form>
+  <br><br>
   <div id="slidecontainer">
-    <img id="screen" src="https://preview.redd.it/fgwp1yj9sfo21.jpg?width=640&crop=smart&auto=webp&s=7abc5e93e67325db90eba96d19892a6dfb066db0" alt="">
+    <img id="screen" src="http://www.placekitten.com/50/50" alt="">
   </div>
 
 </body>
+
 </html>
