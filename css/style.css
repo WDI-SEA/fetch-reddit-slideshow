@@ -15,6 +15,11 @@ body {
     
 }
 
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
 .wrapper {
     position: absolute;
     top: 10%;
@@ -39,14 +44,14 @@ body {
     color: white;
 }
 
-#btn {
+#btn  {
     background: rgb(68, 156, 228);
     width: 10%;
     position: relative;
     cursor: pointer;
 }
 
-#btn .fas {
+#btn .fas  {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -54,6 +59,17 @@ body {
     font-size: 20px;
     border: 1px solid rgb(68, 156, 228);
     color: whitesmoke;
+}
+
+#reset {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+    font-size: 20px;
+    border: 1px solid whitesmoke(68, 156, 228);
+    color: whitesmoke;
+    background: rgb(68, 156, 228);
 }
 
 #slideImg {

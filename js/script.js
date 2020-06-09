@@ -38,4 +38,12 @@ document.addEventListener("DOMContentLoaded", function(){
                     console.log("Oh no, there's been an error!", error);
             })
     }
+
+    const resetBtn = document.getElementById("reset");
+    resetBtn.addEventListener('click', resetPage);
+    function resetPage() {
+        slideImg.innerHTML = '';
+        clearInterval(interval);
+    }   
 })
+
