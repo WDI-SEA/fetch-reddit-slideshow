@@ -1,0 +1,109 @@
+body {
+    text-align: center;
+    background-color:#2E2E2E;
+    color: white;
+    margin: 0;
+}
+
+section {
+position: absolute;
+  top: 20%;
+  left: 40%;
+}
+
+#searchBtn {
+    height: 40px;
+    width: 100px;
+    position: absolute;
+    top:120%;
+    left:40%;   
+}
+
+#searchBtn:hover {
+    background-color: green;
+}
+
+#imgBox {
+  
+    height: 100px;
+    width: 100 px;
+    margin: 0 auto;
+}
+
+#myBox {
+position: absolute;
+width:300px;
+height:250px;
+border: 1px solid #999;
+top:145%;
+left:20%;
+
+}
+
+
+
+/*    --- Code for the fancy Submit Bar ------------------------------ */ 
+
+textarea, select, input {
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    width: 360px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin: 15px 0;
+  }
+  
+  textarea + label:after {
+    width: 358px !important;
+    top: -218px !important;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+  }
+  
+  textarea:invalid,
+  select:invalid,
+  input:invalid {
+    box-shadow: none;
+  }
+  
+  textarea:invalid + label:after,
+  select:invalid + label:after,
+  input:invalid + label:after {
+    padding: 0 10px;
+    max-width: 360px;
+  }
+  
+  label {
+    position: relative;
+    display: block;
+  }
+  
+  textarea:focus + label:after,
+  select:focus + label:after,
+  input:focus + label:after,
+  label:after {
+    content: attr(data-text);
+    position: absolute;
+    background: #a4a290;
+    max-width: 0;
+    padding: 0;
+    overflow: hidden;
+    left: 1px;
+    top: -44px;
+    height: 28px;
+  
+    font: 14px/28px sans-serif;
+  
+    
+    transition: all 0.25s;
+  
+    border-radius: 5px 0 0 5px;
+  }
+  textarea:focus + label:after {
+    height: 0;
+  }
+
+  /* ----- End of fancy search box code ----^^^^^--- */

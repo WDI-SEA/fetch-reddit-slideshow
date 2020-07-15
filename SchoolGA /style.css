@@ -1,0 +1,45 @@
+body {
+    background-color: lightskyblue;
+    text-align: center;
+  }
+  
+  label,
+  p {
+    font-size: 24px;
+  }
+  
+  #slideshow-container {
+    visibility: hidden;
+  }
+  
+  .btn {
+    margin-top: 15px;
+    font-size: 32px;
+    background-color: hotpink;
+    color: white;
+    padding: 5px 25px;
+  }
+  
+  .btn:hover {
+    background-color: chartreuse;
+  }
+  
+  #search-form {
+    background-color: lightblue;
+    padding: 20px;
+  }
+  
+  #query {
+    font-size: 24px;
+    border-radius: 5px;
+    border-left: lightgray 15px solid;
+    border-right: lightgray 15px solid;
+    border-top: transparent solid 5px;
+    border-bottom: transparent solid 5px;
+  }
+  
+  #result img {
+    height: 350px;
+    width: auto;
+  }
+  
