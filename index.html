@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
   <title>Hello Front-End</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+ <div class="container">
+    <div class="description">
+      <h1>SlideShow</h1>
+      <h2>Press start button to start slideshow</h2>
+    </div>
+    <form id ="input-container">
+      <div>
+        <input id="input" type="text">    
+      </div>
+      <div class="startbtn">
+        <input id="go-button" type="submit" value="GO!" class="btn">
+      </div>
+    </form>
+    <div id="slideshow">
+    </div>
+ </div>
 </body>
 </html>

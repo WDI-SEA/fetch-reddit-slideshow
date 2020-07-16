@@ -1,0 +1,41 @@
+/* .container {
+    display: inline;
+    text-align: center;
+}
+
+.description {
+    display: inline;
+    text-align: center;
+}
+
+.txtfield {
+
+}
+
+.startbtn {
+    padding: 50px;
+} */
+
+body {
+    background-color: orange;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 15px;
+    font-size: 34px;
+    padding: 10px 20px;
+    color: white;
+    background-color: pink;
+}
+
+
+#slideshow {
+    height: 400px;
+    width: 500;
+}
+
+img {
+    height: 400px;
+    width: 500;
+}
