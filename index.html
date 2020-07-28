@@ -4,9 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <title>Reddit Slideshow HW/title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <title>Reddit Slideshow HW</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1 class="text-center">Reddit Slideshow</h1>
+  <div class="col-lg-6 offset-lg-3">
+    <div class="row justify-content-center">
+      <div class="form-group">
+        <form id="reddit-form">
+          <label for="staticSearch" class="col-form-label">Searching for:</label>
+            <input type="text" class="form-control"  value="puppy" placeholder="Type Here..." id="search-input">
+            <br />
+          <div class="row">
+            <button type="submit" class="btn btn-dark btn-lg border border-success" id="reddit-submit">Start Search</button>
+          </form>
+            <button type="button" class="btn btn-dark btn-lg border border-danger" id="end-slides">End Slideshow</button>
+          </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <img class="img-fluid border" src="" id="reddit-img"/>
+    </div>
+  </div>
+<script src="./js/app.js"></script>
 </body>
 </html>
