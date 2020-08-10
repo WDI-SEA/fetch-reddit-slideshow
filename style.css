@@ -1,0 +1,17 @@
+body{
+  background-color: orangered;
+  text-align: center;
+}
+
+#result img{
+  height: 350px;
+  width: auto;
+}
+
+.btn{
+  margin-top: 15px;
+  font-size: 35px;
+  padding: 10px 20px;
+  color: white;
+  background-color: pink;
+}

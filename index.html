@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Fetch Reddit Slideshow</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div id="form-container">
+    <h1>Let's search for some images!!</h1>
+    <form id="search-form">
+      <div>
+        <label for="query">Search Query</label>
+        <input id="query">
+      </div>
+      <input id="go-button" type="submit" value="GO!" class="btn">
+    </form>
+  </div>
+  <div id="slideshow-container">
+    <div id="result"></div>
+    <input type="button" value="NO MORE IMAGES!" id="stop-button" class="btn">
+  </div>
 </body>
+<script src="main.js"></script>
 </html>
