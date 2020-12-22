@@ -22,7 +22,15 @@ function fetchReddit(searchValue) {
             return response.json();
         })
         .then(jsonData => {
-            console.log(jsonData.data.children[0].data.thumbnail);
+            console.log(jsonData.data.children);
+            // .children[0].data.thumbnail
+            // create an array of img urls
+            let imgArray = jsonData.data.children.map(child => {
+                return child.data.thumbnail
+            })
+            console.log(imgArray);
+        }).catch(error => {
+            console.log(error)
         })
 }
 
