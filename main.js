@@ -14,11 +14,23 @@
 
 //
 const submit = document.getElementById('go');
+const searchBar = document.getElementById('search');
+
+function fetchReddit() {
+    fetch("http://www.reddit.com/search.json?q=cats+nsfw:no")
+        .then(response => {
+            return response.json();
+        })
+        .then(jsonData => {
+            console.log(jsonData);
+        })
+}
 
 document.addEventListener("DOMContentLoaded",() => {
     submit.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(e.target);
+        fetchReddit();
+        console.log(searchBar.value);
     })
 })
 
