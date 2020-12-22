@@ -3,6 +3,7 @@
     margin: 0px;
     box-sizing: border-box;
     text-align: center;
+    font-family:'Times New Roman', Times, serif;
 }
 
 
@@ -26,12 +27,14 @@ h2 {
 img {
     height: 300px;
     width: 100%;
+    border: 3px solid black;
 }
 
 button {
     height: 100px;
     width: 100px;
     display: inline-block;
+    text-size-adjust: 30px;
 }
 
 #search {
