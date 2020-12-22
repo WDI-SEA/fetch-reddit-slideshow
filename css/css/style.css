@@ -1,0 +1,27 @@
+body{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+img{
+    height: 300px;
+    width: auto;
+    margin: 0 auto;
+}
+
+#stop{
+    margin: 0 auto;
+    padding: 8px;
+}
+
+#searchLabel, #searchValue, #searchbtn{
+    display: block;
+    margin: 32px auto;
+}
+
+#image, #search-term, #stop{
+    display: none;
+}
