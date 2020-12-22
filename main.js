@@ -16,7 +16,9 @@
 const submit = document.getElementById('go');
 const searchBar = document.getElementById('search');
 const stuffToHide = document.querySelector('.hideStuff');
-const loadingImage = document.querySelector('.loadingImg');
+const slideshowImage = document.querySelector('.loadingImg');
+let storedArray = [];
+let imageToBeShown = 0;
 
 function hideStuff() {
     stuffToHide.style.display = "none";
@@ -28,29 +30,44 @@ function getImgArrayFromReddit(searchValue) {
             return response.json();
         })
         .then(jsonData => {
-            console.log(jsonData.data.children);
+            // console.log(jsonData.data.children);
             // .children[0].data.thumbnail
             // create an array of img urls
-            let imgArray = jsonData.data.children.map(child => {
+            return jsonData.data.children.map(child => {
                 return child.data.thumbnail
             })
-            console.log(imgArray);
-        }).catch(error => {
+        })
+        .then(imageArray => {
+            // setInterval(displayImages(imageArray), 1000)
+            // displayImages(imageArray)
+            setInterval( ()=> displayImages(imageArray), 1000);
+        })
+        .catch(error => {
             console.log(error)
         })
 }
 
+
 function displayImages(imageArray) {
-    loadingImage.style.display = 'block';
+    if (imageToBeShown > 25) {
+        imageToBeShown = 0;
+    }
+    console.log("imageToBeShown", imageToBeShown)
+    slideshowImage.style.display = 'block';
+    slideshowImage.src = imageArray[imageToBeShown];
+    imageToBeShown++;
+    // check if there is a thumbnail
+    // if not, ignore
 }
 
 document.addEventListener("DOMContentLoaded",() => {
     submit.addEventListener('click', (e) => {
         e.preventDefault();
         hideStuff();
-        displayImages();
+        // displayImages();
         getImgArrayFromReddit(searchBar.value);
-        console.log(searchBar.value);
+        // setInterval(displayImages(storedArray), 1000);
+        // console.log(searchBar.value);
     })
 })
 
