@@ -1,0 +1,39 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+
+h2 {
+
+}
+#container {
+    width: 30%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#slides {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    height: 300px;
+    width: 100%;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+#search {
+    width: 200px;
+}
