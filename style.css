@@ -1,0 +1,13 @@
+body {
+    background-color: lightpink;
+    text-align: center;
+}
+
+label {
+    font-size: 20px;
+}
+
+img {
+    height: 300px;
+    width: 300px;
+}
