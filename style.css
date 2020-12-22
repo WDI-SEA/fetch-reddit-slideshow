@@ -1,3 +1,26 @@
+body {
+    background: rgb(95, 165, 231)
+}
+
+h1 {
+    text-align: center;
+    font-size: 45px;
+    color: chartreuse;
+}
+
+h3{
+    text-align: center;
+    color:brown;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
 .loadingImg {
+    text-align: center;
     display: none;
+    margin: 0 auto;
+    padding: 200px 0px 0px 0px
 }

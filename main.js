@@ -3,7 +3,7 @@
 
 //repeat until user clicks stop
 
-let hideSearchTrueOrFalse = false;
+// let hideSearchTrueOrFalse = false;
 const submit = document.getElementById('go');
 const searchBar = document.getElementById('search');
 const stuffToHide = document.querySelector('.hideStuff');
