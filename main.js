@@ -16,20 +16,20 @@
 const submit = document.getElementById('go');
 const searchBar = document.getElementById('search');
 
-function fetchReddit() {
-    fetch("http://www.reddit.com/search.json?q=cats+nsfw:no")
+function fetchReddit(searchValue) {
+    fetch(`http://www.reddit.com/search.json?q=${searchValue}+nsfw:no`)
         .then(response => {
             return response.json();
         })
         .then(jsonData => {
-            console.log(jsonData);
+            console.log(jsonData.data.children[0].data.thumbnail);
         })
 }
 
 document.addEventListener("DOMContentLoaded",() => {
     submit.addEventListener('click', (e) => {
         e.preventDefault();
-        fetchReddit();
+        fetchReddit(searchBar.value);
         console.log(searchBar.value);
     })
 })
