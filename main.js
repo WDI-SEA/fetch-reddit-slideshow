@@ -16,6 +16,7 @@
 const submit = document.getElementById('go');
 const searchBar = document.getElementById('search');
 const stuffToHide = document.querySelector('.hideStuff');
+const loadingImage = document.querySelector('.loadingImg');
 
 function hideStuff() {
     stuffToHide.style.display = "none";
@@ -39,10 +40,15 @@ function getImgArrayFromReddit(searchValue) {
         })
 }
 
+function displayImages(imageArray) {
+    loadingImage.style.display = 'block';
+}
+
 document.addEventListener("DOMContentLoaded",() => {
     submit.addEventListener('click', (e) => {
         e.preventDefault();
         hideStuff();
+        displayImages();
         getImgArrayFromReddit(searchBar.value);
         console.log(searchBar.value);
     })
