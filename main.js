@@ -1,18 +1,9 @@
 
-
-// when user enters search - hide everything initially on page
-//
-//fetch posts from reddit with (fetch)
-
-//display animation/slideshow of imgs
-
 //show button to stop/reset animation
 
 //repeat until user clicks stop
 
-
-
-//
+let hideSearchTrueOrFalse = false;
 const submit = document.getElementById('go');
 const searchBar = document.getElementById('search');
 const stuffToHide = document.querySelector('.hideStuff');
@@ -30,16 +21,11 @@ function getImgArrayFromReddit(searchValue) {
             return response.json();
         })
         .then(jsonData => {
-            // console.log(jsonData.data.children);
-            // .children[0].data.thumbnail
-            // create an array of img urls
             return jsonData.data.children.map(child => {
                 return child.data.thumbnail
             })
         })
         .then(imageArray => {
-            // setInterval(displayImages(imageArray), 1000)
-            // displayImages(imageArray)
             setInterval( ()=> displayImages(imageArray), 1000);
         })
         .catch(error => {
