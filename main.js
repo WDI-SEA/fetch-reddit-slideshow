@@ -15,8 +15,13 @@
 //
 const submit = document.getElementById('go');
 const searchBar = document.getElementById('search');
+const stuffToHide = document.querySelector('.hideStuff');
 
-function fetchReddit(searchValue) {
+function hideStuff() {
+    stuffToHide.style.display = "none";
+}
+
+function getImgArrayFromReddit(searchValue) {
     fetch(`http://www.reddit.com/search.json?q=${searchValue}+nsfw:no`)
         .then(response => {
             return response.json();
@@ -37,7 +42,8 @@ function fetchReddit(searchValue) {
 document.addEventListener("DOMContentLoaded",() => {
     submit.addEventListener('click', (e) => {
         e.preventDefault();
-        fetchReddit(searchBar.value);
+        hideStuff();
+        getImgArrayFromReddit(searchBar.value);
         console.log(searchBar.value);
     })
 })
