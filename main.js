@@ -49,12 +49,18 @@ function getImgArrayFromReddit(searchValue) {
 
 
 function displayImages(imageArray) {
+    console.log(imageArray)
     if (imageToBeShown > 25) {
         imageToBeShown = 0;
     }
     console.log("imageToBeShown", imageToBeShown)
     slideshowImage.style.display = 'block';
-    slideshowImage.src = imageArray[imageToBeShown];
+
+    if (imageArray[imageToBeShown] !== "self" &&
+    imageArray[imageToBeShown] !== "default" &&
+    imageArray[imageToBeShown] !== undefined) {
+        slideshowImage.src = imageArray[imageToBeShown];
+    }
     imageToBeShown++;
     // check if there is a thumbnail
     // if not, ignore
@@ -62,6 +68,7 @@ function displayImages(imageArray) {
 
 document.addEventListener("DOMContentLoaded",() => {
     submit.addEventListener('click', (e) => {
+    
         e.preventDefault();
         hideStuff();
         // displayImages();
