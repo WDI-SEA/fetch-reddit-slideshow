@@ -3,26 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Making Fetch Happen with Reddit</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
-</head>›
+  <title>Cats, and More Cats</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="./js/script.js" defer></script>
+</head>
 <body>
-  <h1>Reddit Image Gallery Test</h1>
-  <p>Below, enter a search term in order to generate a gallery from Reddit!</p>
-  
+  <h1>Reddit Query</h1>
+  <div id="form-container">
     <form id="search-form">
       <div>
-        <label for="query">What are you searching?</label>
-        <input id="query" type="text" placeholder="search on Reddit">
-        <input id="submit" value="Search!">
+        <label for="query">Search Query</label>
+        <input id="query">
       </div>
+      <input id="go-button" type="submit" value="GO!" class="btn">
     </form>
-    <hr>
-    <div id="content">
-
-    </div>
-    <button id="reset" value="reset"></button>
-
+  </div>
+  <div id="slideshow-container">
+    <div id="result"></div>
+    <input type="button" value="STOP!" id="stop-button" class="btn">
+  </div>
+ 
 </body>
 </html>
