@@ -1,0 +1,76 @@
+const API_URL = "https://www.reddit.com/search.json?limit=15&q=";
+const Interval_Delay = 2000;
+
+let currentImages = [];
+let currentIndex = 0;
+let interval;
+
+const fetchFromReddit = e => {
+    e.preventDefault();
+
+    let query = document.getElementById("query").value;
+    // ensurethat query has a value
+    if (query) {
+        // if value
+        fetch(API_URL + query)
+        .then(res => {
+            res.json()
+        })
+        .then(result => {
+            let results = result.data.children
+
+            currentImages = results.map(post => {
+                return {
+                    subreddit: post.data.subreddit,
+                    title: post.data.title,
+                    url: post.data.url.replace(".gifv", ".gif")
+                };
+            })
+            .filter(item => {
+                return item.url.includes("i.imgur") || intem.url.inclues("i.redd");
+            })
+            currentIndex = 0;
+            loadImage()
+
+            clearInterval(interval);
+
+            interval = setInterval(changeSlide, Interval_Delay);
+        })
+        .catch(err => {
+            console.log("error", err);
+        })
+    }
+    else {
+        console.log("Nothing to search");
+    }
+};
+
+const loadImage = () => {
+    let slideshow = document.getElementById("slideshow);
+    slideshow.innerHTML = "";
+
+    let newImg - document.createElement("img");
+    newImg.src = currentImages[currentIndex].url;
+    newImg.style.width = "300px";
+    newImg.style.height - "auto";
+
+    slideshow.append(newImg);
+
+    document.getElementById("title").textContent = currentImages[currentIndex].title;
+
+    document.getElementById("subreddit").textContent = currentImages[currentIndex].subreddit;
+};
+
+const changeSlide = () => {
+    currentIndex++;
+
+        if (currentIndex >= currentImages.length) {
+            currentIndex = 0;
+        }
+        loadImage();
+}
+
+const stopSlides = () => {
+    clearInterval(interval);
+}
+document.getElementById("search-form").addEventListener("submit", fetchFromReddit);

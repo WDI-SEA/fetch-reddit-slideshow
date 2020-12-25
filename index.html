@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/slide.js" defer></script>
+  <title>Reddit Photos</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+    <div class="topbox">
+      <form>
+        <p>
+          <span id="topTitle">Search Reddit Photos</span>
+          <input id="searchBox" type="search" value="" placeholder="Search here">
+          <input type="button" id="searchButton" value="searchBox">
+          <input type="button" id="stopButton" value="stop slideshow">
+        </p>
+      </form>  
+    </div>
+    <div class="container">
+        <div class="middle">
+          <div class="imagebox">
+            <!-- image goes here -->
+          </div>          
+        </div>
+    </div>
+  
 </body>
 </html>
