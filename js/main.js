@@ -1,5 +1,5 @@
 const API_URL = 'https://www.reddit.com/search.json?nsfw=no&q='
-const INTERVAL_DELAY = 2500
+const INTERVAL_DELAY = 3000
 let currentImages = []
 let currentIndex = 0
 let interval = null
