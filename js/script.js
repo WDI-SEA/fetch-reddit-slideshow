@@ -6,6 +6,8 @@ let currentImages = []
 let currentIndex = 0
 let interval = null
 
+
+
 // event listeners
 document.getElementById('search-form').addEventListener('submit', e => {
     e.preventDefault()
@@ -20,7 +22,35 @@ document.getElementById('search-form').addEventListener('submit', e => {
         console.log('Empty String')
     }
 })
+const placeImage = () => {
+    document.getElementById('result').innerHTML = ''
 
+    //create image tags in the document
+    let img = document.createElement('img')
+    img.src = currentImages[currentIndex].url
+    img.alt = currentImages[currentIndex].title
+
+    let h2 = document.createElement('h2')
+    h2.textContent = currentImages[currentIndex].title
+
+    let h3 = document.createElement('h3')
+    h3.textContent = 'r/' + currentImages[currentIndex].subreddit
+    h3.style.fontFamily = 'Helvetica'
+    
+    document.getElementById('result').append(img)
+    document.getElementById('result').append(h2)
+    document.getElementById('result').append(h3)
+}
+const changeImage = () => {
+    //changes index interval by one
+    currentIndex++
+
+    if(currentIndex >= currentImages.length){
+        currentIndex = 0
+        
+    } 
+    placeImage()
+}
 document.getElementById('stop-button').addEventListener('click', () =>{
     document.getElementById('slideshow-container').style.visibility = 'hidden'
     document.getElementById('form-container').style.display = 'block'
@@ -67,33 +97,8 @@ const startSlides = () => {
 
     interval = setInterval(changeImage, INTERVAL_DELAY)
 
-    const changeImage = () => {
-        //changes index interval by one
-        currentIndex++
     
-        if(currentIndex >= currentImages.length){
-            currentIndex = 0
-        }
 
         placeImage()
     }
-    const placeImage = () => {
-        document.getElementById('result').innerHTML = ''
-
-        //create image tags in the document
-        let img = document.createElement('img')
-        img.src = currentImages[currentIndex].url
-        img.alt = currentImages[currentIndex].title
-
-        let h2 = document.createElement('h2')
-        h2.textContent = currentImages[currentIndex].title
-
-        let h3 = document.createElement('h3')
-        h3.textContent = 'r/' + currentImages[currentIndex].subreddit
-        h3.style.fontFamily = 'Helvetica'
-        
-        document.getElementById('result').append(img)
-        document.getElementById('result').append(h2)
-        document.getElementById('result').append(h3)
-    }
-}
+    

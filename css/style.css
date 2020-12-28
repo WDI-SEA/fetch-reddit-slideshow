@@ -19,7 +19,7 @@ replacing the url in css */
 to webgl rotating texture */
 
 body { 
-    background-color: lightskyblue; 
+    background-color: chartreuse; 
     text-align: center; 
 }
 
@@ -34,9 +34,9 @@ label, p {
         
 .btn { 
     margin-top: 15px; 
-    font-size: 32px;
-    background-color: hotpink; 
-    color: white; 
+    font-size: 23px;
+    background-color: orange; 
+    color: blueviolet; 
     padding: 5px 25px; 
 } 
 
@@ -45,7 +45,7 @@ label, p {
  } 
 
 #search-form { 
-    background-color: lightblue; 
+    background-color: green; 
     padding: 20px; 
 }
 
