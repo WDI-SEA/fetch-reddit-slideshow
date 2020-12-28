@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(55, 16, 224);
+    text-align: center;
+  }
+
+  h1 {
+      color:rgb(211, 141, 11)
+  }
+  
+  label,
+  p {
+    font-size: 24px;
+  }
+  
+  #slideshow-container {
+    visibility: hidden;
+  }
+  
+  .btn {
+    margin-top: 15px;
+    font-size: 32px;
+    background-color: rgb(32, 13, 197);
+    color: white;
+    padding: 5px 25px;
+  }
+  
+  .btn:hover {
+    background-color: rgb(233, 31, 24);
+  }
+  
+  #search-form {
+    background-color: rgb(211, 141, 11);
+    padding: 20px;
+  }
+  
+  #query {
+    font-size: 24px;
+    border-radius: 5px;
+    border-left: lightgray 15px solid;
+    border-right: lightgray 15px solid;
+    border-top: transparent solid 5px;
+    border-bottom: transparent solid 5px;
+  }
+  
+  #result img {
+    height: 350px;
+    width: auto;
+  }

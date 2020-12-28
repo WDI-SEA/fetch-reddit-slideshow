@@ -1,57 +1,116 @@
-const API_URL = "http://www.reddit.com/search.json?Limit=15&q=";
-constINTERVAL_Delay = 3000;
+const API_URL = 'https://www.reddit.com/search.json?nsfw=no&q='
+const INTERVAL_DELAY = 2500
+let currentImages = []
+let currentIndex = 0
+let interval = null
 
-let currentImages = [];
-let currentIndex = 0;
-let interval;
+// Form submit
+document.getElementById('search-form').addEventListener('submit', e => {
+  // Prevent the form from refreshing the page
+  e.preventDefault()
 
-const fetchFromReddit = e => {
-    e.preventDefault();
+  // Get the user's input from the textbox
+  let userQuery = document.getElementById('query').value
 
-    let query = document.getElementById("query").value;
+  // Make sure the user actually typed something
+  if (userQuery) {
+    // Good string - perform the search on reddit
+    fetchReddit(userQuery)
 
-    if(query) {
-        fetch(API_URL + query)
-        .then(res => {
-            res.json(result => {
-                let results = result.data.children
-                console.log(results);
-                currentImages = results.map(post => {
-                    return {
-                        subreddit: post.data.subreddit,
-                        title: post.data.title,
-                        url: post.data.url.replace(".gifv", ".gif")
-                    };
-                })
-                .filter(item => {
-                    return item.url.includes("i.imgur") || item.url.includes("i.redd");
-                })
-                currentIndex = 0;
+    
+    document.getElementById('query').value = ''
+  }
+  else {
+    console.log('Empty string!')
+  }
+})
 
-                loadImage();
+// Stop Button Click
+document.getElementById('stop-button').addEventListener('click', () => {
+  // Hide the results
+  document.getElementById('slideshow-container').style.visibility = 'hidden'
 
-                clearInterval(interval);
+  // Show the search form
+  document.getElementById('form-container').style.display = 'block'
 
-                interval = setInterval(changeSlide, INTERVAL_DELAY);
-            })
-        })
-    }
-};
+  // Clear the interval
+  clearInterval(interval)
+})
 
-const loadImage = () => {
-    let slideshow = document.getElementById("slideshow");
-    slideshow.innerHTML = "";
+// Helper Functions
+const fetchReddit = query => {
+  console.log('Performing fetch!', query)
+  fetch(API_URL + query)
+  .then(response => response.json())
+  .then(jsonData => {
+    // Pair down the object to what I need/care about
+    currentImages = jsonData.data.children.map(p => {
+      return {
+        title: p.data.title,
+        url: p.data.url,
+        subreddit: p.data.subreddit,
+        upvotes: p.data.ups,
+        gold: p.data.gilded > 0 ? true : false,
+        posthint: p.data.post_hint
+      }
+    }).filter(p => {
+      return p.posthint === 'image'
+    })
 
-    let newImg = document.createElement("img");
-    newImg.src = currentImages[currentIndex].url;
-    newImg.style.width = "300px";
-    newImg.style.height = "auto";
-
-    slideshow.append(newImg);
-
-    document.getElementById("title").textContent = currentImages[currentIndex].title;
-
-    document.getElementById("subreddit").textContent = currentImages[currentIndex].subreddit;
+    console.log('Cleaned up posts', currentImages)
+    // Start the slideshow
+    startSlideshow()
+  })
+  .catch(err => {
+    console.log('ERROR', err)
+  })
 }
 
-document.getElementById("search-form").addEventListener("submit", fetchFromReddit);
+const startSlideshow = () => {
+  console.log('Starting slides')
+  // Set current index to zero (first pic)
+  currentIndex = 0
+
+  // Set up the first image (so we don't have to wait)
+  placeImage()
+
+  // Hide the form container and show the slideshow container
+  document.getElementById('form-container').style.display = 'none'
+  document.getElementById('slideshow-container').style.visibility = 'visible'
+
+  // Start the interval
+  interval = setInterval(changeImage, INTERVAL_DELAY)
+}
+
+const changeImage = () => {
+  currentIndex++
+
+  if (currentIndex >= currentImages.length) {
+    currentIndex = 0
+  }
+
+  // Replace image
+  placeImage()
+}
+
+const placeImage = () => {
+  // Empty the result div
+  document.getElementById('result').innerHTML = ''
+
+  let img = document.createElement('img')
+  img.src = currentImages[currentIndex].url
+  img.alt = currentImages[currentIndex].title
+
+  // Create an h2 to hold the title
+  let h2 = document.createElement('h2')
+  h2.textContent = currentImages[currentIndex].title + (currentImages[currentIndex].gold ? ' 🏆 ' : '')
+
+  // Create an h3 to hold the subreddit
+  let h3 = document.createElement('h3')
+  h3.textContent = 'r/' + currentImages[currentIndex].subreddit
+  h3.style.fontWeight = 'bold'
+
+  document.getElementById('result').append(img)
+  document.getElementById('result').append(h2)
+  document.getElementById('result').append(h3)
+}

@@ -7,28 +7,19 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <h2>Reddit Slideshow</h2>
-
-  <form>
-    <div>
-      <label>What you want?</label>
-      <input id="query" type="text" placeholder="Search on reddit">
-    </div>
-    <input type="submit" value="GO LOOK!">
-  </form>
-
-  <hr>
-
-  <div>
-    <button id="stop">Stop!</button>
-    <h3 id="title">Slideshow</h3>
-
-    <div id="slideshow">
-
-
-    </div>
-
-    <h4>Originally posted in <a id="subreddit"></a>!</h4>
+  <h1>Reddit Slideshow</h1>
+  <div id="form-container">
+    <form id="search-form">
+      <div>
+        <label for="query">Search Reddit</label>
+        <input id="query">
+      </div>
+      <input id="go-button" type="submit" value="GO!" class="btn">
+    </form>
+  </div>
+  <div id="slideshow-container">
+    <div id="result"></div>
+    <input type="button" value="STOP!" id="stop-button" class="btn">
   </div>
 
   <script type="text/javascript" src="js/main.js"></script>
