@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     })
     
     const addImage = image => {
-        if ((image.data.post_hint === "image")){
+        if ((image.data.url.includes("png")) || (image.data.url.includes("jpg"))){
+        // if ((image.data.post_hint === "image")){
             images.push(image.data.url)
         }
         console.log("1")
@@ -40,14 +41,13 @@ document.addEventListener("DOMContentLoaded",(e)=>{
 
     function startSlideShow() {
         
-        img.style.visibility = "visible"
-        stop.style.visibility = "visible"
-        img.src = images[0]
+        document.getElementById("img").style.visibility = "visible"
+        document.getElementById("footer").style.visibility = "visible"
+        document.getElementById("img").src = images[0]
         let i= 1
         
         t = setInterval(()=>{
-            console.log(images[i])
-            img.src = images[i]
+            document.getElementById("img").src = images[i]
             i++
         },time)
         
@@ -58,6 +58,6 @@ document.addEventListener("DOMContentLoaded",(e)=>{
         console.log("enter")
         header.style.visibility = "visible"
         img.style.visibility = "hidden"
-        stop.style.visibility = "hidden"
+        document.getElementById("footer").style.visibility = "hidden"
     })
 })

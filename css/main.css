@@ -45,16 +45,16 @@ main {
 
 footer{
     grid-area: footer;
+    visibility: hidden;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 69px 1fr;
     grid-template-rows: 1fr;
     gap: 10px 10px;
 }
 #stop{
     grid-column: 2 / 3;
     grid-row: 1;
-    visibility: hidden;
-    width: 10%;
+    width: 69px;
     height: 100%;
     font-size: 20px;
 }
