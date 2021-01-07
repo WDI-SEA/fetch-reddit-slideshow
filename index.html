@@ -4,8 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <header id="header">
+    <h1>Boost your Mood</h1>
+    <p>Type in the box below what you are interested to see.</p>
+    <form id="form">
+      <input type="text" id="input">
+      <input type="submit" value="start">
+    </form>
+  </header>  
+  <main>
+    <img id="img" name="slide">
+  </main>
+  <footer>
+    <button type="button" id="stop">stop</button>
+  </footer>
 </body>
 </html>
