@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let imgUrl
     let timer
+    let index = 0
+    let imgArray = []
     
     function deleteChildren() {
         while (imageBank.firstChild) {
@@ -28,22 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // This catches the data returned from the previous .then, populating the jsonData variable
         .then((jsonData) => {
-            let index = 0
-            
-            timer = setInterval(() => {
-                imgUrl = jsonData.data.children[index].data.thumbnail
-                
-                if (index === jsonData.data.children.length) {
-                    index = 0
-                } else {
-                    index++
-                }
-                
-                console.log(jsonData.data.children[index].data.preview.images)
-                if (jsonData.data.children[index].data.post_hint === 'image') {
-                        display.src = jsonData.data.children[index].data.thumbnail
+            for (let i = 0; i < jsonData.data.children.length; i++) {
+                if (jsonData.data.children[i].data.thumbnail.includes('.jpg')) {
+                        imgArray.push(jsonData.data.children[i].data.thumbnail)
                     }
-            }, 2000)
+            }
         })
 
         // Throw an error if the promise is not fulfilled
@@ -51,6 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('error!')
             console.log(error)
         })
+        
+        console.log(imgArray)
+        
+        timer = setInterval(() => {
+                
+                if (index === imgArray.length-1) {
+                    index = 0
+                } else {
+                    index++
+                }
+            
+                console.log(index)
+                
+                display.src = imgArray[index]
+            
+            }, 2000)
         
         pause.onclick = () => {
             clearInterval(timer)
