@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     index++
                 }
                 
-                console.log(jsonData.data.children[index])
-                display.src = jsonData.data.children[index].data.thumbnail
+                console.log(jsonData.data.children[index].data.preview.images)
+                if (jsonData.data.children[index].data.post_hint === 'image') {
+                        display.src = jsonData.data.children[index].data.thumbnail
+                    }
             }, 2000)
         })
 
@@ -52,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         pause.onclick = () => {
             clearInterval(timer)
+            desc.style.visibility = 'visible'
+            pause.style.visibility = 'hidden'
+            display.src = ''
         }
     })
 })

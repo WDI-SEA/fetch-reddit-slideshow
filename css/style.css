@@ -1,3 +1,17 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    
+    height: 40vh;
+}
+
 #pause {
     visibility: hidden;
+}
+
+.picForm {
+    margin: 30px;
 }
