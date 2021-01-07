@@ -1,5 +1,7 @@
-const redditEndpoint = 'http://www.reddit.com/search.json?q=nsfw:no+limit=100+'
-let presentation = document.querySelector('presentation')
+// How do I get more than 25 results? My objects length is always 25, I can't get it to be more than 25.
+
+const redditEndpointFirst = 'http://www.reddit.com/search.json?q=nsfw:no+'
+const redditEndpointSecond = '&limit=100'
 let imageURLs = []
 let i = 0 // Index for iterating through imageURLs.
 
@@ -16,22 +18,19 @@ const grabImageURL = (jsonObject) => {
     if (url) { // Not all objects have this key value. For example, text posts don't have this attribute.
         if( url.includes('.png') || url.includes('.jpg') ) {
             imageURLs.push(url)
-            console.log('url', url)
-            console.log('imageURLs',imageURLs)
         }
     }
     // We can only start doing this once we have values in imageURLs.
-    imageInterval = setInterval(changeImage, 4000) 
+    imageInterval = setInterval(changeImage, 5000) 
 }
 
 // Grab results
 const grabResults = (searchTerm) => {
-    fetch(redditEndpoint + searchTerm)
+    fetch(redditEndpointFirst + searchTerm + redditEndpointSecond)
     .then((fetchedResults) => {
         return fetchedResults.json()
     })
     .then((jsonObjects) => {
-        console.log('length', jsonObjects.data.children.length)
         jsonObjects.data.children.forEach(grabImageURL) 
     })
     .catch((error) => {
@@ -46,7 +45,7 @@ form_box.addEventListener('submit', (event) => {
 
 // Change background image of presentation_box.
 const changeImage = () => {
-    presentation.style.backgroundImage = 'url(' + imageURLs[i] + ')'
+    presentation_box.style.backgroundImage = 'url(' + imageURLs[i] + ')'
     i++
     if (i >= imageURLs.length) {
         i = i % (imageURLs.length) // Wrap back to beginning of list.

@@ -19,7 +19,7 @@ div#description {
 }
 
 form {
-
+    margin: 15px;
 }
 
 #input_box {
@@ -31,9 +31,22 @@ form {
 }
 
 presentation {
+    display: flex;
+    align_items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+}
+
+#presentation_box {
     height: 500px;
     width: 500px;
     background-color: purple;
     background-image: url('');
     background-size: cover;
+    margin: 10px;
+}
+
+#stop_button {
+    display: block;
 }
