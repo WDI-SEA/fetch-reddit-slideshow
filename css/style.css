@@ -7,10 +7,12 @@
 
 body {
     background-color: blue;
+    
 }
 
-#form{
-    
+#form {
+    margin: auto 50px;
+    padding: 50px;
 }
 
 

@@ -1,24 +1,24 @@
 console.log("😎 Cool loading");
 
 
-const randomUserEndPoint = 'https://randomuser.me/api/?results='
+const redditPicEndPoint = 'https://www.reddit.com/search.json?q=kittens'
 
 document.addEventListener('DOMContentLoaded', ()=> {
     form.addEventListener('submit', (e)=>{
         e.preventDefault()
         // stops all default functionality like page reloading when we submit a form
-        while(peopleList.firstChild) {
-            peopleList.removeChild(peopleList.firstChild)
-        }
+        // while(peopleList.firstChild) {
+        //     peopleList.removeChild(peopleList.firstChild)
+        // }
         
 
 
-        fetch(randomUserEndPoint+input.value)
-        .then((fetchedUsers)=>{
-            return fetchedUsers.json()
+        fetch(redditPicEndPoint + input.value)
+        .then((fetchedPics)=>{
+            return fetchedPics.json()
         })
-        .then((jsonUsers)=>{
-            jsonUsers.results.forEach(addPerson)
+        .then((jsonPics)=>{
+            jsonPics.results.forEach(addPerson)
             
         })
         .catch((err)=>{
