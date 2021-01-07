@@ -1,9 +1,7 @@
 let images = []
 let image
 const redditEndpoint = "https://www.reddit.com/search.json?q="
-let cont = true
 let time = 3000
-let i = 0
 let t
 
 
@@ -11,8 +9,9 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     
     form.addEventListener("submit", (e)=> {
         e.preventDefault()
-        // header.style.visibility = "hidden"
+        header.style.visibility = "hidden"
         for (let i=0; i<images.length;i++){
+            console.log(images.length)
             images[i].pop()
         }
         fetch(redditEndpoint+input.value+"+nsfw:no")
@@ -23,6 +22,7 @@ document.addEventListener("DOMContentLoaded",(e)=>{
         .then((jsonData) =>{
             jsonData.data.children.forEach(addImage)
             console.log("Here is the json Data:", jsonData)
+            startSlideShow()
         })
         .catch((error) =>{
             console.log("oh no, you did Not make fetch happen")
@@ -32,28 +32,32 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     })
     
     const addImage = image => {
-        if (!(image.data.is_video)){
+        if ((image.data.post_hint === "image")){
             images.push(image.data.url)
         }
-        displayImage() 
+        console.log("1")
     }
 
-    function displayImage() {
-        document.slide.src = images[i]
-        if (i < images.length-1){
-            console.log(i)
+    function startSlideShow() {
+        
+        img.style.visibility = "visible"
+        stop.style.visibility = "visible"
+        img.src = images[0]
+        let i= 1
+        
+        t = setInterval(()=>{
+            console.log(images[i])
+            img.src = images[i]
             i++
-        }else {
-            i = 0
-        }
-
-        t = setTimeout(displayImage,time)
+        },time)
         
     }
 
     document.querySelector("button").addEventListener("click",(e)=>{
-        clearTimeout(t)
-        // header.style.visibility = "visibility"
-        // images.style.visibility = "hidden"
+        clearInterval(t)
+        console.log("enter")
+        header.style.visibility = "visible"
+        img.style.visibility = "hidden"
+        stop.style.visibility = "hidden"
     })
 })
