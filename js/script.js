@@ -21,7 +21,7 @@ const grabImageURL = (jsonObject) => {
         }
     }
     // We can only start doing this once we have values in imageURLs.
-    imageInterval = setInterval(changeImage, 5000) 
+    imageInterval = setInterval(changeImage, 3000) 
 }
 
 // Grab results

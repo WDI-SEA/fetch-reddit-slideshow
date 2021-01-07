@@ -13,6 +13,7 @@ splash {
 
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    text-align: center;
 }
 
 h1 {
@@ -21,6 +22,10 @@ h1 {
 
 div#description {
 
+}
+
+span {
+    font-size: 11px;
 }
 
 form {
