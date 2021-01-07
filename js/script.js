@@ -1,4 +1,4 @@
-const redditEndpoint = 'http://www.reddit.com/search.json?q=limit=100+nsfw:no+'
+const redditEndpoint = 'http://www.reddit.com/search.json?q=nsfw:no+limit=100+'
 let presentation = document.querySelector('presentation')
 let imageURLs = []
 let i = 0 // Index for iterating through imageURLs.
@@ -9,16 +9,19 @@ let imageInterval
 // Figure out whether or not each search result has an image. This is where I'll need to find the exact path of my JSON objects.
 const grabImageURL = (jsonObject) => {
     // jsonObject.data.children[].data.url_overridden_by_dest
+    let title = jsonObject.data.title
+    let subreddit = jsonObject.data.subreddit
     let url = jsonObject.data.url_overridden_by_dest
+
     if (url) { // Not all objects have this key value. For example, text posts don't have this attribute.
-        if ( url.includes('.png') || url.includes('.jpg') ) {
+        if( url.includes('.png') || url.includes('.jpg') ) {
             imageURLs.push(url)
             console.log('url', url)
             console.log('imageURLs',imageURLs)
         }
     }
     // We can only start doing this once we have values in imageURLs.
-    imageInterval = setInterval(changeImage, 3000) 
+    imageInterval = setInterval(changeImage, 4000) 
 }
 
 // Grab results
@@ -28,6 +31,7 @@ const grabResults = (searchTerm) => {
         return fetchedResults.json()
     })
     .then((jsonObjects) => {
+        console.log('length', jsonObjects.data.children.length)
         jsonObjects.data.children.forEach(grabImageURL) 
     })
     .catch((error) => {
