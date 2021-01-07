@@ -1,0 +1,9 @@
+#stopButton{
+    visibility: hidden;
+}
+body{
+    align-items: center;
+}
+form{
+    padding: 10px;
+}

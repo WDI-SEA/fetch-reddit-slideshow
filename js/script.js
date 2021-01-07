@@ -19,6 +19,9 @@ searchButton.addEventListener('click',(e)=>{
     userSearch=search.value
     console.log(userSearch)
     
+    searchButton.style.visibility="hidden"
+    search.style.visibility="hidden"
+    stopButton.style.visibility="visible"
       
     
     fetch(`http://www.reddit.com/search.json?q=${userSearch}+nsfw:no`)
@@ -53,6 +56,12 @@ searchButton.addEventListener('click',(e)=>{
     let setIntervalImage=setInterval(imageSlider,2000)
     stopButton.addEventListener('click',(e)=>{
         e.preventDefault()
+        searchButton.style.visibility="visible"
+        search.style.visibility="visible"
+    stopButton.style.visibility="hidden"
+    while (images.firstChild) {
+        images.removeChild(images.firstChild);
+    }
         clearInterval(setIntervalImage)
         
     })
