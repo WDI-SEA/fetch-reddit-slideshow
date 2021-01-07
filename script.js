@@ -3,7 +3,6 @@ let picURLS = []
 let i = 0
 let count = null
 
-
 function slideShow() {
     displayPic.src = picURLS[i]
     i++
@@ -16,6 +15,10 @@ function beginSlideShow() {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+function end() {
+    clearInterval(count)
 }
 
 form.addEventListener('submit', (event) => {
@@ -37,3 +40,6 @@ form.addEventListener('submit', (event) => {
         })
 })
 
+document.getElementById('pause').addEventListener('click', () => {
+    end()
+})
