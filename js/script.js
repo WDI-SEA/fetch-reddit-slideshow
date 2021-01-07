@@ -9,7 +9,7 @@ let i = 0 // Index for iterating through imageURLs.
 let imageInterval
 
 // Figure out whether or not each search result has an image. This is where I'll need to find the exact path of my JSON objects.
-const grabImageURL = (jsonObject) => {
+const grabImageURL = (jsonObject, index) => { // We don't use index but want to write it out to remind myself that forEach also gives the index. 
     // jsonObject.data.children[].data.url_overridden_by_dest
     let title = jsonObject.data.title
     let subreddit = jsonObject.data.subreddit
@@ -20,18 +20,20 @@ const grabImageURL = (jsonObject) => {
             imageURLs.push(url)
         }
     }
-    // We can only start doing this once we have values in imageURLs.
-    imageInterval = setInterval(changeImage, 3000) 
 }
 
 // Grab results
 const grabResults = (searchTerm) => {
     fetch(redditEndpointFirst + searchTerm + redditEndpointSecond)
     .then((fetchedResults) => {
+        console.log('This delay tells us when we hear back from Reddit') // Note: This takes a while to show up. 
         return fetchedResults.json()
     })
     .then((jsonObjects) => {
         jsonObjects.data.children.forEach(grabImageURL) 
+        // We can only start doing this once we have values in imageURLs.
+        changeImage()
+        imageInterval = setInterval(changeImage, 3000) 
     })
     .catch((error) => {
         console.log('Like, stop trying to make fetch happen!', error)
