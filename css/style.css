@@ -45,6 +45,7 @@ presentation {
 }
 
 #presentation_box {
+    border-radius: 5px;
     display: none;
     height: 500px;
     width: 500px;
