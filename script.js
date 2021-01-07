@@ -9,14 +9,14 @@ let arrayLength = urls.length
 let images = document.getElementById('images')
 console.log(images)
 let length = 0
-const request = '.jpg'
+let reset = document.getElementById('reset')
+let interval = null
 
 reddit.addEventListener('submit', (e)=>{
 e.preventDefault()
 
 fetch(redditEndpoint + e.target.searchBar.value)
 .then((fetchObj)=>{
-    credentials = '.jpg'
     console.log(fetchObj)
     return fetchObj.json()
 })
@@ -47,13 +47,13 @@ fetch(redditEndpoint + e.target.searchBar.value)
 // make global variable to ++ everytime you call switchPictures
 // image.src = urls[incrementor]
 let switchPictures = () =>{
-    setInterval(nextPicture, 4000)
+    interval = setInterval(nextPicture, 4000)
     console.log('switch pictures', switchPictures)
 }
 
 function nextPicture(){
     if (length <= 5){
-        console.log(urls[length])
+        console.log(length)
         images.src = urls[length]
         length++
     } else{ 
@@ -61,7 +61,14 @@ function nextPicture(){
     }
 }
 
-
+reset.addEventListener('click', e => {
+    e.preventDefault
+    images.src = ''
+    document.getElementById('search').value = ''
+    clearInterval(interval)
+    urls = []
+    length = 0
+})
 
 
 
