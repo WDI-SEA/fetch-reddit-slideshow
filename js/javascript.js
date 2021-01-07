@@ -1,0 +1,79 @@
+
+let img = document.createElement("img")
+document.getElementById("pictures").append(img)
+let text = document.querySelector("#input")
+let currentImages = []
+let currentIndex = 0
+let reddit = "https://www.reddit.com/search.json?q="
+document.getElementById("submit").addEventListener("click", e => {
+    e.preventDefault()
+    getInput()
+    setInterval(nextP, 3000)
+    
+    // nextP()
+    
+})
+const getInput = () => {
+    fetch(reddit + input.value)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        currentImages = data.data.children.map(image => {
+            return {
+                thumbnail: image.data.thumbnail
+            }
+        })
+        console.log(currentImages)
+        img.src = currentImages[currentIndex].thumbnail
+        console.log(img.src)
+        setInterval(nextP, 5000)
+        
+        // document.getElementById("pictures").textContent = data.data.children[0].data.title
+        // console.log(data.data.children[0].data.title)
+        // document.getElementById("pictures").innerHTML = `<img src=${adat.data.children[0].data.thumbnail}>`
+    })
+    .catch(error => {
+        console.log("Error is", error)
+    })
+    // placeImage()
+}
+
+function nextP() {
+        currentIndex++
+    if (currentIndex >= 25) {
+        currentIndex = 0
+    } 
+    img.src = currentImages[currentIndex].thumbnail
+}
+
+
+    // const changeImage = () => {
+// console.log(currentImages)
+//     // incremting index
+//     currentIndex++
+//     // checking bounds of array
+//     if (currentIndex >= currentImages.length) {
+//         currentIndex = 0
+//     }
+//     //  placing image
+//     placeImage()
+// }
+
+// const placeImage = () => {
+//     console.log("hi")
+   
+// }
+
+
+// // changeImage()
+// // function
+// // .then((fetchedUseers) =>
+// //         return fetchedUseers.json()
+// //     })
+
+// //     .then((jsonUsers) => {
+// //         // jsonUsers.results.forEach(nextPicture)
+// //         console.log(jsonUsers)
+// //     })
+//     .catch((err) => {
+//         console.log("failed to fetch users!", err)
