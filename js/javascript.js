@@ -15,6 +15,7 @@ let reddit = "https://www.reddit.com/search.json?q="
 document.getElementById("submit").addEventListener("click", e => {
     e.preventDefault()
     stop.style.display = "initial"
+    img.style.display = "initial"
     getInput()
     remove()
     // setInterval(nextP, 3000)
@@ -32,15 +33,17 @@ const getInput = () => {
     .then(response => response.json())
     .then(data => {
         console.log(data)
+        //  really hard time with map function, getting filter to work is crazy not working
         currentImages = data.data.children.map(image => {
             return {
                 thumbnail: image.data.thumbnail
             }
+            
         })
         console.log(currentImages)
         img.src = currentImages[currentIndex].thumbnail
         console.log(img.src)
-        setInterval(nextP, 2000)
+        setInterval(nextP, 4000)
        
         // document.getElementById("pictures").textContent = data.data.children[0].data.title
         // console.log(data.data.children[0].data.title)
