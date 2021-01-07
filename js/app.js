@@ -1,10 +1,3 @@
-const addImage = (image) => {
-    // let peopleList = document.getElementById('peopleList')
-    let newImage = document.createElement('li')
-    newImage.textContent = image.source
-    imageSlides.appendChild(newImage)
-}
-
 const randomSearchImage = 'http://www.reddit.com/search.json?q='
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -13,11 +6,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         e.preventDefault()
 
         fetch(randomSearchImage+input.value+'+nsfw:no')
-        .then((fetchedImages)=>{
-            return fetchedImages.json()
+        .then((fetchImages)=>{
+            return fetchImages.json()
         })
         .then((jsonImages)=>{
-            jsonImages.results.forEach(addPerson)
+            jsonImages.results.forEach(addImage)
             // console.log(jsonUsers.result)
         })
         .catch((err)=>{
