@@ -1,23 +1,25 @@
-document.addEventListener('DOMContentLoaded', ()=>{
-    console.log('DOM Content Loaded')
-})
-
 const redditEndpoint = 'https://www.reddit.com/search.json?q='
+let picURLS = []
 
-form.addEventListener('submit', (e) => {
-
-    e.preventDefault()
-
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
     console.log('form submitted')
-
-    fetch(redditEndpoint + e.target.searchBox.value)
-    .then((fetchedPics) => {
-        return fetchedPics.json()
-    })
-    .then((jsonPics) => {
-        console.log(jsonPics.data.children[0].data.preview.images[0].source.url)
-    })
-    .catch((error)=>{
-        console.log('Failed to fetch pics')
-    })
+    
+    fetch(redditEndpoint + event.target.searchBox.value)
+        .then((fetchedPics) => {
+            let x = a.b
+            return fetchedPics.json()
+        })
+        .then((jsonPics) => {
+            picURLS = jsonPics.data.children.map((result) => {
+                let image = document.createElement('img')
+                image.src = result.data.url
+                return image
+            })
+            console.log(picURLS)
+        })
+        .catch((error) => {
+            console.log('Failed to fetch pics')
+        })
 })
+
