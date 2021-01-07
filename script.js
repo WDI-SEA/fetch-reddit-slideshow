@@ -1,6 +1,8 @@
 const redditEndpoint = 'https://www.reddit.com/search.json?q='
 let picURLS = []
-
+let myImage = null
+i = 0
+let displayPic = document.getElementById('displayPic')
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -15,13 +17,10 @@ form.addEventListener('submit', (event) => {
         })
         .then((jsonPics) => {
             picURLS = jsonPics.data.children.map((result) => {
-                let image = document.createElement('img')
-                image.src = result.data.url
-                return image
+                return result.data.url
             })
-            console.log(picURLS[0])
-            // picBox.removeChild(picBox.firstChild)
-            picBox.appendChild(picURLS[0])
+            displayPic.src = picURLS[0]
+            sleep(3000).then(() => {displayPic.src = picURLS[1]})
         })
         .catch((error) => {
             console.log('Failed to fetch pics')
