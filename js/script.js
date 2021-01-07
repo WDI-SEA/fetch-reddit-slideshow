@@ -41,6 +41,12 @@ const grabResults = (searchTerm) => {
 form_box.addEventListener('submit', (event) => {
     event.preventDefault()
     grabResults(input_box.value)
+    startPresentation()
+})
+
+stop_button.addEventListener('click', (event) => {
+    event.preventDefault()
+    stopPresentation()
 })
 
 // Change background image of presentation_box.
@@ -52,10 +58,14 @@ const changeImage = () => {
     }
 }
 
-// let startPresentation = () => {
-//     // splash_container.style.display = 'none'
-// }
+let startPresentation = () => {
+    splash_container.style.display = 'none'
+    presentation_box.style.display = 'flex'
+}
 
-// let stopPresentation = () => {
-//     clearInterval(imageInterval)
-// }
+let stopPresentation = () => {
+    clearInterval(imageInterval)
+    splash_container.style.display = 'flex'
+    presentation_box.style.display = 'none'
+    input_box.value = ''
+}
