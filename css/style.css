@@ -1,0 +1,34 @@
+body {
+}
+
+splash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+
+}
+
+div#description {
+
+}
+
+form {
+
+}
+
+#input_box {
+
+}
+
+#submit_button {
+
+}
+
+presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
