@@ -1,4 +1,5 @@
 const redditEndpoint = 'http://www.reddit.com/search.json?q=limit=100+nsfw:no+'
+let presentation = document.querySelector('presentation')
 let imageURLs = []
 let i = 0 // Index for iterating through imageURLs.
 
@@ -16,8 +17,8 @@ const grabImageURL = (jsonObject) => {
             console.log('imageURLs',imageURLs)
         }
     }
-    // changeImage()
-    // imageInterval = setInterval(changeImage, 3000) // Only start doing this once we have values in imageURLs.
+    // We can only start doing this once we have values in imageURLs.
+    imageInterval = setInterval(changeImage, 3000) 
 }
 
 // Grab results
@@ -41,8 +42,11 @@ form_box.addEventListener('submit', (event) => {
 
 // Change background image of presentation_box.
 const changeImage = () => {
-    presentation_box.style.backgroundImage = 'url(' + imageURLs[i] + ')'
+    presentation.style.backgroundImage = 'url(' + imageURLs[i] + ')'
     i++
+    if (i >= imageURLs.length) {
+        i = i % (imageURLs.length) // Wrap back to beginning of list.
+    }
 }
 
 // let startPresentation = () => {
@@ -52,4 +56,3 @@ const changeImage = () => {
 // let stopPresentation = () => {
 //     clearInterval(imageInterval)
 // }
-
