@@ -42,19 +42,20 @@ presentation {
     align_items: center;
     flex-direction: column;
     justify-content: center;
-    margin: 20px;
 }
 
 #presentation_box {
+    display: none;
     height: 500px;
     width: 500px;
     background-color: lightgrey;
     background-image: url('');
     background-size: cover;
-    margin: 10px;
+    margin: 130px;
 }
 
 #stop_button {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+    margin-top: 550px;
 }
