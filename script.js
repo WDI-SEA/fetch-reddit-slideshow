@@ -7,7 +7,6 @@ form.addEventListener('submit', (event) => {
     
     fetch(redditEndpoint + event.target.searchBox.value)
         .then((fetchedPics) => {
-            let x = a.b
             return fetchedPics.json()
         })
         .then((jsonPics) => {
