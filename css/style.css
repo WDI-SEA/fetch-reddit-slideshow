@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    background-color: burlywood;
+}
+
+h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 52px;
+}
+
+h2 {
+    font-family: Poppins, sans-serif;
+    font-size: 16px; 
+}
+
+#inputField {
+    width: 500px;
+    height: 40px;
+    border-radius: 12px;
+    border-color: burlywood;
+}
+
+#submitButton {
+    width: 250px;
+    height: 45px;
+    font-family: Poppins, sans-serif;
+    font-size: 16px; 
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 12px;
+    border-color: burlywood;
+}

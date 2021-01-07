@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
+  <link rel="stylesheet" href="css/style.css"/>
+  <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="form"></div>
+    <h1>Slideshow</h1>
+    <h2>Type in a cool thing, and I'll see what I can find for you.</h2>
+
+   <form id="form">
+      <input type="text" id="inputField">
+      <br>
+      <input id="submitButton" type="submit" value="Show Me Cool Things">
+   </form>
+  
+   <ul id="slideshowImages"></ul>
+  </div>
 </body>
+
+<script src="js/app.js"></script>
 </html>
