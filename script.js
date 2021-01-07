@@ -1,6 +1,10 @@
 const redditEndpoint = 'https://www.reddit.com/search.json?q='
 let picURLS = []
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 form.addEventListener('submit', (event) => {
     event.preventDefault()
     console.log('form submitted')
@@ -15,7 +19,9 @@ form.addEventListener('submit', (event) => {
                 image.src = result.data.url
                 return image
             })
-            console.log(picURLS)
+            console.log(picURLS[0])
+            // picBox.removeChild(picBox.firstChild)
+            picBox.appendChild(picURLS[0])
         })
         .catch((error) => {
             console.log('Failed to fetch pics')
