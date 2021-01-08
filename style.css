@@ -16,3 +16,13 @@ input {
 button {
     margin-bottom: 20px;
 }
+#hiddenStop {
+    visibility: hidden;
+}
+#hideOnClick {
+    visibility: visible;
+}
+
+#picShownHere {
+    visibility: visible;
+}

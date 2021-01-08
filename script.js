@@ -8,19 +8,43 @@ let searchURL = 'http://www.reddit.com/search.json?q='
 let image = document.getElementById('picsShownHere')
 let imgStorage = []
 let searchBox = document.getElementById('search')
+let singleImage = 0
+let hideOnClick = document.getElementById('hideOnClick')
+let hiddenStop = document.getElementById('hiddenStop')
 // let endOfUrl = searchBox.value
 
 
-function inputSearch () {
-    endOfUrl
-    console.log('this function is activated', endOfUrl)
-
+function revolver () {
+    setInterval(()=>{
+        if(imgStorage.length) {
+            singleImage = (singleImage +1) %  imgStorage.length;
+            image.src = imgStorage[singleImage]
+            // console.log(singleImage, imgStorage[singleImage])
+        }
+    }, 5000)
 }
 document.addEventListener('DOMContentLoaded', ()=>{
-    console.log('content loaded')
+
+    hiddenStop.addEventListener('click', (e) =>{
+        console.log('stop')
+        imgStorage = []
+        image.style.visibility = 'hidden'
+        hideOnClick.style.visibility = 'visible'
+        hiddenStop.style.visibility = 'hidden'
+        searchBox.value = ''
+    })
+
+
+
 
 
     start.addEventListener('click', ()=>{
+        if(hideOnClick.style.visibility != 'hidden' &&
+            hiddenStop.style.visibility != 'visible'){
+            hideOnClick.style.visibility = 'hidden'
+            hiddenStop.style.visibility = 'visible'
+        }
+
         console.log(searchBox.value)
         fetch(searchURL+searchBox.value)
         .then(fetchedObj=>{
@@ -33,9 +57,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
             let children = response.data.children;
             children.forEach((child)=>{
                 imgStorage.push(child.data.thumbnail)
-
-                console.log(child.data.thumbnail)
-            })  
+                console.log(response)
+                // console.log(child.data.thumbnail)
+            })
+            revolver()  
             // console.log(response.data.children[0].data.thumbnail)
         })
         .then(()=>{
