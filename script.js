@@ -72,5 +72,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
             console.log('you got an error', error)
         })          
     })
-
 })
