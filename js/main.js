@@ -33,14 +33,13 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     
     const addImage = image => {
         if ((image.data.url.includes("png")) || (image.data.url.includes("jpg"))){
-        // if ((image.data.post_hint === "image")){
             images.push(image.data.url)
         }
         console.log("1")
     }
 
     function startSlideShow() {
-        
+        console.log("Image length:"+images.length)
         document.getElementById("img").style.visibility = "visible"
         document.getElementById("footer").style.visibility = "visible"
         document.getElementById("img").src = images[0]
@@ -48,7 +47,11 @@ document.addEventListener("DOMContentLoaded",(e)=>{
         
         t = setInterval(()=>{
             document.getElementById("img").src = images[i]
-            i++
+            if (i === images.length-1){
+                i = 0;
+            }else {
+                i++
+            }
         },time)
         
     }
