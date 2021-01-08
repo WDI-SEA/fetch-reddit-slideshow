@@ -62,5 +62,6 @@ let stopPresentation = () => {
     clearInterval(imageInterval)
     splash_container.style.display = 'flex'
     presentation_box.style.display = 'none'
+    i = 0;
     input_box.value = ''
 }
