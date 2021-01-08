@@ -25,7 +25,7 @@ const grabResults = (searchTerm) => {
         return fetchedResults.json()
     })
     .then((jsonObjects) => {
-        jsonObjects.data.children.forEach(grabImageURL) 
+        jsonObjects.data.children.forEach(grabImageURL) // Can also use filter, where if a value doesn't exist on an object it'll evaluate as not being added to the return array.
         // We can only start doing the below once we have values in imageURLs.
         changeImage()
         imageInterval = setInterval(changeImage, 3000) 
