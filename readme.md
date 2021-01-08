@@ -1,3 +1,7 @@
+# Link to live project: 
+https://patricia-pan.github.io/fetch-reddit-slideshow/
+This took me around 4 hours to code, and after completing it I spent another hour asking questions about CSS and better understanding forEach vs. map. 
+
 # Reddit photo slideshow
 
 We are going to use what we've learned so far to create a basic slideshow using images taken from reddit via AJAX.
