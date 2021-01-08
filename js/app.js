@@ -4,17 +4,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
     form.addEventListener('submit', (e)=>{
         
         e.preventDefault()
+        console.log(inputField.value)
 
-        fetch(randomSearchImage+input.value+'+nsfw:no')
+        fetch(randomSearchImage+inputField.value+'+nsfw:no')
         .then((fetchImages)=>{
-            return fetchImages.json()
+            let jsonData = fetchImages.json()
+            console.log(jsonData)
+            return jsonData
         })
         .then((jsonImages)=>{
-            jsonImages.results.forEach(addImage)
-            // console.log(jsonUsers.result)
+            // grab image thumbnail of each array item
+            // add for loop in ind.
+            for (let i=0; i<10; i++){
+                let results = jsonImages.data.children[i].data.thumbnail
+                console.log(results)
+            }
         })
         .catch((err)=>{
             console.log('Failed to fetch users', err)
         })
     })
 })
+
