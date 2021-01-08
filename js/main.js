@@ -10,9 +10,8 @@ document.addEventListener("DOMContentLoaded",(e)=>{
     form.addEventListener("submit", (e)=> {
         e.preventDefault()
         header.style.visibility = "hidden"
-        for (let i=0; i<images.length;i++){
-            console.log(images.length)
-            images[i].pop()
+        if (images.length>0){
+            images = []
         }
         fetch(redditEndpoint+input.value+"+nsfw:no")
         .then((fetchObj) =>{
