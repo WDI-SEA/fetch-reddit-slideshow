@@ -1,44 +1,67 @@
 let hideOnClick = document.getElementById("hideOnClick");
 let pageTitle = document.getElementById("pageTitle");
 let hiddenPause = document.getElementById("hiddenPause");
+let displayImage = document.getElementById("displayImage");
+let funImages = [];
+let singleImage = 0;
+let timeFrame = 5000;
 
-const addSubject = (subject) => {
-  let subjectList = document.getElementById("searchResults");
-  let newSearch = document.createElement("li");
-  newSearch.textContent = 
-}
+const redditSearchAddress = "http://www.reddit.com/search.json?q="
 
-const redditSearchAddress = "http://www.reddit.com/search.json?q=cats+nsfw:no"
 
 document.addEventListener("DOMContentLoaded", () => {
-  form.addEventListener("submit", (e) => {
-    if(hideOnClick.style.display === "none") {
-      hideOnClick.style.display = "flex";
-    }else{
-      hideOnClick.style.display = "none";
+  search.addEventListener("submit", (e) => {
+    console.log("hitting")
+    if(hideOnClick.style.visibility != "hidden" &&
+    hiddenPause.style.visibility != "visible"){
+      hideOnClick.style.visibility = "hidden"
+      hiddenPause.style.visibility = "visible"
+      console.log("part 1")
     }
-    if(pageTitle === "Reddit Slideshow") {
-      pageTitle = input;
-    }else{
-      pageTitle = "reddit slideshow"
-    }
-    if(hiddenPause.style.display === "none") {
-      hiddenPause.style.display = "flex";
-    }else {
-      hiddenPause.style.display = "none";
-    }
+    displayImage.style.visibility = "visible"
+    
+    timeFrame = 5000
+    console.log(timeFrame, "yen")
+
+    let textInput = document.getElementById("textInput");
+
+    pageTitle.innerText = textInput.value
+    
     e.preventDefault();
-    while(subjectList.firstChild) {
-      subjectList.removeChild(peopleList.firstChild);
-    }
-
-    fetch(redditSearchAddress+input+"nsfw:no")
-    .then((searchList) =>{
-      return searchList.json();
+    
+    fetch(redditSearchAddress+textInput.value)
+    .then((response) => {return response.json()}) 
+    .then(data => {
+      data.data.children.forEach(image => {
+        funImages.push(image.data.url);
+      })
+      imageRevolver();
+      console.log(timeFrame, "euros")
     })
-    // .then(searchImageList) => {
-
-    // }
-
+    .catch((err) => {
+      console.log("Failed to find results", err)
+    })
   })
+  console.log("soup")
 })
+
+hiddenPause.addEventListener("click", (e) => {
+  console.log("WAP")
+  funImages = []
+  displayImage.src = ""
+  displayImage.style.visibility = "hidden"
+  pageTitle.innerText = "Reddit Slideshow"
+  hideOnClick.style.visibility = "visible"
+  hiddenPause.style.visibility = "hidden"
+  textInput.value = ""
+  console.log(timeFrame, "dollars")
+})
+
+const imageRevolver = () => {
+  setInterval(()=> {
+    if(funImages.length) {
+      singleImage = (singleImage +1) % funImages.length;
+      displayImage.src = funImages[singleImage];
+    }
+  }, timeFrame)
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="slideshow" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/script.js"></script>
   
   <title>Reddit Slideshow</title>
@@ -11,17 +11,16 @@
 <body>
   <h1 id="pageTitle">Reddit Slideshow</h1>
   <div id="hideOnClick">
-<h2>In the textbox below, enter a subject you'd like to search.</h2>
+    <h2>In the textbox below, enter a subject you'd like to search.</h2>
 
-<form id="search">
-  <input type="text" id="input">
-  <input type="submit">
-</form>
+    <form id="search">
+    <input type="text" id="textInput">
+    <input type="submit">
+    </form>
+  </div>
 <div id="hiddenPause">
-  <button id="pause">Pause</button>
+  <input type="reset">
 </div>
-</div>
-<ul id="searchResults"></ul>
-  <h1>Hello Front-End</h1>
+<div id="searchResults"><img id="displayImage"></div>
 </body>
 </html>

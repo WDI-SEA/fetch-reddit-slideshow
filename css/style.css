@@ -1,0 +1,21 @@
+body{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+#pageTitle {
+  color: blue;
+}
+
+#hideOnClick {
+  visibility: visible;
+}
+
+#hiddenPause {
+  visibility: hidden;
+}
+#displayImage {
+  visibility: hidden;
+  width: 200px;
+  height: 200px;
+}
