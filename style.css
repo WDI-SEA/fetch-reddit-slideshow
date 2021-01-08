@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(63, 63, 63);
+    flex-direction: column;
+}
+
+h1 {
+     text-decoration: underline;
+}
+input {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-bottom: 20px;
+}
