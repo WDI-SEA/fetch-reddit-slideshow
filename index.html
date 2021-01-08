@@ -3,9 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+
   <title>Hello Front-End</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Fetch!</h1>
+  <div class="searchBox" id="searchBox">
+    <form id="form">
+      Search the image you want to "slideshow". <br>
+      <input type="search" id="input"> <br>
+      <input id="submit" type="submit" onclick="search()">
+  </form>
+  </div>
+  <div class="images">
+    <span>
+      <img src="">
+    </span>
+  </div>
+  <div id="slideShow"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>

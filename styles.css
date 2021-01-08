@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+    color: rgb(222, 205, 194);
+    font-family: 'Redressed', cursive;
+    font-size: 4em;
+    margin-top: 400px;
+    margin-bottom: 30px;
+    border-bottom: rgb(222, 205, 194) 3px solid;
+}
+
+body {
+    background-image: url("https://cdn.pixabay.com/photo/2018/09/15/12/31/background-3679292_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#searchBox {
+    text-align: center;
+}
+
+form {
+    font-family: 'Redressed', sans-serif;
+    font-size: 2em;
+    color: rgb(222, 205, 194);
+}
+
+#input {
+    text-align: center;
+    background-color: rgb(222, 205, 194);
+    height: 40px;
+    width: 300px;
+    font-family: 'Redressed', sans-serif;
+    margin: 10px;
+}
+
+input[type="search"] {
+    font-family: 'Redressed', sans-serif;
+    font-size: 1em;
+}
+
+#submit {
+    background-color: rgb(222, 205, 194);
+    height: 40px;
+    width: 90px;
+    font-size: .7em;
+    font-family: 'Redressed', sans-serif;
+    text-align: center;
+}
+
+
