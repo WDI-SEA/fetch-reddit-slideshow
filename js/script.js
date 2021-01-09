@@ -1,7 +1,12 @@
 // create a redditEndPoint for some types of searches you want on site
 console.log('what up')
+const stopBtn = document.getElementById('stop')
 let images = []
-const redditEndpoint = 'https://www.reddit.com/search.json?q=kittens'
+const redditEndpoint = 'https://www.reddit.com/search.json?q='
+const inputBox = document.getElementById('input') 
+const picTube = document.getElementById('screen') 
+let slideIndex = 0
+// console.log(inputBox.value)
 // const randomRedditEndpoint = 'https://reddit.com/search.jsonq?=dogs'
 // const randomRedditEndpoint = 'https://reddit.com/search.jsonq?=birds'
 // create lists in JS for the images to be put in
@@ -13,27 +18,34 @@ const redditEndpoint = 'https://www.reddit.com/search.json?q=kittens'
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
-    fetch(redditEndpoint)
-        .then((fetchObj) => {
-            console.log('here is the fetch object', fetchObj)
-            return fetchObj.json()
-        })
-        .then((jsonData) => {
-            // console.log('Here is the Json data', jsonData.data.children)
-            // console.log(jsonData.data.children[5].data.url)
-            images = []
-            jsonData.data.children.forEach((result) => {
-                images.push(result.data.url)
-            })
-            console.log(images)
-           const image = document.createElement('img')   
-           image.src = images[0]
-           document.getElementById('screen').appendChild(image)
-        })
-        .catch((error => {
-            console.log('oh no you did NOt make fetch happen')
-        }))
+    fetch(redditEndpoint + inputBox.value)
+    .then((fetchObj) => {
+        return fetchObj.json()
+    })
+    .then((jsonData) => {
+        jsonData.data.children.forEach((result) => {
+            if(result.data.thumbnail != 'default' && result.data.thumbnail != 'self') {
+                images.push(result.data.thumbnail)
+            }
+        })  
+        console.log(images)
+        setInterval(() => {
+            slideShow()
+        }, 500);
+    })
+    .catch((error => {
+        console.log('oh no you did NOt make fetch happen')
+    }))
 })
+
+function slideShow() {
+    picTube.src = images[slideIndex]
+    if(slideIndex < images.length-1) {
+        slideIndex++
+    } else {
+        slideIndex = 0
+    }
+} 
 
 // const doSomething = (pizza) => {
 //     pizza.preventDefault()
