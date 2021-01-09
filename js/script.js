@@ -58,4 +58,12 @@ function vanish() {
     }
 }
 
+function disappear() {
+    let box = document.getElementById('input')
+    if(input.style.display === 'none') {
+        input.syle.display = 'block'
+    } else {
+        input.style.display = 'none'
+    }
+}
 
