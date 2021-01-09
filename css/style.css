@@ -3,3 +3,15 @@
     padding: 0;
 }
 
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+button {
+    text-align: center;
+    margin-left: 350px;
+}

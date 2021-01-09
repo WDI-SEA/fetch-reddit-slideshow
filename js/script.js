@@ -23,7 +23,7 @@ form.addEventListener('submit', (event) => {
         console.log(images)
         slides = setInterval(() => {
             slideShow()
-        }, 500);
+        }, 3000);
     })
     .catch((error => {
         console.log('oh no you did NOt make fetch happen')
@@ -50,20 +50,27 @@ stopBtn.addEventListener('click', () => {
 }) 
 
 function vanish() {
-    let pic = document.getElementById('submit')
-    if (submit.style.display === 'none') {
-        submit.style.display = 'block'
+document.getElementById('submit')
+if (submit.style.display === 'none') {
+    submit.style.display = 'block'
     } else {
         submit.style.display = 'none'
     }
-}
-
-function disappear() {
-    let box = document.getElementById('input')
-    if(input.style.display === 'none') {
-        input.syle.display = 'block'
+    document.getElementById('input')
+    if (input.style.display === 'none') {
+        input.style.display = 'block'
     } else {
         input.style.display = 'none'
     }
 }
+
+
+// function disappear() {
+//     let box = document.getElementById('input')
+//     if(input.style.display === 'none') {
+//         input.syle.display = 'block'
+//     } else {
+//         input.style.display = 'none'
+//     }
+// }
 
