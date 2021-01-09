@@ -62,7 +62,14 @@ if (submit.style.display === 'none') {
     } else {
         input.style.display = 'none'
     }
+    let pic = document.getElementById('title')
+    if (title.style.display === 'none') {
+        title.style.display = 'block'
+    } else {
+        title.style.display = 'none'
+    }
 }
+
 
 
 // function disappear() {
