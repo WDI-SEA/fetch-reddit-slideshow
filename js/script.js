@@ -49,6 +49,13 @@ stopBtn.addEventListener('click', () => {
     stopSlideShow()
 }) 
 
-
+function vanish() {
+    let pic = document.getElementById('submit')
+    if (submit.style.display === 'none') {
+        submit.style.display = 'block'
+    } else {
+        submit.style.display = 'none'
+    }
+}
 
 
