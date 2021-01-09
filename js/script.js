@@ -3,9 +3,10 @@ console.log('what up')
 const stopBtn = document.getElementById('stop')
 let images = []
 const redditEndpoint = 'https://www.reddit.com/search.json?q='
-const inputBox = document.getElementById('input') 
-const picTube = document.getElementById('screen') 
+const inputBox = document.getElementById('input')
+const picTube = document.getElementById('screen')
 let slideIndex = 0
+let slides;
 // console.log(inputBox.value)
 // const randomRedditEndpoint = 'https://reddit.com/search.jsonq?=dogs'
 // const randomRedditEndpoint = 'https://reddit.com/search.jsonq?=birds'
@@ -29,7 +30,7 @@ form.addEventListener('submit', (event) => {
             }
         })  
         console.log(images)
-        setInterval(() => {
+        slides = setInterval(() => {
             slideShow()
         }, 500);
     })
@@ -46,6 +47,16 @@ function slideShow() {
         slideIndex = 0
     }
 } 
+
+
+
+function stopSlideShow(){
+    clearInterval(slides)
+}
+
+stopBtn.addEventListener('click', () => {
+    stopSlideShow()
+}) 
 
 // const doSomething = (pizza) => {
 //     pizza.preventDefault()
