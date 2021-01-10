@@ -46,7 +46,7 @@ const startShow = () => {
         }
         searchImg.src = slideshow[currentIndex].data.url;
         searchImg.alt = slideshow[currentIndex].data.title
-    }, 2000)
+    }, 3000)
 }
 
 const stopShow = () => {
