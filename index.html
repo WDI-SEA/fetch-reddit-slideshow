@@ -12,19 +12,13 @@
 <body>
   <h1>Fetch!</h1>
   <div class="searchBox" id="searchBox">
-    <form id="form">
-      Search the image you want to "slideshow". <br>
-      <input type="search" id="input"> <br>
-      <input id="submit" type="submit" onclick="search()">
-  </form>
+    <form id="searchform">
+      <input type="text" id="input"> <br>
+      <input id="submit" type="submit">
+    </form>
   </div>
-  <div class="images">
-    <span>
-      <img src="">
-    </span>
-  </div>
-  <div id="slideShow"></div>
-
-  <script src="script.js"></script>
+  <div id="theShow"></div>
+  <button id="stop">Stop</button>
+  <script src="./script.js"></script>
 </body>
 </html>

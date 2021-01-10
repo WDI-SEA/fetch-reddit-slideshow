@@ -12,6 +12,7 @@ body {
     background-image: url("https://cdn.pixabay.com/photo/2018/09/15/12/31/background-3679292_1280.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: center;
 }
 
 #searchBox {
@@ -47,4 +48,17 @@ input[type="search"] {
     text-align: center;
 }
 
+button {
+    text-align: center;
+}
+#stop {
+    background-color: rgb(222, 205, 194);
+    height: 40px;
+    width: 90px;
+    font-size: 1.4em;
+    font-family: 'Redressed', sans-serif;
+    text-align: center;
+    margin-top: 15px;
+}
+ 
 
