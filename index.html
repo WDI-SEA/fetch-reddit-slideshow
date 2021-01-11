@@ -8,25 +8,21 @@
   <title>Reddit Slideshow</title>
 </head>
 <body>
-  <div class="form"></div>
+  <div id="searchPage"></div>
     <h1>Slideshow</h1>
     <h2>Type in a cool thing, and I'll see what I can find for you.</h2>
-
    <form id="form">
       <input type="text" id="inputField">
       <br>
       <input id="submitButton" type="submit" value="Show Me Cool Things">
    </form>
-  
   </div>
-  <div class="slideshowImages"></div>
+  <div id="searchResults" onclick="runSlideshow()">
     <h1>All the cool things...</h1>
     <img id="slideshowImages" src=""></img> 
     <br>
     <!-- top button returns title and search -->
     <button id="stopButton" onclick=location=URL>Stop That</button>
-  
-    <img id="slideshowImages" src=""></img> 
   </div>
 </body>
 
