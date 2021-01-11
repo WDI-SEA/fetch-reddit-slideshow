@@ -4,6 +4,7 @@ const pauseButton = document.getElementById('pauseButton')
 const inputField = document.getElementById('inputField')
 let currentIndex = 0
 let slideshow = []
+let interval = null
 
 const randomSearch = 'http://www.reddit.com/search.json?q='
 
@@ -21,8 +22,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         .then((redditResponse)=>{
             redditResponse.data.children.forEach(res => {
-                // console.log(res.data.thumbnail)
-                // if res.data
                 slideshow.push(res.data.thumbnail)
             })
             console.log(slideshow)
@@ -50,8 +49,6 @@ function runSlideshow() {
 
 // Hide search page
 // Display results page and run slideshow
-// Add pause button and search again buttons
-
 
 // **** NICK'S EXAMPLE ****
 

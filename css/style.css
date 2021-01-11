@@ -26,7 +26,7 @@ h2 {
     border-color: burlywood;
 }
 
-#submitButton, #pauseButton {
+#submitButton {
     width: 250px;
     height: 45px;
     font-family: Poppins, sans-serif;
@@ -40,3 +40,13 @@ h2 {
 .slideshowImages {
     display: none;
 }
+
+#stopButton {
+    width: 250px;
+    height: 45px;
+    font-family: Poppins, sans-serif;
+    font-size: 16px; 
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 12px;
+    border-color: burlywood;}
