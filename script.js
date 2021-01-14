@@ -11,6 +11,7 @@ console.log(images)
 let length = 0
 let reset = document.getElementById('reset')
 let interval = null
+let pause = document.getElementById('pause')
 
 reddit.addEventListener('submit', (e)=>{
 e.preventDefault()
@@ -68,6 +69,10 @@ reset.addEventListener('click', e => {
     clearInterval(interval)
     urls = []
     length = 0
+})
+
+pause.addEventListener('click', e => {
+    clearInterval(interval)
 })
 
 
