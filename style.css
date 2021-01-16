@@ -4,3 +4,6 @@ body{
 #slide{
     display: none;
 }
+#stopBtn{
+    display: none;
+}

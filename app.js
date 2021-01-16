@@ -2,12 +2,14 @@ let fotoIndex = 0;
 let btn = document.getElementById("btn");
 let imgReturn = document.getElementById("slide");
 let input = document.querySelector("input");
-let fotos = []
+let fotos = [];
+let stopBtn = document.getElementById("stopBtn");
+let showSlideShow;
 
 btn.addEventListener("click", function(e){
     e.preventDefault();
     console.log("text")
-fetch('http://www.reddit.com/search.json?q='+input.value+'+nsfw:no')
+    fetch('http://www.reddit.com/search.json?q='+input.value+'+nsfw:no')
         .then(function(responseBtn){
             return responseBtn.json();
         })
@@ -25,8 +27,9 @@ fetch('http://www.reddit.com/search.json?q='+input.value+'+nsfw:no')
             console.log(fotos)
         })
         .then(() => {
-            
-            setInterval(() => {
+            btn.style.display = "none";
+            stopBtn.style.display = "block";
+            showSlideShow = setInterval(() => {
                 imgReturn.src = fotos[fotoIndex]
                 imgReturn.style.display = "block";
                 if(fotoIndex < fotos.length-1){
@@ -40,10 +43,21 @@ fetch('http://www.reddit.com/search.json?q='+input.value+'+nsfw:no')
 })
 // now render and image and specify the width and height too
 
+stopBtn.addEventListener("click", () => {
+    clearInterval(showSlideShow)
+    btn.style.display = "block";
+    stopBtn.style.diplay = "none";
+})
 
-function slideShow () {
-    imgReturn.src = fotos[1];
-}
+
+function stopSlide () {
+}  
+
+
+
+// function slideShow () {
+//     imgReturn.src = fotos[1];
+// }
 
 
 
