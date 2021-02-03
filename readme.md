@@ -53,6 +53,9 @@ It is important to break down any development project in to smaller pieces and t
 * Add some interesting style / animation
 * Create button to stop animation (tip: use [clearInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval)).
 
+## Object Oriented?
+You can choose to use a class in this exercise, but you don't have to! Remember that a class is a "factory" for creating many similar instances. In this project, are there going to be several objects that have similar behavior?
+
 ## Example Deliverables
 
 ![Slide 1](./examples/ajaxexample1.jpg)
