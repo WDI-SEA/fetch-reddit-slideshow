@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const requesturl =`https://www.reddit.com/search.json?q=`
 
+    let timer = 0
     
 
     let imgRes = []
@@ -22,7 +23,23 @@ document.addEventListener("DOMContentLoaded", () => {
         stopButton = false
         // get user inputed number
         let userInput = input.value
+       
+       
+       
         
+
+        //timing
+        function tick(){
+            if(timer>imgRes.length){
+                timer=0
+            }
+            document.getElementById("image").src = imgRes[timer]
+            document.getElementById("image").width = "300"
+            timer++
+            console.log(timer)
+           
+        }
+
 
 
         // make fetch request to const api url with given user number
@@ -56,11 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                     
                 } //End of for loop
-                // console.log(imgRes)
-                domImageMaker(imgRes)
-                // setInterval(domImageMaker(imgRes), 5000)
                 
+                let clock = setInterval(tick, 4000)
                 
+                document.getElementById("stop").addEventListener("click", () =>{
+                    stopButton = true
+                    clearInterval(clock)
+                    console.log("stopped")
+                    document.getElementById("image").src = "🐱"
+                })
 
 
 
@@ -77,74 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             
     }) //End of event listener of submit button
-
-
-
-// Need function to take list and make slideshow
-
-
-document.getElementById("stop").addEventListener("click", () =>{
-    stopButton = true
-    clearInterval()
-    console.log("stopped")
-})
-    
-
-    //RESPONSE DATA
-    // collect formated data
-    function domImageMaker(resArr) {
-        
-        for(num of resArr){
-
-            document.getElementById("image").src = num
-            document.getElementById("image").width = "300"
-            
-        }
-
-        
-            
-    }//end of funct
-
-    
-
-
-    
-        
-        
-
-            // if you get to end of list, start at beginning again
- 
-        //     resArr.forEach((result) => {
-                   
-        //         // create an li element for each response
-                
-        //         //need to get IMG/SRC and cycle through pictures + stop button
-        //         // let li = document.createElement("img")
-        //         // li.src = result
-        //         document.getElementById("image").src = result
-        //         document.getElementById("image").width = "300"
-        // }) //end of forEach
-        
-    // } //end of funct
-
-    function sleep(milliseconds) {
-        const date = Date.now();
-        let currentDate = null;
-        do {
-          currentDate = Date.now();
-        } while (currentDate - date < milliseconds);
-      }
-        
-
- 
-            document.getElementById("stop").addEventListener("click", () =>{
-                stopButton = true
-                clearInterval()
-                console.log("stopped")
-            })
-            
-
-   
 
 
 
