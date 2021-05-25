@@ -41,26 +41,29 @@ document.addEventListener("DOMContentLoaded", () => {
     function domSlide(imgArr) {
         // hide form
         inputForm.style.visibility="hidden"
-    
-        setInterval(function(){// loop & create new div for image
-            for (let i=0; i<imgArr.length; i++){
-                
-                    console.log(imgArr[i].data.thumbnail)
-                    let imgToPlace = imgArr[i].data.thumbnail
-                    var elem = document.createElement("img");
-                    
-                    elem.setAttribute("src", imgToPlace);
-                    elem.setAttribute("height", "400");
-                    elem.setAttribute("width", "600");
-                    placeImage.appendChild(elem)
-                  
-            }
-        }, 3000)
-        
-            // create stop button
-                // should hide images 
-                // display form again
 
+        // start image array
+        let i = 0
+
+        // Dom manipulation
+        function domMani(){
+            console.log(i)
+            console.log(imgArr[i].data.thumbnail)
+            let imgToPlace = imgArr[i].data.thumbnail
+            var elem = document.createElement("img")
+            elem.setAttribute("src", imgToPlace)
+            elem.setAttribute("height", "400")
+            elem.setAttribute("width", "600")
+            placeImage.appendChild(elem)  
+            i++
+            setTimeout(function(){
+                placeImage.removeChild(elem)
+            }, 2700)
+        }
+
+        setInterval(domMani, 3000)
     }
-
+        // create stop button
+            // should hide images 
+            // display form again
 })
