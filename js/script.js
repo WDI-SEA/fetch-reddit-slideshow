@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   .map(imageData => imageData.data.url)
               
               showImage();
-              intervalTimer = setInterval(showImage, 400);
+              intervalTimer = setInterval(showImage, 2000);
               console.log('*** saved intervalTimer: ', intervalTimer);
             })
             // .catch --> catch errors
