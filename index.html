@@ -6,26 +6,56 @@
     <title>Reddit Photo Slideshow - Deliverable</title>
     <style>
       * {
+        /* border: 1px solid black; */
+        background: #fec89a;
+        font-family: Helvetica;
+        color: white;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 400px;
+        /* height: 200 */
+      }
+      .container {
+        width: 650px;
         border: 1px solid black;
       }
+      .gallery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+#slideshow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+#form{
+  padding: 25px;
+}
     </style>
     <script src="./js/script.js"></script>
   </head>
   <body>
-    <h1>Reddit Photo Slideshow</h1>
-    <div>
-      Collect pictures from Reddit and see them displayed in a slide show
-      <!-- Use the form below to enter a search term, that will query Reddit, for
-      pictures to be displayed, inside a slideshow. -->
+    <div class="container">
+      <div class="header">
+        <h1>Reddit Photo Slideshow</h1>
+        <div>
+          Using the form below, enter an image search term that will query Reddit and display them in a slideshow
+      </div>
+      <div class="gallery">
+        <form id="form">
+          <input id="input" type="text" />
+          <input type="submit" />
+        </form>
+      </div>
+      <div id="slideshow"></div>
     </div>
-    <div>
-      <form id="form">
-        <input id="input" type="text" />
-        <!-- min="1" value="1" -->
-
-        <input type="submit" />
-      </form>
-    </div>
-    <div id="slideshow"></div>
   </body>
 </html>
