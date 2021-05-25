@@ -80,7 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     stopButton = true
                     clearInterval(clock)
                     console.log("stopped")
-                    document.getElementById("image").src = "🐱"
+                    document.getElementById("image").alt = "🐱"
+                    document.getElementById("image").src = ""
                 })
 
 
