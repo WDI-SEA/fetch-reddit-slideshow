@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // query selectors
     const requestUrl = "https://www.reddit.com/search.json?q="
     let inputForm = document.querySelector("#form")
+    let bodyText = document.querySelector(".info")
     let clearButton = document.querySelector(".clear")
     let placeImage = document.querySelector(".placehere")
-    console.log(placeImage)
+    let imageContainer = document.querySelector(".image-container")
+    
     let newArr = []
 
     clearButton.style.visibility = "hidden"
@@ -40,10 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // collect formatted json data
     function domSlide(imgArr) {
         // hide form
-        inputForm.style.visibility="hidden"
+        inputForm.style.visibility = "hidden"
+        bodyText.style.visibility = "hidden"
+        clearButton.style.visibility = "visible"
 
         // start image array
         let i = 0
+        let interval
 
         // Dom manipulation
         function domMani(){
@@ -61,9 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2700)
         }
 
-        setInterval(domMani, 3000)
+        interval = setInterval(domMani, 3000)
     }
         // create stop button
+        clearButton.addEventListener("click", () => {
+            inputForm.style.visibility = "visible"
+            bodyText.style.visibility = "visible"
+            imageContainer.style.visibility = "hidden"
+
+            clearInterval(interval)
+        })
             // should hide images 
             // display form again
 })
