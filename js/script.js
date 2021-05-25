@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then((jsonData) => {
                 searchResults = jsonData.data.children.filter(allLinks => String(allLinks.data.url).includes('i.redd')).map(filteredImages => filteredImages.data.url)
-                changeImage()
-                // console.log(searchResults)
             })
             .catch((err) => {
                 return err
