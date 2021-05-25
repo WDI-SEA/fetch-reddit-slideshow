@@ -4,19 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src='script.js'></script>
+  <link rel='stylesheet' href="css/styles.css">
   <title>Reddit Animal Pics</title>
 </head>
 <body>
   <h1>Look at Animal Friends!</h1>
   <h3>Type the name of the animal you would like to see in the box below!</h3>
 
-  <form id='form'>
-    <input id='input' type='text'>
-    <input type='submit'>
+  <!--form-->
+  <form id='search-form'>
+    <input type='text' id='search-input' placeholder='Search Reddit'/>
+    <input type='submit' id='submit-button' />
   </form>
-  <ul id='catPics'></ul>
+ <!-- stop button-->
+ <div>
+   <button id='stop-button'>Stop Slideshow</button>
+ </div>
 
-  <div id='myData'></div>
+
+ <!-- slideshow container-->
+  <div id= 'slideshow-container'>
+    
+  </div>
+
+ 
 
 </body>
 </html>
