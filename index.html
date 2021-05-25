@@ -3,9 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <script src="js/scripts.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="flex flex-col items-center">
+    <h1 class="mt-5 font-bold text-center text-5xl">Reddit Slideshow</h1>
+    <p class="mt-5 font-bold text-center" id="message">Search for something you want to see images for.</p>
+  </div>
+
+  <div>
+    <form class="flex flex-col items-center" id="search">
+      <input class="border-2 text-center border-black rounded-md" id="search-input" type="text" placeholder="SEARCH">
+      <input class="transition duration-500 ease-out transform hover:scale-110 my-1 border-8 border-black rounded-md hover:bg-gray-200 bg-white font-black p-2 text-2xl tracking-widest" id="submit" type="submit">
+    </form>
+  </div>
+
+  <div class="flex flex-col items-center">
+    <div id="slideshow"></div>
+    <div>
+      <button class="transition duration-500 ease-out transform hover:scale-110 my-1 border-8 border-black rounded-md hover:bg-gray-200 bg-white font-black p-2 text-2xl tracking-widest" id="stop">STOP</button>
+    </div>
+  </div>
+
 </body>
 </html>
