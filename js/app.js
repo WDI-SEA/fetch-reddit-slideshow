@@ -2,11 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // store constant url for form dom element; request url
     const requestUrl = "https://www.reddit.com/search.json?q="
-    let inputForm = document.querySelector('form')
-    let displayImg = document.querySelector('display-img')
+    const inputForm = document.querySelector('form')
+    const displayImg = document.querySelector('display-img')
+    const stop = document.querySelector('#stop')
     let imgResponse = []
 
     inputForm.addEventListener("submit", fetchData)
+    stop.addEventListener('click', stopShow)
     
     // REQUEST DATA
     function fetchData(e) {
@@ -46,7 +48,30 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     // })   
     }
-        //tried to functionify but didnt work        
+
+
+    // start show
+    function startShow(){
+        let showInterval = setInterval(changeSlide, 1000)
+        stop.style.display = 'block'
+    }
+
+   // resets app to init state
+    function resetShow() {
+        clearInterval(showInterval)
+        // clearShow()
+        // imageIndex = -1
+        imgResponse = []
+    }
+
+    // stop
+    function stopShow() {
+        // resetShow()
+        inputForm.style.display = 'flex'
+        stop.style.display = 'none'
+        inputForm.reset()
+    }
+            //tried to functionify but didnt work        
         // function filterdImgs(imgResponse) {
         //     imgResponse = map(imgResponse => imgResponse.data.url_overridden_by_dest)
         //     // .filter(imgType => imgType === '.jpg' || imgType === '.png')
