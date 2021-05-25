@@ -37,7 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                 .filter(element => String(element.data.url).includes(".jpg"))
                                 .map(filteredData => filteredData.data.url)
 
+                // logging results in console
                 console.log(imageResults)
+
+                // hide the form and set the first image before the interval starts
                 hideElements()
                 imageDisplay.src = imageResults[iterator]
                 intervalTimer = setInterval(displayImage, 4000)
@@ -54,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayImage() {
         // display image and reset iterator at end of array
         iterator++
-        if(iterator == imageResults.length) {
+        if(iterator >= imageResults.length) {
             iterator = 0
         }
 
