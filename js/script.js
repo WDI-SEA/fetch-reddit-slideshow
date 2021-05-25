@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("image").src = imgRes[timer]
             document.getElementById("image").width = "300"
             timer++
-            console.log(timer)
+            // console.log(timer)
            
         }
 
