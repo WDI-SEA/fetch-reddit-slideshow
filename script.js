@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let inputForm = document.querySelector('form')
     let catPics = document.querySelector('#catPics')
     let catRes = []
-    let mainContainer= document.getElementById('myData')
 
     //REQUEST DATA 
     //take form element and prevent default behavior
@@ -16,21 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //make fetch request to const api url with given user input   
     fetch(requestUrl + userInput)
-        .then((res) => {
-            let jsonData = res.json()
+        .then((response) => {
+            let jsonData = response.json()
             console.log("it works!")
             return jsonData
     })
         .then ((jsonData) => {
             catRes = jsonData.data.children
-            domCatRes(catRes)
+            // domCatRes(catRes)
             console.log(catRes)
             for (let i =0; i <catRes.length; i++) {
-                if (catRes[i].data.url) {
-                    setTimeout(function () {
-                        document
-                    })
-                }
+                (catRes.results[i].data.url)                
             }
         })
         .catch((error) => {
@@ -40,16 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // // function domCatPics (resArr) {
-    function domCatRes (catRes) {
-        catRes.forEach((cat) => {
-            console.log(cat.data.url)
-            let li = document.createElement('img')
-            li.textContent = catRes.url
+    // function domCatRes (catRes) {
+    //     catRes.forEach((cat) => {
+    //         console.log(cat.data.url)
+    //         let li = document.createElement('img')
+    //         let img = catRes
+    //         li.textContent = catRes.url
 
-            catRes.appendChild(li)
+    //         li.appendChild(img)
             
-        })
-    }
+    //     })
+    // }
 
 
 
