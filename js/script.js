@@ -10,34 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
         let searchQuery = input.value
         
 
-        fetch(`${requestUrl}+${searchQuery}`)
+        fetch(`${requestUrl}+${searchQuery} + nsfw:no`)
             .then((thePic) => {
-                return thePic.json()
-                
+                return thePic.json()   
             })
             .then((jsonData) => {
-                picRes = jsonData.data
-                // domPicShow(picRes)
-                console.log("did it work?", jsonData.data.children[0].data.thumbnail)
+                picRes = jsonData.data.children
                 domPicShow(picRes)
             })
             .catch((err) => {
                 console.log(err)
                 return err
             })
-
     })
 
     function domPicShow(picUrl) {
         
-        let newPic = document.createElement('img')
-        console.log(picUrl)
-        // newPic.setAttribute('src', picUrl.children[0].data.preview.images[0].source.url);
-        //above gets a 403 error 
-        newPic.setAttribute('src',picUrl.children[0].data.thumbnail)
-        picYouWantToSee.appendChild(newPic)
-        console.log('done')
+            picUrl.forEach((image) => {
+                
+                
+                let newPic = document.createElement('img')
+                //above gets a 403 error FORBIDDEN
+                
+                newPic.setAttribute('src',image.data.thumbnail)
+               
+            picYouWantToSee.appendChild(newPic)
+            console.log('done')
+             
+            })
+        
     }
-
+    
 
 })
