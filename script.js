@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+ 
 
 //URL REQUEST
 let requestUrl = "http://www.reddit.com/search.json?q="
@@ -8,9 +8,12 @@ let requestUrl = "http://www.reddit.com/search.json?q="
 let inputForm = document.querySelector("form")
 let pictureBox = document.querySelector(".pictureContainer")
 let playButton = document.querySelector(".playButton")
-let stopButton = document.querySelector(".stopButton")
+let stopButton = document.getElementById('stop')
+let description = document.querySelector('.description')
 let slideShow = false
 let slideCounter = 0
+let timer = 2000
+let timerHandler
 
 //global var
 let images = []
@@ -24,6 +27,10 @@ function showInit() {
 
 function stopShow() {
     slideShow = false
+    filterImages.length = 0
+    clearInterval(timerHandler)
+    description.innerText = "Type what images you'd like to see then press play to begin slideshow!"
+    
 }
 
 //AJAX functions
@@ -36,23 +43,39 @@ function findImagesHandler (array) {
         || img.includes(".jpg")
     })  
 }
+stopButton.addEventListener('click',(e) => {
+    e.preventDefault
+    filterImages.length = 0
+    stopShow()
+    pictureBox.style.display = 'none'
+    stopButton.style.display = 'none'
+    inputForm.style.display = 'inline'
+    playButton.style.display = 'inline'
+})
 
 //slideshow functions
 function slideshowHandler (){
     slideShow = true
+    stopButton.style.display = 'block'
+    pictureBox.style.display = 'block'
+    inputForm.style.display = 'none'
+    playButton.style.display = 'none'
+    description.innerText = "Enjoy your slideshow!"
     let showPictures = document.createElement('img')
     showPictures.style.width='600px'
     showPictures.style.width='400px'
-    stopButton.addEventListener('click', stopShow())
-    setInterval (function (){
+    if (slideShow ===true) {
+        timerHandler = setInterval (function (){
         slideCounter++
         if (slideCounter > filterImages.length) {
             slideCounter = 0
         }
         showPictures.src = filterImages[slideCounter]
         pictureBox.appendChild(showPictures)
-        }, 2000)
-    
+        }, timer)
+    } else {
+        slideShow = false
+    }
 }
 
 //CLICK LISTENER/ PREVENT DEFAULT
