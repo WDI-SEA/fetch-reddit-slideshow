@@ -1,32 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
     // store constant url for form dom element; request url
     const requestUrl = "http://www.reddit.com/search.json?q=kitten+nsfw:no"
-    let staato = document.getElementById("startButton")
+    let staato = document.querySelector("form")
+    let kitzone = document.querySelector("#selectzone")
     let stoppu = document.getElementById("pauseButton")
     let catArr = []
     // REQUEST DATA
     // take form element and prevent dfault behavior
-    addEventListener("submit", (e) => {
-
+    staato.addEventListener("submit", (e) => {
         e.preventDefault()
+        let kitySelected = staato.value
         // make fetch request to const api url with given user number
-        console.log('yes hello')
+        fetch(requestUrl + kitySelected)
             // .then --> take response data and format
-            // .then((res) => {
-            //     return res.json()
-            // }) 
-            // // .then --> use response JSON data
-            // .then((jsonData) => {
-            //     console.log(jsonData)
-            //     catArr = jsonData.results
-            // })
-            // // .catch --> catch errors
-            // .catch((err) => {
-            //     console.log(err)
-            //     return err
-            // })
+            .then((res) => {
+                return res.json()
+            }) 
+            // .then --> use response JSON data
+            .then((jsonData) => {
+                console.log(jsonData)
+                catArr = jsonData.results
+                kittyColle(catArr)
+            })
+            // .catch --> catch errors
+            .catch((err) => {
+                console.log(err)
+                return err
+            })
         
     })
+
+    function kittyColle(kittenTime) {
+        kittenTime.forEach((kitten) => {
+            let kitject = document.createElement("img")
+            kitject.textContent = `${kitten.image} hello is this thing on`
+            kitzone.appendChild(img)
+        })
+    }
 })
 
 //     //RESPONSE DATA
