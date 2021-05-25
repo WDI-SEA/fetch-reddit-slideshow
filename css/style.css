@@ -1,0 +1,22 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#slideshow-container {
+    height: 500px;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    height: 500px;
+    opacity: 0;
+    transition: opacity 0.5s linear
+}
+
+.active {
+    opacity: 1;
+}
