@@ -9,12 +9,12 @@ let pngString = ".png"
 let imgRes = []
 let resImg = document.getElementById("resImg")
 
-// function replaceImage() {
-//     imgRes.forEach((image) => {
-//         resImg.src = image
-//         console.log(resImg)
-//     })
-// }
+function replaceImage() {
+    imgRes.forEach((image) => {
+        resImg.src = image
+        console.log(resImg)
+    })
+}
 
 inputForm.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -27,18 +27,13 @@ inputForm.addEventListener("submit", (e) => {
             jsonData.data.children.forEach((elem) => {
             searchRes.push(elem.data.url)
             })
-            imgRes = searchRes.filter(elem => elem.includes('.jpg') || elem.includes('.png'))
-
+        imgRes = searchRes.filter(elem => elem.includes('.jpg') || elem.includes('.png'))
         } catch(err) {
             // console.log(err)
             return err
         }
         console.log(imgRes)
-        // replaceImage()
-        imgRes.forEach((image) => {
-            resImg.src = image
-            console.log(resImg)
-        })
+        replaceImage()
     }
     searchReddit()
 
