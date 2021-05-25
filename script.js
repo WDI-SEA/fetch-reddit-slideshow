@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+    
     // set variables
-    const requestUrl = '"https://www.reddit.com/search.json?q=kittens"'
+    const requestUrl = 'http://www.reddit.com/search.json?q='
     let inputForm = document.querySelector('form')
     let catPics = document.querySelector('#catPics')
     let catRes = []
+    let mainContainer= document.getElementById('myData')
 
     //REQUEST DATA 
     //take form element and prevent default behavior
@@ -13,30 +15,39 @@ document.addEventListener("DOMContentLoaded", () => {
         let userInput = input.value
 
     //make fetch request to const api url with given user input   
-    fetch("https://www.reddit.com/search.json?q=kittens")
-    .then((res) => {
-        console.log("it works!")
-        return res.json()
+    fetch(requestUrl + userInput)
+        .then((res) => {
+            let jsonData = res.json()
+            console.log("it works!")
+            return jsonData
     })
         .then ((jsonData) => {
-            catRes = jsonData.results
-            domCatPics(catRes)
+            catRes = jsonData.data.children
+            domCatRes(catRes)
+            console.log(catRes)
+            for (let i =0; i <catRes.length; i++) {
+                if (catRes[i].data.url) {
+                    setTimeout(function () {
+                        document
+                    })
+                }
+            }
+        })
+        .catch((error) => {
+            console.log(error)
         })
     })
-        .catch((err) => {
-        console.log(err)
-        return err
-    })
 
 
-    function domCatPics (resArr) {
-        resArr.forEach((cat) => {
-            // create an li element for each response 
-            let li = document.createElement("li")
-            li.textContent = person.name.first +  " " + person.name.last
+    // // function domCatPics (resArr) {
+    function domCatRes (catRes) {
+        catRes.forEach((cat) => {
+            console.log(cat.data.url)
+            let li = document.createElement('img')
+            li.textContent = catRes.url
+
+            catRes.appendChild(li)
             
-            // add li element to DOM
-            peopleList.appendChild(li)
         })
     }
 
