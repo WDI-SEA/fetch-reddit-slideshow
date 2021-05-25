@@ -2,3 +2,17 @@
     height: 600px;
     width: 800px;
 } */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

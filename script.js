@@ -14,6 +14,7 @@ let slideShow = false
 let slideCounter = 0
 let timer = 2000
 let timerHandler
+stopButton.style.display = 'none'
 
 //global var
 let images = []
@@ -102,7 +103,7 @@ inputForm.addEventListener('submit', (e) => {
                     //     return content.includes(".gif") 
                     //     || content.includes(".jpg")
                     // })
-                    console.log(filterImages)
+                    // console.log(filterImages)
                     slideshowHandler()
                     
 
