@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const requesturl =`https://www.reddit.com/search.json?q=`
 
-    let timer = 0
+    let imgCounter = 0
     
 
     let imgRes = []
@@ -30,13 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //timing
         function tick(){
-            if(timer>imgRes.length){
-                timer=0
+            if(imgCounter>imgRes.length){
+                imgCounter=0
             }
-            document.getElementById("image").src = imgRes[timer]
+            document.getElementById("image").src = imgRes[imgCounter]
             document.getElementById("image").width = "300"
-            timer++
-            // console.log(timer)
+            imgCounter++
+            // console.log(imgCounter)
            
         }
 
@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // console.log(jsonData)
                 imgRes = []
-                for(i=0; i<=24; i++){
-                    
+                for(i=0; i<=redditImg.length; i++){
+                   
                     redditImg = jsonData.data.children[i].data.url
                     // console.log(jsonData.data.children[i].data.url)
                     if (typeof(redditImg) != "undefined"&&(redditImg.includes(".jpg")||redditImg.includes(".png"))){
