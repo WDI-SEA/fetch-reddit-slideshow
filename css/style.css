@@ -1,12 +1,13 @@
 body {
     margin: 0 auto;
     text-align: center;
+    background-color:whitesmoke
 }
 
 #slideshow-container {
     height: 500px;
     margin: 15px;
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -14,9 +15,17 @@ body {
     position: absolute;
     height: 500px;
     opacity: 0;
-    transition: opacity 0.5s linear
+    transition: opacity 1s linear
 }
 
 .active {
     opacity: 1;
+}
+
+#stop {
+    display: none;
+}
+
+#loading {
+    display: none;
 }

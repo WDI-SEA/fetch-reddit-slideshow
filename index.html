@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='css/style.css'>
   <script src='js/script.js'></script>
-  <title>Hello Front-End</title>
+  <title>Reddit Slideshow</title>
 </head>
 <body>
   <div id="search-container">
-    <h1>reddit slideshow</h1>
+    <h1>Reddit Slideshow</h1>
     <p>Enter a search term and see a slideshow of relevant images from reddit.</p>
     <form id="form">
       <input id="input" type="search" required>
-      <input type="submit">
+      <input type="submit" value="Search">
     </form>
   </div>
-  <div id="slideshow-container">
-  </div>
+  <p id="loading">Loading...</p>
+  <div id="slideshow-container"></div>
+  <button id="stop">Stop</button>
 </body>
 </html>
