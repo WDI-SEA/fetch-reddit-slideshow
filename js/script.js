@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             interval = setInterval(changeImage, 1000)
         })
-    
     }
 
     function resetFetch() {
