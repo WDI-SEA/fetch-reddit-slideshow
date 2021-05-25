@@ -1,4 +1,11 @@
 #displayImages {
-    width: 250px;
+    width: 400px;
     height: auto;
+    position:relative
+}
+button {
+    position: relative;
+   display: none;
+   width: 400px;
+   height: 50px;
 }
