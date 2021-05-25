@@ -1,0 +1,18 @@
+body {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    background-color:aquamarine;
+}
+
+h1 {
+    position:absolute;
+    border: 2px solid white;
+    top: 2%;
+    right: 42%;
+}
+#selectzone {
+    position: absolute;
+    top: 90%;
+    right: 50%;
+}
