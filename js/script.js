@@ -2,21 +2,40 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     newImage = document.getElementById('newImage')
-    // newImage.src = 'https://i.redd.it/l1sjqoy3kqz61.png'
-    const requestUrl = 'http://www.reddit.com/search.json?q=cats'
+    const requestUrl = 'http://www.reddit.com/search.json?q='
+    let counter = 0
     let searchResults = []
-
-    fetch(requestUrl)
-    .then((res) => {
-        return res.json()
-    })
-    .then((jsonData) => {
-        searchResults = jsonData.data.children.filter(allLinks => String(allLinks.data.url).includes('i.redd')).map(filteredImages => filteredImages.data.url)
-        console.log(searchResults)
-    })
-    .catch((err) => {
-        return err
-    })
+    let inputForm = document.querySelector('form')
+    let userInput
+    document.getElementById('button').addEventListener('click', startFetch)
     
 
+    inputForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let userInput = input.value
+        console.log(userInput)
+    })
+
+    function startFetch() {
+        console.log('button')
+        fetch(requestUrl + userInput)
+        .then((res) => {
+            return res.json()
+        })
+        .then((jsonData) => {
+            searchResults = jsonData.data.children.filter(allLinks => String(allLinks.data.url).includes('i.redd')).map(filteredImages => filteredImages.data.url)
+            changeImage()
+            // console.log(searchResults)
+        })
+        .catch((err) => {
+            return err
+        })
+        
+        function changeImage() {
+            newImage.src = searchResults[counter]
+            counter++
+        }
+
+        setInterval(changeImage, 10000)
+    }
 })
