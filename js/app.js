@@ -24,33 +24,32 @@ document.addEventListener("DOMContentLoaded", () => {
         let userInput = input.value
         console.log(`User Input: ${userInput}`)
 
-        // make fetch request to const api url with given user number
-        fetch(requestUrl + userInput + "+nsfw:no&limit=100")
-            // .then --> take response data and format
-            .then(res => {
-                console.log("Response came back!")
-                return res.json()
-            })
-            // .then --> use response JSON data
-            .then(jsonData => {
-                imageResults = jsonData.data.children
-                                .filter(element => String(element.data.url).includes(".jpg"))
-                                .map(filteredData => filteredData.data.url)
+        getRedditUrls(userInput)
 
-                // logging results in console
-                console.log(imageResults)
-
-                // hide the form and set the first image before the interval starts
-                hideElements()
-                imageDisplay.src = imageResults[iterator]
-                intervalTimer = setInterval(displayImage, 4000)
-            })
-            // .catch --> catch errors
-            .catch(err => {
-                console.log(err)
-                return err
-            })
     })
+
+    // NEW ASYNC FUNCTION
+    async function getRedditUrls(userInput) {
+        try {
+            // make fetch request, jsonify data, filter and map data
+            let res = await fetch(requestUrl + userInput + "+nsfw:no&limit=100")
+            let jsonData = await res.json()
+            imageResults = jsonData.data.children
+                            .filter(element => String(element.data.url).includes(".jpg"))
+                            .map(filteredData => filteredData.data.url)
+
+            // logging results in console
+            console.log(imageResults)
+
+            // hide the form and set the first image before the interval starts
+            hideElements()
+            imageDisplay.src = imageResults[iterator]
+            intervalTimer = setInterval(displayImage, 4000)
+        }
+        catch(err) {
+            console.log(err)
+        }
+    }
 
     // RESPONSE DATA
     // change image src to an img url stored in imageResults
