@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>rk - reddit slideshow</title>
   <script src="./js/script.js"></script>
+  <link rel="stylesheet" href ="css/style.css">
   
 </head>
 <body>
-  <h1>Reddit slideshow</h1>
+  <h1 id="title">Reddit slideshow</h1>
+  <h4 id="subtitle">find the image you need on reddit!</h4>
     <form id="form">
-      <input type="text" id="search">
-      <input type="submit" id="input">
-      
-  </form>
-  <div id="cats">
-    <img id="catPix" src="">    
+      <div id="group">
+        <input type="text" id="search">
+        <input type="submit" id="input">
+      </div>
+      <button id="stop">Stop</button>
+    </form>
+  <div>
+    <img id="displayImages" src="">    
   </div>
+
 </body>
 </html>
