@@ -1,0 +1,23 @@
+* {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container {
+    margin: 10px auto;
+    display: grid;
+    width: 800px;
+    height: 800px;
+    grid-template: repeat(2, 1fr) / repeat(1, 1fr);
+    align-items: center;
+}
+
+img {
+    display: none;
+    height: 700px;
+    max-width: 700px;
+}
+
+#stop {
+    display: none;
+}

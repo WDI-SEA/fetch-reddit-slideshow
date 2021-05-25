@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reddit Query</title>
   <script src="./js/app.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <h1>Reddit Query</h1>
-  <p class="directions">Type in your search term below and a slideshow of images from reddit will be produced</p>
-  <form id="form">
-    <input id="input" type="text">
-    <input type="submit">
-  </form>
-  <img id="displayImages" src="">
+  <div class="container">
+    <h1 id="title">Reddit Query</h1>
+    <form id="form">
+      <p id="directions">Type in your search term below and a slideshow of images from reddit will be produced</p>
+      <input id="input" type="text">
+      <input type="submit">
+    </form>
+    <img id="displayImages" src="">
+    <button id="stop">Stop</button>
+  </div>
 </body>
 </html>
