@@ -2,11 +2,19 @@ const requestUrl = "https://www.reddit.com/search.json?q="
 let inputForm = document.querySelector("form")
 let buttonBox = document.getElementById("buttonbox")
 let searchButton = document.getElementById("searchbutton")
+let imageCycle
 let searchRes = []
 let jpgString = ".jpg"
 let pngString = ".png"
 let imgRes = []
+let resImg = document.getElementById("resImg")
 
+// function replaceImage() {
+//     imgRes.forEach((image) => {
+//         resImg.src = image
+//         console.log(resImg)
+//     })
+// }
 
 inputForm.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -15,28 +23,31 @@ inputForm.addEventListener("submit", (e) => {
         try {
             let res = await fetch(requestUrl + userInput)
             let jsonData = await res.json()
+            console.log(jsonData)
             jsonData.data.children.forEach((elem) => {
-            searchRes.push(elem.data.url_overridden_by_dest)
-            imgRes = searchRes.filter(elem => elem.includes('.jpg') || elem.includes('.png'))
-            replaceImage()
+            searchRes.push(elem.data.url)
             })
+            imgRes = searchRes.filter(elem => elem.includes('.jpg') || elem.includes('.png'))
+
         } catch(err) {
-            console.log(err)
+            // console.log(err)
             return err
         }
+        console.log(imgRes)
+        // replaceImage()
+        imgRes.forEach((image) => {
+            resImg.src = image
+            console.log(resImg)
+        })
     }
     searchReddit()
-})
 
-function replaceImage() {
-    let resImg = document.getElementById("resImg")
-    resImg.src = imgRes[0]
-    console.log(imgRes)
     inputForm.remove()
     var stopCycle = document.createElement("button")
     stopCycle.innerHTML = "STOP"
     buttonBox.appendChild(stopCycle)
-}
+})
+
 
 // function incrementImage() {
 //     imgRes++
@@ -57,6 +68,14 @@ function replaceImage() {
 // }
 
 // DEFECTIVES
+
+// function replaceImage() {
+//     for (i = 0; i < imgRes.length; i++) {
+//     let resImg = document.getElementById("resImg")
+//     resImg.src = `${imgRes[i]}`
+//     console.log(imgRes[i])
+//     }
+// }
 
 // imgRes = searchRes.filter(elem => elem.includes('.jpg') || elem.includes('.png'))
 
