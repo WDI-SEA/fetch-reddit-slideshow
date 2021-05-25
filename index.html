@@ -4,8 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Reddit Slide Show</h1>
+
+  <!-- form -->
+  <form id="search-form">
+    <input type="text" id="search-input" placeholder="Search Reddit" />
+    <input type="submit" id="submit-button" />
+  </form>
+
+  <!-- stop button -->
+  <div>
+    <button id="stop-button">Stop Slideshow</button>
+  </div>
+
+  <!-- slideshow container -->
+  <div id="slideshow-container"></div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
