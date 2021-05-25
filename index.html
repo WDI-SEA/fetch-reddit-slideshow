@@ -7,9 +7,9 @@
     <style>
       * {
         /* border: 1px solid black; */
-        background: #fec89a;
+        background: #f4a261;
         font-family: Helvetica;
-        color: white;
+        color: #fff3d3;
       }
       body {
         display: flex;
@@ -22,22 +22,51 @@
         /* height: 200 */
       }
       .container {
+        margin-top: 25px;
         width: 650px;
-        border: 1px solid black;
+        /* border: 1px solid red; */
       }
+
       .gallery {
         display: flex;
         justify-content: center;
         align-items: center;
+
       }
+
 #slideshow{
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 25px;
 }
+
+ .textBox {
+   margin: 0 auto;
+   width: 400px;
+   font-style: italic;
+   font-size: 15px;
+ }
+
+ h1{
+   margin: 0 auto;
+   padding-bottom: 12px;
+   display: flex;
+   justify-content: center;
+}
+
 #form{
   padding: 25px;
+}
+
+#input {
+  background: #f5cba8;
+  color: #5a4c41;
+}
+
+.btn{
+  background: #cfad92;
+  border: none;
 }
     </style>
     <script src="./js/script.js"></script>
@@ -46,16 +75,19 @@
     <div class="container">
       <div class="header">
         <h1>Reddit Photo Slideshow</h1>
-        <div>
-          Using the form below, enter an image search term that will query Reddit and display them in a slideshow
-      </div>
+        <div class="textBox">
+          Using the form below, enter an image search term that will query Reddit – displaying them in a slideshow
+
       <div class="gallery">
         <form id="form">
           <input id="input" type="text" />
-          <input type="submit" />
+          <input class="subBtn" type="submit" />
         </form>
-      </div>
-      <div id="slideshow"></div>
+      </div>      
+    </div>
+    </div>
+    <div id="slideshow">
+      <button id="closeBtn">Close</button>
     </div>
   </body>
 </html>

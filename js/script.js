@@ -4,7 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Store URL of query
   const requestURL = 'http://www.reddit.com/search.json?q='
   let inputForm = document.querySelector('#form')
-  // let peopleList = document.querySelector('#peopleList')
+  // addEventListener('click', () => {
+  //   document.querySelector('.subBtn')
+  //   document.querySelector('.header').style.display = 'none'
+  //   console.log('clicked')
+  // })
   let picRes = []
 
   // REQUEST DATA
@@ -30,39 +34,34 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((jsonData) => {
         picRes = jsonData.data.children
         // console.log(picRes)
-        for (let i = 0; i < picRes.length; i++) {
-          //   if (results[i].data.url.endsWith(".jpeg") || results[i].data.url.endsWith(".png") || results[i].data.url.endsWith(".jpg")){
-          //     imgArray.push(results[i].data.url);
-          // } else {
-          //     console.log("Uh oh! Nothing to see here. Sorry!");
-          // }
 
+        for (let i = 0; i < picRes.length; i++) {
           if (
             picRes[i].data.url.endsWith('.jpeg') ||
             picRes[i].data.url.endsWith('.png') ||
             picRes[i].data.url.endsWith('.jpg')
           ) {
-            setTimeout(function () {
+            // push to new arr
+            // iterate through that
+
+            setInterval(function printImg() {
               document.querySelector(
                 '#slideshow'
               ).innerHTML = `<img src="${picRes[i].data.url}" />`
             }, 3000)
-            console.log(picRes[i].data.url)
           }
         }
       })
+
       // .catch -> catch errors
       .catch((err) => {
         console.log(err)
         return err
       })
   })
+  clearInterval(printImg())
   console.log(document.querySelector('#slideshow'))
-  // document.querySelector('#slideshow').innerHTML = '<img src'
-  // append +nsfw:no to that string
-  // grab dom elements
-  // form id #form
-  // slideshow area #slideshow
+
   ////
   ////
 })
