@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/style.css">
-  <title>Cats Reddit Search</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>Cats Image Search</h1>
-<form id="search_form"> 
-  <input type="text" id="input" placeholder="Search Reddit">
-  <input type="submit" id="submit_button">Search!</button>
-  <script src="/js/redditfetch.js"></script>
-</form>
+  <h1>Reddit Slide Show</h1>
+
+  <!-- form -->
+  <form id="search-form">
+    <input type="text" id="search-input" placeholder="Search Reddit" />
+    <input type="submit" id="submit-button" />
+  </form>
+
+  <!-- stop button -->
   <div>
-    <button id="stop">Stop Slideshow</button> 
+    <button id="stop-button">Stop Slideshow</button>
   </div>
-  <div id="slideshow_container">test</div>  
+
+  <!-- slideshow container -->
+  <div id="slideshow-container"></div>
+
+  <script src="js/redditfetch.js"></script>
 </body>
 </html>
