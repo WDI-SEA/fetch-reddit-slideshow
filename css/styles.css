@@ -9,3 +9,12 @@
   justify-content: center;
   align-items: center;
 }
+
+#stop {
+  display: inline-block;
+}
+
+#display-img {
+  display: flex;
+  justify-content: center;
+}
