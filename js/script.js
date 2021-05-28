@@ -54,7 +54,7 @@ fetch(requestUrl + userInput + "+nsfw:no")
             // li.catRes.data.url
             for (let i = 0; i < results.length; i++) {
                 if (results[i].data.url.endsWith(".jpeg") || results[i].data.url.endsWith(".png") || results[i].data.url.endsWith(".jpg")){
-                    catRes.push(rults[i].data.url)
+                    catRes.push(results[i].data.url)
                 }
                 // if (endings === true)
                 // (catRes.results[i].data.url)
