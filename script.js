@@ -54,30 +54,30 @@ STOP_BUTTON.style.display= 'none'
 
         //we use catch bc we are good programmers
     }
-// callback function for the interval
-function changeSlide() {
-    // increment the slideshow index
-    imageIndex++
-    // reset the image index if it is out of bounds
-    if(imageIndex >= images.length) imageIndex = 0
-    console.log(images[imageIndex])
-    // first empty out the div of any elements
-    while(SLIDESHOW_CONTAINER.firstChild) {
-        SLIDESHOW_CONTAINER.removeChild(SLIDESHOW_CONTAINER.firstChild)
-    }
-    //update the DOM
-    const imageSlide = document.createElement('img')
-    imageSlide.src = images[imageIndex].url
-    imageSlide.alt = images[imageIndex].author
-    imageSlide.width = '400'
+// // callback function for the interval
+// function changeSlide() {
+//     // increment the slideshow index
+//     imageIndex++
+//     // reset the image index if it is out of bounds
+//     if(imageIndex >= images.length) imageIndex = 0
+//     console.log(images[imageIndex])
+//     // first empty out the div of any elements
+//     while(SLIDESHOW_CONTAINER.firstChild) {
+//         SLIDESHOW_CONTAINER.removeChild(SLIDESHOW_CONTAINER.firstChild)
+//     }
+//     //update the DOM
+//     const imageSlide = document.createElement('img')
+//     imageSlide.src = images[imageIndex].url
+//     imageSlide.alt = images[imageIndex].author
+//     imageSlide.width = '400'
 
-    SLIDESHOW_CONTAINER.appendChild(imageSlide)
-}
+//     SLIDESHOW_CONTAINER.appendChild(imageSlide)
+// }
 
 
-    function stopSlideshow() {
-        // stop the madness
-    }
+//     function stopSlideshow() {
+//         // stop the madness
+//     }
 
 
 
