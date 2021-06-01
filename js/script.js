@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // store constant url for form dom element; request url
-    const requestUrl = "http://www.reddit.com/search.json?q=kitten+nsfw:no"
+    const requestUrl = "http://www.reddit.com/search.json?q="
     let staato = document.querySelector("form")
     let kitzone = document.querySelector("#selectzone")
     let stoppu = document.getElementById("pauseButton")
@@ -18,8 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }) 
             // .then --> use response JSON data
             .then((jsonData) => {
-                console.log(jsonData)
-                catArr = jsonData.results
+                // console.log(jsonData)
+                catArr = jsonData.data.children
+                console.log(catArr)
+                catArr.map(cat => {
+                    console.log(cat.data.url)
+                    return {
+                        url: cat.data.url
+                    }
+                })
+                .filter(picimg => {
+                    const ext = picimg.url.slice(-4)
+                    if(ext === ".jpg" || ext === ".png") return true
+                    return false 
+                })
                 kittyColle(catArr)
             })
             // .catch --> catch errors
@@ -31,10 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     function kittyColle(kittenTime) {
-        kittenTime.forEach((kitten) => {
-            let kitject = document.createElement("img")
-            kitject.textContent = `${kitten.image} hello is this thing on`
-            kitzone.appendChild(img)
+        kittenTime.map((kitten) => {
+            console.log(kitten.data.url)
+            return {
+                url: kitten.data.url
+            }
+            // let kitject = document.createElement("img")
+            // kitject.textContent = (`${kitten.image} hello is this thing on`)
+            // kitzone.appendChild(img)
         })
     }
 })
