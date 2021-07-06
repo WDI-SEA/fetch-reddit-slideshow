@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-</head>
-<body>
-  <h1>Hello Front-End</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reddit Photo Slideshow - Deliverable</title>
+<link href="./css/style.css" rel=stylesheet>
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Reddit Photo Slideshow</h1>
+        <div class="textBox">
+          Using the form below, enter an image search term that will query Reddit – displaying them in a slideshow
+
+      <div class="gallery">
+        <form id="form">
+          <input id="input" type="text" />
+          <input class="subBtn" type="submit" />
+        </form>
+      </div>      
+    </div>
+    </div>
+    <div id="slideshow">Loading ...</div>      
+    <div class="btnClass"><button id="closeBtn">Close</button></div>
+  </body>
 </html>
