@@ -28,8 +28,8 @@ Reddit sometimes contains some offensive images be careful with your search term
 * Show a loading message (optional)
 * Fetch related posts from reddit (with `fetch`)
 * Display animation / slideshow of images (with DOM manipulation)
-* Show a button to stop / reset the animation
-* Repeat animation until use clicks "stop"
+* Show a button to stop slideshow
+* Repeat animation until user clicks "stop", then redisplay the original form/title/description
 
 #### When the user clicks the "stop" button
 
