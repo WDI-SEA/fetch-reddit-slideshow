@@ -20,6 +20,10 @@
 
 const requestUrl = "https://www.reddit.com/search.json?q="
 const nsfw = "+nsfw=no"
+const imageKind = "+kind=image"
+
+//image Array
+let imageArr = []
 
 //on Document Load, I want to be able to take input
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //This stops the browser from refreshing
         e.preventDefault()
         //Run my fetch procedures using the url, input, value, and nsfw value
-        fetch(requestUrl+input.value+nsfw)
+        fetch(requestUrl+input.value+imageKind)
         .then((responseData) => {
             //This takes the response from the reddit API and extracts the json object data we're interested in
             return responseData.json()
@@ -35,6 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((jsonData) => {
             //This is where we need to explore our json data, find the images, and add them to our DOM
             //using our function.
+            const jsonObject = jsonData.data.children
+            for(let i = 0; i < jsonObject.length; i++){
+                const dataThumbnail = jsonObject[i].data.thumbnail
+                if(dataThumbnail !== 'self' && dataThumbnail !== 'default' && dataThumbnail !== 'image') {
+                    imageArr.push(dataThumbnail)
+                } else {
+                    console.log(`Data point ${dataThumbnail} does not have a thumbnail.`)
+                }
+            }
+            console.log(imageArr.length)
 
         })
         .catch((error) => {
@@ -46,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const addRemoveFunction = () => {
-    //First, let's try to remove everything.
+    //Remove Everything: First, let's try to remove everything.
     //Get each element in the body by it's class Name.
     //Access the document body and use the remove() for each element.
     const bodyElements = document.querySelectorAll(".bodyContent")
@@ -54,6 +68,26 @@ const addRemoveFunction = () => {
     for (let i = 0; i < bodyElements.length; i++) {
         document.querySelector(".bodyContent").remove()
     }
+    
+    //Add Slideshow and Button
+    //Slideshow section
+    const divEl = document.createElement('div')
+    divEl.classList.add("bodyContent")
+    divEl.textContent = 'Slideshow goes here!'
+    document.body.appendChild(divEl);
+    
+    //Button 
+    const buttEl = document.createElement('button')
+    buttEl.classList.add("addStopBtn")
+    buttEl.type = "Submit"
+    buttEl.textContent = "Reset"
+    document.body.appendChild(buttEl)
+    //addEventListener to stop button to reset document
+    const newButtEl = document.querySelector(".addStopBtn")
+    newButtEl.addEventListener('click', () => {
+        console.log("I made it!")
+        location.reload()
+    })
 }
 
-//addRemoveFunction()
+// addRemoveFunction()
