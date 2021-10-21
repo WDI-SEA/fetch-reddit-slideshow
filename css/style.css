@@ -1,5 +1,4 @@
-/* const onlyReddit = (url) => {
-    return url.includes('.jpg') || url.includes('.png')
-  } */
-
-  /* let filteredArray = arrayUrl.filter(onlyReddit) */
+img{
+    width: 300x;
+    height: 300px
+}

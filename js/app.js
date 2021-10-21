@@ -1,46 +1,68 @@
 const requestUrl = "http://www.reddit.com/search.json?q=";
-let arrayUrl = []
+let arrayUrl = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
+    myFunction();
+    myTitle();
     e.preventDefault();
     // console.log("momma we made it");
 
-    fetch(requestUrl+input.value)
+    fetch(requestUrl + input.value)
       .then((responseData) => {
         // Fetch will package the response into an object with some methods that allow us to do some useful things with the response.
         // Use the .json() method to return the data in JSON format
-        console.log(responseData)
+        console.log(responseData);
 
-        return responseData.json(getImage);
+        return responseData.json();
       })
       .then((jsonData) => {
- 
-        console.log("Json Data:")
-        console.log("Here is the data:", jsonData)
-        console.log('This is what i get',jsonData.data)
-        for (i = 0; i < 8; i++) {
-          arrayUrl.push(jsonData.data.children[i].data.url)
+        console.log("Json Data:");
+        console.log("Here is the data:", jsonData);
+        console.log("This is what i get", jsonData.data);
+        for (i = 0; i < 16; i++) {
+          arrayUrl.push(jsonData.data.children[i].data.url);
         }
 
-       
-        jsonData.data.children.forEach(getImage)
-        console.log(arrayUrl)
+        let sortedArray = arrayUrl.filter(itemsFromReddit);
+        console.log(sortedArray);
+        // jsonData.data.children.forEach(getImage);
+        for (i = 0; i < sortedArray.length; i++) {
+          let newImage = document.createElement("img");
+          newImage.src = sortedArray[i];
+          photolist.appendChild(newImage);
+          console.log('Where my photo at!!')
+        }
+        console.log(arrayUrl);
       })
       .catch((error) => {
         console.log("Oh no, there's been an error!", error);
       });
   });
 
+  const itemsFromReddit = (url) => {
+    return url.includes(".jpg") || url.includes(".png");
+  };
 
-
-    const getImage = (imageObj) => {
-        let newImage = document.createElement('img')
-        // arrayUrl.push(imageObj.data.url)
-        newImage.src = imageObj.data.url;
-        photolist.appendChild(newImage)
+  function myFunction() {
+    var x = document.getElementById("input");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
     }
+  }
+
+  function myTitle() {
+    var xy = document.getElementById("title");
+    if (xy.style.display === "none") {
+      xy.style.display = "block";
+    } else {
+      xy.style.display = "none";
+    }
+  }
 });
 
-
 //taking the links and im setting an interval to rotate the images
+//Find a way to hide the other three, while cycling which one is actually visible, changing the source of single
+//imgag source
