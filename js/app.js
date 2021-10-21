@@ -1,6 +1,12 @@
+
 const requestURL = "http://www.reddit.com/search.json?q="
+count = 0
 
 document.addEventListener("DOMContentLoaded", () => {
+    // $('#myCarousel').carousel({
+    //     interval: 3000,
+    //     cycle: true
+    // });
    //when you use forms, use submit. This is default functionality of JS.
     form.addEventListener("submit", (e) => {
         //prevent browser refresh
@@ -16,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Json data:")
             //iterate through data
             jsonData.data.children.forEach(populateImage)
+            console.log(count)
         })
         .catch((error) => {
             //if any error is sent back, you will have access to it here
@@ -28,11 +35,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //add image
     const populateImage = (search) => {
-        //create a new image for each thumbnail
+        //create a new divfor each thumbnail
+        const newImgDiv = document.createElement("div")
+        if (count === 0) {
+            newImgDiv.className = "carousel-item active"
+            } else {
+                newImgDiv.className = "carousel-item"
+            }
+        document.querySelector(".carousel-inner").appendChild(newImgDiv)
+        //create a new img for each thumbnail
         const newImg = document.createElement("img")
-        newImg.id = "newPic"
         newImg.src = search.data.thumbnail
-        document.querySelector("#picture").appendChild(newImg)
+        newImgDiv.appendChild(newImg)
+        count++
+            
+       
+
+        //create new img
+
         // const newImg = document.querySelector("#dogPic")
         // newImg.src = search.data.thumbnail
     }
@@ -48,4 +68,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 })
-
