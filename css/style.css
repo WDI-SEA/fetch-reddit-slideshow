@@ -19,3 +19,8 @@ div {
     height: 300px;
     width: auto;
 }
+
+#stopButton {
+    margin: 100px;
+    display: none;
+}
