@@ -14,3 +14,8 @@ div {
     margin: 40px 15px 40px 15px;
     
 }
+
+#stage {
+    height: 300px;
+    width: auto;
+}

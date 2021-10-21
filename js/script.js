@@ -1,6 +1,17 @@
+//TO DO: store pics an an auditons array, filter into pics
+
 //universal variables
+//track the picture on display
+let picTracker = 0
+//collect pictures from json
+const pics = []
+let filteredPics = []
 //declare url for fetch
 const requestUrl = "https://www.reddit.com/search.json?q="
+//dom initializations
+theHouse = document.getElementById('displayContainer')
+const stage = document.getElementById('stage')
+theHouse.appendChild(stage)
 
 
 ///////////////////////////
@@ -8,29 +19,48 @@ const requestUrl = "https://www.reddit.com/search.json?q="
 ///////////////////////////
 
 //hide the image on display, display next image in the queue 
-const takeTheStage = (array, tracker) => {
-    console.log(`tTS is working`)
-    console.log(`need to Display ${array[tracker].id} with ${array[tracker].style.display.value}`)
-    const picToDisplay = document.getElementById(`pic-${tracker}`)
-    
-    const picToRemove = document.getElementById(`pic-${tracker - 1}`)
-    console.log(`picToRemove=${picToRemove.id}`)
+const takeTheStage = (array) => {
+    console.log(`tTS is working: tracker = ${picTracker}`)
+    console.log(`need to Display array[${[picTracker]}] with ${array[picTracker]}`)
+    const picToDisplay = array[picTracker]
+    const picToRemove = array[picTracker - 1]
+    console.log(`picToRemove= pics${picTracker - 1}`)
+    stage.src = `${array[picTracker]}`
 
-    picToDisplay.style.display = "grid"
-    picToRemove.style.display = "none"
-    
-    if (tracker === pics.length) {
-        tracker = 0;
-    } else if (tracker >= 0 && tracker < pics.length){
-        tracker++
+    if (picTracker === array.length) {
+        console.log(`inside tracker checker!: tracker === array.length `)
+        picTracker = 0;
+    } else if (picTracker >= 0 && picTracker < array.length){
+        console.log(`inside tracker checker! : tracker !== array.length`)
+        picTracker++
+        console.log(`tracker is now ${picTracker}`)
     }
+}
+
+////filter func
+const siftImages = (url) =>{
+    console.log(`filter running on ${url}!`)
+    if  (
+        (url.includes(".jpg") || url.includes(".png")) 
+        // &&
+        // url.includes('i.redd.it')
+    ) {  
+        console.log('url passed!')
+        return true
+    } else {
+        console.log('url rejected!')
+        return false
+    }
+    
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
         e.preventDefault()
+        //make alt relavent
+        stage.alt = input.value
         //make fetch happen
-        fetch(`${requestUrl}${input.value}%20pictures`)
+        fetch(`${requestUrl}${input.value}`)
         ///when working add+input.value+"%20pictures")
         .then((responseData) => {
             //extract the JSON data from the fetch object
@@ -39,48 +69,21 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((jsonData) => {
             console.log(jsonData.data)
             console.log(jsonData.data.children[0].data.url)
-            //track the picture on display
-            const picTracker = 0
-            //collect pictures from json
-            const pics = []
-            //add images to the webpage
-            for (i = 0; i < 25; i++) {
+            
+            //add images to array
+            for (let i = 0; i < 25; i++) {
                 //grab image url from json
                 const imageUrl = jsonData.data.children[i].data.url
-                
-                //only include urls that contain images
-                if(imageUrl.includes(".jpg") || imageUrl.includes(".png")){  
-                    console.log(`captured image${i}: ${imageUrl}`)
-                    // create a div with json-returned image as the background
-                    pics[i] = document.createElement('div')
-                    pics[i].id = `pics-${i}`
-                    pics[i].style.background = `url(${imageUrl})`
-                    pics[i].style.backgroundSize = '300px auto'
-                    pics[i].style.display = "none"
-                    // append image to the html body
-                    document.querySelector("body").appendChild(pics[i])
-                    ///slideshow images
-                    // console.log(pics[0].backround.value)
-                    // const testPic = document.querySelector("pics-0")
-                    // testPic.removeAttribute("display")
-                    // testPic.style.display = "block"
-                    takeTheStage(pics, picTracker)
+                pics[i] = `${imageUrl}`
+                console.log(`captured image${i}: ${imageUrl}`)
             }
-            
-            
-            
-            
-            
-            // for (i = 0; i < pics.length; i++) {
-            //     setInterval(() => {
-            //         displayContainer.style.background = `pics${i}`
-            //     })
-            // }
-            
-            }
+            console.log(`about to filter ${pics}`)
+            filteredPics = pics.filter(siftImages)
+            console.log(filteredPics)
             
             // setTimeout(takeTheStage, 2000, pics, picTracker)
             // setTimeout(takeTheStage, 4000, pics, picTracker)
+            setInterval(takeTheStage, 2000, filteredPics)
         
         })
         .catch((error)=>{console.log("ERROR")
