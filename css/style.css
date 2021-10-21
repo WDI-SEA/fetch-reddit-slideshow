@@ -1,0 +1,20 @@
+
+
+#image-result-container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    align-content: center;
+
+}
+
+img {
+    width: 500px;
+    height: 500px;
+    align-content: center;
+    object-fit:scale-down;
+}
+
+.list-group-item {
+    position: absolute;
+}
