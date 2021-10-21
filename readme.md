@@ -42,8 +42,8 @@ Reddit sometimes contains some offensive images be careful with your search term
 
 It is important to break down any development project in to smaller pieces and tackle them one at a time. Here is a list of how you might want to attack this project.
 
-* Create your form (HTML/CSS)
-* Prevent default form submission and verify that you can type something into the form
+* Create your form (HTML/CSS) check
+* Prevent default form submission and verify that you can type something into the form check
 * Use AJAX to make a request. Show data in console
 * Create an array of image URLs (tip: use [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) and [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)).
 * Make the form / title / description hide
