@@ -9,16 +9,20 @@
 </head>
 <body id="body">
   <h1>Hello Front-End</h1>
-  <form action="" id="form">
-    <input type="text" id="input" value="Dogs">
-    <input type="submit">
-  </form>
-  <div id="image-result-container">
+  <p> Please enter something into the search bar and press submit. If you would like the slideshow to stop, please click stop images.</p>
+    <div id="form-container">
+      <form action="" id="form" class=".form-control-sm">
+        <input type="text" id="input" value="Dogs">
+        <input type="submit" class="btn btn-primary">
+      </form>
+      <button id="stop-button" class="btn btn-primary">Stop Images</button>
+    </div>
     
-  </div>
-  <ul id="resultsList">
-
-  </ul>
+    <div id="image-result-container">
+      
+    </div>
+  
+    </div>
 </body>
 <script src="/js/app.js"></script>
 </html>
