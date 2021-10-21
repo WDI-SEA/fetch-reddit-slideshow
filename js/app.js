@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((jsonData) => {
             //the .then passed our returned json data into this call back
             console.log("Json data:")
-            console.log(jsonData.data.children[1])
+           
             //iterate through data for one person, element 0
-            populateImage(jsonData.data.children[1])
+            jsonData.data.children.forEach(populateImage)
            // jsonData.data.children.data.forEach(populateImage)
 
         })
