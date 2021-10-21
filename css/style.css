@@ -1,0 +1,20 @@
+h1 {
+    text-align: center;
+    color: blue;
+}
+
+p {
+    text-align: center;
+}
+
+#displayImages {
+    background-color: yellow;
+    height: 600px;
+    width: 600px;
+    border: 1px solid red;
+    margin: 220px auto;
+}
+
+form {
+    text-align: center;
+}
