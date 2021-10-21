@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //stop button
     stopButton.addEventListener("submit", (e) => {
-        //prevent browser refresh
-        e.preventDefault()
-        headerContainer.style.display = "grid"
-        stopButton.style.display = "none"
-        picture.style.display = "none"
-        input.value = null
+        //browser refresh
+        e.default()
+        //headerContainer.style.display = "grid"
+        //stopButton.style.display = "none"
+        //picture.style.display = "none"
+        //input.value = null
     })
 
 })
