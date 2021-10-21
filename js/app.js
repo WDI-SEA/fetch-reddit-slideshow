@@ -1,5 +1,5 @@
 // request URL for reddit API
-const requestUrl = 'https://www.reddit.com/search.json?q='
+const requestUrl = 'https://www.reddit.com/search.json?raw_json=1&q='
 
 // has the dom loaded?
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const addPhoto = redditObj => {
         const li = document.createElement('li')
-        li.innerHTML = `<img src="${redditObj.data.thumbnail}">`
+        // WE ARE HAVING AN ISSUE: IF IMAGE DOESN'T EXIST PROCESS STOPS
+        li.innerHTML = `<img src="${redditObj.data.preview.images[0].source.url}">`
         testList.appendChild(li)
         //photoArray.push(redditObj.data.thumbnail)
     }

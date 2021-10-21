@@ -6,3 +6,7 @@ body {
 ul {
     list-style-type: none;
 }
+
+img {
+    width: 300px;
+}
