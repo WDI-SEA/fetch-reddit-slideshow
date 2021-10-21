@@ -1,0 +1,16 @@
+body {
+    background-color: steelblue;
+}
+
+div {
+    width: 300px;
+    height: 300px;
+    line-height: 270px;
+    text-align: center;
+    background-size: 300px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    margin: 40px 15px 40px 15px;
+    
+}
