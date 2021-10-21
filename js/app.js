@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
         //prevent browser refresh
         e.preventDefault()
-        //fetch the data
-        fetch(requestURL+document.getElementById('input').value)
-        //console.log(requestURL+document.getElementById('input').value)
+        //fetch the data + specify no NSFW items
+        fetch(requestURL+document.getElementById('input').value + "+nsfw:no")
         .then((responseData)=> {
             //extract JSON data from the fetch object
             return responseData.json()
@@ -15,32 +14,38 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((jsonData) => {
             //the .then passed our returned json data into this call back
             console.log("Json data:")
-           
-            //iterate through data for one person, element 0
+            //iterate through data
             jsonData.data.children.forEach(populateImage)
-           // jsonData.data.children.data.forEach(populateImage)
-
         })
         .catch((error) => {
             //if any error is sent back, you will have access to it here
             console.log ("error")
             console.log(error)
         })
-
+        headerContainer.style.display = "none"
+        stopButton.style.display = "inline-block"
     })
 
     //add image
     const populateImage = (search) => {
         //create a new image for each thumbnail
-        const dogImg = document.createElement("img")
-        dogImg.id = "dogPic"
-        dogImg.src = search.data.thumbnail
-        document.querySelector("#picture").appendChild(dogImg)
-
-
-        // const dogImg = document.querySelector("#dogPic")
-        // dogImg.src = search.data.thumbnail
+        const newImg = document.createElement("img")
+        newImg.id = "newPic"
+        newImg.src = search.data.thumbnail
+        document.querySelector("#picture").appendChild(newImg)
+        // const newImg = document.querySelector("#dogPic")
+        // newImg.src = search.data.thumbnail
     }
+
+    //stop button
+    stopButton.addEventListener("submit", (e) => {
+        //prevent browser refresh
+        e.preventDefault()
+        headerContainer.style.display = "grid"
+        stopButton.style.display = "none"
+        picture.style.display = "none"
+        input.value = null
+    })
 
 })
 

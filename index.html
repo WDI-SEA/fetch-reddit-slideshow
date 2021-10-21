@@ -8,13 +8,18 @@
     <title>Reddit slideshow</title>
 </head>
 <body>
-    <h1>Dogs</h1>
+  <header id="headerContainer">
+    <h1>Search through Reddit thumbnails.</h1>
+    <p>Type a topic in the search bar below to see associated thumbnails from Reddit pertaining to search topic.</p>
     <form id="form">
-        <input type="text" id="input">
-        <!-- best practice is to put submit instead of button -->
-        <input type="submit">
+      <input type="text" id="input">
+      <input type="submit" value="Search">
     </form>
-    <div id="picture"></div>
+ </header>
+ <form id="stopButton">
+    <input type="submit" value="Stop">
+ </form>  
+  <div id="picture"></div>
 
     <script src="js/app.js"></script>
 </body>
