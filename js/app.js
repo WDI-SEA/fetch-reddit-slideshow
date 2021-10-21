@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Hides/changes styling & elements from page when Submit button clicked
         input.style.display = "none"
         submit.style.display = "none"
-        document.querySelector("p").style.display = "none"
-        document.querySelector("h1").style.display = "none"
+        p.style.display = "none"
+        h1.style.display = "none"
         document.body.style.backgroundColor = "black"
         // Takes in input from input field and adds on to end of fetch URL
         fetch(requestUrl + input.value)
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(function (jsonData) {
                 // Loops through the json data and pulls in images, pushing into array
                 for (let i = 0; i < 20; i++) {
-                    console.log(jsonData.data.children[i].data.url)
                     imageArray.push(jsonData.data.children[i].data.url)
                 }
                 // Filters array to only include images that are able to be displayed
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 filteredArray = imageArray.filter(function (link) {
                     return link.indexOf(ext) !== -1 && link.includes("redd.it")
                 })
-                // addImages function call, after click 
+                // addImages function call
                 addImages()
             })
             .catch((error) => {
