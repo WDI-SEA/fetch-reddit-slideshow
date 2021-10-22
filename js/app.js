@@ -30,6 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         //This stops the browser from refreshing
         e.preventDefault()
+
+        //Button 
+        const buttEl = document.createElement('button')
+        buttEl.classList.add("addStopBtn")
+        buttEl.type = "Submit"
+        buttEl.textContent = "Reset"
+        document.body.appendChild(buttEl)
+        //addEventListener to stop button to reset document
+        const newButtEl = document.querySelector(".addStopBtn")
+        newButtEl.addEventListener('click', () => {
+            location.reload()
+        })
+
         //Run my fetch procedures using the url, input, value, and nsfw value
         fetch(requestUrl+input.value+imageKind)
         .then((responseData) => {
@@ -40,54 +53,40 @@ document.addEventListener('DOMContentLoaded', () => {
             //This is where we need to explore our json data, find the images, and add them to our DOM
             //using our function.
             const jsonObject = jsonData.data.children
+            
             for(let i = 0; i < jsonObject.length; i++){
                 const dataThumbnail = jsonObject[i].data.thumbnail
-                if(dataThumbnail !== 'self' && dataThumbnail !== 'default' && dataThumbnail !== 'image') {
+                if(dataThumbnail !== 'self' && dataThumbnail !== 'default' && dataThumbnail !== 'image' && dataThumbnail !== 'spoiler') {
                     imageArr.push(dataThumbnail)
                 } else {
-                    console.log(`Data point ${dataThumbnail} does not have a thumbnail.`)
+                    console.log(`Data point ${dataThumbnail[i]} does not have a thumbnail.`)
                 }
+                addRemoveFunction()
             }
-            console.log(imageArr.length)
-
         })
         .catch((error) => {
             //in case there is an error in one of the above steps, this will print an error.
             console.log("Error: ", error)
         })
     })
-    //This function is responsible for both removing existing body elements and adding the slideshow with a button.
+        //This function is responsible for both removing existing body elements and adding the slideshow with a button.
+        const addRemoveFunction = () => {
+        //Remove Everything: First, let's try to remove everything.
+        //Get each element in the body by it's class Name.
+        //Access the document body and use the remove() for each element.
+        const bodyElements = document.querySelectorAll(".bodyContent")
+        for (let i = 0; i < bodyElements.length; i++) {
+            document.querySelector(".bodyContent").remove()
+        }
+        
+        //Slideshow section
+        const imgEl = document.createElement('img')
+        imgEl.setAttribute('id', 'slideshow')
+        document.body.appendChild(imgEl)
+        for(let i = 0; i < imageArr.length; i++) {
+        console.log(imageArr)
+        imgEl.setAttribute('src', `${imageArr[i]}`)
+        }
+    }
 })
 
-const addRemoveFunction = () => {
-    //Remove Everything: First, let's try to remove everything.
-    //Get each element in the body by it's class Name.
-    //Access the document body and use the remove() for each element.
-    const bodyElements = document.querySelectorAll(".bodyContent")
-    console.log(bodyElements.length)
-    for (let i = 0; i < bodyElements.length; i++) {
-        document.querySelector(".bodyContent").remove()
-    }
-    
-    //Add Slideshow and Button
-    //Slideshow section
-    const divEl = document.createElement('div')
-    divEl.classList.add("bodyContent")
-    divEl.textContent = 'Slideshow goes here!'
-    document.body.appendChild(divEl);
-    
-    //Button 
-    const buttEl = document.createElement('button')
-    buttEl.classList.add("addStopBtn")
-    buttEl.type = "Submit"
-    buttEl.textContent = "Reset"
-    document.body.appendChild(buttEl)
-    //addEventListener to stop button to reset document
-    const newButtEl = document.querySelector(".addStopBtn")
-    newButtEl.addEventListener('click', () => {
-        console.log("I made it!")
-        location.reload()
-    })
-}
-
-// addRemoveFunction()
