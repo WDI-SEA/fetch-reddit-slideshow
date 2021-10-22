@@ -42,7 +42,7 @@ body {
 #stage {
     height: 600px;
     width: auto;
-    margin: 100px auto 100px auto;
+    margin: auto auto 10px auto;
     font-size: 50px;
     vertical-align: middle;
     text-align: center;
@@ -67,7 +67,7 @@ body {
 
 }
 #stopButton {
-    margin: 100px auto 100px auto;
+    margin:  auto;
     display: none;
     font-family: 'Courier New', monospace;
     border-radius: 12px;
