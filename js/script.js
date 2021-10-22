@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ///////////////////
     //make fetch happen
     ///////////////////
-    fetch(`${requestUrl}${input.value}`)
+    fetch(`${requestUrl}${input.value}%20pictures`)
     ///when working add+input.value+"%20pictures")
     .then((responseData) => {
         //extract the JSON data from the fetch object
