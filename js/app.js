@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(error)
         })
 
-        headerContainer.style.display = "none"
+        header.style.display = "none"
         stopButton.style.display = "grid"
     })
 
