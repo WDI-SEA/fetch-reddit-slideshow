@@ -1,7 +1,9 @@
-const imageArray = [];
+let imageArray = [];
 // Array that is filtered to only include images that are able to be loaded
 let filteredArray = [];
 const submit = document.getElementById("submit")
+let searchOn = true;
+// Counter that ++ in addImage function below that is used as index for filteredArray
 let imgToRotate = 1;
 // URL to do fetch from
 const requestUrl = "https://www.reddit.com/search.json?q="
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then(function (jsonData) {
                 // Loops through the json data and pulls in images, pushing into array
-                for (let i = 0; i < 20; i++) {
+                for (let i = 0; i < 25; i++) {
                     imageArray.push(jsonData.data.children[i].data.url)
                 }
                 // Filters array to only include images that are able to be displayed
@@ -40,24 +42,31 @@ document.addEventListener("DOMContentLoaded", () => {
             })
     })
     // Will loop through addImages function
-    const slideShow = () => {
-        setInterval(addImages, 3000)
+    let slideShow = () => {
+        setInterval(addImages, 2000)
     }
-
     // Loops through filtered array and creates img element, resizes it, and appends to the displayImages div in the HTML
     const addImages = () => {
-        console.log("this should loop")
-        // let img = document.createElement("img")
-        // img.src = filteredArray[imgToRotate];
-        // img.style.width = "25%"
-        // img.style.height = "auto"
-        displayImages.style.backgroundImage = `url("${filteredArray[imgToRotate]}")`
-        imgToRotate = imgToRotate + 1
-        console.log(imgToRotate)
-        // NOT WORKING // // // SUPPOSED to stop the interval once imgToRotate === filteredArray.length, meaning no more images left to go through
-        if (imgToRotate === filteredArray.length) {
-            imgToRotate = 1
+        if (searchOn === true) {
+            displayImages.style.backgroundImage = `url("${filteredArray[imgToRotate]}")`
+            imgToRotate = imgToRotate + 1
+            if (imgToRotate === filteredArray.length) {
+                imgToRotate = 1
+            }
         }
     }
-
+    // Stop button functionality
+    document.getElementById("stop").addEventListener("click", () => {
+        input.style.display = "inline"
+        submit.style.display = "inline"
+        p.style.display = "block"
+        h1.style.display = "block"
+        document.body.style.backgroundColor = "white"
+        displayImages.style.background = "white"
+        input.value = ''
+        // while(filteredArray.length > 0) {
+        //     filteredArray.pop();
+        // }
+        searchOn = false
+    })
 })

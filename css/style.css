@@ -9,10 +9,8 @@ p {
 
 #displayImages {
     text-align: center;
-    background-color: yellow;
     height: 900px;
     width: 100%;
-    border: 1px solid red;
     margin: 180px auto;
     background-size: contain;
     background-repeat: no-repeat;
@@ -21,4 +19,8 @@ p {
 
 form {
     text-align: center;
+}
+
+#stop {
+    position: relative;
 }
