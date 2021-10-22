@@ -42,10 +42,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     return ""
                 }
             }) 
+
             const onlyImageArray = imageArray.filter(filterResults)
             console.log(onlyImageArray)
             
             let image = document.createElement('img')
+            
             // ADDING OUTPUT TO PAGE
             onlyImageArray.forEach((result, index)=>{
                 let image = document.createElement('img')
@@ -102,11 +104,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.log("ERROR!", error)
         })
 
-
-        // DISPLAY LOGIC
-    
-    
-    
     })
 
 
