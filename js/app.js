@@ -29,10 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // filtering the urlArray
             const onlyImages = urlArray.filter((images)=>{
-                if(images.includes(".jpg")){
+                if(images.includes(".jpg")||images.includes(".png")){
+                    console.log(`Look:${images}`)
                     return images
+                } else {
+                    return false
                 }
             })
+            for(let i=0; i<onlyImages.length;i++) {
+                // create a new img element
+                let redditPhoto = document.createElement("img")
+                // add the src from array
+                redditPhoto.setAttribute('src', onlyImages[i])
+                // append img to DOM
+                testImagesList.appendChild(redditPhoto)
+            }
             const filterArray = urlArray.filter(onlyImages)
             console.log(filterArray)
         })
@@ -41,5 +52,5 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
     })
-
+    
 })
