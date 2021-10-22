@@ -1,13 +1,14 @@
 img {
-    height: 500px;
-    max-width: 500px;
+    object-fit:cover;
+    height: 800px;
+    width: 800px;
 }
 
-#image {
+/* #image {
     width: 400px;
     min-height: 200px;
     max-height: 500px;
     float: left;
     margin: 3px;
     padding: 3px;
-}
+} */

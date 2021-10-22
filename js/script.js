@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let greeting = document.getElementById("greeting")
     let stopButton = document.getElementById("stopButton")
     let isSearchActive = true
-    //let filteredArray = []
     let image = document.createElement("img")
     form.addEventListener('submit', (event) => {
+        document.querySelector('.container').innerHTML = ""
+        document.querySelector('.container').style.visibility = "visible"
         isSearchActive = true
         event.preventDefault()
 
@@ -21,11 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     imageArray.push(jsonData.data.children[i].data.url)
                 }
                 filteredArray = imageArray.filter(onlyReddit)
-                
                 document.querySelector('.container').appendChild(image)
                 setInterval(slideShow, 1000);
-                
-                
             })
             .catch((runTimeError) => {
                 console.log(runTimeError)
@@ -38,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     counter = 0
     const slideShow = () => {
-        if(counter<filteredArray.length && isSearchActive){
+        if(counter<filteredArray.length-1 && isSearchActive){
             counter++
             image.src = filteredArray[counter]
         } else {
@@ -61,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("submitButton").style.visibility = "visible"
         isSearchActive = false;
         document.querySelector('.container').style.visibility = "hidden"
+        filteredArray = []
     }
 
     
