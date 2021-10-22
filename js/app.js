@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const itemsFromReddit = (url) => {
     return url.includes(".jpg") || url.includes(".png");
   };
+  
 
   function myFunction() {
     var x = document.getElementById("input");
@@ -61,6 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
       xy.style.display = "none";
     }
   }
+
+  
 });
 
 //taking the links and im setting an interval to rotate the images
