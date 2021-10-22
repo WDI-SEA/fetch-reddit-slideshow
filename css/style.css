@@ -7,8 +7,13 @@ body {
 img {
     width: 500px;
     height: 500px;
+    
 }
 
 /* form {
     margin-top: 300px;
 } */
+
+div {
+    display: inline;
+}
