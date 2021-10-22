@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }                
             // console.log(photoArray)
             jsonData.data.children.forEach(getPhoto)
-            
+            let i = 0
             const startSlideshow = () => {
                 for (i = 0; i < photoArray.length; i++){
                     console.log("this is my current photo:\n", photoArray[i])
@@ -42,15 +42,3 @@ document.addEventListener("DOMContentLoaded", () => {
 // make stop button that reverts back to landing page (clears)
 
 //change visibility of divs/images
-
-// const redditImageGrab = (url) => {
-//     if(url.includes(".jpg") && url.startsWith("https://i.redd.it/")){
-//         return url
-//     }
-//     if(url.includes(".png") && url.startsWith("https://i.redd.it/")){
-//         return url
-//     }
-    // return url.includes(".jpg") && url.startsWith("https://i.redd.it/") 
-    // || url.includes(".png") && url.startsWith("https://i.redd.it/")
-// }
-// const filteredPhotos = photoArray.filter(redditImageGrab())
