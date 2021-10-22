@@ -1,9 +1,7 @@
-img {
-    height: 100%;
-    width: 100% !important;
-    box-sizing: border-box;
+body {
+    height: 400px;
+    width: 400px;
 }
-
 #stopButton {
     display: none;
 }
