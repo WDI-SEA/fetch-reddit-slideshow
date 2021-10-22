@@ -1,4 +1,5 @@
 const requestURL = 'https://www.reddit.com/search.json?q='
+
 document.addEventListener('DOMContentLoaded', () => {
     // fetch related posts from reddit (with fetch)
     searchForm.addEventListener('submit', (e) => {
@@ -6,24 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault()
         fetch(requestURL + search.value)
         .then((responseData) => {
-                // verify that you can type something into the form
-                // use AJAX to make a request. Show data in console
-                console.log(responseData)
-                return responseData.json()
+            // verify that you can type something into the form
+            // use AJAX to make a request. Show data in console
+            console.log(responseData)
+            return responseData.json()
+        })
+        .then((jsonData) => {
+            console.log('here is the json data\n', jsonData)
+            // take jsonDATA and create an array of image URLs (use map and filter)
+            const resultsArr = jsonData.data.children
+            const onlyURLs = resultsArr.map(getURLs = (list) => {
+                return list.data.url
             })
-            .then((jsonData) => {
-                console.log(`here is the json data\n, jsonData.results`)
+            const getImg = onlyURLs.filter(redditImg = (url) => {
+                return url.includes('https://i.redd.it/')
             })
-            .catch((error) => {
-                console.log(`there's been an error!\n, error`)
-            })
+        })
+        .catch((error) => {
+            console.log(`there's been an error!\n,`, error)
+        })
     })
 })
 
-// Create an array of image URLs (tip: use filter and map).
-const imgArr = (image)  => {
-
-}
 // Make the form / title / description hide
 // Cycle through images
 // tip: use setInterval
