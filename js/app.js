@@ -3,16 +3,15 @@ const requestURL = "http://www.reddit.com/search.json?q="
 count = 0
 
 document.addEventListener("DOMContentLoaded", () => {
-    // $('#myCarousel').carousel({
-    //     interval: 3000,
-    //     cycle: true
-    // });
+//    $('#myCarousel').carousel({
+//     interval: 3000,
+//     cycle: true })
    //when you use forms, use submit. This is default functionality of JS.
     form.addEventListener("submit", (e) => {
         //prevent browser refresh
         e.preventDefault()
         //fetch the data + specify no NSFW items
-        fetch(requestURL+document.getElementById('input').value + "+nsfw:no")
+        fetch(requestURL+document.getElementById('input').value + "+nsfw:no" + "&raw_json=1")
         .then((responseData)=> {
             //extract JSON data from the fetch object
             return responseData.json()
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".carousel-inner").appendChild(newImgDiv)
         //create a new img for each thumbnail
         const newImg = document.createElement("img")
-        newImg.src = search.data.thumbnail
+        newImg.src = search.data.url
         newImgDiv.appendChild(newImg)
         count++
             
