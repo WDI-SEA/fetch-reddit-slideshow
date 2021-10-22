@@ -1,6 +1,7 @@
+let resultIndex = 0
 document.addEventListener("DOMContentLoaded", () => {
     // http://www.reddit.com/search.json?q=cats+nsfw:no
-    
+    slideshow.style.display = "none"
     form.addEventListener('submit', (e)=>{
         e.preventDefault() // This will stop the browser from refreshing
         console.log(e.target[0].value)
@@ -36,14 +37,28 @@ document.addEventListener("DOMContentLoaded", () => {
                     return false
                 }
             })
-            for(let i=0; i<onlyImages.length;i++) {
-                // create a new img element
-                let redditPhoto = document.createElement("img")
-                // add the src from array
-                redditPhoto.setAttribute('src', onlyImages[i])
-                // append img to DOM
-                testImagesList.appendChild(redditPhoto)
-            }
+            // for(let i=0; i<onlyImages.length;i++) {
+            //     // create a new img element
+            //     let redditPhoto = document.createElement("img")
+            //     // add the src from array
+            //     redditPhoto.setAttribute('src', onlyImages[i])
+            //     // append img to DOM
+            //     testImagesList.appendChild(redditPhoto)
+            // }
+            const changeSrc = () =>
+            {
+                if(resultIndex<onlyImages.length-1){
+                    console.log(`RESULT INDEX${resultIndex}`)
+                    slideshow.setAttribute('src', onlyImages[resultIndex])
+                    resultIndex++
+                } else {
+                    resultIndex = 0
+                }
+            }   
+            changeSrc()
+            slideshow.style.display = "block"
+            const changeSlide = setInterval(changeSrc, 3000);
+
             const filterArray = urlArray.filter(onlyImages)
             console.log(filterArray)
         })
