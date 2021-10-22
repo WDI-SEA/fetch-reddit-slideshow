@@ -3,6 +3,8 @@ const searchBar = document.getElementById('searchBar')
 const SubmitButton = document.getElementById('SubmitButton')
 const title = document.getElementById('title')
 const stopButton = document.getElementById('stopButton')
+const instructionsH1 = document.getElementById('instructionsH1')
+const instructionsH3 = document.getElementById('instructionsH3')
 // const imageTag = document.createElement('img')
 let imageArray = []
 let counter = 0
@@ -10,10 +12,12 @@ let counter = 0
 //Request for the API
 const requestUrl = "https://www.reddit.com/search.json?q="
 
+stopButton.style.visibility = 'hidden'
 
 document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
+
         fetch(requestUrl + searchBar.value)
         .then((responseData) => {
             // console.log('respond data', responeData)
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // console.log(imageArray) 
             hideTheForm()
-            settingInterval()
+            
         })
         .catch((error) => {
             console.log('ERROR!')
@@ -34,10 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
     
-    const settingInterval = () => {
-    setInterval(SlideShow, 3000) 
-    }
-        
+    const settingInterval = setInterval(SlideShow, 3000)      
     
     function SlideShow () {
         if (counter < imageArray.length) {
@@ -66,16 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function hideTheForm () {
         if (imageArray.length == 10) {
-            searchBar.style.display = "none"
-            SubmitButton.type = "hidden"
-            title.innerHTML = ' '
+            searchBar.style.visibility = "hidden"
+            SubmitButton.style.visibility = "hidden"
+            instructionsH1.style.visibility = 'hidden'
+            instructionsH3.style.visibility = 'hidden'
+            stopButton.style.visibility = 'visible'
         }
+    }
+
+    function bringBackForm () {
+        searchBar.style.visibility = 'visible'
+        SubmitButton.style.visibility = 'visible'
+        instructionsH1.style.visibility = 'visible'
+        instructionsH3.style.visibility = 'visible'
     }
 
     function stopEverything () {
         clearInterval(settingInterval)
+        bringBackForm()  
+        stopButton.style.visibility = 'hidden'
+        imageArray = []
+        counter = 0
+        imageTag.remove()
+        window.location.reload()
     }
     
-    document.addEventListener('click', stopEverything)
+    stopButton.addEventListener('click', stopEverything)
 })
 

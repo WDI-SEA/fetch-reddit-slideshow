@@ -1,7 +1,8 @@
 body {
-    background-color: blueviolet;
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/695/331/660/digital-art-artwork-women-cityscape-wallpaper-preview.jpg);
     text-align: center;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Roboto', sans-serif;
+    color: antiquewhite;
 }
 
 img {
@@ -9,10 +10,6 @@ img {
     height: 500px;
     
 }
-
-/* form {
-    margin-top: 300px;
-} */
 
 div {
     display: inline;
