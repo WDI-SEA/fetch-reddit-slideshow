@@ -1,4 +1,5 @@
 const requestURL = "http://www.reddit.com/search.json?q="
+const limitChange = "&limit=100"
 document.addEventListener("DOMContentLoaded", () => {
     let imageArray = []
     let title = document.getElementById("title")
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault()
 
         removeTitleFormSearchBox()
-        fetch(requestURL+searchBox.value)
+        fetch(requestURL+searchBox.value+limitChange)
             .then((responseData)=> {
                 return responseData.json()
             })
@@ -37,8 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     counter = 0
     const slideShow = () => {
         if(counter<filteredArray.length-1 && isSearchActive){
-            counter++
+            
             image.src = filteredArray[counter]
+            counter++
         } else {
             counter = 0
         }
