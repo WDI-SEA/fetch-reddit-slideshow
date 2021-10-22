@@ -1,7 +1,8 @@
 const requestUrl = "http://www.reddit.com/search.json?q=";
-let arrayUrl = [];
 
 document.addEventListener("DOMContentLoaded", () => {
+  let arrayUrl = [];
+  let newImage = document.createElement('img')
   form.addEventListener("submit", (e) => {
     myFunction();
     myTitle();
@@ -24,16 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
           arrayUrl.push(jsonData.data.children[i].data.url);
         }
 
-        let sortedArray = arrayUrl.filter(itemsFromReddit);
+        sortedArray = arrayUrl.filter(itemsFromReddit);
         console.log(sortedArray);
         // jsonData.data.children.forEach(getImage);
-        for (i = 0; i < sortedArray.length; i++) {
-          let newImage = document.createElement("img");
-          newImage.src = sortedArray[i];
-          photolist.appendChild(newImage);
-          console.log('Where my photo at!!')
-        }
+        // newImage.src = sortedArray[]
+        document.querySelector('.photolist').appendChild(newImage)
         console.log(arrayUrl);
+        setInterval(slideShow, 3000)
       })
       .catch((error) => {
         console.log("Oh no, there's been an error!", error);
@@ -44,6 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return url.includes(".jpg") || url.includes(".png");
   };
   
+  
+  start = 0
+
+  function slideShow() {
+    if(start < sortedArray.length) {
+      newImage.src = sortedArray[start]
+      start++
+    }else {
+      start = 0 
+    }
+  }
+
 
   function myFunction() {
     var x = document.getElementById("input");
