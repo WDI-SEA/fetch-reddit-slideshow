@@ -1,26 +1,79 @@
 body {
-    background-color: steelblue;
+    color: #A9E190;
+    background-color: #D65780;
+    font-family: 'Courier New', monospace;
 }
 
-div {
-    width: 300px;
-    height: 300px;
-    line-height: 270px;
+#title {
+    display: block;
+    text-align: center;
+    margin: 20% auto 15px auto;
+    font-size: 45px;
+
+}
+
+#instructions {
+    display: block;
+    text-align: center;
+    margin: 40px auto 100px auto;
+    font-size: 35px;
+}
+
+#form {
+
+    display: block;
+    text-align: center;
+    margin: 100px auto 15px auto;
+}
+
+#display-container {
+    width: 600px;
+    height: 600px;
+    line-height: 600px;
     text-align: center;
     background-size: 300px auto;
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
-    margin: 40px 15px 40px 15px;
+    display: block;
+    margin: 40px auto 40px auto;
     
 }
 
 #stage {
-    height: 300px;
+    height: 600px;
     width: auto;
+    margin: 100px auto 100px auto;
+    font-size: 50px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 600px;
+    font-family: 'Courier New', monospace;
 }
+#form {
+    margin: 0 auto 100px auto;
+}
+#input{
+    font-size: 25px;
+    border-radius: 12px;
+}
+#search {
+    margin: 0 auto 100px auto;
+    border-radius: 12px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    color:#EABDA8;
+    background-color: #7180AC;
 
+}
 #stopButton {
-    margin: 100px;
+    margin: 100px auto 100px auto;
     display: none;
+    font-family: 'Courier New', monospace;
+    border-radius: 12px;
+    font-size: 45px;
+    font-weight: bold;
+    background-color: #7180AC;
+    color: #EABDA8;
+
 }

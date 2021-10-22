@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //reveal stop button and image
     stopButton.style.display = "grid"
     displayContainer.style.display = "block"
-    stage.style.display = "inline"
+    stage.style.display = "block"
     //make alt relavent
     stage.alt = 'getting ' + input.value + ' pics...'
     ///////////////////
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         picTracker = 0
         pics = []
         filteredPics = []
-        
+
         //stop slideshow
         clearInterval(slideshow)
         //hide image and clear src and alt
@@ -127,9 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
         stopButton.style.display = "none"
         input.value = ""
         //reveal text and form
-        title.style.display = "inline-block"
-        instructions.style.display = "inline-block"
-        form.style.display = "inline"
+        title.style.display = "block"
+        instructions.style.display = "block"
+        form.style.display = "block"
     })
 })
 
