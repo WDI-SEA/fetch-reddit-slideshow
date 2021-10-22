@@ -2,6 +2,7 @@ const imageArray = [];
 // Array that is filtered to only include images that are able to be loaded
 let filteredArray = [];
 const submit = document.getElementById("submit")
+let imgToRotate = 1;
 // URL to do fetch from
 const requestUrl = "https://www.reddit.com/search.json?q="
 
@@ -30,37 +31,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 filteredArray = imageArray.filter(function (link) {
                     return link.indexOf(ext) !== -1 && link.includes("redd.it")
                 })
-                // addImages function call
-                addImages()
+                // Call for slideshow function to start
+                slideShow()
             })
             .catch((error) => {
                 console.log("ERROR!!!")
                 console.log(error)
             })
     })
+    // Will loop through addImages function
+    const slideShow = () => {
+        setInterval(addImages, 3000)
+    }
+
     // Loops through filtered array and creates img element, resizes it, and appends to the displayImages div in the HTML
     const addImages = () => {
-        for (let i = 0; i < filteredArray.length; i++) {
-            let img = document.createElement("img")
-            img.src = filteredArray[i];
-            img.style.width = "25%"
-            img.style.height = "auto"
-            displayImages.appendChild(img)
+        console.log("this should loop")
+        // let img = document.createElement("img")
+        // img.src = filteredArray[imgToRotate];
+        // img.style.width = "25%"
+        // img.style.height = "auto"
+        displayImages.style.backgroundImage = `url("${filteredArray[imgToRotate]}")`
+        imgToRotate = imgToRotate + 1
+        console.log(imgToRotate)
+        // NOT WORKING // // // SUPPOSED to stop the interval once imgToRotate === filteredArray.length, meaning no more images left to go through
+        if (imgToRotate === filteredArray.length) {
+            imgToRotate = 1
         }
     }
+
 })
-
-// const slideIndex = 0;
-// showSlides();
-
-// function showSlides() {
-//   let i;
-//   const slides = document.getElementsByClassName("mySlides");
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";  
-//   }
-//   slideIndex++;
-//   if (slideIndex > slides.length) {slideIndex = 1}    
-//   slides[slideIndex-1].style.display = "block";  
-//   setTimeout(showSlides, 2000); // Change image every 2 seconds
-// }

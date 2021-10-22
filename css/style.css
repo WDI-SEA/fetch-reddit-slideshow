@@ -8,11 +8,15 @@ p {
 }
 
 #displayImages {
+    text-align: center;
     background-color: yellow;
-    height: 600px;
-    width: 600px;
+    height: 900px;
+    width: 100%;
     border: 1px solid red;
-    margin: 220px auto;
+    margin: 180px auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 form {
