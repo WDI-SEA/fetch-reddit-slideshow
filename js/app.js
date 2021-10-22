@@ -6,9 +6,14 @@ let carousel = []
 document.addEventListener("DOMContentLoaded", () => {
     //event listener for the "search" button
     form.addEventListener("submit", (e) => {
+        //run fetch data function
+        fetchRedditData()
         //prevent browser refresh
         e.preventDefault()
         //fetch the data + specify no NSFW items
+    })
+    //function to store fetched data
+    const fetchRedditData = () => {
         fetch(requestURL+document.getElementById('input').value + "+nsfw:no")
         .then((responseData)=> {
             //extract JSON data from the fetch object
@@ -41,7 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         headerContainer.style.display = "none"
         //show stop button
         stopButton.style.display = "grid"
-    })
+    }
+    
     //add to carousel
     const populateImage = (search) => {
         //create a new div for each thumbnail
