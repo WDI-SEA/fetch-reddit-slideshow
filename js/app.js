@@ -1,11 +1,10 @@
+// console.log('Script is running');
 //declare startingURL
 const requestUrl = "https://www.reddit.com/search.json?q="
-// console.log('Script is running');
 
 
 // test with function for capturing the URL, ammeding with search term, and returning captures amended URL
 document.addEventListener('DOMContentLoaded', () => {
-    
     form.addEventListener('submit', (e) =>{
         e.preventDefault()
         //ammend searchterm so url does not include space or nsfw images
@@ -16,34 +15,45 @@ document.addEventListener('DOMContentLoaded', () => {
             return responseData.json()
         })
         .then((jsonData)=>{
-            // console.log("Here is the data:", jsonData);
-            console.log(jsonData)
-            let imgSrc = jsonData.data.children[5].data.url
-            const addImage = () => {
-                // const img1 = document.createElement("img")
-                image1.src = imgSrc
-            
-            
+            const switchImage = (imgSrc) => {
+                imgSrc  = jsonData.data.children[Math.floor(Math.random () 
+                    * +jsonData.data.children.length)].data.thumbnail  
+                image1.src = imgSrc 
             }
-            addImage()
-            
-            // console.log(search)
+            switchImage() 
+            let cycleImages = setInterval(switchImage, 5000) 
 
+            
+            const stopSlideshow = () => {
+                stopButton.style.visibility = "hidden"
+                form.style.display = "block"
+                title.style.display = "block"  
+                image1.style.display = "none"
+                input.value = "Search something..."
+                clearInterval(cycleImages)
+            }
+            stopButton.addEventListener("click", stopSlideshow) 
         })
         .catch((error) => {
             //if any error is sent back, you will have access to it here.
             console.log('ERROR!!!!')
             console.log(error)
         })
-        
-        // console.log('Just fired AJAX request!');
+        const hide = () => {
+            form.style.display = "none"
+            title.style.display = "none"   
+            
+        }
+        hide()
+        const showButton = () =>{
+            stopButton.style.visibility = "visible"  }
+            showButton()
+        })
     })
-})
-
-
-
-let blank = () => {
-    input.value = " "
+    
+    
+    let blank = () => {
+  input.value = ""  
 }
 //function to test appending new image to div
 

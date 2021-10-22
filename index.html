@@ -7,21 +7,19 @@
   <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Reddit Slideshow Search</h1>
+  <h1 id='title'>Reddit Slideshow Search</h1>
 
   <form id="form">
     <input id="input" style="white-space: pre;" value="Search something...">
-    <input type="submit">
+    <input type="submit" id="submitButton">
   </form>
-
+  
   <div id="slideshow">
     <div class="images"><img src="" id="image1"></div>
-    <div class="images"><img src="" id="image2"></div>
-    <div class="images"><img src="" id="image3"></div>
-    <div class="images"><img src="" id="image4"></div>
     
   </div>
-
+  
+  <input type="reset"  id="stopButton" value="stop" >
   <script src="js/app.js"></script>
 </body>
 </html>

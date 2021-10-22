@@ -15,10 +15,13 @@ body {
 }
 
 #image1 {
-    max-width: 500px;
-    max-height: 500px;
-
+    min-width: 150%;
+    max-height: 150%;
+    display: grid;
+    justify-content: center;
 }
 
-
+#stopButton{
+    visibility: hidden;
+}
 
