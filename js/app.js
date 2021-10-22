@@ -18,19 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const switchImage = (imgSrc) => {
                 imgSrc  = jsonData.data.children[Math.floor(Math.random () 
                     * +jsonData.data.children.length)].data.thumbnail  
-                image1.src = imgSrc 
+                    image1.src = imgSrc 
             }
             switchImage() 
             let cycleImages = setInterval(switchImage, 5000) 
 
-            
+
             const stopSlideshow = () => {
-                stopButton.style.visibility = "hidden"
-                form.style.display = "block"
-                title.style.display = "block"  
-                image1.style.display = "none"
-                input.value = "Search something..."
                 clearInterval(cycleImages)
+                stopButton.style.visibility = "hidden"
+                form.style.display = "inherit"
+                submitButton.style.display = "none" 
+                title.style.display = "inherit"  
+                imageContainer.style.visibility = "hidden" 
+                image1.style.visibility = "hidden"    
+                input.value = "Click here to search something..."
+
             }
             stopButton.addEventListener("click", stopSlideshow) 
         })
@@ -41,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         const hide = () => {
             form.style.display = "none"
-            title.style.display = "none"   
+            title.style.display = "none"
+            imageContainer.style.visibility = "visible" 
+            image1.style.visibility = "visible"    
             
         }
         hide()
@@ -50,10 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
             showButton()
         })
     })
-    
-    
     let blank = () => {
-  input.value = ""  
+  input.value = "" 
+  submitButton.style.display = "inherit" 
 }
 //function to test appending new image to div
 
