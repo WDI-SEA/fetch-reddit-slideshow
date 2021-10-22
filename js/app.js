@@ -27,11 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return url.includes('https://i.redd.it/')
             })
             console.log('these are the filtered urls\n', filteredImg)
-            // for (let i = 0; i < filteredImg.length; i++) {
-            //     let redditImg = document.createElement('img')
-            //     redditImg.setAttribute('src', filteredImg[i])
-            //     testImgList.appendChild(redditImg)
-            // }
             const changeSrc = () => {
                 if (resultIndex < filteredImg.length) {
                     slideshow.setAttribute('src', filteredImg[resultIndex])
