@@ -1,13 +1,10 @@
-
+//variable declarations
 const requestURL = "http://www.reddit.com/search.json?q="
 count = 0
-
+let carousel = []
+//once content loads...
 document.addEventListener("DOMContentLoaded", () => {
-    // $('#myCarousel').carousel({
-    //     interval: 3000,
-    //     cycle: true
-    // });
-   //when you use forms, use submit. This is default functionality of JS.
+    //event listener for the "search" button
     form.addEventListener("submit", (e) => {
         //prevent browser refresh
         e.preventDefault()
@@ -20,51 +17,52 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((jsonData) => {
             //the .then passed our returned json data into this call back
             console.log("Json data:")
-            //iterate through data
-            jsonData.data.children.forEach(populateImage)
-            console.log(count)
+            //iterate through data to create new array based on if statement below
+            let thumbnails = jsonData.data.children.forEach(child => {
+                //if statement to avoid error messages 
+                if (child.data.thumbnail !== "image" &&
+                    child.data.thumbnail !== "self" &&
+                    child.data.thumbnail !== "default") {
+                        //create array of "cleared" imgs
+                        carousel.push(child.data.thumbnail)
+                    } 
+            })
+            //new array becomes parameter of populateImage function (see below)
+            populateImage(thumbnails)
+            //console.log(carousel)
+            //console.log(count)
         })
         .catch((error) => {
             //if any error is sent back, you will have access to it here
             console.log ("error")
             console.log(error)
         })
+        //hide header
         headerContainer.style.display = "none"
-        stopButton.style.display = "inline-block"
+        //show stop button
+        stopButton.style.display = "grid"
     })
-
-    //add image
+    //add to carousel
     const populateImage = (search) => {
-        //create a new divfor each thumbnail
+        //create a new div for each thumbnail
         const newImgDiv = document.createElement("div")
-        if (count === 0) {
-            newImgDiv.className = "carousel-item active"
-            } else {
-                newImgDiv.className = "carousel-item"
-            }
-        document.querySelector(".carousel-inner").appendChild(newImgDiv)
+        document.querySelector(".create-carousel").appendChild(newImgDiv)
         //create a new img for each thumbnail
         const newImg = document.createElement("img")
-        newImg.src = search.data.thumbnail
+        newImg.src = carousel[count]
         newImgDiv.appendChild(newImg)
-        count++
-            
-       
-
-        //create new img
-
-        // const newImg = document.querySelector("#dogPic")
-        // newImg.src = search.data.thumbnail
+        //create interval based on count and array length
+        interval = setInterval(() => {
+            count++
+            if(count > carousel.length - 1){
+                count = 0
+            }
+            newImg.src = carousel[count]
+        }, 700)
     }
-
     //stop button
     stopButton.addEventListener("submit", (e) => {
         //browser refresh
         e.default()
-        //headerContainer.style.display = "grid"
-        //stopButton.style.display = "none"
-        //picture.style.display = "none"
-        //input.value = null
     })
-
 })

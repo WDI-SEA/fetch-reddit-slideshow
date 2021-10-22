@@ -1,6 +1,16 @@
 body {
     height: 400px;
     width: 400px;
+    margin: 0 auto;
+    padding-top: 35px;
+
+}
+
+.create-carousel {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    padding: 30px 0 0 30px;
 }
 #stopButton {
     display: none;
