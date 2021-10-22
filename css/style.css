@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#page {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: lightsteelblue;
+    height: 1000px;
+    gap: 20px;
+}
+
+h1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#form {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#redditImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+img {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 600px;
+    width: 600px;
+}
+
+#contButton {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#stop {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 40px;
+    width: 80px
+}
