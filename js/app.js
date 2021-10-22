@@ -9,15 +9,9 @@ let imgToRotate = 1;
 const requestUrl = "https://www.reddit.com/search.json?q="
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("stop").style.display = "none"
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        // Hides/changes styling & elements from page when Submit button clicked
-        input.style.display = "none"
-        submit.style.display = "none"
-        p.style.display = "none"
-        h1.style.display = "none"
-        document.body.style.backgroundColor = "black"
-        // Takes in input from input field and adds on to end of fetch URL
         fetch(requestUrl + input.value)
             .then(function (responseData) {
                 return responseData.json();
@@ -41,8 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(error)
             })
     })
-    // Will loop through addImages function
+    // Will loop through addImages function and removes elements from page
     let slideShow = () => {
+        document.getElementById("stop").style.display = "block"
+        searchOn = true
+        input.style.display = "none"
+        submit.style.display = "none"
+        p.style.display = "none"
+        h1.style.display = "none"
+        document.body.style.backgroundColor = "black"
         setInterval(addImages, 2000)
     }
     // Loops through filtered array and creates img element, resizes it, and appends to the displayImages div in the HTML
@@ -57,6 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Stop button functionality
     document.getElementById("stop").addEventListener("click", () => {
+        // Shows elements/styles that were hidden when slideshow starts
+        document.getElementById("stop").style.display = "none"
         input.style.display = "inline"
         submit.style.display = "inline"
         p.style.display = "block"
@@ -64,9 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.backgroundColor = "white"
         displayImages.style.background = "white"
         input.value = ''
-        // while(filteredArray.length > 0) {
-        //     filteredArray.pop();
-        // }
+        imageArray = []
+        filteredArray = []
         searchOn = false
     })
 })
+
+
