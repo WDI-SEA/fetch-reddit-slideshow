@@ -55,3 +55,9 @@ img {
     height: 40px;
     width: 80px
 }
+
+p {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
