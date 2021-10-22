@@ -1,11 +1,13 @@
 const requestURL = 'https://www.reddit.com/search.json?q='
+let resultIndex = 0
 
 document.addEventListener('DOMContentLoaded', () => {
+    slideshow.style.display = 'none'
     // fetch related posts from reddit (with fetch)
     searchForm.addEventListener('submit', (e) => {
         // prevent default form submission 
         e.preventDefault()
-        fetch(requestURL + search.value)
+        fetch(`${requestURL}${search.value}&limit=100`)
         .then((responseData) => {
             // verify that you can type something into the form
             // use AJAX to make a request. Show data in console
@@ -13,21 +15,45 @@ document.addEventListener('DOMContentLoaded', () => {
             return responseData.json()
         })
         .then((jsonData) => {
-            console.log('here is the json data\n', jsonData)
+            // console.log('here is the json data\n', jsonData)
             // take jsonDATA and create an array of image URLs (use map and filter)
             const resultsArr = jsonData.data.children
+            // console.log('this is the results array\n', resultsArr)
             const onlyURLs = resultsArr.map(getURLs = (list) => {
                 return list.data.url
             })
-            const getImg = onlyURLs.filter(redditImg = (url) => {
+            // console.log('just the image URLs\n', onlyURLs)
+            const filteredImg = onlyURLs.filter(redditImg = (url) => {
                 return url.includes('https://i.redd.it/')
             })
+            console.log('these are the filtered urls\n', filteredImg)
+            // for (let i = 0; i < filteredImg.length; i++) {
+            //     let redditImg = document.createElement('img')
+            //     redditImg.setAttribute('src', filteredImg[i])
+            //     testImgList.appendChild(redditImg)
+            // }
+            const changeSrc = () => {
+                if (resultIndex < filteredImg.length) {
+                    slideshow.setAttribute('src', filteredImg[resultIndex])
+                    resultIndex++
+                } else {
+                    resultIndex = 0
+                }
+            }
+            changeSrc()
+            slideshow.style.display = 'block'
+            const slideshowInterval = setInterval(changeSrc, 2000)
         })
         .catch((error) => {
             console.log(`there's been an error!\n,`, error)
         })
     })
 })
+
+// const fetchRedditData = () => {
+
+// }
+
 
 // Make the form / title / description hide
 // Cycle through images
