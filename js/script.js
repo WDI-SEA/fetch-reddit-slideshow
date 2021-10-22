@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     form.addEventListener("submit", (e)=>{
         e.preventDefault()
-        
         fetch(requestURL+input.value)
         .then((responseData)=>{
             return responseData.json()
@@ -18,19 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 thumbnailPhotos = objSearched.data.thumbnail
                 allPictures.appendChild(photo)
                 photoArray.push(thumbnailPhotos)
-            }
+            }                
             // console.log(photoArray)
             jsonData.data.children.forEach(getPhoto)
+            
             const startSlideshow = () => {
-                let i = 0
-                while (i < 1000) {
+                for (i = 0; i < photoArray.length; i++){
+                    console.log("this is my current photo:\n", photoArray[i])
                     photoArray[i]
-                    i++
                 }
             }
-            const intervalSlideshow = () => {
-                setInterval(startSlideshow, 2000)
-            }
+            // set Interval for photos 
+            setInterval(startSlideshow, 2000)
         })
         .catch((error)=>{
             console.log("ERROR:\n", error)
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // loop through photos
-// set Interval for photos 
 // make form and headings disappear while photos are cycling
 // make stop button that reverts back to landing page (clears)
 
