@@ -20,3 +20,10 @@ Allergy Child is back at it again. She is bored at home and wants to go over to 
 - Possibly have a safe house where you can hide from incoming obstacles
 - Create a health benefit (nebulizer, I know, hardcore) that gives extra health back to the player (more so than just an inhaler)
 - Create another level? Who knows
+
+
+//one class for allergy girl, the good items, the bad items, and the win condition
+life bar represented by attributes on the 
+this.healthPoints = 100
+detectHit(thing) if it happens, deduct or add points etc.
+
