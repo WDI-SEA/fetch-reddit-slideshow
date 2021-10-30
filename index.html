@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   <link rel = "stylesheet" href="css/style.css">
   <title>Fetch Reddit Slideshow</title>
 </head>
 <body>
-  <div id="container" style="display:block">
+  <div id="container">
     <h1>Search for a Slideshow!</h1>
     <p>Enter your search below and see a slideshow of the results!</p>
     <form id = "searchForm">
@@ -15,8 +16,10 @@
       <input type = "submit" id = "submit" value = "See Results!">
     </form>
   </div>
-  <button id = stopBtn>Stop Slideshow</button>
-  <img src = "" alt = "Reddit Search Results" id = "slideshow" style="display:none">
+  <div id="imgContainer">
+    <img src = "" alt = "Reddit Search Results" id = "slideshow">
+  </div>
+  <br><button id = stopBtn>Stop Slideshow</button>
   <script src = "js/app.js"></script>
 </body>
 </html>

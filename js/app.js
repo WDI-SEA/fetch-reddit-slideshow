@@ -1,5 +1,6 @@
 const requestURL = 'https://www.reddit.com/search.json?q='
 const initalPage = document.getElementById('container')
+const search = document.getElementById('search')
 const submit = document.getElementById('submit')
 const stopBtn = document.getElementById('stopBtn')
 const slideshow = document.getElementById('slideshow')
@@ -10,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     slideshow.style.display = 'none'
     fetchRedditData()
 })
-
-
 
 const fetchRedditData = () => {
     // fetch related posts from reddit (with fetch)
@@ -59,6 +58,7 @@ const fetchRedditData = () => {
             stopBtn.addEventListener('click', () => {
                 stopSlideshow()
                 // Form / title / description are shown again
+                search.value = ''
                 initalPage.style.display = 'block'
                 slideshow.style.display = 'none'
             })

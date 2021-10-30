@@ -1,3 +1,47 @@
 body {
     text-align: center;
+    margin-top: 100px;
+    background-color: #8d8798;
+    font-family: 'Shadows Into Light', cursive;
+    color: #fbe0d9;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 35px;
+}
+
+#submit, #stopBtn {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+    color: #fbe0d9;
+    background-color: #a36e81;
+    border: 4px solid #c8adcc
+}
+
+#search {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+    color: #a36e81;
+    background-color: #fbe0d9;
+    border: 4px solid #c8adcc;
+
+}
+
+#submit:hover, #stopBtn:hover {
+    color: #a36e81;
+    background-color: #c8adcc;
+}
+
+#imgContainer {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    max-width: 35%;
+    max-height: 35%;
 }
