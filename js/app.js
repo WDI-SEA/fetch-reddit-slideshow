@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchRedditData()
 })
 
+
+
 const fetchRedditData = () => {
     // fetch related posts from reddit (with fetch)
     searchForm.addEventListener('submit', (e) => {
@@ -45,31 +47,24 @@ const fetchRedditData = () => {
                 }
             }
             changeSrc()
+            // Make the form / title / description hide
             slideshow.style.display = 'block'
             initalPage.style.display = 'none'
+            // Cycle through images
+            // tip: use setInterval
             const slideshowInterval = setInterval(changeSrc, 2000)
+            // When the user clicks the "stop" button
+            // Animation stops / images are removed
+            const stopSlideshow = () => {clearInterval(slideshowInterval)}
+            stopBtn.addEventListener('click', () => {
+                stopSlideshow()
+                // Form / title / description are shown again
+                initalPage.style.display = 'block'
+                slideshow.style.display = 'none'
+            })
         })
         .catch((error) => {
             console.log(`there's been an error!\n,`, error)
         })
     })
 }
-
-
-// Make the form / title / description hide
-// Cycle through images
-// tip: use setInterval
-// Either add images, or change the src of a single image tag
-// Add some interesting style / animation
-// Create button to stop animation (tip: use clearInterval).
-
-// When the user enters a search term and presses enter
-// The form / title / description should hide
-// Show a loading message (optional)
-// Display animation / slideshow of images (with DOM manipulation)
-// Show a button to stop slideshow
-// Repeat animation until user clicks "stop", then redisplay the original form/title/description
-// When the user clicks the "stop" button
-// Animation stops / images are removed
-// Form / title / description are shown again
-// User can enter a new search term
