@@ -1,8 +1,17 @@
 const requestURL = 'https://www.reddit.com/search.json?q='
+const initalPage = document.getElementById('container')
+const submit = document.getElementById('submit')
+const stopBtn = document.getElementById('stopBtn')
+const slideshow = document.getElementById('slideshow')
 let resultIndex = 0
 
 document.addEventListener('DOMContentLoaded', () => {
+    initalPage.style.display = 'block'
     slideshow.style.display = 'none'
+    fetchRedditData()
+})
+
+const fetchRedditData = () => {
     // fetch related posts from reddit (with fetch)
     searchForm.addEventListener('submit', (e) => {
         // prevent default form submission 
@@ -37,17 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             changeSrc()
             slideshow.style.display = 'block'
+            initalPage.style.display = 'none'
             const slideshowInterval = setInterval(changeSrc, 2000)
         })
         .catch((error) => {
             console.log(`there's been an error!\n,`, error)
         })
     })
-})
-
-// const fetchRedditData = () => {
-
-// }
+}
 
 
 // Make the form / title / description hide
