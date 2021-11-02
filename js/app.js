@@ -5,6 +5,7 @@ const submit = document.getElementById("submit")
 let searchOn = true;
 // Counter that ++ in addImage function below that is used as index for filteredArray
 let imgToRotate = 1;
+let interval;
 // URL to do fetch from
 const requestUrl = "https://www.reddit.com/search.json?q="
 
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         p.style.display = "none"
         h1.style.display = "none"
         document.body.style.backgroundColor = "black"
-        setInterval(addImages, 2000)
+        interval = setInterval(addImages, 2000)
     }
     // Loops through filtered array and creates img element, resizes it, and appends to the displayImages div in the HTML
     const addImages = () => {
@@ -70,7 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
         imageArray = []
         filteredArray = []
         searchOn = false
+        displayImages.style.backgroundSize = "contain"
+        displayImages.style.backgroundRepeat = "no-repeat"
+        displayImages.style.backgroundPosition = "center center"
+        clearInterval(interval)
     })
 })
 
-
+//const changeSlide = setInterval(addImages, 3000)
