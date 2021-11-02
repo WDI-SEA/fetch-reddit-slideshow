@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submit.style.display = "none"
         p.style.display = "none"
         h1.style.display = "none"
+        displayImages.style.background = ""
         document.body.style.backgroundColor = "black"
         interval = setInterval(addImages, 2000)
     }
