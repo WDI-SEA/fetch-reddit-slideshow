@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
   <title>reddit slideshow</title>
 </head>
 <body>
@@ -13,8 +14,13 @@
     <input type = "text" id = "userInput">
     <input type = "submit" value = "Search" id = 'input'>
   </form>
-  <ul id = "testImageList"></ul>
   <button>Stop</button>
+
+  <div id="displayContainter"></div>
+  <div id="displayContainer"><img src="#" alt="" id="stage"></div>
+  <ul id = "testImageList"></ul>
+
+  <img id = 'slide' width = "400" height="200">
   <script src ="ap.js"></script>
 </body>
 </html>
