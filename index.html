@@ -7,20 +7,17 @@
   <title>reddit slideshow</title>
 </head>
 <body>
-  <h1>reddit slideshow</h1>
-  <p>Enter a search to see photos from reddits  </p>
+  <h1 id = "title">reddit slideshow</h1>
+  <p id = "description">Enter a search to see photos from reddits  </p>
   <form id = 'form'>
     <label for = "reddit-images">Search for images</label>
     <input type = "text" id = "userInput">
     <input type = "submit" value = "Search" id = 'input'>
   </form>
-  <button id = "stopButton">Stop</button>
-
-  <div id="displayContainter"></div>
-  <div id="displayContainer"><img src="#" alt="" id="stage"></div>
-  <ul id = "testImageList"></ul>
-
-  <img id = 'slide' width = "400" height="200">
+  <div id = "show">
+  <img id = 'slide'>
+</div>
+  </body>
   <script src ="ap.js"></script>
 </body>
 </html>

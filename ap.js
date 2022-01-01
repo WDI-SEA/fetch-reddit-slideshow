@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         const inputValue = userInput.value
+        form.remove()
+        description.remove()
+        title.remove()
     //    console.log(inputValue)
         fetch(url+inputValue+'&raw_json=1')
         .then(resData => {
@@ -40,9 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const slideShowInterval = setInterval(changeImg, time)
             const stopSlideshow = () => {clearInterval(slideShowInterval)}
+            const stopbtn = document.createElement('button')
+            stopbtn.textContent = 'stop'
+            stopbtn.id = "stopButton"
+            document.body.appendChild(stopbtn)
+            // console.log(stopbtn);
             stopButton.addEventListener('click', () => {
                 stopSlideshow()
             })
+            show.appendChild(stopButton)
         })
 
         .catch(error=> {

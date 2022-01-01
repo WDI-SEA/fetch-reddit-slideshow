@@ -3,3 +3,14 @@
     width: 25%;
     height: 300px;
 }
+
+#slide{
+    width: 25%;
+    height: 200px;
+    border: none;
+
+}
+
+.show{
+    display: block;
+}
