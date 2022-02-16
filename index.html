@@ -7,6 +7,7 @@
   <title>Reddit Slideshow Viewer</title>
 </head>
 <body>
+  <!-- main container with form and text input field -->
   <container id="main-container">
     <h1>Reddit Slideshow Viewer</h1>
     <p>Enter a search term, click the button, and enjoy the show!</p>
@@ -16,7 +17,10 @@
     </form>
   </container>
 
+  <!-- this container will display the image slideshow until stop button is pressed, then will hide again.
+    container to be hidden until button is pressed. -->
   <container id="slideshow-container">
+    <div id="slideshow-display"></div>
     <button id="stop-button">stop!</button>
   </container>
   
