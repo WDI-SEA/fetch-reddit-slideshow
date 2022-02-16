@@ -1,3 +1,6 @@
+let count = 1;
+let filteredImages = []
+
 const fetchSlideshow = (searchedText) => {
     fetch(`http://www.reddit.com/search.json?q=${searchedText}+nsfw:no`)
     .then((responseData)=>{
@@ -15,28 +18,31 @@ const fetchSlideshow = (searchedText) => {
 
 const addPicturesToDom = (apiResults) => {
     let images = document.querySelector('#img')
-    let filteredImages = []
+    let arrayOfImages = apiResults.data.children
+    filteredImages = arrayOfImages.filter((element) => {
+        if(element.data.post_hint === 'image') {
+            return true
+        } else {
+            return false
+        }
+    })
+    
+    let newImg = document.createElement('img')
+    newImg.style.width = "300px"
+    newImg.style.height = "300px"
+    newImg.src = filteredImages[0].data.url
+    images.appendChild(newImg)
 
-    for (let i=0; i<apiResults.data.children.length; i++) {
-        let newImg = document.createElement('img')
-        newImg.style.width = "300px"
-        newImg.style.height = "300px" 
-        // newImg.src = apiResults.data.children[i].data.url
-        let arrayOfImages = apiResults.data.children[i].data.url
-        filteredImages = arrayOfImages.filter((element, index, array) => {
-            if(element.endsWith('.jpg')) {
-                return true
-            } else {
-                return false
-            }
-        })
-        console.log('filtered images', filteredImages)
-        images.appendChild(newImg)
-    }
+    setInterval(changeImage, 1000)
 }
 
-const slideshow = () => {
-    setInterval(changeImage, 1000)
+const changeImage = () => {
+   let currentImage = document.querySelector('img')
+   currentImage.src = filteredImages[count].data.url
+   count++
+   if(count === filteredImages.length) {
+       count = 0
+   }
 }
 
 const stop = () => {
