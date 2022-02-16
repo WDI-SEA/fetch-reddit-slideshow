@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
+  <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+  <div id="search-phase" class="fade-in">
+    <h1>Reddit Slideshow</h1>
+    <p>Enter the topic you want to search on Reddit and press Enter (or click Search) for a slideshow</p>
+    <form id="search" autocomplete="off">
+      <input type="text" id="search-input" value="Cats">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div id="slideshow-phase" class="fade-in">
+    <div id="slideshow"></div>
+    <button id="stop-button">Stop Slideshow</button>
+  </div>
+  
 </body>
 </html>
