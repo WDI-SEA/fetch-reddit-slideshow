@@ -8,8 +8,9 @@ stopBtn.addEventListener('click', e =>{
     clearBoard()
     clearInterval(displayInterval)
     submitBtn.style.display = 'inline'
-    document.querySelector('h1').style.display = 'flex'
-    document.querySelector('h3').style.display = 'flex'
+    document.querySelector('h1').style.display = 'inline'
+    document.querySelector('h3').style.display = 'inline'
+    document.querySelector('input').style.display = 'inline'
     stopBtn.style.display = 'none'
     
 })
@@ -21,6 +22,7 @@ submitBtn.addEventListener('click',e =>{
     submitBtn.style.display = 'none'
     document.querySelector('h1').style.display = 'none'
     document.querySelector('h3').style.display = 'none'
+    document.querySelector('input').style.display = 'none'
     createQuery (input)
 })
 
