@@ -1,0 +1,58 @@
+:root {
+    --primary : rgb(252, 55, 6);
+}
+
+body{
+    background-color: #fff;
+}
+
+img {
+    width: 300px;
+    margin: 2%;
+}
+h1 {
+    font-size: 50px;
+}
+
+span {
+    color: var(--primary);
+}
+p {
+    font-size: 25px;
+    display: none;
+}
+
+.container-sm {
+    /* margin: 5%; */
+    margin-top: 10%;
+    padding: 5%;
+    text-align: center;
+    border: 10px solid black;
+    border-radius: 20px;
+}
+
+.btn {
+    padding: 1%;
+    width: 10%;
+}
+
+#searchBar {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 2px solid gray;
+}
+
+
+
+#searchButton {
+    display: inline-block;
+}
+
+#stopBtn {
+    display: none;
+    background-color: var(--primary);
+    
+}
