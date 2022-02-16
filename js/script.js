@@ -3,16 +3,18 @@ const searchInput = document.querySelector("#searchInput");
 const stopButton = document.querySelector("#stopButton");
 const displayResults = document.querySelector("#resultsContainer");
 
+let arrImages = [];
+
 // fetch when submit is pressed
 
 function fetchReddit(e) {
   e.preventDefault();
-  const endpoint = "http://www.reddit.com/search.json?q=cats+nsfw:no";
+  const endpoint = `http://www.reddit.com/search.json?q=${searchInput}'+nsfw:no`;
   fetch(endpoint)
     .then((fetchObj) => fetchObj.json())
     .then((jsonData) => {
       console.log("Here is the data:", jsonData);
-      addImg(jsonData)
+      addImg(jsonData);
     })
     .catch((err) => console.log("There was an error fetching data:", err));
 }
@@ -20,13 +22,26 @@ function fetchReddit(e) {
 submitButton.addEventListener("click", fetchReddit);
 
 let addImg = (redditImgs) => {
-  for (let i = 0; i < redditImgs.data.children.length; i++) {
-    let newImg = document.createElement("img");
-    newImg.src = redditImgs.data.children[i].data.url
-    displayResults.appendChild(newImg);
-    console.log(redditImgs)
-    console.log(newImg.src)
+  while (displayResults.firstChild) {
+    displayResults.firstChild.remove()
   }
-}
- 
+  let imagesArray = redditImgs.data.children;
+  arrImages = imagesArray.filter((element) => {
+    if (element.data.post_hint === "image") {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
+  let newImage = document.createElement("img");
+  newImage.src = arrImages[0].data.url;
+  displayResults.appendChild(newImage);
+  setInterval(switchImage, 2000)
+};
+
+let switchImage = () => {
+  currentImage = document.querySelector('img')
+  currentImage.src = arrImages[i].data.url
+  i++
+}
