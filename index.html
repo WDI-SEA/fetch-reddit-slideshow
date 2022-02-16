@@ -3,9 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Reddit Slideshow</h1>
+
+  <h3>Type in something you would like to see a slideshow of and then click "search" </h3>
+
+  <form id="searched-text">
+    <input type="text" placeholder="Enter Search Item Here" value="">
+  </form>
+
+  <form id="search-container">
+    <button type="submit" id="search">SEARCH</button>
+  </form>
+
+  <div id="img">
+    <!-- <img src="" alt="slideshow" width="500" height="500"> -->
+  </div>
+
+  <form id="stop-container">
+    <button type="submit" id="stop">STOP</button>
+  </form>
+
+  <script src="./js/script.js"></script>
 </body>
 </html>
