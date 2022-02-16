@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Reddit Slideshow Viewer</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <container id="main-container">
+    <h1>Reddit Slideshow Viewer</h1>
+    <p>Enter a search term, click the button, and enjoy the show!</p>
+    <form id="search-form">
+      <input type="text" name="" id="search-input">
+      <input type="submit" value="Start Slideshow" id="submit-button">
+    </form>
+  </container>
+
+  <container id="slideshow-container">
+    <button id="stop-button">stop!</button>
+  </container>
+  
+  <script src="./js/script.js"></script>
 </body>
 </html>
