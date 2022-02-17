@@ -1,3 +1,58 @@
-#resultsContainer {
-  display: grid;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+html {
+  height: 100%;
+}
+
+body {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50%;
+  width: 100%;
+  background-image: url('/Reddit.jpg');
+  font-family: 'Lato', sans-serif;
+}
+
+img {
+  height: 500px;
+  width: 500px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 45px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 35px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.hide {
+  display: none;
+}
+
+#stopButton{
+  border-radius: 10px;
+  font-size: 35px;
+  margin: 40px;
+}
+
+#searchInput {
+  font-size: 40px;
+  margin: 40px;
+  text-align: center;
+}
+
+#submitButton {
+  font-size: 30px;
+  border-radius: 10px;
 }

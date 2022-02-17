@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,22 +8,29 @@
 
   <title>Reddit Slideshow</title>
 </head>
+
 <body>
-  <h1>Reddit Slideshow</h1>
 
-  <div>
-    <form id ='searchForm'>
-      <input type="text" id="searchInput"/>
-      <button type ='button' id="submitButton">SUBMIT</button>
+  <h1 class="title">Reddit Slideshow</h1>
+  <h2 class='instructions'>Type something you would like to see on Reddit and then click Search or press Enter </h2>
+
+
+  <div class='center'>
+    <form id='searchForm'>
+      <input type="text" id="searchInput" />
+      <div class='center'>
+        <button type='submit' id="submitButton">SEARCH</button>
+      </div>
     </form>
-  </div>
-
-  <div>
-    <button id="stopButton">STOP</button>
   </div>
 
   <div id="resultsContainer"></div>
 
+  <div class='center'>
+    <button class='hide' id="stopButton">STOP</button>
+  </div>
+
   <script src="./js/script.js"></script>
 </body>
+
 </html>
