@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-</head>
-<body>
-  <h1>Hello Front-End</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="shortcut icon"
+      href="img/3225187_app_logo_media_popular_reddit_icon.png"
+      type="image/x-icon"
+    />
+    <title>Reddit Image Slideshow</title>
+  </head>
+  <body>
+    <div class="container topcorner">
+      <img src="img/Reddit_Lockup_OnWhite.png" alt="" width="80rem" />
+    </div>
+    <div>
+      
+      <div class="container" id="input-box">
+        <form>
+          <input type="text" id="queryString" placeholder="Search a thing..." />
+          <button id="search">Search</button>
+        </form>
+      </div>
+
+      <div class="container">
+        <div class="image-container" id="image-holder">
+          <!-- images go here -->
+        </div>
+      </div>
+      <div class="container">
+        <button id="reset" style="display: none;">Stop</button>
+      </div>
+    </div>
+  </body>
 </html>

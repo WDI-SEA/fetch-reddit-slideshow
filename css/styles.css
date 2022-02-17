@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 70%;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: rgba(210, 221, 223, 255);
+}
+.container {
+  position: relative;
+  display: flex;
+  padding-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.topcorner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 20px 20px 20px;
+}
+button {
+  height: 5rem;
+  width: 8rem;
+  border: 2px solid rgb(158, 156, 156);
+  border-radius: 1rem;
+  font-weight: bold;
+}
+button:hover {
+  background-color: #ff4500;
+  color: rgb(255, 255, 255);
+}
+input {
+  height: 5rem;
+  width: 40rem;
+  border: 2px solid rgb(158, 156, 156);
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  padding: 0 1.2rem;
+  font-weight: bold;
+}
+input:focus {
+  outline: none;
+  border-color: #ff4500;
+  font-weight: bold;
+}
+.image-container {
+  width: fit-content;
+  max-width: 40vw;
+  font-size: 20px;
+}
+.image-container img {
+  width: 100%;
+  border: 0.1rem solid rgb(158, 156, 156);
+  border-radius: 10px;
+}
+@media (max-width: 40rem) {
+  input {
+    width: 70vw;
+  }
+}
