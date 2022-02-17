@@ -6,6 +6,35 @@ img {
   height: 300px;
 }
 
+.image-screen {
+  display: inline-block;
+}
+
 .hidden {
   display: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: darkgray;
+  color: white;
+}
+
+.next {
+  background-color: darkgray;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
 }
