@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hello Front-End</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+<div id="container">
+
+  <h1 id="title">reddit photo generator</h1>
+  <h2 id="subtitle">let us know what kind of photos you would like to see</h2>
+  <form id="form">
+    <input id="textt" type="text" placeholder="  ex. sunset">
+    <input id="submitt" type="submit" value="search" class="submit">
+  </form>
+  <div id="photoDiv"></div>
+</div>
+<script src="./js/script.js"></script>
 </body>
 </html>
