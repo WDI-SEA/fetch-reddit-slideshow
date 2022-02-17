@@ -29,23 +29,34 @@ submitBtn.addEventListener('click',e =>{
 function createQuery (input) {
 
     clearBoard()
-    console.log(input)
+    // if(!input) return input.placeholder = 'type something in!'
     const query = `http://www.reddit.com/search.json?q=${input}+nsfw:no`
 
     fetch(query)
     .then((fetchObj)=>fetchObj.json())
     .then((queryJson)=>{
-        let arrChildren = queryJson.data.children
-        let arrData = arrChildren.map((index)=>{
+        // let arrChildren = queryJson.data.children
+        // let arrData = arrChildren.map((index)=>{
+        //     return index.data.url
+        // })
+        // let arrUrl = arrData.filter((urlIndex)=>{
+        //     let checkEnd = urlIndex.slice(urlIndex.length-4)
+        //     if(checkEnd === '.jpg' || checkEnd === '.png')
+        //     return urlIndex
+        // })
+        // displayImage(arrUrl)
+
+        let arrChildren = queryJson.data.children.map((index)=>{
             return index.data.url
         })
-        let arrUrl = arrData.filter((urlIndex)=>{
-            let checkEnd = urlIndex.slice(urlIndex.length-4)
-            if(checkEnd === '.jpg')
+        let arrUrl = arrChildren.filter((urlIndex)=>{
+            let checkEnd = urlIndex.slice(-4)
+            if(checkEnd === '.jpg' || checkEnd === '.png')
             return urlIndex
         })
         displayImage(arrUrl)
-    })
+    }) 
+    .catch(console.log())
 }
 
 function displayImage(images){
@@ -71,3 +82,4 @@ function clearBoard(){
         divImg.removeChild(divImg.firstChild)
     }
 }
+// DOM CONTENT LOAD INITIALIZER
