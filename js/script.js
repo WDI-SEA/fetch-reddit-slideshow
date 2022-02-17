@@ -4,6 +4,7 @@ const mainContainer = document.querySelector("#main-container")
 const slideshowContainer = document.querySelector("#slideshow-container")
 const slideshowDisplay = document.querySelector("#slideshow-display")
 const stopButton = document.querySelector("#stop-button")
+const carouselPlacement = document.querySelector("#carousel-placement")
 
 
 slideshowContainer.classList.add('hidden')
@@ -56,9 +57,7 @@ function findImageObjects(){
 }
 
 function displayImages(){
-    let carouselPlacement = document.querySelector("#carousel-placement")
-    //iterate over all objects that had ONE single image
-    //currently adds images to new elements and displays them all at once
+    //place new img within new div for each picture found
     imageObjects.forEach(image => {
         //debug line to see where i'm at
         console.log(image.data.url)
@@ -66,27 +65,14 @@ function displayImages(){
         let newImg = document.createElement('img')
         //create new div for img to live in
         let newDiv = document.createElement('div')
-        //dive newDiv correct class of carousel-item
         newDiv.classList.add('carousel-item')
-        //append div to carouselPlacement
         carouselPlacement.appendChild(newDiv)
         //give img new source
         newImg.src = image.data.url
         //append image to newDiv
         newDiv.appendChild(newImg)
         //append image to slideshowDisplay
-        // slideshowDisplay.appendChild(newImg)
     })
-    //create new div with class "carousel-item"
-    let newDiv = document.createElement('div')
-    //create img element with class "d-block" and "w-100"
-    let newImg = document.createElement('img')
-    newDiv.classList.add("carousel-item")
-    newImg.classList.add("d-block","w-100")
-    //set source to correct URL
-
-    //append new image element to new div element
-    //append new div element to div with class "carousel-inner"
 
 }
 

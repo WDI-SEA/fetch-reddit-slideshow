@@ -3,11 +3,17 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    margin: auto;
 }
 
 img{
-    width: 40vw;
-    height: 20vh;
+    width: 50vw;
+    height: 50vh;
+}
+
+.body-text{
+    
 }
 
 .hidden{
