@@ -1,7 +1,4 @@
 // THINGS TO DO
-// go button - slideshow div - create, append, set ID for styling and to allow it to have images posted into it
-// reset button - slideshow div - removed
-// div should be removed from HTML as well
 
 // create image container variale to append images to
 const returnButton = document.getElementById('return-button');
@@ -59,7 +56,7 @@ const addImages = (apiResults) => {
             imgArr[n].style.display = 'block';
         }  
         n++;
-    }, 800)
+    }, 1800)
     
     // return button function click
     returnButton.addEventListener('click', (e)=> {
@@ -79,7 +76,6 @@ const addImages = (apiResults) => {
         // hide return button
         returnButton.style.display = 'none';
     })
-    
 }
 
 // search button function on click
