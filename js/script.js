@@ -1,40 +1,54 @@
-function fetchit (qStr) {
-  const imgList = []
+let slideShowInterval
+let imageIndex = -1
+let imgList = []
+function fetchit (qStr) {  
   // reddit .json api maximum limit set at 100
+
   const endpoint = `http://www.reddit.com/search.json?q=${qStr}&limit=100`
+
   fetch(endpoint)
     .then(fetchObj => fetchObj.json())
     .then(jsonData => {
-      const arrListing = jsonData.data.children.filter(function(imgURL){
-          return imgURL.data.url
+      // map json data to another array
+      const arrListing = jsonData.data.children.map(child => {
+        return {
+          url: child.data.url,
+          sub: child.data.subreddit,
+          author: child.data.author
+        }
       })
-      const arrImgSrc = arrListing.filter(function(imgURL){
-          if (checkURL(imgURL.data.url)) {
-              return imgURL.data.url
-          }
-      })
-      for (let i=0;i < arrImgSrc.length;i++) {
-          setTimeout(() => {
-              imageit(arrImgSrc[i].data.url)
-              document.getElementById('reset').style.display = 'inline-block'                
-          }, 2000 * i);
-      }
+      // filter json data to another array with images only
+      imgList = arrListing.filter((imgURL) => {
+        if (checkURL(imgURL.url)) {
+          return imgURL.url
+        }
+      })      
+      
     })
-    .catch(err => console.log(err))
+    slideShowInterval = setInterval(imageit, 5000)
+    
 }
 
 function checkURL (url) {
-  if (typeof url !== 'string') return false
-  return url.match(/\.(jpg|jpeg|gif|png)$/) != null
+  if (typeof url !== 'string') {
+    return false
+  } else {
+    return url.match(/\.(jpg|jpeg|gif|png)$/) != null
+  }
 }
 
-function imageit (imgURL) {
+function imageit() {
+  document.querySelector('#reset').style.display='inline-block'
+  imageIndex++  
+  if (imageIndex >= imgList.length) imageIndex = 0
+  console.log(imgList[imageIndex])
+
   let parent = document.querySelector('#image-holder')
   while (parent.firstChild) {
     parent.firstChild.remove()
   }
   let listData = document.createElement('img')
-  listData.src = imgURL
+  listData.src = imgList[imageIndex].url
   document.querySelector('#image-holder').appendChild(listData)
   // if img src is invalid, hide the image.
   listData.addEventListener(
