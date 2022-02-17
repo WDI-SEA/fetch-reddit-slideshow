@@ -1,4 +1,14 @@
-body {
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+/* body {
     background-color: darkgrey;
     text-align: center;
     font-family: Helvetica, sans-serif;
@@ -27,4 +37,4 @@ h1 {
     position: relative;
     padding-left: 75%;
     padding-top: 15%;
-}
+} */
