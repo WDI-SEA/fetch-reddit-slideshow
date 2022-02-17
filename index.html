@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Reddit Slideshow</h1>
+  
+  <container id="instructions">
+    <h3>Instructions</h3>
+    <p>Enter a topic below and click the search. The search bar will disappear and a slideshow of related images will appear with a stop button at the bottom of the page. Once you click the stop button, the slideshow will stop and disappear and the search bar will reappear</p>
+    <form>
+      <input type="text" id="searchInput">
+      <button id="search">Search</button>
+    </form>
+  </container>
+
+  
+  <container id="stage">
+    <img id="mainPic" src="">
+    <button id="stopShow">Stop</button>
+  </container>
+
+  <script src="./js/script.js"></script>
 </body>
 </html>

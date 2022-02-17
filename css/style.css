@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+    background-color: maroon;
+    color: white;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+p {
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid white;
+    position: relative;
+    left: 38vw;
+}
+
+input {
+    font-size: 20px;
+}
+
+button {
+    font-size: 20px;
+}
+
+img {
+    width: 400px;
+}
+
+#stage {
+    display: none;
+    position: absolute;
+    right: 33vw;
+    top: 30vh;
+}
+
+#stopShow {
+    position: relative;
+    top: 15vh;
+    right: 15vw;
+}
