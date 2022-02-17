@@ -34,7 +34,7 @@ const fetchImages = () => {
 };
 
 function checkImage(text) {
-  return text.indexOf(".jpg") === text.length - 4;
+  return (text.indexOf(".jpg") || text.indexOf(".png")) === text.length - 4;
 }
 
 function createImageArray(apiResults) {
@@ -48,7 +48,7 @@ function createImageArray(apiResults) {
 
 function cycleImages() {
   image.src = imgArray[imgNum];
-  if (imgNum < imgArray.length) {
+  if (imgNum < imgArray.length - 1) {
     imgNum++;
   } else {
     imgNum = 0;
@@ -57,10 +57,10 @@ function cycleImages() {
 
 function pause() {
   clearInterval(interval);
-  pauseButton.classList.toggle("hidden");
-  resumeButton.classList.toggle("hidden");
-  previousButton.classList.toggle("hidden");
-  nextButton.classList.toggle("hidden");
+  pauseButton.classList.add("hidden");
+  resumeButton.classList.remove("hidden");
+  previousButton.classList.remove("hidden");
+  nextButton.classList.remove("hidden");
 }
 
 function resume() {
@@ -96,10 +96,10 @@ function backToMainScreen() {
   }
   searchTermBox.value = "";
   image.classList.toggle("hidden");
-  stopButton.classList.toggle("hidden");
-  previousButton.classList.toggle("hidden");
-  nextButton.classList.toggle("hidden");
-  resumeButton.classList.toggle("hidden");
+  stopButton.classList.add("hidden");
+  previousButton.classList.add("hidden");
+  nextButton.classList.add("hidden");
+  resumeButton.classList.add("hidden");
   imgNum = 0;
   imgArray = [];
   urlArray = [];
