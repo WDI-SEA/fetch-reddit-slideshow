@@ -6,7 +6,7 @@ We are going to use what we've learned so far to create a basic slideshow using 
 
 Reddit sometimes contains some offensive images be careful with your search terms. If you want to ensure that you do not get NSFW (Not Safe For Work) items. You can filter it by adding "nsfw:no" to the end of the search query.
 
-**Example:** http://www.reddit.com/search.json?q=cats+nsfw:no
+**Example:** http://www.reddit.com/search.json?q=cats+nsfw:no&limit=100
 
 ## Getting Started
 

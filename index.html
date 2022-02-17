@@ -3,9 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Noto+Serif+JP&family=Orbitron&family=Shizuru&family=Short+Stack&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <title>Reddit Slideshow</title>
 </head>
-<body>
-  <h1>Hello Front-End</h1>
-</body>
+  <body>
+      <h1 id="title-header">Olivander's Photo Depot</h1>
+      <p id="description">The operation of this site is simple just search
+        something and feast your eyes on something awesome!
+      </p>
+      <div class="center">
+        <form id="search-form">
+          <input type="text" id="inputBox">
+
+          <input type="submit" id="submitButton">
+        </form>
+      </div>
+      <div class="center">
+        <button id="stop-button"?>STOP!</button>
+      </div>
+
+      <div class="center">
+        <div id="slideshow-container"></div>
+      </div>
+    
+      <div class="vl"></div>
+
+  </body>
 </html>
+

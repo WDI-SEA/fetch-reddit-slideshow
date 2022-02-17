@@ -1,0 +1,82 @@
+body {
+    background-color: black;
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: cneter;
+
+}
+#title-header {
+    font-family: Orbitron;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    text-shadow: 2px 2px 5px white;
+    margin-bottom: 3rem;
+}
+#description {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: grey;
+    text-shadow: 1px 1px 1px white;
+    font-size: large;
+    font-family: Orbitron;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+#container2 {
+    display: flex;
+    justify-content: center;
+}
+#submitButton {
+    border: 6px solid white;
+    border-radius: 2px;
+    width: 10rem;
+    height: 3rem;
+    font-size: 30px;
+    font-family: Orbitron;
+    color: grey;
+    text-shadow: 2px 2px 4px white;
+    background-color: black;
+}
+#stop-button {
+    border: 6px solid white;
+    border-radius: 2px;
+    width: 10rem;
+    height: 3rem;
+    font-size: 30px;
+    font-family: Orbitron;
+    color: grey;
+    text-shadow: 2px 2px 4px white;
+    background-color: black;
+}
+input {
+    /* border: 2px solid grey;
+    border-radius: 20px; */
+    border-right-style: none;
+    outline: none;
+    width: 100rem;
+    font-size: 50px;
+    text-align: center;
+    
+    /* background-image: linear-gradient(black, white); */
+    background-image: linear-gradient(black, black, black, black, white);
+    color: grey;
+    text-shadow: 3px 3px 6px white;
+    font-family: Orbitron;
+} 
+.vl {
+    border-left: 6px solid white;
+    height: 500px;
+    position: relative;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+    
+  }
