@@ -1,0 +1,30 @@
+body {
+    background-color: darkgrey;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+.img-container {
+    display: flex;
+    width: 50%;
+    height: 50%;
+}
+
+#userInput {
+    text-align: center;
+}
+
+#picture {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 60%;
+    height: 60%;
+    position: relative;
+    padding-left: 75%;
+    padding-top: 15%;
+}
