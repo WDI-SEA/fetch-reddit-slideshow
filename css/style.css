@@ -1,0 +1,32 @@
+body {
+  background-color: lightpink;
+}
+
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+
+}
+.class {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slides {
+  max-width: 40em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  display: flex;
+  max-width: 70%;
+  margin-top: 2em;
+}
+
+#stopbtn {
+  visibility: hidden;
+  background-color: red;
+}
