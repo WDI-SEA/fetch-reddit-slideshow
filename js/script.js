@@ -7,36 +7,88 @@ const fetchReddit = (n) => {
     fetch(endpoint)
     .then(fetchObj=>fetchObj.json())
     .then(jsonData=>{
-        addRedditImages(jsonData.data.children)
+        console.log(jsonData)
     })
     .catch(err=>console.log('There was an error fetching data:', err))
 }
 
- const addRedditImages = (apiResults) => {
-     for (let i = 0; i < apiResults.length; i++){
-         // create a new img
+//
+
+let counter = 0
+// ADDS REDDIT IMAGES TO THE SLIDESHOW
+const addRedditImages = (apiResults) => {
+    setTimeout(() =>{
         let newImg = document.createElement('img');
-        //path way to the img
-        newImg.src = apiResults[i].data.thumbnail;
-        // set width and height for pic
+        newImg.src = apiResults[counter].data.thumbnail;
+        // console.log(newImg.src)
+        // if (newImg.src = "self") {
+        //     counter++
+        //     addRedditImages(apiResults)
+        // }
+        // console.log(apiResults[counter].data.thumbnail)
+        // style the image
         newImg.style.width = "300px";
         newImg.style.height = "300px";
-
-        //append the image to slideshow
-        document.querySelector('#slideshow').appendChild(newImg)
-         }
+        document.querySelector('#slideshow').appendChild(newImg);
+            counter++
+            if (counter<apiResults.length){
+                return addRedditImages(apiResults)
+            }
+            console.log('done')
+        }, 2000)
 }
 
-const changeImage () => {
-    currentImage = 
-}
 
+    // let newImg = document.createElement('img');
+    // newImg.src = apiResults[i].data.thumbnail;
+    // newImg.style.width = "300px";
+    // newImg.style.height = "300px";
+    // document.querySelector('#slideshow').appendChild(newImg);
+    // i ++
+    // setTimeout(function(){
+    //     document.querySelector('#slideshow').removeChild(newImg);
+    // }, 2700);
+    // setInterval(function(){
+    //     document.querySelector('#slideshow').appendChild(newImg);
+    // }, 3000);
+ 
+// let i = 0
+// let interval
+
+// const timerRedditImages = () => {
+//     let newImg = document.createElement('img');
+//     newImg.src = apiResults[i].data.thumbnail;
+//     newImg.style.width = "300px";
+//     newImg.style.height = "300px";
+//     document.querySelector('#slideshow').appendChild(newImg);
+//     i ++
+//     setTimeout(function(){
+//         document.querySelector('#slideshow').removeChild(newImg);
+//     }, 2700);
+//     }
+//     interval = setInterval(timerRedditImages, 3000)
+// } 
+
+
+    //  for (let i = 0; i < apiResults.length; i++){
+    //      // create a new img
+    //     let newImg = document.createElement('img');
+    //     //path way to the img
+    //     newImg.src = apiResults[i].data.thumbnail;
+    //     // set width and height for pic
+    //     newImg.style.width = "300px";
+    //     newImg.style.height = "300px";
+
+    //     //append the image to slideshow
+    //     document.querySelector('#slideshow').appendChild(newImg)
+    //      }
+// }
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
     let searchResult 
-
+``
     document.querySelector('form').addEventListener('submit',(e) => {
         // prevent page refresh
         e.preventDefault();
