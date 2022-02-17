@@ -1,0 +1,9 @@
+body {
+    background-color:cyan;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
