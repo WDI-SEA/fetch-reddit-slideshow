@@ -47,21 +47,19 @@ function fetchit (qStr) {
   fetch(endpoint)
     .then(fetchObj => fetchObj.json())
     .then(jsonData => {
-      const arrListing = jsonData.data.children.filter(function(imgURL){
+      const arrListing = jsonData.data.children.filter(function (imgURL) {
+        return imgURL.data.url
+      })
+      const arrImgSrc = arrListing.filter(function (imgURL) {
+        if (checkURL(imgURL.data.url)) {
           return imgURL.data.url
+        }
       })
-      const arrImgSrc = arrListing.filter(function(imgURL){
-          if (checkURL(imgURL.data.url)) {
-              return imgURL.data.url
-          }
-      })
-      console.log(arrImgSrc)
-      
-      for (let i=0;i < arrImgSrc.length;i++) {
-          setTimeout(() => {
-              imageit(arrImgSrc[i].data.url)
-              document.getElementById('reset').style.display = 'inline-block'                
-          }, 2000 * i);
+      for (let i = 0; i < arrImgSrc.length; i++) {
+        setTimeout(() => {
+          imageit(arrImgSrc[i].data.url)
+          document.getElementById('reset').style.display = 'inline-block'
+        }, 2000 * i)
       }
     })
     .catch(err => console.log(err))
