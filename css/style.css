@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Press+Start+2P&family=Shizuru&family=Syne+Tactile&display=swap');
 body{
     background-color: aquamarine;
 }
@@ -10,10 +11,10 @@ img{
 #container{
     border: .3rem solid black;
     border-radius: 1rem;
-    max-width: 60vw;
-    margin: 0 auto;
+    max-width:40vw;
+    margin: 10rem auto;
     display: grid;
-    max-height: 78vh;
+    max-height: 60vh;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-rows: .25fr 2fr .25fr;
@@ -25,7 +26,7 @@ img{
 }
 #forms{
     grid-area: mid-bot;
-    margin: 0 auto;
+    margin: 2rem auto;
     text-align: center;
     display: grid;
     
@@ -36,12 +37,16 @@ h1{
     display: inline-flex;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Shizuru';
+    font-size: 250%;
 }
 h3{
     grid-area: mid-mid;
     display: flex;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Syne Tactile';
+    font-size: 150%;
 }
 #divImg{
     grid-area: mid-mid;
