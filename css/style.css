@@ -28,15 +28,19 @@ img {
     width: 400px;
 }
 
+/* #instructions {
+    display: none;
+} */
+
 #stage {
     display: none;
     position: absolute;
-    right: 33vw;
+    right: 38vw;
     top: 30vh;
 }
 
 #stopShow {
-    position: relative;
-    top: 15vh;
-    right: 15vw;
+    position: absolute;
+    top: 60vh;
+    right: 12vw;
 }
