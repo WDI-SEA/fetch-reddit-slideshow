@@ -3,23 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Hello Front-End</title>
+    <title>Reddit Image Search</title>
   </head>
   <body>
+    <div>
+      <div class="container">
+        <img src="img/Reddit_Lockup_OnWhite.png" alt="" width="80rem" />
+      </div>
   
-    <div class="container" id="input-box">
-      <img src="img/Reddit_Lockup_OnWhite.png" alt="" width="80rem" />
-      <form>
-        <input type="text" id="queryString" />
-        <button>Search</button>
-      </form>
+      <div class="container" id="input-box">
+        <form>
+          <input type="text" id="queryString" />
+          <button id="search">Search</button>
+        </form>
+      </div>
+  
+      <div class="container">
+        <div class="image-container" id="image-holder">
+          <!-- images go here -->
+        </div>
+      </div>
+      <div class="container" id="">
+        <button id="reset" style="display: none;">Reset</button>
+      </div>
     </div>
-  
-  
-    <div class="container" id="image-holder">
-      <!-- images go here -->
-    </div>
+    
   </body>
 </html>

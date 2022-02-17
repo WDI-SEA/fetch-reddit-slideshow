@@ -14,29 +14,49 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Noto Sans', sans-serif;
+    background-color: rgba(210,221,223,255);
 }
 .container{
-    position: relative;    
+    position: relative;  
+    display: flex;  
+    padding-top: 10px;
 }
 button{
     height: 5rem;
-    width: 10rem;
+    width: 8rem;
     border: 2px solid rgb(158, 156, 156);
     border-radius: 1rem;
+    font-weight: bold;
+}
+button:hover{    
+    background-color:#FF4500;    
+    color:rgb(255,255,255);
+    
 }
 input{
     height: 5rem;
-    width: 50rem;
+    width: 40rem;
     border: 2px solid rgb(158, 156, 156);
     border-radius: 1rem;
     font-size: 1.4rem;
     padding: 0 1.2rem;
+    font-weight: bold;
 }
 input:focus{
     outline: none;
     border-color: #FF4500;
+    font-weight: bold;
 }
-
+.image-container {
+    width: fit-content;    
+    max-width: 30vw;    
+    font-size: 20px;
+}
+.image-container img {    
+    width: 100%;
+    border: .1rem solid rgb(158, 156, 156);
+    border-radius: 10px;
+}
 @media (max-width: 40rem) {
     input{
         width: 70vw;
