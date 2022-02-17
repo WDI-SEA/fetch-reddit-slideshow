@@ -2,7 +2,7 @@
 
 // APP STATE
 // ms speed of the interval
-const TIMER_SPEED = 1000 
+const TIMER_SPEED = 1000
 // interval for the slideshow
 let slideshowInterval
 // current image index
@@ -17,7 +17,7 @@ let titleHeader, descriptionP, searchForm, searchInput, stopButton, slideshowCon
 // invokes on fomr submit and fetches reddit
 function fetchReddit(e) {
   e.preventDefault()
-  searchInput.value = 'chonkers' // TODO: remove this when finished
+  // searchInput.value = 'chonkers' // TODO: remove this when finished
   if (!searchInput.value) return searchInput.placeholder = 'type something in!'
   const searchUrl =  `http://www.reddit.com/search.json?q=${searchInput.value}+nsfw:no&limit=100`
   fetch(searchUrl)
@@ -39,16 +39,50 @@ function fetchReddit(e) {
       searchForm.style.display = 'none'
       // show the stop button and slideshow div
       stopButton.style.display = 'inline'
-      slideshowContainer.style.display = 'block'
       // show slideshow container
-
+      slideshowContainer.style.display = 'block'
       // start the interval for the slideshow
+      slideshowInterval = setInterval(changeSlide, TIMER_SPEED)
     })
     .catch(console.log)
 }
 
+function changeSlide() {
+  // increment the current index
+  imageIndex++
+  // if the current index is too large -- reset to the beginning
+  if (imageIndex >= images.length) imageIndex = 0
+  
+  while (slideshowContainer.firstChild) {
+    slideshowContainer.removeChild(slideshowContainer.firstChild)
+  }
+
+  // create some elements and append them to the slideshow div
+  const image = document.createElement('img')
+  image.src = images[imageIndex].url
+  image.alt = 'image fetched from reddit'
+  image.width = window.innerWidth
+  image.height = window.innerHeight
+  const author = document.createElement('h4')
+  author.innerText = images[imageIndex].author
+  const sub = document.createElement('p')
+  sub.innerText = images[imageIndex].sub
+  // append new els on the slideshow el
+  slideshowContainer.appendChild(image, author, sub)
+ }
+
 function stopSlideshow() {
-  console.log('stop the slideshow')
+  // hide the slideshow 
+  stopButton.style.display = 'none'
+  slideshowContainer.style.display = 'none'
+  // reset app state
+  clearInterval(slideshowInterval)
+  images = []
+  imageIndex = -1
+  // show original landing page
+  titleHeader.style.display = 'inline'
+  descriptionP.style.display = 'inline'
+  searchForm.style.display = 'block'
 }
 
 // DOM CONTENT LOAD INITIALIZER
