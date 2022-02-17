@@ -21,6 +21,12 @@ body{
     display: flex;  
     padding-top: 10px;
 }
+.topcorner{
+    position:absolute;
+    top:0;
+    left:0;
+    padding: 20px 20px 20px 20px;
+   }
 button{
     height: 5rem;
     width: 8rem;
