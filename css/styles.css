@@ -1,5 +1,7 @@
 body{
     background-color: chartreuse;
+    display: flex;
+    justify-content: center;
 }
 
 /* #slideshow-container{
@@ -7,6 +9,10 @@ body{
 } */
 
 img{
-    width: 20vw;
+    width: 40vw;
     height: 20vh;
+}
+
+.hidden{
+    display: none;
 }
