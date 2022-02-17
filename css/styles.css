@@ -1,12 +1,9 @@
 body{
-    background-color: chartreuse;
+    background-color: slateblue;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-
-/* #slideshow-container{
-    display: none;
-} */
 
 img{
     width: 40vw;
