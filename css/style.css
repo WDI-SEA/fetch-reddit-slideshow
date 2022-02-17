@@ -1,0 +1,11 @@
+div {
+  text-align: center;
+}
+
+img {
+  height: 300px;
+}
+
+.hidden {
+  display: none;
+}
