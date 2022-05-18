@@ -1,0 +1,69 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    display: flex;
+    background-color: #01161e;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: #598392;
+    font-family: 'Indie Flower', cursive;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#form{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    font-family: 'Indie Flower', cursive;
+}
+#user-input, #submit-button{
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #01161e;
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
+    background-color: #aec3b0;
+    color: #01161e;
+    margin-top: 10px ;
+}
+img{
+    max-height: 50vh;
+    width: auto;
+    margin-bottom: 10px;
+}
+.image-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.hidden{
+    display: none;
+}
+h1{
+    /* text-decoration: underline; */
+    font-size: 100px;
+}
+p{
+    font-size: 40px;
+}
+#clear-button{
+    text-align: center;
+    border-radius: 10px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
+    background-color: #aec3b0;
+    color: #01161e;
+}

@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Slideshow</title>
+  <link rel="stylesheet" href="./css/styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <section id="section">
+    <h1>Reddit Slideshow</h1>
+    <p>Input a search term or phrase to return a slideshow of related images from reddit</p>
+    <form id="form">
+      <input id="user-input" type="text" placeholder="type here"/>
+      <button type="submit" id="submit-button">Search</button>
+    </form>
+  </section>
+  <div id="image-container" class="image-container hidden">
+    <img id="currentImg"/>
+    <button id="clear-button">Stop Slideshow</button>
+  </div>
+  <script src="./js/scripts.js"></script>
 </body>
 </html>
