@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    background-color: bisque;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    
+}
+
+button{
+    max-width: 10rem;
+
+}
+.hidden{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
+img {
+    max-height: 60vh;
+    width: auto;
+    margin-bottom: 2rem;
+}
