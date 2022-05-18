@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Reddit Slideshow</title>
     <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <form id="search">
-      <label for="search-input">Search:</label>
-      <input type="text" id="search-input" />
-      <button type="submit">Search</button>
-    </form>
+    <main>
+      <form id="search">
+        <input type="text" id="search-input" aria-label="search input" />
+        <button type="submit">Search</button>
+      </form>
 
-    <div class="slideshow-container">
-      <img id="currImage" />
-    </div>
+      <div class="slideshow-container hidden" id="slideshow-container">
+        <img id="currImage" />
+        <button id="stop-slideshow" class="backBtn">BACK</button>
+      </div>
+    </main>
   </body>
 </html>
