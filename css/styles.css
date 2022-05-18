@@ -10,5 +10,23 @@ img {
     max-height: 75vh;
 }
 
+/* #form {
+    display: flex;
+}
+
+#img-container {
+    display: flex;
+}  */
+
+#clear {
+    /* display: flex; */
+    text-align: center;
+    justify-content: center;
+    max-width: 10vh;
+}
+
+.hidden {
+    display: none;
+}
 
 

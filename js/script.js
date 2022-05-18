@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 l = 0
             }
         }, 2000)
+        submitButton.classList.add('#hidden')
         })
 clearBtn.addEventListener('click', () => {
     clearInterval(startSlideshow)
