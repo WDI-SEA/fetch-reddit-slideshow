@@ -1,0 +1,42 @@
+body, form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    height: 40rem;
+    width: 70rem;
+}
+
+img, .img-Size {
+width: auto;
+max-height: 30rem;
+}
+
+#imgContainer{
+    display: flex;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#cancelBtn {
+    height: 5rem;
+    width: 30rem;
+}
+
+#searchInput {
+    text-align: center;
+}

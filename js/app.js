@@ -1,6 +1,14 @@
 const textInput = document.querySelector('#text-input')
 // const searchUrl = `http://www.reddit.com/search.json?q=${textInput.value}+nsfw:no`
+const image = document.querySelector('img')
+
 let returnImgArr =[]
+let slideSpeed = 4000
+let imageIndex = 0
+let imageSetInt
+let imageSetTO
+
+
 const options = {
         headers: {
             'Accept': 'application/json'
@@ -24,20 +32,26 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(function(j) {
                 return j.data.url
             })
-            console.log(returnImgArr)
-            a = 1
-            returnImgArr.forEach(function(k) {
-                const image = new Image()
-                image.src = k
-                image.alt = `${textInput} image number ${a}`
-                imageContainer.append(image)
-                a = a + 1
-            })
             
-            image
-            // .catch(err => {
-            //     console.warn('whoopsie daisies', err)
-            // })
+            imageSetTO = setTimeout(function(){
+                image.src = returnImgArr[0]
+                imageIndex = imageIndex + 1
+            }, 0)
+            
+            
+            console.log(returnImgArr)
+            imageSetInt = setInterval(function() {
+                if (imageIndex === returnImgArr.length) {
+                    imageIndex = 0
+                }
+                image.src = returnImgArr[imageIndex]
+                imageContainer.append(image)
+                imageIndex = imageIndex + 1
+            }, slideSpeed)
+            
+        })
+        .catch(err => {
+            console.warn('whoopsie daisies', err)
         })
     })
 })
