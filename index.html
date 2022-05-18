@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Hello Front-End</title>
 </head>
 <body>
   <h1>Hello Front-End</h1>
+  <div id="form-container">
+  <p>Find Images </p>
+  <form id="form">
+    <label for="searchInput">Enter word to search</label>
+    <input type="text" id="searchInput" placeholder="search term" name="search">
+    <input type="submit" value="Submit">
+  </form>
+</div>
+  <img src="https://placekitten.com/200/300" alt="kitten image">
+  <button id="btn-stop">Stop Fetch</button>
+  <script src="./js/script.js"></script>
 </body>
 </html>

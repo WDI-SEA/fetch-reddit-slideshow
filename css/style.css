@@ -1,0 +1,15 @@
+* {
+    background-color: lightblue;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 500pc;
+    max-height: 500px;
+    object-fit: cover;
+}
