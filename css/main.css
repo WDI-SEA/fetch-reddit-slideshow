@@ -1,0 +1,52 @@
+body {
+    background-color: lightblue;
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+#current-image {
+    max-height: 400px;
+    width: auto;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+label {
+    display: block;
+    margin: 0 auto; 
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+#search {
+    background-color: lightblue;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    color: white;
+    border-color: white;
+}
+
+#submit {
+    background-color: lightblue;
+    color: white;
+    border-color: white;
+    margin: 0 auto;
+    display: block;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    background-color: lightblue;
+    color: white;
+    border-color: white; 
+    height: 35px;
+    width: auto;
+    font-size: 25px;
+}
+
