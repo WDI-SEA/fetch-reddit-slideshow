@@ -10,7 +10,8 @@ const form = document.querySelector('#form')
 const input = document.querySelector('#input')
 const imageContainer = document.querySelector('#image-container')
 const title = document.querySelector('#title')
-
+const clearBox = document.querySelector('#clearbox')
+clearBox.classList.add('hidden')
 // fetch(url)
 //     .then(responseData=> responseData.json())
 //     .then(jsonData => {
@@ -41,25 +42,29 @@ const fetchImage = () => {
                 imageContainer.removeChild(imageContainer.firstChild)
             }
             imageContainer.append(image)
+            
     }) .catch(err => console.warn('erorr..?', err))
 }
-slideShow = () => {
-    k++
-    fetchImage()
-    
-}
-startSlide = () => {
-    setInterval(slideShow, 2000)
-}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#form').addEventListener('submit', e => {
         e.preventDefault()
         
-        form.style.display = 'none'
-        title.classList.add('hidden')
-        startSlide()
+        form.classList.add('hidden')
+        clearBox.classList.remove('hidden')
+        slideShow = () => {
+            k++
+            fetchImage()
+        }
+        startSlide = setInterval(slideShow, 2000)
+        // startSlide
     })
     document.querySelector('#clear').addEventListener('click', (e) => {
         clearInterval(startSlide)
+        console.log('stop')
+        form.classList.remove('hidden')
+
     })
 })

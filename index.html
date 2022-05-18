@@ -4,18 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title id="title">Hello Front-End</title>
+  <link rel="stylesheet" href="./css/style.css"/>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-  <button id="clear">Stop</button>
+  <div id="main">
+    <h1>Slide Show!</h1>
+  </div>
+  
   <div id="image-container">
 
   </div>
   <form id="form">
-    <input type="text" id="input" value="cats"/>
+    <input type="text" id="input" />
     <input type="submit"/>
   </form>
-  
+  <div id="clearbox" class="hidden">
+    <button id="clear">Stop</button>
+  </div>
   
   <script src="./js/app.js"></script>
 </body>
