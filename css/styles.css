@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #37474f;
 }
 
 #baseContainer {
@@ -12,10 +17,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    color: #dee4e7;
 }
 
 form {
     display: flex;
+    justify-content: center;
+    align-items: baseline;
 }
 
 #photoContainer {
@@ -32,15 +40,32 @@ h1 {
 }
 
 button {
-    padding: 20px
+    padding: 20px;
+    background-color: inherit;
+    border: #dee4e7 4px solid;
+    color: inherit;
+    font-size: large;
+    margin-left: 20px;
+    border-radius: 25px;
+}
+
+button:hover, input:focus {
+    background-color: #222222;
 }
 
 input {
-    width: 80%;
+    color: inherit;
+    background-color: inherit;
+    width: 60%;
     border: none;
-    height: 50px;
-    /* text-decoration: underline; */
+    height: 70px;
     text-shadow: 4px blue;
     font-size: 35px;
     text-align: center;
+    border-bottom: solid #dee4e7 4px;
+}
+
+input:focus {
+    /* border: none; */
+    box-shadow: none;
 }
