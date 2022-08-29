@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#baseContainer {
+    text-align: center;
+    width: 80vw;
+    height: 80vh;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+form {
+    display: flex;
+}
+
+#photoContainer {
+    align-items: baseline;
+    height: 100%;
+}
+
+#searchContainer {
+    margin-bottom: 15%;
+}
+
+h1 {
+    justify-self: flex-start;
+}
+
+button {
+    padding: 20px
+}
+
+input {
+    width: 80%;
+    border: none;
+    height: 50px;
+    /* text-decoration: underline; */
+    text-shadow: 4px blue;
+    font-size: 35px;
+    text-align: center;
+}
