@@ -71,6 +71,7 @@ function showEnd() {
     title.style.display = 'block'
     sButton.style.display = 'block'
     rButton.style.display = 'none'
+    photoArray = []
 }
 
 // clears photo from screen
