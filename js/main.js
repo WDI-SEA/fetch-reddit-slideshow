@@ -11,17 +11,20 @@ let slideIndex = 0
 form.addEventListener('submit', e => {
     // no refresh
     e.preventDefault()
-    const redditSearch = `https://www.reddit.com/search.json?q=${input.value}+nsfw:no`
     // fetch
+    const redditSearch = `https://www.reddit.com/search.json?q=${input.value}+nsfw:no`
     fetch(redditSearch)
         // jsonify
         .then(response => {
+            // console.log(response)
             return response.json()
         })
         // do stuff with the json
         .then(searchJson => {
+            // console.log(searchJson)
             const imagePosts = searchJson.data.children.filter(filterImages)
             const imageURLs = imagePosts.map(mapURLs)
+            // console.log(imagePosts, imageURLs)
             title.classList.add('hidden')
             form.classList.add('hidden')
             stopButton.classList.remove('hidden')
@@ -29,7 +32,12 @@ form.addEventListener('submit', e => {
             showSlides()
         })
         // because I am a good progamer
-        .catch(console.warn)
+        .catch(error => {
+            console.warn(error)
+            const errorMsg = document.createElement('p')
+            errorMsg.innerText = "Oh no! Something went wrong with the fetch request"
+            slideshowContainer.append(errorMsg)
+        })
 })
 
 // stop slideshow
@@ -43,7 +51,7 @@ stopButton.addEventListener('click', () => {
     }
 })
 
-// filter out image posts?
+// filter out image posts? -- barely any images actually match. is it my fault or reddits search algo's fault
 function filterImages(value) {
     return value.data.post_hint === "image"
 }
