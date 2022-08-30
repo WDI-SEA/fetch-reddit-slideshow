@@ -1,0 +1,30 @@
+form {
+    text-align: center;
+}
+
+img {
+    display: none;
+    height: 400px;
+    margin: auto;
+}
+
+.active {
+    display: block
+}
+
+#stopBtn {
+    display: none;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#textContainer {
+    text-align: center;
+    margin: auto;
+}
+
+#image-container {
+    height: 40%;
+}
