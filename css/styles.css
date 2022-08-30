@@ -19,8 +19,13 @@ div {
     align-items: center;
     justify-content: center;
 }
+.active {
+    display:block;
+}
 img{
-    margin: 0
+    display: none;
+    height: 200px;
+    margin: auto
 }
 button{
     text-align: center;

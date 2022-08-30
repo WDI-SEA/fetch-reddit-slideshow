@@ -13,30 +13,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const redditURL = `http://www.reddit.com/search.json?q=${input.value}+nsfw:no`
         
         fetch(redditURL)
-            .then(response => {
-                return response.json()
-            })
+            .then((response) => response.json())
 
             .then(jsonData =>{
                 // console.log(jsonData.data.children)
-                // const dataArr = jsonData.data.children
-                // function containsImg(data){
-                //     if(data.thumbnail == true){
-                //         return true
-                //     }
-                //     else{return false} 
-                // }
-                // const imgArr = dataArr.filter(containsImg())
-                // console.log(imgArr)
+                let imgArr = []
                 jsonData.data.children.forEach(result => {
-                    const img = document.createElement('img')
-                    slideDiv.appendChild(img)
-                    setInterval(() => {
-                        img.src = result.data.thumbnail
-                    }, 2000); 
-
+                    let newImg = document.createElement('img')
+                    newImg.setAttribute('id', `${result.data.id}`)
+                    newImg.src = result.data.thumbnail
+                    if(result.data.post_hint === "image"){
+                        slideDiv.append(newImg)
+                        imgArr.push(newImg)
+                    }
                     
                 });
+                // console.log(imgArr)
+                let i = 0
+                imgArr[i].classList.add('active')
+
+                let imgDisplayInterval = setInterval(() => {
+                    imgArr[i].classList.remove('active')
+                    i++
+                    if(i === imgArr.length){
+                        i = 0
+                    }
+                    imgArr[i].classList.add('active')
+                }, 2000)
+
                 const clearButton = document.createElement('button')
                 clearButton.style.display = "inline"
                 clearButton.innerText = "clear"
@@ -49,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     section.style.display = "flex"
                     clearButton.style.display = "none"
                     input.value = ''
+                    clearInterval(imgDisplayInterval)
                 })
             })
             .catch(err =>{
