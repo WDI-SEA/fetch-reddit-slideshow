@@ -7,11 +7,11 @@ const form = document.querySelector("form")
 const hideDiv = document.querySelector("#hide")
 const results = document.querySelector("#results")
 const body = document.querySelector("body")
-const options = {
-    headers: {
-        'Accept': 'application/json'
-    }
-}
+// const options = {
+//     headers: {
+//         'Accept': 'application/json'
+//     }
+
 
 form.addEventListener('submit', e =>{
     e.preventDefault()
@@ -19,27 +19,41 @@ form.addEventListener('submit', e =>{
     hideDiv.getElementsByClassName.visibility = "hidden"
     console.log(input.value)
     // step1 -fetch
-    fetch(searchValue, options)
+    fetch(searchValue)
     //  step 2 - jsonify data
      .then(response => {
         return response.json()
      })
     // step3 do something w json data
     .then(search => {
-        // console.log(search.data.children)
-        const img = search.data.children
-        console.log(img[0].data.thumbnail)
-    
-    })
-    // step 4 handle erroes
+        // this works
+         console.log(search.data.children)
+        const imgContainer = document.createElement('div')
+        const imgDisplay = document.createElement('img')
+        const imgParent = search.data.children
+        
+        imgParent.forEach(result =>{
+            const img = document.createElement('img')
+            img.src = result.data.thumbnail
+            results.appendChild(img)
+        })
+        })
+    // step 4 handle errors - this works
     .catch(err => {
         console.warn(err)
-})
+        const pTag = document.createElement('p')
+        pTag.innerText= "oops! Looks like an error! 😡"
 })
 })
 
 // create img gallery
 // display imngs
+
+
+
+})
+
+
 
 
 

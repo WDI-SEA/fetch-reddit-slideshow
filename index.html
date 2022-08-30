@@ -8,10 +8,10 @@
 </head>
 
 <body>
-  <h1> ???????? </h1>
+  
 
   <div id="hide">
-     <h3> Enter Search Term Here</h3>
+    <h1> Reddit Image Search </h1>
         <form id="form">
           <label for ="text"> Topic</label>
           <input type ="text">
@@ -19,8 +19,14 @@
         </form>
   </div>
 
-  <div id="results">
+  <div id="results" class="slideshow-container">
+    <!-- <div class="slides"></div> -->
+  </div>
 
+  <!-- next and previous buttons -->
+  <div class="navBtns">
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
 
 <script src="./index.js"> </script>
