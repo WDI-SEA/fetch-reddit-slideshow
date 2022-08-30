@@ -1,3 +1,25 @@
 body {
     background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    text-align: center;
+}
+
+img {
+    height: 250px;
+    width: 250px;
+}
+
+#results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.clear {
+    position: relative;
 }

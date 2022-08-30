@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const img = document.createElement('img')
                 img.classList.add('resultImage')
                 img.src = result.data.thumbnail
+                img.alt = result.data.title
                 results.appendChild(img)
+                // img.style.display = "flex"
             })
             let slideIndex = 0
             function showSlides() {
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             const clearButton = document.createElement('button')
+            clearButton.classList.add('clear')
             clearButton.innerText = 'Reset'
             body.appendChild(clearButton)
             clearButton.addEventListener('click', () => {
@@ -55,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     results.removeChild(results.firstChild)
                 }
             })   
+        })
+        .catch(err => {
+            console.warn(err)
         })
     })
 })
