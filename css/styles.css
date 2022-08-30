@@ -1,8 +1,14 @@
 body {
     background-color: rgb(45, 45, 45);
     color:white;
+    text-align: center;
+    
 }
 
+area {
+    display: flex; 
+    justify-content: center;
+}
 img {
     max-height: 400px;
 }
