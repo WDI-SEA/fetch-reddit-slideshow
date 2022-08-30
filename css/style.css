@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    display: block;
+}
+
+form {
+    display: block;
+}
+
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#picture {
+    margin: 200px; 
+}
+
+#stop {
+    display: none;
+    margin: 100px; 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
