@@ -1,0 +1,23 @@
+body{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 105, 180, 0.827);
+}
+#slides{
+    display :flex;
+    flex-wrap: wrap;
+    margin:100px;
+    background-color: rgba(172, 255, 47, 0.807);
+   
+}
+form{
+    margin: auto;
+}
+p,h1,div{
+   text-align: center;
+}
+.hidden{
+    display: none;
+    visibility: hidden;
+}
