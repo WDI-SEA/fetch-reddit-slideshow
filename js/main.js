@@ -66,7 +66,7 @@ function prepSlides(array) {
     array.forEach(value => {
         const image = document.createElement('img')
         image.src = value
-        image.classList.add('slides', 'hidden')
+        image.classList.add('slides', 'hidden', 'fade')
         slideshowContainer.appendChild(image)
     })
 }
