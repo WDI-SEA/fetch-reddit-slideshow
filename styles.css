@@ -1,0 +1,26 @@
+body {
+    background-color: slategray;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+h2 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: blanchedalmond;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 100px;
+}
+.hidden {
+    display: none;
+}
+ .reddit {
+    background-size: cover;  
+ }

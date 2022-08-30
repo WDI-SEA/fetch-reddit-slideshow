@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Slideshow</title>
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="hide">
+    <h2>Scour Reddit for picture's</h2>
+  </div>
+  <div class="container">
+    <div class="slideshow">
+      <img class="reddit"></img>
+    </div>
+    <div class="hide">
+      <label for="site-search">Search Reddit</label>
+      <input type="text" id="site-search" name="q">
+      <button type="submit" id="search" onclick="searchReddit()">Search</button>
+    </div>
+    </div>
+  <script src="./app.js"></script>
 </body>
+
 </html>
