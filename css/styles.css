@@ -31,9 +31,6 @@ form {
     height: 100%;
 }
 
-#searchContainer {
-    margin-bottom: 15%;
-}
 
 h1 {
     justify-self: flex-start;
@@ -45,7 +42,6 @@ button {
     border: #dee4e7 4px solid;
     color: inherit;
     font-size: large;
-    margin-left: 20px;
     border-radius: 25px;
 }
 
@@ -71,6 +67,10 @@ input:focus {
 }
 
 img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 80vw;
+    max-height: 80vh;
+}
+
+#return {
+    display: none;
 }
