@@ -1,0 +1,28 @@
+.header {
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+#return-area {
+    display: flex;
+    justify-content: center;
+}
+
+#stop {
+    display: none;
+    margin-top: 10px;
+    
+}
+
+.stopBtn {
+    display: flex;
+    justify-content: center;
+}

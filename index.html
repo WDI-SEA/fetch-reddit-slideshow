@@ -3,9 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/styles.css" /> 
   <title>Hello Front-End</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  
+  <h1 class="header">Search Reddit Images</h1>
+  <p class="description">Type what you're searching for and click the search button.</p>
+  <form class="search">
+    <input id="searchInput" type="text"/>
+  
+    <button id="searchButton">Search</button>
+  </form>
+  <div id="return-area">  
+  </div>
+  <div class="stopBtn">
+  <button id="stop">Stop</button>
+  </div>
+  
+  <script defer src="./js/app.js"></script>
+  
 </body>
 </html>
