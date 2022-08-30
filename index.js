@@ -7,17 +7,22 @@ const form = document.querySelector("form")
 const hideDiv = document.querySelector("#hide")
 const results = document.querySelector("#results")
 const body = document.querySelector("body")
-// const options = {
-//     headers: {
-//         'Accept': 'application/json'
-//     }
+
+
+function hideInput(){
+    let hideForm = document.getElementById("hide")
+    if(hideForm.style.display === "none"){
+        hideForm.style.display - "block"
+    }else{
+        hideForm.style.display = "none"
+    }
+    }
 
 
 form.addEventListener('submit', e =>{
     e.preventDefault()
+    hideInput()
     const searchValue = `http://www.reddit.com/search.json?q=${input.value}+nsfw:no`
-    hideDiv.getElementsByClassName.visibility = "hidden"
-    console.log(input.value)
     // step1 -fetch
     fetch(searchValue)
     //  step 2 - jsonify data
@@ -27,7 +32,8 @@ form.addEventListener('submit', e =>{
     // step3 do something w json data
     .then(search => {
         // this works
-         console.log(search.data.children)
+        // creates img gallery
+        //  console.log(search.data.children)
         const imgContainer = document.createElement('div')
         const imgDisplay = document.createElement('img')
         const imgParent = search.data.children
@@ -45,9 +51,26 @@ form.addEventListener('submit', e =>{
         pTag.innerText= "oops! Looks like an error! 😡"
 })
 })
+// hide search input field when search results are displayed
 
-// create img gallery
-// display imngs
+
+// display images as slideshow
+let slideIndex = 0
+// let slides = document.getElementById("img")
+showSlides()
+
+function showSlides() {
+    let i
+    let slides = document.querySelector('img')
+    console.log(slides)
+//     for(let i=0; i < slides.length; i++ ){
+//         slides[i].style.display = "none"    
+//     }
+//     slideIndex++
+//     if(slideIndex > slides.lenght) {slideIndex =1}
+//     slides[slideIndex-1].style.dislay ="block"
+//     setTimeout(showSlides, 2000) //changes every 2 seconds
+ }
 
 
 
