@@ -9,6 +9,8 @@ const title = document.querySelector('#title')
 
 let photoArray = []
 
+// searches and cycles through photos. at an interval of 3 seconds. 
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     let search = input.value
@@ -29,33 +31,45 @@ form.addEventListener('submit', (e) => {
             photo.src = photoArray[photoNum]
             photoZone.append(photo)
             const photoScroll = setInterval(() => {
-                while (photoZone.firstChild) {
-                    photoZone.removeChild(photoZone.firstChild);
-                }
-                if (photoNum === photoArray.length -1) {
-                    clearInterval(photoScroll)
-                    showEnd()
-                }
+                clearPhoto()
                 photoNum++
                 photo.src = photoArray[photoNum]
                 photoZone.append(photo)
+                if (photoNum === photoArray.length -1) {
+                    clearInterval(photoScroll)
+                    showEnd()
+                    clearPhoto()
+                }
                 
-            }, 5000);
+            }, 3000);
         })
 
     })
+
+// hides ui
+
 
 function hideStart() {
     input.value = ''
     input.style.display = 'none'
     title.style.display = 'none'
     sButton.style.display = 'none'
-    rButton.style.displey = 'block'
+    rButton.style.display = 'flex'
 }
 
+// unhides ui
+
 function showEnd() {
-    input.style.display = 'flex'
-    title.style.display = 'flex'
-    sButton.style.display = 'flex'
-    rButton.style.displey = 'none'
+    input.style.display = 'block'
+    title.style.display = 'block'
+    sButton.style.display = 'block'
+    rButton.style.display = 'none'
+}
+
+// clears photo from screen
+
+function clearPhoto() {
+    while (photoZone.firstChild) {
+        photoZone.removeChild(photoZone.firstChild);
+    }
 }

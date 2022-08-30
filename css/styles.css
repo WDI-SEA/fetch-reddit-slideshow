@@ -10,6 +10,7 @@ body {
 }
 
 #baseContainer {
+    font-size: 40px;
     text-align: center;
     width: 80vw;
     height: 80vh;
@@ -69,8 +70,11 @@ input:focus {
 img {
     max-width: 80vw;
     max-height: 80vh;
+    margin-bottom: 30px;
 }
 
 #return {
     display: none;
+    width: fit-content;
+    margin: 0 auto;
 }
