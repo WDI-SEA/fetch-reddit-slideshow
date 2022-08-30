@@ -15,10 +15,13 @@ div {
     display: flex;
     flex-wrap: wrap;
     width: 100vw;
-    height: 100vh;
+    height: 75vh;
     align-items: center;
     justify-content: center;
 }
 img{
     margin: 0
+}
+button{
+    text-align: center;
 }
