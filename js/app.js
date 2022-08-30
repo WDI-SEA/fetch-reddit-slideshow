@@ -5,8 +5,10 @@ const rButton = document.querySelector('#return')
 const photoZone = document.querySelector('#photoContainer')
 const title = document.querySelector('#title')
 
+// allowing of toggle outside of scope.
+let scopeReset = false
 
-
+// stores photo
 let photoArray = []
 
 // searches and cycles through photos. at an interval of 3 seconds. 
@@ -31,6 +33,9 @@ form.addEventListener('submit', (e) => {
             photo.src = photoArray[photoNum]
             photoZone.append(photo)
             const photoScroll = setInterval(() => {
+                if (scopeReset) {
+                    clearInterval(photoScroll)
+                }
                 clearPhoto()
                 photoNum++
                 photo.src = photoArray[photoNum]
@@ -43,13 +48,15 @@ form.addEventListener('submit', (e) => {
                 
             }, 3000);
         })
-
+        
     })
 
 // hides ui
 
 
 function hideStart() {
+    clearPhoto()
+    scopeReset = false
     input.value = ''
     input.style.display = 'none'
     title.style.display = 'none'
@@ -73,3 +80,10 @@ function clearPhoto() {
         photoZone.removeChild(photoZone.firstChild);
     }
 }
+
+rButton.addEventListener('click', () => {
+    scopeReset = true
+    photoArray = []
+    clearPhoto()
+    showEnd()
+})
