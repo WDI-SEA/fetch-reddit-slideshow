@@ -1,8 +1,10 @@
 body {
-    background-color: blanchedalmond;
+    background-color: black;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .grid {
@@ -11,23 +13,58 @@ body {
     margin-top: 50px;
     max-height: 100vh;
     grid-template-columns: 150px 150px 150px 150px;
-    grid-template-rows: 280px 500px 280px;
+    grid-template-rows: 280px 510px 280px 30px;
     grid-template-areas: "TL TL TR TR"
-                         "MM MM MM MM"
-                         "BL BL BR BR";
-        /* visibility: hidden; */
+        "MM MM MM MM"
+        "BL BL BR BR"
+        "footer footer footer footer";
+    visibility: hidden;
+    font-family: 'Signika Negative', sans-serif;
 
+}
+
+footer {
+    margin-top: 10px;
+    grid-area: footer;
+}
+
+#stop {
+    visibility: hidden;
+
+}
+
+#search {
+    background-color: lightgray;
+}
+
+#div {
+    display: none;
+    width: 600px;
+    height: 500px;
+}
+
+#main {
+    visibility: visible;
+    color: lightslategray;
 }
 
 #TL {
     grid-area: TL;
-    border: solid 5px lightpink;
-}
-#TR {
-    grid-area: TR;
-    border: solid 5px lightpink;
+    border-top: solid 5px lightpink;
+    border-left: solid 5px lightpink;
 }
 
+#TR {
+    grid-area: TR;
+    border-top: solid 5px lightpink;
+    border-left: solid 5px lightpink;
+    border-right: solid 5px lightpink;
+}
+
+form {
+    margin-top: 20px;
+    font-size: 20px;
+}
 
 #MM {
     grid-area: MM;
@@ -36,9 +73,17 @@ body {
 
 #BL {
     grid-area: BL;
-    border: solid 5px lightpink;
+    border-left: solid 5px lightpink;
+    border-bottom: solid 5px lightpink;
 }
+
 #BR {
     grid-area: BR;
-    border: solid 5px lightpink;
+    border-left: solid 5px lightpink;
+    border-right: solid 5px lightpink;
+    border-bottom: solid 5px lightpink;
+}
+
+button {
+    background-color: lightblue;
 }

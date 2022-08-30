@@ -6,24 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reddit Slideshow</title>
   <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="grid">
-    <div id="TL"></div>
-    <div id="TR"></div>
+    <div id="TL">null</div>
+    <div id="TR">null</div>
     <div id="MM">
-      <div id="div"></div>
-      <h1>Reddit Slideshow</h1>
-      <h2>Search Anything You Want to Collage!</h2>
-      <form>
-        <label for="search">Search:</label>
-        <input id="search" type="text" />
-        <button type="submit">Go</button>
-      </form>
+      <div id="div">null</div>
+      <div id="main">
+        <h1>Search Reddit:</h1>
+        <h2>Give a keyword for a slideshow</h2>
+        <form>
+          <label for="search">keyword:</label>
+          <input id="search" type="text" />
+          <button type="submit">Go</button>
+        </form>
+      </div>
     </div>
-    <div id="BL"></div>
-    <div id="BR"></div>
+    <div id="BL">null</div>
+    <div id="BR">null</div>
+    <footer><button id="stop">Stop Slideshow</button></footer>
   </div>
   <script src="./js/main.js"></script>
 </body>
