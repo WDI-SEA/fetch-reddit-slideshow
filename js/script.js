@@ -19,8 +19,10 @@ fetch(sunflowers)
     const img = document.createElement('img')
     img.src = returnedSunflowers.data.children[1].data.thumbnail
     img.alt = returnedSunflowers.data.children[1].data.title
-    console.log(returnedSunflowers.data.children[1].data) 
+    // console.log(returnedSunflowers.data.children[1].data)
+    body.append(img) 
 
 })    
 
 // step 4 -- be a good programmer and handle errors
+.catch(err => console.warn(err))
