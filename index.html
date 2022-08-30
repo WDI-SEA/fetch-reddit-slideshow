@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./css/style.css" rel="stylesheet" />
   <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1 id="title">Reddit Slideshow</h1>
-  
-  <div id="imgDisplay">
+  <div id="disappear">
+    <h1 id="title">Reddit Slideshow</h1>
     <p class="howTo">*To iniate slideshow go ahead and submit a search below</p>
-
   </div>
 
-  <div>
-    <input type="text" placeholder="|">
-    <button id="searching">Search</button>
+  <div class="search">
+    <input id="submit" type="text" placeholder="type here">
+    <div id="searchBtn" type="submit">Search</div>
+    <div class="imgBox"></div>
+    <div class="next">Next Page</div>
   </div>
 
+  <button id="clear">Stop</button>
+  
 <script src="./js/.keep"></script>
 </body>
 </html>
