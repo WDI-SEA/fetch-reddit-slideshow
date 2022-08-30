@@ -1,0 +1,25 @@
+body{
+    background-color: gray;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+    width: 600px;
+    margin-top: 50px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.hidden{
+    display: none;
+}

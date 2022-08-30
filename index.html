@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="./css/styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reddit Slideshow</title>
 </head>
 <body>
-  <h1>Reddit Post Skimmer</h1>
-  <img/>
-
-  <form>
-    <label>What would you like to search for?</label>
-    <input id="search-bar"  />
-    <button type="submit">Search</button>
-  </form>
+  <div id="container">
+    <form>
+      <h1>What would you like to search for?</h1>
+      <input id="search-bar"  />
+      <button id="submitBtn" type="submit">Search</button>
+    </form>
+    <img id="slideshow" class="hidden" src="./loading.jpg">
+    <button id="stop" class="hidden">Stop</button>
+  </div>
+  <div>
+  </div>
 
   <script src="./js/main.js"></script>
 </body>
