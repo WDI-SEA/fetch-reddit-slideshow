@@ -1,21 +1,26 @@
+const sunflowers = 'http://www.reddit.com/search.json?q=sunflowers+nsfw:no'
+
 // step 1 -- fetch the reddit images by URL
-fetch('http://www.reddit.com/search.json?q=sunflowers+nsfw:no')
+fetch(sunflowers)
+
 // step 2 -- Jsonify the data
+
 .then(sunflowerImages => {
     // console.log(sunflowerImages)
+
     return sunflowerImages.json()
 })
+
+// step 3 -- Display the images in a carousel slideshow
+
 .then(returnedSunflowers => {
     // console.log(returnedSunflowers.results)
-    //grab the document body
     const body = document.querySelector('body')
+    const img = document.createElement('img')
+    img.src = returnedSunflowers.data.children[1].data.thumbnail
+    img.alt = returnedSunflowers.data.children[1].data.title
+    console.log(returnedSunflowers.data.children[1].data) 
 
-    returnedSunflowers.results.forEach(result => {
-        const div = document.createElement('div')
-        const h2 = document.createElement('h2')
-        h2.innerText = results.title
-        const p = document.createElement('p')
-        console.log(result.title)
-    })
-// step 3 -- Display the images in a carousel slideshow
+})    
+
 // step 4 -- be a good programmer and handle errors
