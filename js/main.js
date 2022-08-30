@@ -34,28 +34,28 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
                     }
                 })
-                const arrInt = setInterval(()=>{
+                let arrInt = setInterval(()=>{
                     arrIndex += 1
                     if(arrIndex <= imgArr.length -1){
                      img.src = `${imgArr[arrIndex]}`
                     } else {arrIndex = 0}
                 }, 2000)
                  
+                stop.addEventListener('click', ()=>{
+                    console.log('hi')
+                    h1.classList.remove('hidden')
+                    submit.classList.remove('hidden')
+                    searchBar.classList.remove('hidden')
+                    stop.classList.add('hidden')
+                    img.classList.add('hidden')
+                    img.src = "./loading.jpg"
+                    arrIndex = 0
+                    imgArr = []
+                    searchBar.value = ""
+                    clearInterval(arrInt)
+                })
                 
             })
-    })
-    stop.addEventListener('click', ()=>{
-        console.log('hi')
-        h1.classList.remove('hidden')
-        submit.classList.remove('hidden')
-        searchBar.classList.remove('hidden')
-        stop.classList.add('hidden')
-        img.classList.add('hidden')
-        img.src = "./loading.jpg"
-        arrIndex = 0
-        imgArr = []
-        searchBar.value = ""
-        clearInterval(arrInt)
     })
     
 })
