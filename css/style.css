@@ -1,0 +1,22 @@
+#text-containter {
+text-align: center;
+}
+
+#stopBtn {
+    display: none;
+    text-align: center;
+}
+
+.active {
+    display: block;
+}
+
+form {
+    text-align: center;
+}
+
+img {
+    display: none;
+    height: 400px;
+    margin: auto;
+}

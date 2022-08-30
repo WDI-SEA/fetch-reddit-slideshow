@@ -4,20 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reddit Slideshow</title>
+  <link ref="stylesheet" href="./css/style.css" />
 </head>
 <body>
-  <h1 id="title">Reddit Slideshow</h1>
   
-  <div id="imgDisplay">
-    <p class="howTo">*To iniate slideshow go ahead and submit a search below</p>
+  <div id="text-container">
+    <h1 id="title">Reddit Slideshow</h1>
+    <!-- <p class="howTo">*To iniate slideshow go ahead and submit a search below</p> -->
+    </div>
 
-  </div>
+    <form> 
+      <input id="submit" type="text" placeholder="|">
+      <button type="submit">Search</button>
+    </form>
+    
+    <button id="stopBtn">Stop</button>
 
-  <div>
-    <input type="text" placeholder="|">
-    <button id="searching">Search</button>
-  </div>
+    <div id="imgBox">
 
-<script src="./js/.keep"></script>
+    </div>
+  
+<script src="./js/main.js"></script>
 </body>
 </html>
