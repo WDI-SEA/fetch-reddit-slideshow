@@ -2,8 +2,8 @@ const form = document.querySelector('form')
 const input = document.querySelector('#searchBar')
 const button = document.querySelector('button')
 const photoZone = document.querySelector('#photoContainer')
+const title = document.querySelector('#title')
 
-let photoSlide = false
 
 let photoArray = []
 
@@ -13,7 +13,7 @@ form.addEventListener('submit', (e) => {
     input.value = ''
     input.style.display = 'none'
     button.innerText = 'END'
-    photoSlide = true
+    title.style.display = 'none'
     fetch(`http://www.reddit.com/search.json?q=${search}`)
         .then(searchData => {
             return searchData.json()
@@ -26,15 +26,17 @@ form.addEventListener('submit', (e) => {
                 }
             })
         })
+        slidePhotos()
     })
 
     function slidePhotos() {
-        if (photoSlide) {
-            for (let i = 0; i < photoArray.length; i++) {
+            photoArray.forEach(photo => {
+                let i = 0
                 setInterval(() => {
-                    
-                }, 3000)
-
-            }
+                    const image = document.createElement('img')
+                    image.src = photo[i]
+                    photoZone.append(image)
+                    i++
+                }, 3000);
+            })
         }
-    }
