@@ -1,0 +1,30 @@
+const redditUrl = "https://reddit.com/search.json?q="
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const search = redditUrl+input.value.replaceAll(" " ,  "+") + "+nsfw:no"
+
+
+        fetch (search)
+            .then((searchData) => {
+                return searchData.json()
+            })
+
+            .then(imageJson => {
+                const differentImage = (imgSrc) => {
+                    imgSrc = imageJson.data.children[Math.floor(Math.random() * +imageJson.data.children.length)].data.thumbnail
+                
+                nextImage.src = imgSrc
+                }
+            
+                differentImage()
+                let slideshowImages = setInterval(differentImage, 5000) 
+                })
+            })
+    })
+
+
