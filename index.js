@@ -8,7 +8,7 @@ const hideDiv = document.querySelector("#hide")
 const results = document.querySelector("#results")
 const body = document.querySelector("body")
 
-
+// hide search input field when search results are displayed
 function hideInput(){
     let hideForm = document.getElementById("hide")
     if(hideForm.style.display === "none"){
@@ -51,25 +51,24 @@ form.addEventListener('submit', e =>{
         pTag.innerText= "oops! Looks like an error! 😡"
 })
 })
-// hide search input field when search results are displayed
+
 
 
 // display images as slideshow
 let slideIndex = 0
-// let slides = document.getElementById("img")
 showSlides()
 
 function showSlides() {
     let i
-    let slides = document.querySelector('img')
+    let slides = document.querySelector('result.data.thumbnail')
     console.log(slides)
-//     for(let i=0; i < slides.length; i++ ){
-//         slides[i].style.display = "none"    
-//     }
-//     slideIndex++
-//     if(slideIndex > slides.lenght) {slideIndex =1}
-//     slides[slideIndex-1].style.dislay ="block"
-//     setTimeout(showSlides, 2000) //changes every 2 seconds
+   for(let i=0; i < slides.length; i++ ){
+       slides[i].style.display = "none"    
+   }
+   slideIndex++
+   if(slideIndex > slides.lenght) {slideIndex =1}
+   slides[slideIndex-1].style.dislay ="block"
+  setTimeout(showSlides, 2000) //changes every 2 seconds
  }
 
 
