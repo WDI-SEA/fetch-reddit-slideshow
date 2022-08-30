@@ -23,7 +23,7 @@ searchForm.addEventListener("submit", e =>
     const pLoading = document.createElement("p");
     pLoading.innerText = "Loading images...";
     pageContainer.append(pLoading);
-    const fetchUrl = `http://www.reddit.com/search.json?q=${searchInput.value}+nsfw:no`;
+    const fetchUrl = `http://www.reddit.com/search.json?q=${searchInput.value}`;    // More fetch bugs when adding "+nsfw:no"
     fetch(fetchUrl).then(response =>
         {
             return response.json();
