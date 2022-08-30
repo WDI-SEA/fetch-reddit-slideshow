@@ -19,13 +19,29 @@ form.addEventListener('submit', (e) => {
             return searchData.json()
         })
         .then(searchDataJson => {
-            console.log(searchDataJson.data)
-            let lengthOfChildren = searchDataJson.data.children.length
-            for (let i = 0; i < lengthOfChildren; i++) {
-                const img = document.createElement('img')
-                img.src = searchDataJson.data.children[i].thumbnail
-                photoZone.append(img)
+            let children = searchDataJson.data.children
+            children.forEach(photo => {
+                setInterval(() => {
+                    console.log(photo.data.url)
+                    // let photoUrl = children.data.url
+                    // const img = document.createElement('img')
+                    // img.src = photoUrl
+                    // photoZone.append(img)
+                }, 3000)
+                
+            });
+            
+            // for (let i = 0; i < 20; i++) {
+            //     if (children.is_video === false ) {
+            //         // console.log(children)
+            //         let photoUrl = children.url
+            //         const img = document.createElement('img')
+            //         img.src = photoUrl
+            //         photoZone.append(img)
+            //         count++
+            //     }
+            //     console.log(count)
 
-            }
+            // }
             })
         })
