@@ -23,7 +23,7 @@ searchForm.addEventListener("submit", e =>
     const pLoading = document.createElement("p");
     pLoading.innerText = "Loading images...";
     pageContainer.append(pLoading);
-    const fetchUrl = `http://www.reddit.com/search.json?q=${searchInput.value}`;    // More fetch bugs when adding "+nsfw:no"
+    const fetchUrl = `http://www.reddit.com/search.json?q=${searchInput.value}`;    // More fetch errors when adding "+nsfw:no"
     fetch(fetchUrl).then(response =>
         {
             return response.json();
@@ -36,7 +36,7 @@ searchForm.addEventListener("submit", e =>
                 searchResults.data.children.forEach(post =>
                 {
                     // Don't store thumbnail value for certain post types
-                    if (post.data.thumbnail !== "self" && post.data.thumbnail !== "spoiler" && post.data.thumbnail !== "default")
+                    if (post.data.post_hint === "image" && post.data.thumbnail !== "spoiler" && post.data.thumbnail !== "image")
                     {
                         imgArray.push(post.data.thumbnail);
                         altArray.push(post.data.title);
@@ -58,7 +58,7 @@ searchForm.addEventListener("submit", e =>
                         index++;
                         if(index >= imgArray.length)    // Stop slideshow at the last image
                         {
-                            clearInterval(slideInterval);
+                            index = 0;
                         }
                     }, 2000);
                 }
