@@ -1,4 +1,4 @@
-const sunflowers = 'http://www.reddit.com/search.json?q=${searchBox.value}+nsfw:no'
+const sunflowers = 'http://www.reddit.com/search.json?q=${searchInput.value}+nsfw:no'
 
 // step 1 -- fetch the reddit images by URL
 fetch(sunflowers)
