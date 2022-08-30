@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-</head>
-<body>
-  <h1>Hello Front-End</h1>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/main.css">
+		<title>Hello Front-End</title>
+	</head>
+	<body>
+		<div id="page-container">
+			<form id="search-form">
+				<h1>Search using Reddit API</h1>
+				<p>Begin by entering a search query below</p>
+				<input type="text" placeholder="Search..." id="search-input"><br>
+				<input type="submit" value="Submit" id="search-btn">
+			</form>
+			<img id="slide-img">
+			<button id="stop-btn" style="display: none;">Stop</button>
+			<script src="./js/index.js"></script>
+		</div>
+	</body>
 </html>
