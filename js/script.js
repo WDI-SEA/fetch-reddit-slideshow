@@ -1,4 +1,4 @@
-const sunflowers = 'http://www.reddit.com/search.json?q=sunflowers+nsfw:no'
+const sunflowers = 'http://www.reddit.com/search.json?q=${searchBox.value}+nsfw:no'
 
 // step 1 -- fetch the reddit images by URL
 fetch(sunflowers)
@@ -17,6 +17,7 @@ fetch(sunflowers)
     // console.log(returnedSunflowers.results)
     const body = document.querySelector('body')
     const img = document.createElement('img')
+    const button = document.createElement('button')
     img.src = returnedSunflowers.data.children[1].data.thumbnail
     img.alt = returnedSunflowers.data.children[1].data.title
     // console.log(returnedSunflowers.data.children[1].data)
