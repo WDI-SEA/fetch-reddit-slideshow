@@ -2,3 +2,8 @@ body {
     background-color: rgb(45, 45, 45);
     color:white;
 }
+
+img {
+    max-width: 400px;
+    height: auto;
+}

@@ -21,11 +21,25 @@ addEventListener('DOMContentLoaded', () => {
             })
             .then(dataJson => {
                 for(let i = 0; i < dataJson.data.children.length; i++) {
-                    console.log(dataJson.data.children[i].data.url)
                     pictureArray.push(dataJson.data.children[i].data.url)
                 }
+                return pictureArray
+            })
+            .then(theArray => {
+                const images = document.createElement('img')
+                let k = 0;
+                setInterval(() => {
+                    images.src = `${theArray[k]}`
+                    images.alt = `${buttonValue} result`
+                    area.append(images)
+                    k++
+                    if(k === theArray.length) k = 0;
+                    console.log(theArray[k])
+                }, 2000)
                 
-                
+            })
+            .catch(err => {
+                console.warn(err)
             })
     })
 
