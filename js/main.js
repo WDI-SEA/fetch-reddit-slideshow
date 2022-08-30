@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     input.value = ''
                 })
             })
+            .catch(err =>{
+                console.warn(err)
+            })
     })
 
 
