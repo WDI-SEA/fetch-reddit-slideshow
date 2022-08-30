@@ -1,4 +1,4 @@
-const redditUrl = "https://reddit.com/search.json?q="
+const redditUrl = "https://www.reddit.com/search.json?q=cats+nsfw:no"
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,15 +16,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
             .then(imageJson => {
                 const differentImage = (imgSrc) => {
-                    imgSrc = imageJson.data.children[Math.floor(Math.random() * +imageJson.data.children.length)].data.thumbnail
+                    imgSrc = imageJson.children[Math.floor(Math.random() * +imageJson.children)].data.thumbnail
                 
                 nextImage.src = imgSrc
                 }
             
-                differentImage()
+                differentImage ()
                 let slideshowImages = setInterval(differentImage, 5000) 
                 })
-            })
-    })
+        
+        .catch(console.warn)
 
+    })
+    
+})
+ 
+// to hide the buttons
+    
+    const hidden = () => {
+        form.style.display = "none"
+        title.style.display = "none"
+        imageContainer.style.visibility = "visible"
+        nextImage.style.visibility = "visible"
+    }
 
