@@ -1,0 +1,21 @@
+#clear {
+    display: none;
+}
+
+.imgsize {
+    width: 250px;
+    height: 250px;
+}
+
+body {
+    text-align: center;
+    color:hotpink;
+    background-color: chartreuse;
+}
+
+#clear {
+    text-align: center;
+    position: absolute;
+    margin-left: 47%;
+    margin-top: 25%;
+}
