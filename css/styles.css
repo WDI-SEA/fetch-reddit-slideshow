@@ -9,32 +9,11 @@ body {
     background-color: #37474f;
 }
 
-#baseContainer {
-    font-size: 40px;
-    text-align: center;
-    width: 80vw;
-    height: 80vh;
-    margin: 100px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: #dee4e7;
-}
 
 form {
     display: flex;
     justify-content: center;
     align-items: baseline;
-}
-
-#photoContainer {
-    align-items: baseline;
-    height: 100%;
-}
-
-
-h1 {
-    justify-self: flex-start;
 }
 
 button {
@@ -77,4 +56,25 @@ img {
     display: none;
     width: fit-content;
     margin: 0 auto;
+}
+
+#searchBar {
+    margin-right: 30px;
+}
+
+#baseContainer {
+    font-size: 40px;
+    text-align: center;
+    width: 80vw;
+    height: 80vh;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #dee4e7;
+}
+
+#photoContainer {
+    align-items: baseline;
+    height: 100%;
 }
