@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Slideshow</title>
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="grid">
+    <div id="TL"></div>
+    <div id="TR"></div>
+    <div id="MM">
+      <div id="div"></div>
+      <h1>Reddit Slideshow</h1>
+      <h2>Search Anything You Want to Collage!</h2>
+      <form>
+        <label for="search">Search:</label>
+        <input id="search" type="text" />
+        <button type="submit">Go</button>
+      </form>
+    </div>
+    <div id="BL"></div>
+    <div id="BR"></div>
+  </div>
+  <script src="./js/main.js"></script>
 </body>
+
 </html>

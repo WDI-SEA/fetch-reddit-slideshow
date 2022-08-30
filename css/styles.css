@@ -1,0 +1,44 @@
+body {
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    text-align: center;
+    margin-top: 50px;
+    max-height: 100vh;
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: 280px 500px 280px;
+    grid-template-areas: "TL TL TR TR"
+                         "MM MM MM MM"
+                         "BL BL BR BR";
+        /* visibility: hidden; */
+
+}
+
+#TL {
+    grid-area: TL;
+    border: solid 5px lightpink;
+}
+#TR {
+    grid-area: TR;
+    border: solid 5px lightpink;
+}
+
+
+#MM {
+    grid-area: MM;
+    border: solid 5px lightpink;
+}
+
+#BL {
+    grid-area: BL;
+    border: solid 5px lightpink;
+}
+#BR {
+    grid-area: BR;
+    border: solid 5px lightpink;
+}
