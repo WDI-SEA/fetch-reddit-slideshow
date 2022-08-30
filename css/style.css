@@ -30,3 +30,12 @@ button {
     text-align: center;
     background-color: aqua;
 }
+#image-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+
+#stop-btn {
+    display: none;
+}
