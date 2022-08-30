@@ -29,16 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 results.appendChild(img)
                 
             })
-                const clearButton = document.createElement('button')
-                clearButton.innerText = 'Reset'
-                body.appendChild(clearButton)
-                clearButton.addEventListener('click', () => {
-                    hideDiv.style.visibility = 'visible'
-                    clearButton.style.visibility = 'hidden'
-                    input.value = ""
-                })
-               
+            const clearButton = document.createElement('button')
+            clearButton.innerText = 'Reset'
+            body.appendChild(clearButton)
+            clearButton.addEventListener('click', () => {
+                hideDiv.style.visibility = 'visible'
+                clearButton.style.visibility = 'hidden'
+                input.value = ""
+                while (results.hasChildNodes) {
+                    results.removeChild(results.firstChild)
+                }
             })
+               
+        })
     })
 })
             // step 4 -- be a good programmer and handle errors
