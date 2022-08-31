@@ -1,0 +1,59 @@
+document.addEventListener('DOMContentLoaded', ()=> {
+    const options = {
+        headers: {
+            'Accept': 'application/json'
+        }
+    }
+    
+    const next = document.querySelector('.next')
+    const input = document.querySelector('input')
+    const disappear = document.querySelector('#disappear')
+    const searchButton = document.querySelector('#searchBtn')
+    const imgbox = document.querySelector('#imgbox')
+    const clear = document.querySelector('#clear')
+
+    let pageNum = 1;
+    let search = false;
+    let query = "";
+
+    input.addEventListener('input', e => {
+        e.preventDefault();
+        query = e.target.value
+    });
+
+    const userUrl = `https://www.reddit.com/search.json?q=${query}+nsfw:no`
+        disappear.setAttribute("style", "display:none")
+
+        fetch(userUrl, options)
+            .then(redditData => {
+                return redditData.json()
+            })
+            .then (jsonData => {
+                const imgParentArray = jsonData.data.children
+                console.log(imgParentArray)
+
+                let imgUrls = imgParentArray.filter(x => x.data)
+                console.log(imgUrls)
+
+                let filteredPics = imgUrls.map(x => x.data.url)
+                console.log(filteredPics)
+
+                const createImg = setInterval(function() {
+                    for (let i = 0; i <= filteredPics.length; i++) {
+                    const img = document.createElement('img')
+                    img.className = 'imgsize'
+                    img.src = filteredPics[i]
+                    imgbox.append(img)
+                }
+                    // every 1/2 second create an img, to an image box, and delete the old one
+                    // make a stop button (clear interval) to stop this from happening
+                }, 1000)
+                clear.setAttribute("style", "display:block;")
+                clear.addEventListener('click', ()=> {
+                    clearInterval(createImg)
+
+            }) 
+
+        })
+    })
+})
