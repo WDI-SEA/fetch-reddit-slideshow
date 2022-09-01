@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=DynaPuff:wght@700&display=swap');
+body {
+
+    background-color:bisque;
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+
+}
+#disappear {
+    display: block;
+}
+h1 {
+    text-align: center;
+    font-family: 'DynaPuff', cursive;
+    font-size: 8vw;
+    background: url(/img/tiger.png);
+    background-position: center center;
+    background-size: 10%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+p {
+    font-size: 30px;
+    color: rgb(255, 136, 0);
+}
+input {
+    text-align: center;
+    background-color: rgb(249, 195, 130);
+    height: 30px;
+}
+button {
+    width: 90px;
+    height: 35px;
+    color:bisque;
+    background: url(/img/tiger.png);
+    background-size: 100%;
+
+}
+.imgBox {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+.active {
+    display: none;
+}
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+  
+img {
+    vertical-align: middle;
+}
+#clear {
+    display: none;
+}
+.imgsize {
+    width: 200px;
+    height: 200px;
+}
