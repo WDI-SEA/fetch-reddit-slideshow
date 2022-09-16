@@ -1,0 +1,14 @@
+#search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#slideshow {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#slideshow img {
+    width: 500px;
+}
