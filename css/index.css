@@ -1,0 +1,39 @@
+body {
+    
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    background-color: aqua;
+}
+
+h1 {
+    justify-content: center;
+    align-content: center;
+}
+
+.pic-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+    
+}
+
+.slideShowBox {
+
+    border: solid black 2px;
+}
+
+
+
+img {
+
+height: 80px;
+
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
