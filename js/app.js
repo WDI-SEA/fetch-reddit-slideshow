@@ -1,17 +1,10 @@
-const container = document.querySelector('#middle-container')
-const form = document.getElementById('form')
-const catPicture = document.getElementById('kitty-container')
-const submitButton = document.getElementById('input')
-let results = 
-    fetch('https://www.reddit.com/search.json?q=cats+nsfw:no').then((response) => {
-        console.log('resolved', response);
-        return response.json();
-    }).catch((err) => {
-        console.log('rejected', err)
-    })
-// submitButton.addEventListener('click', function(){
+let container = document.querySelector('#middle-container')
+const form = document.querySelector('form')
+let photos = []
+let photosIndex = 0
 
-    
+
+
 // form.addEventListener('submit', event =>{
 //     event.preventDefault()
 //     fetch('https://www.reddit.com/search.json?q=cats+nsfw:no')
@@ -21,23 +14,45 @@ let results =
 //     }).catch((err) => {
 //         console.log('rejected', err)
 
-//     })})
-
-// .addEventListener('click', function(event){
-//     event.preventDefault(search)
-// }) //^^^^^^^^^^^^^^^^^//  attepting to prevent default
+form.addEventListener('submit', event => {
     
-const onShowKittySucess = (kittyUrls)=>{
+    event.preventDefault()
+    
   
+    const searchBar = document.getElementById('search').value
+        
+    fetch(`http://www.reddit.com/search.json?q=${searchBar}+nsfw:no`)
+    .then(res => res.json())
+    .then(jsonData => {
+         photos = jsonData.data.children.map(obj => {
+            return{
+                title: obj.data.title,
+                url: obj.data.url,
+                subreddit: obj.data.subreddit,
+                posthint: obj.data.post_hint
+            }
+            }).filter(obj =>{
+                return obj.posthint === 'image'
+            })
+            console.log(photos)
+        })
+      
+
+       
     
-    kittyUrls = data.children.map(object => object.data.thumbnail) 
-    console.log(kittyUrls)
-}
+    .catch(err => {
+        console.log('ERROR', err)
+       })   
 
-// cat_image_urls = promise.map( object => object.)
+       let image = document.querySelector('img')
+       image = [];
+       photos.forEach(function(photos){
+           image.push(photos.url);
+         
+       })
+       
+        
+       
+})
 
 
-// submitButton.addEventListener("click", () =>{
-    
-//     .then(res => res.json())
-//     .catch(console.error)
