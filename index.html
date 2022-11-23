@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Cat Gifs... or other searches too, I guess</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div>
+    <form id="container">
+      <h1 id="title" class="query">Cat Gifs... or other searches too, I guess</h1>
+      <p id="instructions" class="query">Enter a search term then click search to scour reddit for pictures that match your query</p>
+      <p class="slideshow" id="images"></p>
+      <input type="field" id="query" class="query" />
+      <input type="button" value="Search" id="start" class="query" />
+      <input type="button" value="Stop" id="stop" class="slideshow" />
+    </form>
+  </div>
+<script src="./js/script.js"></script>
 </body>
 </html>
