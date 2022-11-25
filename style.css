@@ -1,0 +1,150 @@
+body{
+    background-color: #333333;
+}
+
+img{
+   
+    object-fit: cover;
+    text-align: center;
+
+}
+
+#header{
+    color: rgb(122, 200, 253);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25;
+    text-align: center;
+    letter-spacing: 0.5em;
+}
+
+#searchText{
+    width: 100%;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white; 
+    background-color: #333333;
+    border: 3px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    background: #333333;
+}
+
+#searchText:focus{
+    outline: none;
+}
+
+#searchButton:focus, #reset:focus{
+    outline:  rgb(122, 200, 253) solid 3px;
+}
+
+input:-webkit-autofill{
+    -webkit-text-fill-color: #333333;
+}
+
+
+#searchButton, #reset{
+    background-color: #333333;
+    color: rgb(122, 200, 253);
+    margin-top: 20px;
+    padding: 10px;
+    border: 0.5px solid;
+    text-align: center;
+}
+
+#resetId{
+    text-align: center;
+    padding: 10px;
+}
+
+#form {
+    margin-top: 170px;
+    text-align: center;
+}
+
+
+#images{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 500px;
+}
+
+
+#squareOne{
+    grid-row: 1;
+    grid-column: 1; 
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareTwo {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareThree {
+    grid-row: 1;
+    grid-column: 3;
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareFour {
+    grid-row: 2;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareFive {
+    grid-row: 2;
+    grid-column: 2; 
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareSix {
+    grid-row: 2;
+    grid-column: 3;
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareSeven {
+    grid-row: 3;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareEight {
+    grid-row: 3;
+    grid-column: 2; 
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
+
+#squareNine {
+    grid-row: 3;
+    grid-column: 3;
+    align-self: center;
+    justify-self: center;
+    line-height: 0%;
+}
