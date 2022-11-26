@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <script src="script.js" defer></script>
   <title>Hello Front-End</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="openPage">
+    <h1>Search Reddit</h1>
+    <p>Type in what image you want to search here:</p>
+    <input type="text"/>
+    <button id="search">Search</button>
+  </div>
+
+  <div class="slideshow">
+    <img id="imgs" src="https://reddit.com"/>
+    <button id="stop">Stop Slideshow</button>
+  </div>
 </body>
 </html>
