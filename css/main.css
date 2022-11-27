@@ -1,0 +1,33 @@
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h1, h3 {
+    margin: 10px auto;
+}
+
+/* go airbnb for picture size contain */
+#pictures {
+    object-fit: contain;
+    width: 650px;
+    height: 650px;
+    /* background-color: aquamarine; */
+}
+
+img {
+    object-fit: contain;
+    width: 650px;
+    height: 650px;
+    /* background-color: aquamarine; */
+    position: absolute;
+}
