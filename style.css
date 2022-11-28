@@ -1,0 +1,44 @@
+body{
+   background-color: #01949A;
+    color: #004369;
+}
+h1 {
+    font-size: 50px;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #DB1F48;
+}
+p {
+    font-size: 25px;
+    font-weight: bold;
+}
+#openPage, #slideshow{
+    /* text-align: center; */
+    display: flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center
+}
+button:hover {
+    background: rgb(163, 156, 156);
+  }
+button {
+    background: white;
+    color: #004369;
+    border: none;
+    border-radius: 30px;
+    width: 200px;
+    height: 400 px;
+    padding: 200 px;
+    margin: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+input {
+    height:30px;
+    width: 400px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+
