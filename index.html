@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <script src="./js/script.js"></script>
+  <link rel="stylesheet" ref="./css/styles.css" />
+  <title>Reddit - Slideshow</title>
 </head>
+
 <body>
   <h1>Hello Front-End</h1>
+
+  <!-- Search info -->
+  <div id="info">
+    <form id="search">
+      <input type="text" id="searchInfo" placeholder="Enter your search..." />
+      <button type="submit">submit</button>
+    </form>
+  </div>
+
+  <!-- reset button -->
+  <div>
+    <button id="resetButton" type="button">New Search</button>
+  </div>
+
+  <!-- pictures that come up -->
+  <div id="pictures"></div>
+
 </body>
+
 </html>
