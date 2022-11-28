@@ -1,0 +1,120 @@
+#input-details{
+    display: flex;
+    align-items: center;
+    margin-left: 400px;
+    margin-right: 300px;
+    padding: 50px 50px;
+    background-color: white;
+
+
+}
+#form-control{
+    background-color: rgb(204, 190, 190);
+    margin-right: 200px;
+    margin-left: -200px;
+    margin-top: -300px;
+    padding: 18px 300px;
+    align-items: center;
+    background-color: rgb(236, 232, 236);
+    height: 60px;
+    margin-left: 100px;
+    margin-top: -300px;
+    padding: 20px 10px;
+    margin-bottom: 0px;
+    width: 1000px;
+}
+#button-addon2{
+    background-color: rgb(223, 206, 206);
+    margin: -7px;
+    padding: 15px 15px;
+    margin-bottom: 200px;
+    margin-top: 100px;
+    margin-left: -650px;
+}
+#showmehideme{
+    background-color: white;
+    text-align: center;
+    margin-bottom: -600px;
+    margin-left: -500px;
+    padding: 50px 200px;
+    margin-top: -100px;
+    width: 5000px;
+    
+}
+#button-addon3{
+    background-color: rgb(114, 35, 35);
+    margin-top: 260px;
+    margin-left: -300px;
+    margin-right: 5px;
+    margin-bottom: -100px;
+    
+
+}
+
+
+h1{
+    font-size: 100px;
+    text-align: center;
+}
+
+img{
+    
+    align-items: center;
+    background-color: rgb(236, 232, 236);
+    height: 600px;
+    margin-left: 1000px;
+    margin-top: -300px;
+    padding: 20px 10px;
+    margin-bottom: 0px;
+    width: 500px;
+
+}
+
+
+/*
+
+
+<!-- begin snippet: js hide: false console: true babel: null -->
+
+<!-- language: lang-js -->
+
+    mydiv = document.getElementById("showmehideme");
+
+    function showhide(d) {
+        d.style.display = (d.style.display !== "none") ? "none" : "block";
+    }
+
+<!-- language: lang-css -->
+
+    #mydiv { background-color: #ddd; }
+
+<!-- language: lang-html -->
+ </div>
+           <button id="button" onclick="showhide(mydiv)">Show/Hide</button>
+               <div id="showmehideme">
+                  This div will show and hide on button click.
+          </div>
+
+          ----------------------------------------------------------
+          <div id="showmehideme">
+      <p class="img-desc">Image description</p>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon3">Stop Slideshow</button>
+      <img>
+
+      --------------------------------------------------------------
+      <button id="button" onclick="showhide(mydiv)">Show/Hide</button>
+<div id="showmehideme">
+    This div will show and hide on button click.
+</div>
+----------------------------------------------------------------------------
+
+
+    <button id="button" onclick="showhide(mydiv)">Show/Hide</button>
+    <div id="showmehideme">
+        This div will show and hide on button click.
+    </div>
+
+<!-- end snippet -->
+
+
+*/
