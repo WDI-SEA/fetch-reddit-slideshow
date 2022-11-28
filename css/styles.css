@@ -1,0 +1,45 @@
+body {
+    background: radial-gradient(rgb(219, 237, 231), rgb(59, 59, 160));
+}
+
+#form {
+    background-image: none;
+    background: blue;
+    height: 600px;
+    width: 850px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    position: absolute;
+    top: 38%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+#search {
+    height: 34px;
+    background: white;
+    opacity: .4;
+    text-align: center;
+    border: none;
+    position: absolute;
+    top: 52%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+}
+
+
+#submit {
+    height: 37px;
+    border: thick double black;
+    background: none;
+    position: absolute;
+    top: 52%;
+    left: 61%;
+    transform: translate(-50%, -50%);
+}
+
