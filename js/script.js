@@ -13,6 +13,11 @@ function fetchReddit(e) {
     // get the value that the user typed into the form
     value = searchInput.value
     console.log(value)
+    // return the function early if there is no input
+    if (value === '') {
+        searchInput.placeholder = 'type something in 🎹!'
+        return
+    }
     // put that value in the search url and do a feath to reddit
     fetch(`http://www.reddit.com/search.json?q=${value}+nsfw:no`)
         .then(anything => anything.json())
