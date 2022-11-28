@@ -1,3 +1,10 @@
-.start {
-    
+.instructions {
+    color: cornflowerblue;
+    background-color: antiquewhite;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+img {
+    height: 200px;
+    width: 200px;
 }

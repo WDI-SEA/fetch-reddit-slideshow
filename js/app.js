@@ -3,8 +3,12 @@ console.log("js is linked, yasssss")
 //DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
 
-//define url variable
+//define variables
     const requestUrl = "https://www.reddit.com/search.json?q="
+
+    const imageDiv = document.querySelector('#img-holder')
+
+    const body = document.querySelector('body')
 
     const submitButton = document.querySelector('#submit-button')
 
@@ -26,55 +30,57 @@ submitButton.addEventListener('click', e => {
         .then(searchBoxInput => {
            
             //original boxes disappear:
-            // document.getElementsByClassName('.start').style.display = 'none'
-            
-            console.log(searchBoxInput)
+            document.getElementsByClassName('instructions').style.display = 'none;'
+            document.getElementsByClassName('input-bar').style.display = 'none;'
 
-            //create array of image URLs:
-            const imgArray = searchBoxInput.results.filter((data) => {data.children[0].data.url})
-            document.getElementById('img-holder').append('imgArray')    
+            // for (let i=0; i<=startThings.length; i+=1) {
+            //     startThings[i].style.visibility = 'hidden;'
+            // }
+
+            console.log(searchBoxInput.data.children)
+
+            const searchResults = searchBoxInput.data.children
+
+            searchResults.forEach(result => {
+                console.log(result.data.url)
+                const img = new Image ()
+                img.src = result.data.url
+                imageDiv.appendChild(img)
+            })  
                 
-              // add imgs to div "img-holder"
-
               //setInterval:
             const pictures = document.querySelectorAll('img')
-            let i = 0   
+            console.log(pictures) 
 
-            setInterval(function() {
-
+            function slideshowFunction () {
+                let i = 0 
                 if (i===0) {
-                pictures[i].style.display = 'block';}
-                else if (i===pictures.length) {
-                    pictures[i-1].style.display = 'none';
-                    pictures[0].style.display = 'block'; i = 0;}
-                else {
-                    pictures[i-1].style.display = 'none';
-                    pictures[i].style.display = 'block';}
-              
-                 i++;
-                })
+                    pictures[i].style.display = 'block;'}
+                    else if (i===pictures.length) {
+                        pictures[i-1].style.display = 'none;'
+                        pictures[0].style.display = 'block;'; i = 0;}
+                        else {
+                            pictures[i-1].style.display = 'none;'
+                            pictures[i].style.display = 'block;'}
+                            
+                            i++;
+                        }
+                        
+            setInterval(slideshowFunction, 2000)
                 
-                , 2000;})
+            //stop button that resets back
+            const stop = document.createElement('button')
+            body.appendChild(stop)
+            stop.addEventListener('click', e => {
+            clearInterval(slideshowFunction)
+            document.getElementsByClassName('start').style.display = 'block'
+                
+
             })
         })
-
     })
-              //create stop button:
-            //   const stop = document.createElement('button')
-            //   stop.style.
-            //   body.append(button)
-
-            //})
-
-        
-         //stop button that resets back
-        //  submitButton.addEventListener('click', e => {
-            //clearinterval
-        //  document.getElementsByClassName('start').style.display = ''
-
-        //  })
-    // })
-
-    // .catch(error => console.log('Error:', error));
-    // .catch(console.warn);
-// })
+    .catch((error)=>{
+        console.log("There's been an error!", error);
+    })
+})
+})
