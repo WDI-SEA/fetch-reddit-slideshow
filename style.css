@@ -1,0 +1,18 @@
+body {
+    background-color: darkslategray;
+}
+
+#title {
+    text-align: center;
+    color: white;
+    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#search {
+    background-color: darkcyan;
+    border: 0;
+    border-bottom: 3px black;
+    margin: 0 auto;
+    text-align: center;
+}
