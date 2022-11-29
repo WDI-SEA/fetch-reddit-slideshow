@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-    <script>
-      $(document).ready(function() {
-        $("#btn").click(function() { 
-          $("#test").load();
-        });
-      });
-    </script>
+  <title>Reddit Searches</title>
+    <script src="./js/script.js"></script>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
-  <div id ="test">
-    <p>This is the first content!</p>
+  <h1>Hello Reddit User</h1>
+  <div id ="formContainer">
+    <form id="searchForm">
+      <input type="text" id ="searchInput" placeholder="Enter a search"/></form>
+  <button id ="submit">submit</button>
+  <div>
+    <button id="stopBtn">stop</button>
   </div>
-  <button id ="btn">Click to change</button>
+  <div id ="slideshowContainer"></div>
 </body>
 </html>
