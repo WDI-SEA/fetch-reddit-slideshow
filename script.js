@@ -99,7 +99,7 @@ function slideshow() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    formContainer = document.querySelector('#formContainer')
+    slideshowContainer = document.querySelector('#slideshowContainer')
     searchForm = document.querySelector('#searchForm')
     searchInput = document.querySelector('#searchInput')
     stopButton = document.querySelector("#stopButton")
