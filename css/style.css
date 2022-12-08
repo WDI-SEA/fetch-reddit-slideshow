@@ -1,0 +1,57 @@
+body {
+    background-color: blanchedalmond;
+}
+h1 {
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: -19%;
+}
+img {
+    /* position: relative; */
+    margin: 1% 0% 0.5% 42%;
+}
+h2 {
+    border: 5px solid white;
+    text-align: center;
+    background-color: rgb(202, 184, 157);
+    padding: 0.4%;
+    width: 30%;
+    margin: 1% 35%;
+}
+p {
+    border: 5px solid white;
+    text-align: center;
+    font-size: 20px;
+    margin: 2% 40%;
+    width: 20%;
+}
+#formContainer {
+    margin: 20% 0% 100% 40%;
+}
+#searchInput, #stopButton {
+    background-color: blanchedalmond;
+    border: none;
+    border-bottom: 5px solid black;
+    text-align: center;
+    width: 30%;
+    font-size: 15px;
+}
+#stopButton {
+    border: 5px solid white;
+    text-align: center;
+    width: 10%;
+    font-size: 25px;
+    background-color: blanchedalmond;
+
+    margin: 2% 10% 0% 45%;
+}
+#style {
+    background-color: rgb(131, 118, 100);
+    color: rgb(230, 230, 230);
+    padding: 0.4%;
+}
+#style2 {
+    background-color: rgb(56, 50, 43);
+    color: white;
+    padding: 0.4%;
+}
