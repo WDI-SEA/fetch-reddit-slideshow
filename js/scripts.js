@@ -28,15 +28,20 @@ form.addEventListener("submit", (e) => {
   fetch(`${redditURL}?q=${inputValue}+nsfw:no`)
     .then((response) => response.json())
     .then(data => {
-        console.log(data.data.children[0].data.url)
+        // console.log(data.data.children[].data.url)
+        for(let i=0; i < data.data.children.length; i++) {
+            imageUrls.push(data.data.children[i].data.url)
+        }
+        console.log(imageUrls)
     //   form.style.display = "none";
     //   loadingMessage.style.display = "none"
-        // something to add to my array - need to see API info
         // start slideshow
+        startSlideShow()
     })
     .catch(console.warn)
 })
 
 // function for slideshow
 
+function startSlideshow
 // stop button - stop interval
