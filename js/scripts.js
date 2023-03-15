@@ -43,5 +43,14 @@ form.addEventListener("submit", (e) => {
 
 // function for slideshow
 
-function startSlideshow
+function startSlideshow() {
+    let currentIndex = 0
+    slideShow.src = imageUrls[currentIndex]
+    const intervalId = setInterval(() => {
+        currentIndex++
+        if (currentIndex === imageUrls.length) {
+            currentIndex = 0
+        }
+        slideShow.src = imageUrls[currentIndex];}, 2000)
+    }
 // stop button - stop interval
