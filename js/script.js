@@ -5,6 +5,7 @@ let slideshow = document.querySelector("#slideshow");
 let redditSearchURL = "http://www.reddit.com/search.json?q=cats+nsfw:no";
 let fetchOptions = {};
 let fetchedURLs = [];
+let filteredURLs = [];
 
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -14,21 +15,23 @@ searchForm.addEventListener("submit", function (e) {
       fetchedURLs = [];
       let imageBatchObjects = jsonData.data.children;
       imageBatchObjects.forEach((object) => {
-        if (object.data.url) {
-          fetchedURLs.push(object.data.url);
-        }
+        console.log(object.data.url);
+        fetchedURLs.push(object.data.url);
+        filteredURLs = fetchedURLs.filter((URL) => {
+          return URL.endsWith("jpg") || URL.endsWith("png");
+        });
       });
       let slide = document.createElement("img");
-      slide.src = fetchedURLs[0];
+      slide.src = filteredURLs[0];
       slideshow.append(slide);
-      setInterval(switchImage, 1000);
+      setInterval(switchImage, 2000);
     })
     .catch(console.warn);
 });
 
 const switchImage = () => {
-  if (fetchedURLs.length > 0) {
-    fetchedURLs.shift();
-    document.querySelector("img").src = fetchedURLs[0];
+  if (filteredURLs.length > 1) {
+    filteredURLs.shift();
+    document.querySelector("img").src = filteredURLs[0];
   }
 };
