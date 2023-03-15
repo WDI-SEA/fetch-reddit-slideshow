@@ -38,7 +38,7 @@ form.addEventListener("submit", (e) => {
     // const img = document.createElement("img")
     // img.src = result[0]
     // start slideshow
-    startSlideShow()
+    startSlideShow(result)
         // slideShow.append(img)
     })
     .catch(console.warn)
@@ -54,7 +54,8 @@ function startSlideShow() {
         if (currentIndex === imageUrls.length) {
             currentIndex = 0
         }
-        imgSlide.src = imageUrls[currentIndex];}, 2000)
+        imgSlide.src = imageUrls[currentIndex];
+    }, 2000)
     }
 
 // stop button - stop interval
