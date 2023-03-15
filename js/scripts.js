@@ -38,6 +38,16 @@ form.addEventListener("submit", (e) => {
     // const img = document.createElement("img")
     // img.src = result[0]
     // start slideshow
+    function startSlideShow() {
+        let i = 0;
+        setInterval(() => {
+          imgSlide.src = result[i];
+          i++;
+          if (i === result.length) {
+            i = 0;
+          }
+        }, 2000);
+      }
     startSlideShow(result)
         // slideShow.append(img)
     })
@@ -46,16 +56,17 @@ form.addEventListener("submit", (e) => {
 
 // function for slideshow
 
-function startSlideShow() {
-    let currentIndex = 0
-    imgSlide.src = imageUrls[currentIndex]
-    const intervalId = setInterval(() => {
-        currentIndex++
-        if (currentIndex === imageUrls.length) {
-            currentIndex = 0
-        }
-        imgSlide.src = imageUrls[currentIndex];
-    }, 2000)
-    }
+
+// function startSlideShow() {
+//     let currentIndex = 0
+//     imgSlide.src = imageUrls[currentIndex]
+//     const intervalId = setInterval(() => {
+//         currentIndex++
+//         if (currentIndex === imageUrls.length) {
+//             currentIndex = 0
+//         }
+//         imgSlide.src = imageUrls[currentIndex];
+//     }, 2000)
+//     }
 
 // stop button - stop interval
