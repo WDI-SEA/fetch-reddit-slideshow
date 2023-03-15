@@ -18,3 +18,7 @@ form {
 #searchForm label {
   color: white;
 }
+
+img {
+  max-width: 800px;
+}
