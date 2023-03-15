@@ -1,0 +1,25 @@
+body {
+    background-color: gray;
+    color: lightgrey;
+}
+.center {
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+}
+.imageContainer {
+    display: flex;
+}
+
+img {
+    width: 50%;
+    border: 5px solid black;
+}
+.description {
+    text-align: center;
+}
+.searchContainer {
+    display: flex;
+}
