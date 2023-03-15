@@ -9,3 +9,18 @@
 
 
 
+// DOM Selectors
+
+// Reddit API URL
+
+// Array to keep images
+
+// submit form event listener - this should load pieces (loading message and clear input)
+
+// make API request - hide form and loading, array of image urls, start slideshow
+
+// catch error at end of API request
+
+// function for slideshow
+
+// stop button - stop interval
