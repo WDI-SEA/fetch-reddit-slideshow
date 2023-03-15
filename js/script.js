@@ -17,13 +17,24 @@ searchForm.addEventListener("submit", function (e) {
       let imageBatchObjects = jsonData.data.children;
       console.log(imageBatchObjects[0].data.url);
       imageBatchObjects.forEach((object) => {
-        fetchedURLs.push(object.data.url);
+        if (object.data.url) {
+          fetchedURLs.push(object.data.url);
+        }
       });
       console.log(fetchedURLs);
-      let slide = document.createElement("img")
+      let slide = document.createElement("img");
       slide.src = fetchedURLs[0];
-      console.log(slide)
+      console.log(slide);
       slideshow.append(slide);
+      setInterval(switchImage, 1000);
     })
     .catch(console.warn);
 });
+
+const switchImage = () => {
+  if (fetchedURLs.length > 0) {
+    fetchedURLs.shift();
+    document.querySelector("img").src = fetchedURLs[0];
+    console.log(fetchedURLs[0]);
+  }
+};
