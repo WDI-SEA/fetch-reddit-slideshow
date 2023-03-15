@@ -1,12 +1,3 @@
-// fetch with the input
-
-// use filter and map to only get images (array)
-// make sure to just show the images
-
-// cycle through images with setInterval
-
-//.src and create new URL if possible
-
 // DOM Selectors
 const form = document.querySelector("form");
 const input = document.querySelector("input");
@@ -20,7 +11,7 @@ const redditURL = "http://www.reddit.com/search.json";
 // Array to keep images
 let imageUrls = [];
 
-// submit form event listener - this should load pieces (loading message and clear input)
+// Submit form event listener - fetch images from Reddit API and start slideshow
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputValue = input.value;
@@ -28,45 +19,42 @@ form.addEventListener("submit", (e) => {
   fetch(`${redditURL}?q=${inputValue}+nsfw:no`)
     .then((response) => response.json())
     .then(data => {
-        // console.log(data.data.children[].data.url)
+        // Filter out non-image URLs and add to imageUrls array
         for(let i=0; i < data.data.children.length; i++) {
-            imageUrls.push(data.data.children[i].data.url)
+            const url = data.data.children[i].data.url;
+            if (url.endsWith('.jpg') || url.endsWith('.png')) {
+                imageUrls.push(url);
+            }
         }
-        const result = imageUrls.filter(image => image.endsWith('.jpg') || image.endsWith('.png'))
-    //   form.style.display = "none";
-    //   loadingMessage.style.display = "none"
-    // const img = document.createElement("img")
-    // img.src = result[0]
-    // start slideshow
-    function startSlideShow() {
-        let i = 0;
-        setInterval(() => {
-          imgSlide.src = result[i];
-          i++;
-          if (i === result.length) {
-            i = 0;
-          }
-        }, 2000);
-      }
-    startSlideShow(result)
-        // slideShow.append(img)
+        // Start slideshow with imageUrls array
+        startSlideShow();
     })
     .catch(console.warn)
-})
+});
 
-// function for slideshow
+// Function to start slideshow
+function startSlideShow() {
+    let currentIndex = 0;
+    // Set initial image source
+    imgSlide.src = imageUrls[currentIndex];
+    // Interval to cycle through images
+    const intervalId = setInterval(() => {
+        currentIndex++;
+        // Reset to beginning of array if at end
+        if (currentIndex === imageUrls.length) {
+            currentIndex = 0;
+        }
+        // Update image source with current index
+        imgSlide.src = imageUrls[currentIndex];
+    }, 2000);
+    // Save interval ID to stop later
+    myInterval = intervalId;
+}
 
+// Stop button event listener - stop slideshow
+stopButton.addEventListener("click", stopSlideShow);
 
-// function startSlideShow() {
-//     let currentIndex = 0
-//     imgSlide.src = imageUrls[currentIndex]
-//     const intervalId = setInterval(() => {
-//         currentIndex++
-//         if (currentIndex === imageUrls.length) {
-//             currentIndex = 0
-//         }
-//         imgSlide.src = imageUrls[currentIndex];
-//     }, 2000)
-//     }
-
-// stop button - stop interval
+// Function to stop slideshow
+function stopSlideShow() {
+    clearInterval(myInterval);
+}
