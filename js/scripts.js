@@ -10,16 +10,33 @@
 
 
 // DOM Selectors
+const form = document.querySelector('form');
+const input = document.querySelector('input')
+const loadingMessage = document.querySelector('#loading-message')
+const slideShow = document.querySelector('#slideshow')
+const stopButton = document.querySelector('#stop-button')
 
 // Reddit API URL
+const redditURL =  'http://www.reddit.com/search.json'
 
 // Array to keep images
+let imageUrls = []
 
 // submit form event listener - this should load pieces (loading message and clear input)
-
-// make API request - hide form and loading, array of image urls, start slideshow
-
-// catch error at end of API request
+form.addEventListener('submit', (e) =>) {
+    e.preventDefault();
+    const inputValue = input.value;
+    input.value = ''
+    fetch(`${redditURL}?q=${inputValue}+nsfw:no`)
+    .then(response => response.json())
+    .then(data => {
+        form.style.display = 'none'
+        loadingMessage.style.display = 'none'
+        // something to add to my array - need to see API info
+        // start slideshow
+        // catch error
+    })
+}
 
 // function for slideshow
 
