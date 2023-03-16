@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    background: linear-gradient(to right, #FF8235, #30E8BF);
+    justify-content: center;
+    text-align: center;
+}
+img {
+    display: block;
+    height: auto;
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
