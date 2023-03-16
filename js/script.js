@@ -1,15 +1,15 @@
 console.log("hi 👋");
 let searchInput = document.querySelector("#searchInput");
-let value = searchInput.value;
 let slideshow = document.querySelector("#slideshow");
-let redditSearchURL = "http://www.reddit.com/search.json?q=cats+nsfw:no";
+let userSearchTerm = "";
 let fetchOptions = {};
 let fetchedURLs = [];
 let filteredURLs = [];
 
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  fetch(redditSearchURL, fetchOptions)
+  let searchURL = `https://www.reddit.com/search.json?q=${searchInput.value}+nsfw:no`;
+  fetch(searchURL, fetchOptions)
     .then((response) => response.json())
     .then((jsonData) => {
       fetchedURLs = [];
