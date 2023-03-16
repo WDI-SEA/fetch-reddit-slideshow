@@ -9,7 +9,7 @@ const stopButton = document.querySelector("#stop-button");
 let myInterval
 
 // Reddit API URL
-const redditURL = "http://www.reddit.com/search.json";
+const redditURL = "https://www.reddit.com/search.json";
 
 // Array to keep images
 let imageUrls = [];
@@ -20,7 +20,6 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputValue = input.value;
   input.value = "";
-  loadingMessage.innerHTML = "Loading..."
   fetch(`${redditURL}?q=${inputValue}+nsfw:no`)
     .then((response) => response.json())
     .then(data => {
@@ -51,8 +50,8 @@ function nextSlide() {
         imageIndex = 0
     }
     imgSlide.src = imageUrls[imageIndex]
-    imgSlide.style.width = "60vh";
-    imgSlide.style.height = "60vh";
+    imgSlide.style.maxWidth = "80vw";
+    imgSlide.style.maxHeight = "80vh";
     imageIndex++
 }
 
@@ -60,6 +59,7 @@ function nextSlide() {
 function stopSlideShow() {
     clearInterval(myInterval);
     form.style.visibility = "visible";
+    imgSlide.src = '';
 }
 
 // Stop button event listener - stop slideshow
