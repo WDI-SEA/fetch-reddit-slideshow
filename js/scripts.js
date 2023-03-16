@@ -1,4 +1,3 @@
-const redditAPI = 'http://www.reddit.com/search.json?q='
 
 const input = document.querySelector('#input')
 console.log(input)
@@ -16,7 +15,7 @@ search.addEventListener('click', function(e){
     e.preventDefault()
     console.log(input.value)
     presearch.style.display = "none"
-    fetch(redditAPI + input.value)
+    fetch(`http://www.reddit.com/search.json?q=${input.value}+nsfw:no`)
         .then(function(returnedData) {
             return returnedData.json()
     })
@@ -40,6 +39,7 @@ search.addEventListener('click', function(e){
                 clearInterval(timer)
                 presearch.style.display = "block"
                 imageContainer.removeChild(images)
+                input.value =''
             })
         })
         .catch(console.warn)
