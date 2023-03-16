@@ -9,19 +9,22 @@
 </head>
 
 <body>
+  
   <div class="titleCard center">
-    <!-- Page should load with some sort of title -->
-    <h1>Fetch Slideshow</h1>
-    <!-- A short description telling the user what to do -->
-    <p>Enter a search term and click the button below to start the slideshow.</p>
-    <!-- A blank text field -->
-    <div id="searchForm">
-      <label for="searchWord">Search:</label>
-      <input id="searchWord" type="text" placeholder="anything...">
-      <!-- A Button ("start" or "go" or "search") -->
-      <button id="startButton" type="submit">Start Slideshow</button>
-    </div>
-    <button id="resetButton">New Search</button>
+    <h1>Reddit Fetch'd Slideshow</h1>
+    <p>Enter a search term for a slideshow.</p>
+    
+    <form id="searchForm">
+      <label for="userInput">Search:</label>
+      <input id="userInput" type="text" placeholder="whatever you fancy...">
+      <button id="startButton" type="submit">Just Go</button>
+    </form>
   </div>
+
+  <div class="imageDiv center"></div>
+  <span>
+
+    <button id="stopButton">No more, plz stop</button>
+  </span>
 </body>
 </html>
