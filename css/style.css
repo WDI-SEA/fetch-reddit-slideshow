@@ -28,6 +28,10 @@ form {
   text-align: center;
 }
 
+#stopButton {
+  display: none;
+}
+
 img {
   max-width: 800px;
 }

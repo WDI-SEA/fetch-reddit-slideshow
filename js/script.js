@@ -3,6 +3,7 @@ let searchInput = document.querySelector("#searchInput");
 let searchForm = document.querySelector("#searchForm");
 let slideshow = document.querySelector("#slideshow");
 let formButton = document.querySelector("#formButton");
+let stopButton = document.querySelector("#stopButton");
 let fetchedURLs = [];
 let filteredURLs = [];
 
@@ -33,6 +34,7 @@ const startSlideshow = (jsonData) => {
   slide.src = filteredURLs[0];
   slideshow.append(slide);
   setInterval(switchImage, 2000);
+  stopButton.style.display = "block";
 };
 
 const switchImage = () => {
@@ -41,3 +43,7 @@ const switchImage = () => {
     document.querySelector("img").src = filteredURLs[0];
   }
 };
+
+stopButton.addEventListener("click", () => {
+  console.log("hi again");
+});
