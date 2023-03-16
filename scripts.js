@@ -1,37 +1,43 @@
-const searchButton = document.getElementById("searchButton");
-const slideshowObj = {};
-searchButton.addEventListener("click", () => {
-    alert("You clicked me!");
-    const userInput = document.getElementById("searchInput");
-    alert(userInput.value);
-    const textValue = userInput.value;
-    fetch(`http://www.reddit.com/search.json?q=${textValue}+nsfw:no`)
-    .then(res => res.json())
-    .then((data) => {
-        data.data.children.map((individualData, index) => {
-            const singleData = data.data.children[index].data
-            slideshowObj.title = singleData.title;
-            slideshowObj.author = singleData.author;
-            slideshowObj.subreddit = singleData.subreddit;
-            slideshowObj.thumbnail = singleData.thumbnail;
+function fetchReddit(e) {
+    e.preventDefault()
+    let formInput = document.querySelector("#formInput")
+    let slideshowEl = document.querySelector("slideshow")
+    console.log("target =>", formInput.value)
+    fetch(`http://www.reddit.com/search.json?q=${formInput.value}+nsfw:no`)
+        .then(result => result.json())
+        .then(results => {
+            let resultImages = results.data.children.map(child => {
+            //console.log(results.data.children.map) (child => {
+                return {
+                    url: child.data.url,
+                    title: child.data.title
+                }
+            })
+
+            .filter(image => {
+                let imageExtention = image.url.slice(-4)
+                return imageExtention === ".jpg" || imageExtention === ".png"
+            })
+        slideshow(resultImages)
+        
+        let slideshowInterval = setInterval
+        (slideshow, 3000)
+        // easy to invoke a function and pass images as an argument //
         })
-        const img = document.querySelector("img")
-        img.src = slideshowObj.thumbnail
-    })
-});
+        .catch(console.warn)
+}
 
-const slideshow = document.querySelectorAll('[data-componant="slideshow"]')
-slideshow.forEach(function initSlideShow(slideshow) {
-    let slides = document.querySelectorAll(`#${slideshow.id} [role="list"].slide`)
-    const index = 0, time = 4000;
+function slideshow(imgArr) { 
+    console.log("imgs =>", imgArr)
+    console.log("el =>", slideshoeEl.src)
+    if(imgIndex >= imgArr.length) {
+        imgIndex = 0
+    }
+    slideshowEl.src = imgArr[imgIndex].url
+    imgIndex = imgIndex
+}
 
-    slides[index].classList.add("active")
-    setInterval( () => {
-        console.log("hi") 
-        slides[index].classList.add("active")
-        if (index === slides.length)
-        index = 0
-        slides[index].classList.add("active")
-    }, time)
+let stopBtn = document.querySelector("stopBtn")
+stopBtn.addEventListener("click", function(){
+    console.log("stop")
 })
-

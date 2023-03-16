@@ -10,34 +10,17 @@
 <body>
   <h1>Reddit Slideshow</h1>
   <h2>What do you want to see a slideshow of? Just type it in the search bar and click the search button!</h2>
-  <div id="slideshowContainer" data-component="slideshow">
-    <div role="list">
-      <div class="slide">
-        <img src ="" alt="">
-      </div>
-    <div class="slide">
-      <img src="" alt="">
-    </div>
-    <div class="slide">
-      <img src="" alt="">
-        </div>
-      </div>
-    </div>  
-    <input type="text" id="searchInput" placeholder="Search">
-  </div>
-
-  <button id="searchButton" type="submit">submit</button>
-
-  <h3>Enjoy!</h3>
-  <h4>When ready to leave, press the button below to stop slideshow and return to the search bar!</h4>
-
-  <img/>
-
-  <div>
-    <button id="stopButton">Stop</button>
-  </div>
   
-  <div id="slideshowContainer">
+  <div id="formContainer">
+    <form>
+      <input type="text" placeholder="show me what you got" id="formInput"/>
+      <input type="submit" id="submitBtn"/>
+    </form>
+  </div>
+
+  <div id="imageContainer">
+    <button id="stopBtn">Stop</button>
+    <img src="http://placekitten.com/200/300" alt="img from placekitten" id="slideshow">
   </div>
 
   <script src="scripts.js"></script>
