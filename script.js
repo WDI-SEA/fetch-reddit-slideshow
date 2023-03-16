@@ -58,6 +58,13 @@
 //   clearInterval(slideshowInterval);
 
 // }
+console.log("good morning developers")
+// fetch
+// triggered by submission of form
+// prevent default
+// fetch . then .catch
+
+// select form input from dom 
 let formInput = document.querySelector("#formInput")
 let slideshowEl = document.querySelector("#slideshow")
 
@@ -66,57 +73,60 @@ let resultImages
 
 function fetchReddit(e) {
     e.preventDefault()
-    // placehold value - hardcore right now but later we'll use user input
-    let value = "dogs"
+    // placehold value - hardcoded right now, but later we'll use user input
+    // let value = "dogs" // testing only
     // gather user input
-    console.log("input =>", formInput.value)
-    fetch(`http://www.reddit.com/search.json?q=${value}+nsfw:no`)
+    console.log("input =>",formInput.value)
+    fetch(`http://www.reddit.com/search.json?q=${formInput.value}+nsfw:no`)
         .then(result => result.json())
         .then(results => {
+            console.log(results.data.children)
+            let resultImages = results.data.children.map(child => {
             // console.log(results.data.children)
-            console.log(results)
-            let resultImages = results.data.children.map( child => {
+            resultImages = results.data.children.map(child => {
                 return {
                     url: child.data.url,
                     title: child.data.title
                 }
             })
-            // fliter  out bad results
+            console.log(resultImages)
+            // filter out bad results
             .filter(image => {
-                let imageExtanstion = image.url.slice(-4)
-                return imageExtanstion  === ".jpg" || imageExtanstion === ".png"
+                let imgExtension = image.url.slice(-4)
+                return imgExtension === ".jpg" || imgExtension === ".png"
             })
-            // console.log(resultImages)
-            slideshow(resultImages)
-            let slideshowInterval = setInterval(slideshow, 1000)
-            
+            console.log("inside fetch", resultImages)
+            // invoke a function and pass images as argument
+            // slideshow(resultImages)
+            let slideshowInterval = setInterval(() => {
+                slideshow(resultImages)
+              }, 3000)
+
         })
-        .then(console.warn)
+        .catch(console.warn)
 }
-// fetchReddit() used for texting only
-let imgIndex = 0
+// fetchReddit() // used for testing only
+let imgIndex = 0 
 
 // slideshow function
 function slideshow(resultImages) {
-console.log("img =>", resultImages)
-console.log("el =>", slideshowEl.src)
-// slideshowEl.src = resultImages[0].url // testing only
-if (imgIndex >= resultImages.length) {
-    imgIndex = 0
+    console.log("imgs =>",resultImages)
+    console.log("el =>", slideshowEl.src)
+    // slideshowEl.src = resultImages[0].url // testing only
+    if(imgIndex >= resultImages.length) {
+        imgIndex = 0
+    }
+    slideshowEl.src = resultImages[imgIndex].url
+    imgIndex = imgIndex + 1
 }
-slideshowEl.src = resultImages[imgIndex].url
-imgIndex = imgIndex + 1
-}
 
 
-// inervals used by mutiple functions used to be declared globally
 
-// select dom elements and dave to varibales
-// creat event listeners
+// select dom elements and dave to variables
+// create event listeners
 
 let stopBtn = document.querySelector("#stopBtn")
-stopBtn.addEventListener("click", function () {
+stopBtn.addEventListener("click", function(){
     console.log("stop")
 })
-let submitBtn = document.querySelector("#submitBtn")
-submitBtn.addEventListener("click", fetchReddit)
+}
