@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(31, 31, 31);
+    height: 100vh;
+}
+
+#imageElement {
+    height: 400px
+}
+
+#stopButton {
+    display: none;
+}
+
+h1 {
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#redditHeader {
+    color: orangered;
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+label {
+    color: white;
+    font-family: helvetica, sans-serif;
+}
+
+button {
+    height: 30px;
+    width: 100px;
+    margin: 50px 10px;
+    font-family: Helvetica, sans-serif;
+}
+
