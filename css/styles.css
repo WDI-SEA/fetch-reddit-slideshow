@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    height: 25rem;
+}
+
+.presearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 0;
+}
+
+
+label {
+    display: none;
+    border: 2px solid red;
+}
+input {
+    width: 30rem;
+    height: 1.6rem;
+    text-align: center;
+}
+
+.searchButton {
+    height: 2rem;
+    width: 8rem;
+    align-items: center;
+    margin: 0
+}
+
+.resetButton {
+    height: 2rem;
+    width: 4rem;
+    align-self: center;
+}

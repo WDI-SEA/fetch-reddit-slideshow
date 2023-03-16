@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="js/scripts.js" defer></script>
   <title>Hello Front-End</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div id="imageContainer" class="container">
+    <div id="preSearch" class="presearch">
+      <div class="text">
+        <h1>Reddit Image Crawler</h1>
+        <p>Enter a search tearn and view images found on reddit related to your search</p>
+      </div>
+      <div id="searchField" class="search">
+        <form>
+        <label>search for images</label>
+        <input placeholder="enter your search term here" id="input"></input>
+        <button class="searchButton" id="searchBTN" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <button id="reset" class="resetButton">Reset</button>
 </body>
 </html>
