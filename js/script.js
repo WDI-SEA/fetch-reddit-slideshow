@@ -11,13 +11,13 @@ let slidesInterval;
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   formButton.disabled = true;
-
   let searchURL = `https://www.reddit.com/search.json?q=${searchInput.value}+nsfw:no`;
   fetch(searchURL, {})
     .then((response) => response.json())
     .then((jsonData) => {
       startSlideshow(jsonData);
       searchForm.style.display = "none";
+      //  Could also hide h1 here but I think it adds to the experience
       searchInput.value = "";
     })
     .catch(console.warn);
@@ -35,7 +35,7 @@ const startSlideshow = (jsonData) => {
   let slide = document.createElement("img");
   slide.src = filteredURLs[0];
   slideshow.append(slide);
-  slidesInterval = setInterval(switchImage, 2000);
+  slidesInterval = setInterval(switchImage, 4000);
   stopButton.style.display = "block";
 };
 

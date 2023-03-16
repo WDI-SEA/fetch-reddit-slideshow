@@ -11,6 +11,7 @@ body {
 
 h1 {
   color: white;
+  margin: 20px 0;
 }
 
 form {
@@ -32,6 +33,16 @@ form {
   display: none;
 }
 
+#slideshow {
+  margin-top: 20px;
+}
+
 img {
-  max-width: 800px;
+  max-width: 60vw;
+  max-height: 70vh;
+}
+
+label,
+button {
+  font-size: 18px;
 }
