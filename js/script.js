@@ -2,10 +2,7 @@ const searchForm = document.querySelector("#searchForm")
 const searchInput = document.querySelector("#searchInput")
 const btn = document.querySelector("#btn")
 const url = `http://www.reddit.com/search.json?q=`
-
-// document.querySelector("#searchForm").addEventListener("submit", (e) => {
-//     e.preventDefault()
-// })
+ 
 //prevent default form submission- can you type in form?
 
 
@@ -25,11 +22,15 @@ searchForm.addEventListener("submit", (e) => {
         })
 
         .then((jsonData) => {
-            console.log("here", jsonData)
+            console.log(results.data.children)
 
             // use the above variable-- to filer and map arry for images
         })
-        
+        function getResults(results) {
+            const images = document.getElementById("#searchInput")
+            results.forEach()
+            let newUrl = searchInput.value
+        }
     })
 
 

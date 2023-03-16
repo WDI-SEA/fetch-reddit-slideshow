@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="js/scriptreview.js"></script>
+  <link rel="stylesheet" href="css/stylereview.css" />
+
+  <title>Reddit Slide Show </title>
+</head>
+<body>
+  <!-- Load with some sort of title- hide title when user enters a search term and presses enter -->
+  <!-- Discription/title telling user what to do -->
+  <h1>Search A Slide Show</h1>
+  <!-- blank text field -->
+  <div> 
+
+
+      <form id="searchForm">
+        <label for="searchInput">Search Photo Category</label>
+        <input id="formInput" type="text" placeholder="search..." />
+        <input type="submit" id="submitBtn" />
+        <div id="txtField"></div>
+    
+        <!-- "start" "search" or "go" button - need the title to hide when button is clicked-->
+        <button id="btn" type="submit" >Show Me</button>
+      </form>
+      
+    
+    </div>
+    <div id="imageContainer">
+
+        <button id="stopBtn" type="button"></button>
+        <img src="http://placekitten.com/200/300" alt="img for place" id="slideshow" />
+
+    </div>
+</body>
+</html>
