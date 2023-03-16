@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(20, 29, 51);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  margin: 20px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#searchForm label {
+  color: white;
+}
+
+#searchForm input {
+  text-align: center;
+}
+
+#stopButton {
+  display: none;
+}
+
+#slideshow {
+  margin-top: 20px;
+}
+
+img {
+  max-width: 60vw;
+  max-height: 70vh;
+}
+
+label,
+button {
+  font-size: 18px;
+}

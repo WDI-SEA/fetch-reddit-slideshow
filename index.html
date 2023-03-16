@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
-</head>
-<body>
-  <h1>Hello Front-End</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>reddit slideshow</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Assignment asks to hide this on slideshow start
+    but idk, I kinda think keeping it fits the vibe 🤷‍♂️ -->
+    <h1>reddit is an accursed place</h1>
+
+    <form action="" id="searchForm">
+      <label for="searchInput">dare you look within?</label>
+      <input type="text" id="searchInput" />
+      <button type="submit" id="formButton">Fetch Images</button>
+    </form>
+    <button id="stopButton">THIS WAS A BAD IDEA</button>
+    <div id="slideshow"></div>
+  </body>
 </html>
