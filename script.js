@@ -6,35 +6,38 @@ let slideshowElem = document.querySelector("#slideshow")
 //acess images
 
 let resultImages
-
+let slideshowInterval
 
 function fetchReddit(e){
     e.preventDefault()
     //let value = "cats"
-    fetch(`http://www.reddit.com/search.json?q=${formInput.value}cats+nsfw:no`)
+    console.log("input =>",formInput.value)
+
+    fetch(`http://www.reddit.com/search.json?q=${formInput.value}+nsfw:no`)
     .then(result => result.json())
     .then(results => {
         //console.log(results.data.children)
-        let resultImages = results.data.children.map[child => {
-            return{
+            resultImages = results.data.children.map(child => {
+            return {
                 url: child.data.url,
                 title: child.data.title
             }
-        }]
+        })
 
         .filter(image => {
-            let imgExtension = img.url.slice(-4)
+            let imgExtension = image.url.slice(-4)
             return imgExtension === ".jpg" || imgExtension === ".png"
 
         })
         console.log(resultImages)
 
-        slideshow(resultImages)
-        let slideshowInterval = setInterval(slideshow, 1000)
-
+        //slideshow(resultImages)
+        let slideshowInterval = setInterval(() => {
+            slideshow(resultImages)
+        }, 3000)
 
     })
-    
+
     .catch(console.warn)
 
 }
@@ -42,14 +45,15 @@ function fetchReddit(e){
 
 //slideshow function
 let imgIndex = 0
-function slideshow(imgArr) {
-    console.log("imgs =>", imgArr)
+
+function slideshow(resultImages) {
+    console.log("imgs =>", resultImages)
     console.log("el =>", slideshowElem.src)
-    slideshowElem.src = imgArr[0].url
-    if (imgIndex >= imgArr.length) {
+    //slideshowElem.src = imgArr[0].url
+    if (imgIndex >= resultImages.length) {
         imgIndex = 0
     }
-    slideshowElem.src = imgArr(imgIndex).url
+    slideshowElem.src = resultImages[imgIndex].url
     imgIndex = imgIndex + 1
 }
 
@@ -63,6 +67,8 @@ function slideshow(imgArr) {
 let stopBtn = document.querySelector("#stopBtn")
 stopBtn.addEventListener("click", function(){
     console.log("stopit")
+    clearInterval(slideshowInterval)
+
 })
 
 
