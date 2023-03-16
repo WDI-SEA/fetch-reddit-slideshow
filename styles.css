@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: small;
+    padding-bottom: 10px;
+}
+
+#searchBar {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: medium;
+}
+
+.searchButton {
+    margin-bottom: 80px;
+}
+
+#picContainer {
+    padding: 300px;
+}
+
+[data-conponent="slideshow"]
+.slide {
+    display: none;
+}
+
+[data-conponent="slideshow"]
+.slide.active {
+    display: block;
+}
