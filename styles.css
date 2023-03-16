@@ -1,0 +1,15 @@
+* {
+    text-align: center;
+    padding: 27px;
+    font-size: 20px;
+   
+}
+body {
+    background-color: burlywood;
+}
+#bigimage {
+    width: 400px;
+}
+#results {
+    display: none;
+}
