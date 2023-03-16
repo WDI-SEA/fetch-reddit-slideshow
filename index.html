@@ -8,16 +8,16 @@
   <title>Reddit Slideshow</title>
 </head>
 <body>
-  <header class="center">
-    <h1 class>Reddit Slideshow</h1>
+  <header id="header" class="center">
+    <h1 id="headerOne" class>Reddit Slideshow</h1>
   </header>
   <div class="imageContainer center" id="imageContainer">
-    <img class="image" id="image">
+    <img class="image" id="image" src="https://images.squarespace-cdn.com/content/v1/5c3a41a5cef372cccbade42f/1675441170399-5W4197PUHT4D9V1TVC70/DSC07429.jpg?format=2500w">
   </div>
-  <p class="center description">Search reddit images:</p>
+  <p id="imageDescription" class="center description">Search reddit images for something you enjoy! I like airplanes!</p>
   <div class="searchContainer center">
-    <label for="image-search">
-      <input type="text" id="searchValue" class="searchValue" value="Search">
+    <label for="image-search" id="searchParent">
+      <input type="text" id="searchValue" class="searchValue" placeholder="Search Reddit images">
       <button id="submitButton">Submit</button>
     </label>
   </div>

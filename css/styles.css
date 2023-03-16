@@ -6,20 +6,29 @@ body {
     justify-content: center;
     align-items: center;
 }
+header {
+    height: 5vh;
+    width: 100%;
+}
 h1 {
     text-align: center;
 }
 .imageContainer {
     display: flex;
 }
-
 img {
-    width: 50%;
+    width: 70%;
+    height: 10fr;
     border: 5px solid black;
+    object-fit: contain;
 }
+
 .description {
     text-align: center;
 }
 .searchContainer {
     display: flex;
+}
+.searchContainer > button {
+    width: 400px;
 }
