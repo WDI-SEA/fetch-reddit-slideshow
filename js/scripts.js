@@ -5,11 +5,15 @@ const loadingMessage = document.querySelector("#loading-message");
 const imgSlide = document.querySelector("#imageSlide");
 const stopButton = document.querySelector("#stop-button");
 
+// define myInterval
+let myInterval
+
 // Reddit API URL
 const redditURL = "http://www.reddit.com/search.json";
 
 // Array to keep images
 let imageUrls = [];
+let imageIndex = 0
 
 // Submit form event listener - fetch images from Reddit API and start slideshow
 form.addEventListener("submit", (e) => {
@@ -32,29 +36,24 @@ form.addEventListener("submit", (e) => {
     .catch(console.warn)
 });
 
+
 // Function to start slideshow
 function startSlideShow() {
-    let currentIndex = 0;
-    // Set initial image source
-    imgSlide.src = imageUrls[currentIndex];
-    // Interval to cycle through images
-    const intervalId = setInterval(() => {
-        currentIndex++;
-        // Reset to beginning of array if at end
-        if (currentIndex === imageUrls.length) {
-            currentIndex = 0;
-        }
-        // Update image source with current index
-        imgSlide.src = imageUrls[currentIndex];
-    }, 2000);
-    // Save interval ID to stop later
-    myInterval = intervalId;
+    myInterval = setInterval(nextSlide, 2000)
 }
 
-// Stop button event listener - stop slideshow
-stopButton.addEventListener("click", stopSlideShow);
+function nextSlide() {
+    if (imageIndex >= imageUrls.length) {
+        imageIndex = 0
+    }
+    imgSlide.src = imageUrls[imageIndex]
+    imageIndex++
+}
 
 // Function to stop slideshow
 function stopSlideShow() {
     clearInterval(myInterval);
 }
+
+// Stop button event listener - stop slideshow
+stopButton.addEventListener("click", stopSlideShow)  
