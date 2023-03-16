@@ -8,11 +8,13 @@ let filteredURLs = [];
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  formButton.disabled = true;
   let searchURL = `https://www.reddit.com/search.json?q=${searchInput.value}+nsfw:no`;
   fetch(searchURL, {})
     .then((response) => response.json())
     .then((jsonData) => {
       startSlideshow(jsonData);
+      searchForm.style.display = "none";
     })
     .catch(console.warn);
 });
