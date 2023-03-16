@@ -6,9 +6,9 @@ const userInput = document.querySelector("#userInput")
 let slides = []
 let count = 0
 let runInterval
-console.log(runInterval)
+// console.log(runInterval)
 
-console.log(startButton, stopButton, searchForm, userInput)
+// console.log(startButton, stopButton, searchForm, userInput)
 
 // submit the form and fetch the reddit data
 searchForm.addEventListener("submit", e => {
@@ -16,21 +16,24 @@ searchForm.addEventListener("submit", e => {
     let keyword = userInput.value
     let redditUrl = `http://www.reddit.com/search.json?q=${keyword}+nsfw:no`
     console.log(keyword, redditUrl)
-    fetch(redditUrl)
-        .then(rawData => rawData.json())
-        .then((jsonData) => {
-            console.log(jsonData)
-            let filteredData = jsonData.data.children.filter(function(child) {
-                return child.data.url.endsWith(".jpg") || child.data.url.endsWith(".png")
+    if (userInput.value !== "") {
+        fetch(redditUrl)
+            .then(rawData => rawData.json())
+            .then((jsonData) => {
+                console.log(jsonData)
+                let filteredData = jsonData.data.children.filter(function(child) {
+                    return child.data.url.endsWith(".jpg") || child.data.url.endsWith(".png")
+                })
+                slides = filteredData.map(function(child) {
+                    return child.data.url
+                })
+                console.log(slides)
+                runSlideshow()
             })
-            slides = filteredData.map(function(child) {
-                return child.data.url
-            })
-            console.log(slides)
-            runSlideshow()
-        })
-        .catch(console.warn)
-})
+            .catch(console.warn)
+        }
+    })
+
 
 const imageDiv = document.querySelector(".imageDiv")
 const titleCard = document.querySelector(".titleCard")
