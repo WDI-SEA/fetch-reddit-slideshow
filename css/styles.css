@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#imageElement {
+    height: 400px
+}
+
+#stopButton {
+    display: none;
+}
