@@ -15,14 +15,13 @@ search.addEventListener('click', function(e){
     e.preventDefault()
     console.log(input.value)
     presearch.style.display = "none"
-    fetch(`http://www.reddit.com/search.json?q=${input.value}+nsfw:no`)
+    fetch(`https://www.reddit.com/search.json?q=${input.value}+nsfw:no`)
         .then(function(returnedData) {
             return returnedData.json()
     })
         .then(function(data){
-            let imageArray = data.data.children.map(child => child.data.thumbnail)
+            let imageArray = data.data.children.map(child => child.data.url)
             console.log(imageArray)
-            imageArray
             let images = document.createElement('img')
             imageContainer.appendChild(images)
             let interval = 0
