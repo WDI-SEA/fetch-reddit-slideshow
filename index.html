@@ -3,9 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Fetch Reddit Slideshow</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./js/scripts.js"></script>
 </head>
+
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="titleCard center">
+    <!-- Page should load with some sort of title -->
+    <h1>Fetch Slideshow</h1>
+    <!-- A short description telling the user what to do -->
+    <p>Enter a search term and click the button below to start the slideshow.</p>
+    <!-- A blank text field -->
+    <div id="searchForm">
+      <label for="searchWord">Search:</label>
+      <input id="searchWord" type="text" placeholder="anything...">
+      <!-- A Button ("start" or "go" or "search") -->
+      <button id="startButton" type="submit">Start Slideshow</button>
+    </div>
+    <button id="resetButton">New Search</button>
+  </div>
 </body>
 </html>

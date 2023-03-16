@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    background-color: darkslategray;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.titleCard {
+    border: 5px crimson dotted;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    width: 75vw;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+form {
+    padding: 4rem;
+}
