@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./scripts.js"></script> 
+  <link rel="stylesheet" href="./styles.css" />
   <title>Hello Front-End</title>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <h1>Reddit Search</h1>
+  <p>Enter a word to search for its' images in Reddit</p>
+  <form>
+    <input id="redditsearch" type="text">
+    <button id="search" type="button">Search</button>
+  </form>
+  <form>
+    <button id="stop">Stop</button>
+    <img id="bigimage"/>
+    <div id="results">
+      <p id = "results"></p>
+    </div>
+  </form>
 </body>
 </html>
