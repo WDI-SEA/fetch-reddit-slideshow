@@ -8,15 +8,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>Reddit Slideshow</h1>
-    <p>A photo slideshow using images from Reddit</p>
+    <!-- <h1>Reddit Slideshow</h1> -->
+    <!-- <p>A photo slideshow using images from Reddit</p> -->
     <form id="search-form">
       <label for="search-term">Enter a search term:</label>
       <input type="text" id="search-term" name="search-term">
       <button type="submit" id="search-button">Start</button>
-      <button type="button" id="stop-button" class="hide">Stop Slideshow</button>
     </form>
-    <div id="loading-message" class="hide">Loading...</div>
+   <button type="button" id="stop-button">Stop Slideshow</button>    
+    <div id="loading-message"></div>
     <img id="imageSlide"></img>
   </div>
   <script defer src="js/scripts.js"></script>

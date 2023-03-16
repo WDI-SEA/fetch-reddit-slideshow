@@ -20,6 +20,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputValue = input.value;
   input.value = "";
+  loadingMessage.innerHTML = "Loading..."
   fetch(`${redditURL}?q=${inputValue}+nsfw:no`)
     .then((response) => response.json())
     .then(data => {
@@ -29,9 +30,12 @@ form.addEventListener("submit", (e) => {
             if (url.endsWith('.jpg') || url.endsWith('.png')) {
                 imageUrls.push(url);
             }
+            form.style.visibility = "hidden";
+
         }
         // Start slideshow with imageUrls array
         startSlideShow();
+        
     })
     .catch(console.warn)
 });
@@ -47,12 +51,15 @@ function nextSlide() {
         imageIndex = 0
     }
     imgSlide.src = imageUrls[imageIndex]
+    imgSlide.style.width = "60vh";
+    imgSlide.style.height = "60vh";
     imageIndex++
 }
 
 // Function to stop slideshow
 function stopSlideShow() {
     clearInterval(myInterval);
+    form.style.visibility = "visible";
 }
 
 // Stop button event listener - stop slideshow
