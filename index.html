@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Slideshow</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  </style>
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+  <div class="container">
+    <!-- <h1>Reddit Slideshow</h1> -->
+    <!-- <p>A photo slideshow using images from Reddit</p> -->
+    <div id="loading-message"></div>
+    <form id="search-form">
+      <h1>Reddit Image Slideshow Search</h1>
+      <label for="search-term">Enter a search term:</label>
+      <input type="text" id="search-term" name="search-term">
+      <button type="submit" id="search-button">Start</button>
+    </form>
+    <div>
+      <button type="button" id="stop-button">Stop Slideshow</button>
+    </div>
+    <img id="imageSlide" class="slider"></img>
+  <script defer src="js/scripts.js"></script>
 </body>
 </html>
