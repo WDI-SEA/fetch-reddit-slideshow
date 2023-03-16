@@ -1,0 +1,36 @@
+img{
+width: 200px;
+height: 200px;
+}
+
+#images-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    background-color: black;
+  }
+  
+  #images-container img {
+    justify-content: center;
+    flex-shrink: 0;
+    height: 500px;
+    width: 500px;
+    animation: slide 10s infinite;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  #resetButtonDiv{
+    display:flex;
+    justify-content: center;
+  }
+  #resetButton{
+    justify-content: center;
+  }
