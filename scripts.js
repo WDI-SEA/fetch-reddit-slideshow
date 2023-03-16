@@ -48,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 1000)
             })
             .catch(console.warn)
+            document.querySelector("h1").style.display="none"
+            document.querySelector("p").style.display="none"
+            document.querySelector("#userSearch").style.display="none"
         // for (let i = 0; i < list.length; i++) {
         // const result = list[i]
         //const img = document.createElement("img")
