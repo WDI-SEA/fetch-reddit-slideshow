@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    background-color: wheat;
+}
+
+.inputs {
+    padding-top: 50px;
+}
+
+#bg-image {
+    margin: o auto;
+    padding-top: 80px;
+    height: 400px;
+    width: 500px;
+}
